@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="click"
+            type="com.ja.assets.listener.HandlerClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/appearanceCondition" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/intactRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/intact" />
+
+                        <RadioButton
+                            android:id="@+id/damageRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_30"
+                            android:text="@string/damage" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/functionalAtatus" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/normalRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/normal" />
+
+                        <RadioButton
+                            android:id="@+id/abnormalRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_30"
+                            android:text="@string/abnormal" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/inspectionResults" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/reachingStandardRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/reachingStandard" />
+
+                        <RadioButton
+                            android:id="@+id/noReachingStandardRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_30"
+                            android:text="@string/noReachingStandard" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/itemLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_80">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/lossReportImg"
+                        android:layout_width="@dimen/margin_80"
+                        android:onClick="@{click::handlerClick}"
+                        android:layout_height="@dimen/margin_80"
+                        android:padding="@dimen/margin_10"
+                        android:src="@mipmap/add_img" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/uploadDevicePictures"
+                            android:textColor="@color/mainBgColor"
+                            android:textSize="@dimen/textSize_16" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:text="@string/uploadNotes"
+                            android:textSize="@dimen/textSize_12" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/submitInspectionDetailLinear"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_70"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:id="@+id/submitInspectionDetailBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="@{click::handlerClick}"
+                    android:layout_margin="@dimen/margin_10"
+                    android:background="@drawable/btn_circular_selector_main_color"
+                    android:text="@string/submit"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

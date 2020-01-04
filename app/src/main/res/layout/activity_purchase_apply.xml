@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.purchase.PurchaseApplyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/noAssetsLinear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/submitAuditLinear"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/margin_120"
+                    android:layout_height="@dimen/margin_120"
+                    android:src="@mipmap/not_health_order" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:text="@string/noAssetsText"
+                    android:textColor="@color/mainBgColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:text="@string/clickRightBtnAdd"
+                    android:textColor="@color/mainBgColor"
+                    android:textSize="@dimen/textSize_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/purchaseApplyRecycler"
+                style="@style/recyclerViewStyle"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/submitAuditLinear"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/submitAuditLinear"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_70"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:id="@+id/submitAuditBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_10"
+                    android:background="@drawable/btn_circular_selector_main_color"
+                    android:text="@string/submitAudit"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

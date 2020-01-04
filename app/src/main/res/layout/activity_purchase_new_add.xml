@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.purchase.PurchaseNewAddActivity">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.ja.assets.listener.HandlerClickListener" />
+
+        <variable
+            name="assetsInfoBean"
+            type="com.ja.assets.model.AssetsInfo" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/activity_purchase_apply"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background_color"
+        android:orientation="vertical"
+        tools:ignore="RedundantNamespace">
+
+        <include layout="@layout/common_title" />
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/assetsName" />
+
+            <EditText
+                android:id="@+id/assetsNameET"
+                style="@style/itemEndTV"
+                android:hint="@string/enterAssetsName"
+                android:text="@={assetsInfoBean.assetsName}" />
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/purpose" />
+
+            <EditText
+                android:id="@+id/purposeTV"
+                style="@style/itemEndTV"
+                android:hint="@string/enterPurpose"
+                android:text="@={assetsInfoBean.purpose}" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/adminDepartment" />
+
+            <RelativeLayout
+                android:id="@+id/departmentNameLinear"
+                android:onClick="@{click::handlerClick}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/adminDepartmentTV"
+                    style="@style/itemEndTV"
+                    android:layout_marginEnd="@dimen/margin_5"
+                    android:layout_toStartOf="@+id/departmentNameImg"
+                    android:hint="@string/enterSelectAdminDepartment"
+                    android:text="@={assetsInfoBean.departmentName}" />
+
+                <ImageView
+                    android:id="@+id/departmentNameImg"
+                    android:layout_width="@dimen/margin_40"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/margin_10"
+                    android:layout_height="@dimen/margin_40"
+                  android:src="@mipmap/icon_next" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/purchaseQuantity" />
+
+            <EditText
+                android:id="@+id/purchaseQuantityTV"
+                style="@style/itemEndTV"
+                android:hint="@string/enterPurchaseQuantity"
+                android:inputType="number" />
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/specialModel" />
+
+            <EditText
+                android:id="@+id/specialModelET"
+                style="@style/itemEndTV"
+                android:hint="@string/enterSpecialModel"
+                android:text="@={assetsInfoBean.specsType}" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/meteringCompany" />
+
+            <EditText
+                android:id="@+id/meteringCompanyET"
+                style="@style/itemEndTV"
+                android:hint="@string/enterMeteringCompany"
+                android:text="@={assetsInfoBean.meteringCompany}" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/productBrand" />
+
+            <EditText
+                android:id="@+id/productBrandET"
+                style="@style/itemEndTV"
+                android:hint="@string/enterProductBrand"
+                android:text="@={assetsInfoBean.productBrand}" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/supplierName" />
+
+            <EditText
+                android:id="@+id/supplierNameET"
+                style="@style/itemEndTV"
+                android:hint="@string/enterSupplierName"
+                android:text="@={assetsInfoBean.supplierName}" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/purchaseUnitPrice" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/purchaseUnitPriceET"
+                    style="@style/itemEndTV"
+                    android:layout_marginEnd="@dimen/margin_5"
+                    android:layout_toStartOf="@+id/elementTV"
+                    android:hint="@string/enterPurchaseUnitPrice"
+                    android:text="@={assetsInfoBean.purchaseUnitPrice}" />
+
+                <TextView
+                    android:id="@+id/elementTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:gravity="center"
+                    android:text="@string/element"
+                    android:textColor="@color/textColor" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/purchaseSubmitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_50"
+            android:layout_margin="@dimen/margin_30"
+            android:background="@drawable/btn_circular_selector_company_color"
+            android:enabled="false"
+            android:onClick="@{click::handlerClick}"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</layout>

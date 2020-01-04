@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.ja.assets.listener.HandlerClickListener" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="@dimen/margin_300"
+            android:layout_height="@dimen/margin_200"
+            android:layout_centerInParent="true"
+            android:background="@drawable/edit_white_square_selector">
+
+            <ImageView
+                android:id="@+id/dialogBackDeleteImg"
+                android:layout_width="@dimen/margin_40"
+                android:layout_height="@dimen/margin_40"
+                android:layout_alignParentEnd="true"
+                android:onClick="@{click::handlerClick}"
+                android:padding="@dimen/margin_10"
+                android:src="@mipmap/delete" />
+
+            <LinearLayout
+                android:layout_width="@dimen/margin_300"
+                android:layout_height="@dimen/margin_200"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_130" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:id="@+id/dialogBackCancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/main_background_color"
+                        android:gravity="center"
+                        android:onClick="@{click::handlerClick}"
+                        android:text="@string/cancel"
+                        android:textColor="@color/mainBgColor"
+                        android:textSize="@dimen/textSize_18"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/dialogBackConfirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/mainBgColor"
+                        android:gravity="center"
+                        android:onClick="@{click::handlerClick}"
+                        android:text="@string/confirm"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textSize_18"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

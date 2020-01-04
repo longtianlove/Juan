@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.inventory.InventoryActivity">
+
+    <data>
+        <variable
+            name="click"
+            type="com.ja.assets.listener.HandlerClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/main_background_color"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_50"
+            android:background="@color/white"
+            android:layout_marginBottom="@dimen/margin_1"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/inventoryLeftRelative"
+                android:layout_width="match_parent"
+                android:onClick="@{click::handlerClick}"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/inventoryLeftTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/noInventory"
+                    android:textColor="@color/mainBgColor"
+                    android:textSize="@dimen/textSize_16" />
+
+                <TextView
+                    android:id="@+id/inventoryLeftLine"
+                    android:layout_width="@dimen/margin_80"
+                    android:layout_height="@dimen/margin_3"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/mainBgColor" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/inventoryRightRelative"
+                android:layout_width="match_parent"
+                android:onClick="@{click::handlerClick}"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/inventoryRightTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/yesInventory"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/textSize_16" />
+
+                <TextView
+                    android:id="@+id/inventoryRightLine"
+                    android:layout_width="@dimen/margin_80"
+                    android:layout_height="@dimen/margin_3"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/white" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/inventoryViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</layout>

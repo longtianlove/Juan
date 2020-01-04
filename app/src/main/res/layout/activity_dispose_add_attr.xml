@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.dispose.DisposeAddAttrActivity">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.ja.assets.listener.HandlerClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/submitDisposeAddLinear">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/margin_100">
+
+                    <LinearLayout style="@style/itemLinear">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/assetsName" />
+
+                        <RelativeLayout
+                            android:id="@+id/assetsNameLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:onClick="@{click::handlerClick}">
+
+                            <TextView
+                                android:id="@+id/selectAssetsNameTV"
+                                style="@style/itemEndTV"
+                                android:layout_marginEnd="@dimen/margin_1"
+                                android:layout_toStartOf="@+id/assetsNameNextImg"
+                                android:hint="@string/enterSelectAssetsName" />
+
+                            <ImageView
+                                android:id="@+id/assetsNameNextImg"
+                                android:layout_width="@dimen/margin_30"
+                                android:layout_height="@dimen/margin_30"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/icon_next" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout style="@style/itemLinear">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/disposeType" />
+
+                        <RelativeLayout
+                            android:id="@+id/disposeTypeLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{click::handlerClick}">
+
+                            <TextView
+                                android:id="@+id/disposeTypeTV"
+                                style="@style/itemEndTV"
+                                android:layout_marginEnd="@dimen/margin_1"
+                                android:layout_toStartOf="@+id/disposeTypeNextImg"
+                                android:hint="@string/enterSelectDisposeType" />
+
+                            <ImageView
+                                android:id="@+id/disposeTypeNextImg"
+                                android:layout_width="@dimen/margin_30"
+                                android:layout_height="@dimen/margin_30"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/icon_next" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout style="@style/itemLinear">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/disposalReason" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/disposalRessonLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{click::handlerClick}">
+
+                            <TextView
+                                android:id="@+id/disposalReasonTV"
+                                style="@style/itemEndTV"
+                                android:layout_marginEnd="@dimen/margin_1"
+                                android:layout_toStartOf="@+id/disposalRessonNextImg"
+                                android:hint="@string/enterSelectDisposalResson" />
+
+                            <ImageView
+                                android:id="@+id/disposalRessonNextImg"
+                                android:layout_width="@dimen/margin_30"
+                                android:layout_height="@dimen/margin_30"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/icon_next" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout style="@style/itemLinear">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/assetTraceCode" />
+
+                        <TextView
+                            android:id="@+id/disposeAddAssetTraceCode"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAssetTraceCode" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/assetCode" />
+
+                        <TextView
+                            android:id="@+id/disposeAssetCodeTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAssetCode" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/adminDepartment" />
+
+                        <TextView
+                            android:id="@+id/disposeAdminDepartmentTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAdminDepartment" />
+                    </LinearLayout>
+
+
+                    <LinearLayout style="@style/itemLinear">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/useDepartmentText" />
+
+                        <TextView
+                            android:id="@+id/disposeUseDepartmentTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterUseDepartment" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        style="@style/itemLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_60">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:layout_width="@dimen/margin_120"
+                            android:text="@string/disposalAttr" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/disposalAttrImg"
+                            android:layout_width="@dimen/margin_60"
+                            android:layout_height="@dimen/margin_60"
+                            android:layout_alignParentEnd="true"
+                            android:onClick="@{click::handlerClick}"
+                            android:padding="@dimen/margin_10"
+                            android:src="@mipmap/add_img" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/itemLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_60">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:layout_width="@dimen/margin_120"
+                            android:text="@string/lossReport" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/lossReportImg"
+                            android:layout_width="@dimen/margin_60"
+                            android:layout_height="@dimen/margin_60"
+                            android:layout_alignParentEnd="true"
+                            android:onClick="@{click::handlerClick}"
+                            android:padding="@dimen/margin_10"
+                            android:src="@mipmap/add_img" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        style="@style/itemLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_60"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:layout_width="@dimen/margin_120"
+                            android:text="@string/identificationAnnex" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/identificationAnnexImg"
+                            android:layout_width="@dimen/margin_60"
+                            android:layout_height="@dimen/margin_60"
+                            android:layout_alignParentEnd="true"
+                            android:padding="@dimen/margin_10"
+                            android:src="@mipmap/add_img" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        style="@style/itemLinear"
+                        android:layout_height="@dimen/margin_80"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/appraisalOpinion" />
+
+                        <EditText
+                            android:id="@+id/appraisalOpinionET"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAppraisalOpinion" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:id="@+id/submitDisposeAddLinear"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_70"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:id="@+id/submitDisposeAddBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_10"
+                    android:background="@drawable/btn_circular_selector_main_color"
+                    android:text="@string/submit"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

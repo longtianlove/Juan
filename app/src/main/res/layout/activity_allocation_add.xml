@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.allocation.AllocationAddActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/main_background_color"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_title" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_above="@+id/submitAllocationAddLinear"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="@dimen/margin_100"
+                    android:orientation="vertical">
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/assetsName" />
+
+                        <TextView
+                            android:id="@+id/alloactionAddAssetsNameTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAssetsName" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/assetTraceCode" />
+
+                        <TextView
+                            android:id="@+id/allocationAddAssetTraceCodeTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAssetTraceCode" />
+                    </LinearLayout>
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/assetCode" />
+
+                        <TextView
+                            android:id="@+id/allocationAddAssetCodeTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAssetCode" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/assetClass" />
+
+                        <TextView
+                            android:id="@+id/allocationAddAssetClassTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAssetClass" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/adminDepartment" />
+
+                        <TextView
+                            android:id="@+id/allocationAddAdminDepartmentTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterAdminDepartment" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/outDepartmentText" />
+
+                        <TextView
+                            android:id="@+id/allocationAddOutDepartmentTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterOutDepartmentText" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/putDepartmentText" />
+
+                        <TextView
+                            android:id="@+id/allocationAddPutDepartmentTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterPutDepartment" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/sourceText" />
+
+                        <TextView
+                            android:id="@+id/allocationAddSourceTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterSource" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/startUseDate" />
+
+                        <TextView
+                            android:id="@+id/allocationAddStartUseDateTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterStartUseDate" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/remainingPeriod" />
+
+                        <TextView
+                            android:id="@+id/allocationAddRemainingPeriodTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterRemainingPeriod" />
+                    </LinearLayout>
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/originalValueText" />
+
+                        <TextView
+                            android:id="@+id/allocationAddOriginalValueTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterOriginalValue" />
+                    </LinearLayout>
+                    <LinearLayout style="@style/itemLinear">
+                        <TextView
+                            style="@style/itemStartTV"
+                            android:text="@string/netWorth" />
+
+                        <TextView
+                            android:id="@+id/allocationAddNetWorthTV"
+                            style="@style/itemEndTV"
+                            android:hint="@string/enterNetWorth" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+            <LinearLayout
+                android:id="@+id/submitAllocationAddLinear"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_70"
+                android:layout_alignParentBottom="true">
+                <Button
+                    android:id="@+id/submitAllocationAddBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_10"
+                    android:background="@drawable/btn_circular_selector_main_color"
+                    android:text="@string/submit"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

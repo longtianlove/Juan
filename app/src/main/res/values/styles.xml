@@ -1,0 +1,111 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--弹框效果-->
+    <style name="dialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+
+    <!-- 自定义loading dialog -->
+    <style name="loading_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+
+    <style name="recyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:background">@color/white</item>
+        <!--设置RecyclerView滑动到顶底部无波纹-->
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+
+    <style name="itemLinear">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/margin_50</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_marginTop">@dimen/margin_1</item>
+    </style>
+
+    <style name="itemStartTV">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">@dimen/margin_120</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/margin_14</item>
+        <item name="android:layout_marginStart">@dimen/margin_16</item>
+    </style>
+
+    <style name="itemEndTV">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:textSize">@dimen/margin_14</item>
+        <item name="android:layout_marginEnd">@dimen/margin_16</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+
+    <style name="itemItemLinear">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/margin_30</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="itemItemStartTV">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/margin_14</item>
+    </style>
+
+    <style name="itemItemEndTV">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/margin_14</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+
+    <!--下拉选择框-->
+    <style name="selectSpinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:overlapAnchor">false</item>
+    </style>
+</resources>

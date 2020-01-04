@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/adminItemRecycler"
+                style="@style/recyclerViewStyle"
+                android:layout_marginBottom="@dimen/margin_10" />
+
+
+            <TextView
+                android:id="@+id/adminItemCancel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_50"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/textColor" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

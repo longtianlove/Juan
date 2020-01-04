@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/repairMode" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/localRepairRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/localRepair" />
+
+                        <RadioButton
+                            android:id="@+id/externalRepairRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_30"
+                            android:text="@string/externalRepair" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/giveRepairMode" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/doorRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/door" />
+
+                        <RadioButton
+                            android:id="@+id/giveRepairRadioBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_57"
+                            android:text="@string/giveRepair" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/serviceProviderName" />
+
+                    <EditText
+                        android:id="@+id/serviceProviderNameET"
+                        style="@style/itemEndTV"
+                        android:hint="@string/enterServiceProviderName" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/address" />
+
+                    <EditText
+                        android:id="@+id/enterAddressET"
+                        style="@style/itemEndTV"
+                        android:hint="@string/enterAddress" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/contacts" />
+
+                    <EditText
+                        android:id="@+id/contactsET"
+                        style="@style/itemEndTV"
+                        android:hint="@string/enterContacts" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/phone" />
+
+                    <EditText
+                        android:id="@+id/phoneET"
+                        style="@style/itemEndTV"
+                        android:hint="@string/enterPhone" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/itemLinear">
+
+                    <TextView
+                        style="@style/itemStartTV"
+                        android:text="@string/repairAddress" />
+
+                    <EditText
+                        android:id="@+id/repairAddressET"
+                        style="@style/itemEndTV"
+                        android:hint="@string/enterRepairAddress" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/submitAuditLinear"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_70"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:id="@+id/submitAuditBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_10"
+                    android:background="@drawable/btn_circular_selector_main_color"
+                    android:text="@string/submitAudit"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>
