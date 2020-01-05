@@ -2,23 +2,15 @@ package com.ja.assets.ui.activity.purchase
 
 import android.app.Activity
 import android.content.Intent
-import android.text.TextUtils
 import android.view.View
-import android.widget.AdapterView
-import androidx.appcompat.widget.AppCompatSpinner
 import com.ja.assets.R
-import com.ja.assets.adapter.AdminSpinnerAdapter
 import com.ja.assets.databinding.ActivityPurchaseNewAddBinding
 import com.ja.assets.model.AdminBean
 import com.ja.assets.model.AssetsInfo
 import com.ja.assets.listener.HandlerClickListener
-import com.ja.assets.ui.activity.SweepCodeActivity
 import com.ja.assets.ui.base.BaseActivity
 import com.ja.assets.utils.EditIsCanUseBtnUtils
-import com.ja.assets.utils.HomePageList
 import com.ja.assets.utils.ToastUtil
-import com.ja.assets.utils.view.AdminDepartmentPopup
-import com.yzq.zxinglibrary.common.Constant
 import kotlinx.android.synthetic.main.activity_purchase_new_add.*
 import kotlinx.android.synthetic.main.common_title.*
 

@@ -16,6 +16,7 @@ import com.ja.assets.R
 import com.ja.assets.adapter.HomeAdapter
 import com.ja.assets.databinding.FragmentHomeLayoutBinding
 import com.ja.assets.model.HomePage01
+import com.ja.assets.ui.activity.dispose.DisposeAddAttrActivity
 import com.ja.assets.ui.activity.purchase.PurchaseApplyActivity
 import com.ja.assets.utils.ACacheUtil
 import com.ja.assets.utils.HomePageList
@@ -46,7 +47,7 @@ class HomeFragment : BaseFragment() {
         homeAdapter = HomeAdapter(mainActivity!!, R.layout.item_fragment_home_layout, homeList)
         recyclerViewUtilKt.setAdapter(homeAdapter!!)
         homeAdapter?.setOnItemClickListener { adapter, view, position ->
-            when (position) {
+            when (homeList[position].position) {
                 0 -> {
                     val intent = Intent(mainActivity!!, PurchaseApplyActivity::class.java)
                     startActivity(intent)
@@ -74,6 +75,8 @@ class HomeFragment : BaseFragment() {
                 11 -> {
                 }
                 12 -> {
+                    val intent = Intent(mainActivity!!, DisposeAddAttrActivity::class.java)
+                    startActivity(intent)
                 }
                 13 -> {
                 }

@@ -56,26 +56,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute"
         tools:replace="android:icon">
-        <activity android:name=".ui.activity.purchase.DepartmentActivity"/>
-        <activity android:name=".ui.activity.patrol.PatrolCheckRecordActivity"/>
-        <activity android:name=".ui.activity.patrol.PatrolCheckActivity" />
-        <activity android:name=".ui.activity.repair.RepairNewAddActivity" />
-        <activity android:name=".ui.activity.repair.RepairApplyActivity" />
-        <activity android:name=".ui.activity.repair.RepairInfoActivity" />
-        <activity android:name=".ui.activity.patrol.PatrolCheckDetailActivity" />
-        <activity android:name=".ui.activity.patrol.PatrolCheckListActivity" />
-        <activity android:name=".ui.activity.dispose.DisposeAddAttrActivity" />
-        <activity android:name=".ui.activity.dispose.DisposeApplyActivity" />
-        <activity android:name=".ui.activity.inventory.InventoryRecordActivity" />
-        <activity android:name=".ui.activity.inventory.InventoryActivity" />
-        <activity android:name=".ui.activity.allocation.AllocationAddActivity" />
-        <activity android:name=".ui.activity.purchase.PurchaseApplyActivity" />
-        <activity android:name=".ui.activity.allocation.AllocationAuditActivity" />
-        <activity android:name=".ui.activity.allocation.AllocationApplyActivity" />
-        <activity android:name=".ui.activity.purchase.PurchaseRecordActivity" />
-        <activity android:name=".ui.activity.purchase.PurchaseAuditActivity" />
-        <activity android:name=".ui.activity.purchase.PurchaseNewAddActivity" />
-        <activity android:name=".ui.activity.SweepCodeActivity" />
+
         <activity android:name=".ui.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -100,6 +81,75 @@
         <activity
             android:name=".ui.activity.login.LoginActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.activity.repair.SelectAssetsActivity"
+            android:label="@string/selectAssets" />
+        <activity
+            android:name=".ui.activity.purchase.DepartmentActivity"
+            android:label="@string/department" />
+        <activity
+            android:name=".ui.activity.repair.RepairNewAddActivity"
+            android:label="@string/repairNewAdd" />
+        <activity
+            android:name=".ui.activity.repair.RepairApplyActivity"
+            android:label="@string/repairApply" />
+        <activity
+            android:name=".ui.activity.repair.RepairInfoActivity"
+            android:label="@string/repairInfo" />
+        <activity
+            android:name=".ui.activity.patrol.PatrolCheckDetailActivity"
+            android:label="@string/patrolCheckDetail" />
+        <activity
+            android:name=".ui.activity.patrol.PatrolCheckListActivity"
+            android:label="@string/patrolCheckList" />
+        <activity
+            android:name=".ui.activity.patrol.PatrolCheckRecordActivity"
+            android:label="@string/patrolCheckRecord" />
+        <activity
+            android:name=".ui.activity.patrol.PatrolCheckActivity"
+            android:label="@string/patrolCheck" />
+        <activity
+            android:name=".ui.activity.dispose.DisposeAddAttrActivity"
+            android:label="@string/disposeAdd" />
+        <activity
+            android:name=".ui.activity.dispose.DisposeApplyActivity"
+            android:label="@string/disposeApply" />
+        <activity
+            android:name=".ui.activity.inventory.InventoryRecordActivity"
+            android:label="@string/inventoryRecord" />
+        <activity
+            android:name=".ui.activity.inventory.InventoryActivity"
+            android:label="@string/inventory" />
+        <activity
+            android:name=".ui.activity.allocation.AllocationAddActivity"
+            android:label="@string/allocationAdd" />
+        <activity
+            android:name=".ui.activity.purchase.PurchaseApplyActivity"
+            android:label="@string/purchaseApply" />
+        <activity
+            android:name=".ui.activity.allocation.AllocationAuditActivity"
+            android:label="@string/allocationAudit" />
+        <activity
+            android:name=".ui.activity.allocation.AllocationApplyActivity"
+            android:label="@string/allocationApply" />
+        <activity
+            android:name=".ui.activity.purchase.PurchaseRecordActivity"
+            android:label="@string/purchaseRecord" />
+        <activity
+            android:name=".ui.activity.purchase.PurchaseAuditActivity"
+            android:label="@string/purchaseAudit" />
+        <activity
+            android:name=".ui.activity.purchase.PurchaseNewAddActivity"
+            android:label="@string/purchaseNewAdd" />
+        <activity
+            android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ui.activity.other.SweepCodeActivity"
+            android:label="@string/sweepCode" />
+        <activity
+            android:name=".ui.activity.other.SetUpActivity"
+            android:label="@string/setsUp" />
     </application>
 
 </manifest>

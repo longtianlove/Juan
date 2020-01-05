@@ -1,2 +1,2 @@
-include ':app',  ':zxinglibrary'
+include ':app', ':zxinglibrary', ':multi-image-selector'
 rootProject.name='BankAssetsApp'

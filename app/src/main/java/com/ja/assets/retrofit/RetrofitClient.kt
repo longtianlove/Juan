@@ -2,6 +2,7 @@ package com.ja.assets.retrofit
 
 import android.util.Log
 import com.ja.assets.config.MyApplication
+import com.tsy.sdk.myokhttp.MyOkHttp
 import okhttp3.ConnectionPool
 import okhttp3.OkHttpClient
 import okhttp3.internal.platform.Platform
@@ -79,6 +80,9 @@ object   RetrofitClient {
 //
 //
 //
+
+
+    val  myOkHttp:MyOkHttp=MyOkHttp()
 
 
 

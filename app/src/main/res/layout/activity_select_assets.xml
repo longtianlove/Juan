@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_70"
+            android:background="@color/white"
+            android:padding="@dimen/margin_16">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                android:background="@drawable/shape_left_radius_gray"
+                android:gravity="center"
+                android:hint="@string/enterFileTitle"
+                android:padding="@dimen/margin_5"
+                android:textSize="@dimen/textSize_12" />
+
+            <LinearLayout
+                android:id="@+id/searchAssetsLinear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7.5"
+                android:background="@drawable/shape_left_radius_blue"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_10"
+                    android:text="@string/enterpriseSearch"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="@dimen/margin_30"
+                    android:layout_height="@dimen/margin_30"
+                    android:padding="@dimen/margin_5"
+                    android:src="@mipmap/enterprise_search" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/selectAssetsRecycler"
+            style="@style/recyclerViewStyle" />
+
+    </LinearLayout>
+</layout>

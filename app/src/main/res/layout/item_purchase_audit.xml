@@ -177,7 +177,7 @@
 
                 <TextView
                     style="@style/itemItemStartTV"
-                    android:text="@string/netWorth" />
+                    android:text="@string/netWorthText" />
 
                 <TextView
                     android:id="@+id/itemNetWorthTV"

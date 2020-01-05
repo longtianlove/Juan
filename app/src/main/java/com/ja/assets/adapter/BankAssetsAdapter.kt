@@ -85,6 +85,12 @@ class DepartmentAdapter(layoutResId: Int, data: MutableList<AdminBean>) : BaseQu
     }
 }
 
+class SelectAssetsAdapter(layoutResId: Int, data: MutableList<AssetsInfo>) : BaseQuickAdapter<AssetsInfo, MyBaseViewHolder>(layoutResId, data) {
+    override fun convert(helper: MyBaseViewHolder, item: AssetsInfo?) {
+
+    }
+}
+
 
 
 

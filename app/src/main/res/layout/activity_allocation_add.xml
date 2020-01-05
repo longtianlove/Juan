@@ -148,7 +148,7 @@
                     <LinearLayout style="@style/itemLinear">
                         <TextView
                             style="@style/itemStartTV"
-                            android:text="@string/netWorth" />
+                            android:text="@string/netWorthText" />
 
                         <TextView
                             android:id="@+id/allocationAddNetWorthTV"

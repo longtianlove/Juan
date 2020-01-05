@@ -3,15 +3,24 @@
 
     <!--填写你要所要申请访问的目录地址，name最好是你的目录名，path是你要申请的目录-->
     <external-path
-            name="camera_photos"
-            path="."/>
+        name="camera_photos"
+        path="." />
     <external-path
-            name="cache"
-            path="Android/data/com.ja.assets/cache"/>
+        name="cache"
+        path="Android/data/com.ja.assets/cache" />
     <external-path
-            name="images"
-            path="Pictures/"/>
+        name="images"
+        path="Pictures/" />
     <external-path
-            name="dcim"
-            path="DCIM/"/>
+        name="dcim"
+        path="DCIM/" />
+    <external-path
+        name="external_files"
+        path="." />
+    <external-path
+        name="files_root"
+        path="Android/data/com.ja.assets/cache" />
+    <external-path
+        name="external_storage_root"
+        path="." />
 </paths>
