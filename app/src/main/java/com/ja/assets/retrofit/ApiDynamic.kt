@@ -1,5 +1,6 @@
 package com.ja.assets.retrofit
 
+import com.ja.assets.model.HomeIndexCount
 import com.ja.assets.model.LoginInfo
 import com.ja.assets.model.ResultResponse
 import com.ja.assets.model.UserInfo
@@ -26,6 +27,12 @@ interface ApiDynamic {
      */
     @GET("api/getUserInfo")
     suspend fun getUserInfo(@Header("token") token: String): ResultResponse<UserInfo>
+
+    /**
+     * 获取首页资产净值和资产数量
+     */
+    @POST("api/getZcValueAndZcNumber")
+    suspend fun  getZcValueAndZcNumber(@Header("token") token: String):ResultResponse<HomeIndexCount>
 
 
 }

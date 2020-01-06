@@ -15,8 +15,8 @@ public class PatrolCheckListActivity extends BaseJavaActivity {
 //    private ActivityPatrolCheckListBinding patrolCheckListBinding;
 //    private InspectionAdapter inspectionAdapter;
 //    private List<InspectionBean> inspectionList;
-//
-//
+
+
 //    @Override
 //    protected int getLayoutId() {
 //        return R.layout.activity_patrol_check_list;

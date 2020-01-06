@@ -1,9 +1,11 @@
 package com.ja.assets.ui.activity.main
 
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
+import android.util.Log
 import com.fixed.u8.animation.RecyclerViewUtilKt
 import com.fixed.u8.ui.base.BaseFragment
 import com.github.mikephil.charting.components.Legend
@@ -15,11 +17,18 @@ import com.ja.assets.MainActivity
 import com.ja.assets.R
 import com.ja.assets.adapter.HomeAdapter
 import com.ja.assets.databinding.FragmentHomeLayoutBinding
+import com.ja.assets.model.HomeIndexCount
 import com.ja.assets.model.HomePage01
+import com.ja.assets.model.ResultResponse
+import com.ja.assets.model.UserInfo
+import com.ja.assets.retrofit.RetrofitClient
 import com.ja.assets.ui.activity.dispose.DisposeAddAttrActivity
 import com.ja.assets.ui.activity.purchase.PurchaseApplyActivity
 import com.ja.assets.utils.ACacheUtil
 import com.ja.assets.utils.HomePageList
+import com.ja.assets.utils.ToastUtil
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment() {
 
@@ -38,12 +47,14 @@ class HomeFragment : BaseFragment() {
         initAdapter()
 
         initView()
+        getData()
     }
 
     private fun initAdapter() {
         val recyclerViewUtilKt = RecyclerViewUtilKt(mainActivity!!, homeBinding!!.homeFunctionModel)
         recyclerViewUtilKt.initTable(3)
-        val homeList: MutableList<HomePage01> = HomePageList().getHomePageList01(ACacheUtil.getUserInfo())
+        val homeList: MutableList<HomePage01> =
+            HomePageList().getHomePageList01(ACacheUtil.getUserInfo())
         homeAdapter = HomeAdapter(mainActivity!!, R.layout.item_fragment_home_layout, homeList)
         recyclerViewUtilKt.setAdapter(homeAdapter!!)
         homeAdapter?.setOnItemClickListener { adapter, view, position ->
@@ -81,13 +92,26 @@ class HomeFragment : BaseFragment() {
                 }
                 13 -> {
                 }
-                14 -> {
-                }
-                15 -> {
-                }
             }
         }
     }
+
+
+    private fun getData() {
+        launch {
+            val loadingDialog: Dialog = ToastUtil.loadingDialog(mainActivity!!)
+            loadingDialog.show()
+            val resultResponse: ResultResponse<HomeIndexCount> =
+                async { RetrofitClient.networkService.getZcValueAndZcNumber(ACacheUtil.getToken()) }.await()
+            if (resultResponse.isSuccess()) {
+                homeBinding?.homeIndexCountBean = resultResponse.data
+            } else {
+                Log.e("TAG", resultResponse.Msg)
+            }
+            loadingDialog.dismiss()
+        }
+    }
+
 
     private fun initView() {
 

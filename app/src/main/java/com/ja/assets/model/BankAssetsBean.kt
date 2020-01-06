@@ -77,6 +77,8 @@ data class UserInfo(
     var deptId: Long
 ) : Serializable
 
+data class  HomeIndexCount(var zcValue:Int,var zcCount:Int)
+
 data class PurchaseAudit(var username: String)
 data class AllocationApply(var username: String)
 data class InventoryBean(var username: String)
