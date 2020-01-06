@@ -82,6 +82,9 @@ dependencies {
     //饼状图
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
+
+
+
     implementation project(':multi-image-selector')
     implementation project(':zxinglibrary')
 

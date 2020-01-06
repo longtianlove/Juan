@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
 
-class MyApplication : Application() {
+open class MyApplication : Application() {
 
 
 
@@ -28,25 +28,6 @@ class MyApplication : Application() {
         ThreadPoolExecutor.CallerRunsPolicy()
     )
 
-    /**
-     *传输给PDA数据存储路径
-     */
-    @JvmField
-    val toJsonFileSavePath = Environment.getExternalStorageDirectory().absolutePath + "/固定资产操作/"
-
-    @JvmField
-    val goJsonFileSavePath = Environment.getExternalStorageDirectory().absolutePath + "/固定资产完成/"
-    /**
-     * 图片文件保存路径
-     */
-    @JvmField
-    val photoSavePath = Environment.getExternalStorageDirectory().absolutePath + "/GDZC/"
-
-    /**
-     * apk保存路径
-     */
-    @JvmField
-    val apkSavePath = Environment.getExternalStorageDirectory().absolutePath
 
 
     var cookieJar: ClearableCookieJar? = null
