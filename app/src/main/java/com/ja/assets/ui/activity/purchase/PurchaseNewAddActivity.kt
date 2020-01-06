@@ -8,6 +8,7 @@ import com.ja.assets.databinding.ActivityPurchaseNewAddBinding
 import com.ja.assets.model.AdminBean
 import com.ja.assets.model.AssetsInfo
 import com.ja.assets.listener.HandlerClickListener
+import com.ja.assets.model.PurchaseAssetsInfo
 import com.ja.assets.ui.base.BaseActivity
 import com.ja.assets.utils.EditIsCanUseBtnUtils
 import com.ja.assets.utils.ToastUtil
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.common_title.*
 class PurchaseNewAddActivity : BaseActivity(), HandlerClickListener {
 
     private var purchaseNewAddBinding: ActivityPurchaseNewAddBinding? = null
-    private var assetsInfo: AssetsInfo? = null
+    private var assetsInfo: PurchaseAssetsInfo? = null
     private var position: Int = 0
     override fun getLayoutId(): Int = R.layout.activity_purchase_new_add
 
@@ -27,7 +28,7 @@ class PurchaseNewAddActivity : BaseActivity(), HandlerClickListener {
         purchaseNewAddBinding = viewDataBinding as ActivityPurchaseNewAddBinding
         purchaseNewAddBinding?.click = this
 
-        assetsInfo = intent.getSerializableExtra("assetsInfo") as AssetsInfo
+        assetsInfo = intent.getSerializableExtra("assetsInfo") as PurchaseAssetsInfo
         position = intent.getIntExtra("position", 0)
 
         purchaseNewAddBinding?.assetsInfoBean = assetsInfo

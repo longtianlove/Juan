@@ -6,12 +6,12 @@ import com.fixed.u8.animation.RecyclerViewUtilKt
 import com.ja.assets.R
 import com.ja.assets.adapter.SelectAssetsAdapter
 import com.ja.assets.databinding.ActivitySelectAssetsBinding
-import com.ja.assets.model.AssetsInfo
+import com.ja.assets.model.PurchaseAssetsInfo
 import com.ja.assets.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_select_assets.*
 
 class SelectAssetsActivity : BaseActivity() {
-    private var assetsInfoList: MutableList<AssetsInfo>? = null
+    private var assetsInfoList: MutableList<PurchaseAssetsInfo>? = null
     private var selectAssetsBinding: ActivitySelectAssetsBinding? = null
     private var selectAssetsAdapter: SelectAssetsAdapter? = null
     override fun getLayoutId(): Int = R.layout.activity_select_assets

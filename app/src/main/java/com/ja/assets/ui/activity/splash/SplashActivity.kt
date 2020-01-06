@@ -16,9 +16,7 @@ import com.ja.assets.ui.activity.login.LoginActivity
 import com.ja.assets.ui.base.PermissionActivity
 import com.ja.assets.utils.ACacheUtil
 import com.ja.assets.utils.ToastUtil
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class SplashActivity : PermissionActivity(), CoroutineScope by MainScope() {
 
@@ -75,3 +73,12 @@ class SplashActivity : PermissionActivity(), CoroutineScope by MainScope() {
         }
     }
 }
+
+
+//launch {
+//    val loadingDialog = ToastUtil.loadingDialog(this@MainActivity)
+//    loadingDialog.show()
+//    async(Dispatchers.IO) { Thread.sleep(3000) }.await()
+//    loadingDialog.dismiss()
+//    mainTest05.text="什么枪"
+//}

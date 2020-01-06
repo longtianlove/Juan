@@ -8,6 +8,7 @@ import com.ja.assets.R
 import com.ja.assets.adapter.PurchaseApplyAdapter
 import com.ja.assets.databinding.ActivityPurchaseApplyBinding
 import com.ja.assets.model.AssetsInfo
+import com.ja.assets.model.PurchaseAssetsInfo
 import com.ja.assets.ui.base.BaseActivity
 import com.ja.assets.utils.view.BackDialog
 import kotlinx.android.synthetic.main.activity_purchase_apply.*
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.common_title.*
 class PurchaseApplyActivity : BaseActivity() {
     private var purchaseApplyBinding: ActivityPurchaseApplyBinding? = null
     private var purchaseApplyAdapter: PurchaseApplyAdapter? = null
-    private var assetsInfoList: MutableList<AssetsInfo>? = null
+    private var assetsInfoList: MutableList<PurchaseAssetsInfo>? = null
 
 
     override fun getLayoutId(): Int = R.layout.activity_purchase_apply
@@ -63,7 +64,7 @@ class PurchaseApplyActivity : BaseActivity() {
     override fun initData() {
         titleRightText.setOnClickListener {
             val intent = Intent(this, PurchaseNewAddActivity::class.java)
-            intent.putExtra("assetsInfo", AssetsInfo("", "", "", 0, "", 0, "", "", "", ""))
+            intent.putExtra("assetsInfo", PurchaseAssetsInfo("", "", "", 0, "", 0, "", "", "", ""))
             intent.putExtra("position", assetsInfoList!!.size)
             startActivityForResult(intent, 0)
         }
@@ -80,14 +81,14 @@ class PurchaseApplyActivity : BaseActivity() {
         }
         when (requestCode) {
             0 -> {
-                val assetsInfo: AssetsInfo = data.getSerializableExtra("assetsInfo") as AssetsInfo
+                val assetsInfo: PurchaseAssetsInfo = data.getSerializableExtra("assetsInfo") as PurchaseAssetsInfo
                 val position: Int = data.getIntExtra("position", 0)
                 assetsInfoList!!.add(assetsInfo)
                 purchaseApplyAdapter?.notifyDataSetChanged()
                 setRecycler()
             }
             1 -> {
-                val assetsInfo: AssetsInfo = data.getSerializableExtra("assetsInfo") as AssetsInfo
+                val assetsInfo: PurchaseAssetsInfo = data.getSerializableExtra("assetsInfo") as PurchaseAssetsInfo
                 val position: Int = data.getIntExtra("position", 0)
                 assetsInfoList!!.set(position, assetsInfo)
                 purchaseApplyAdapter?.notifyDataSetChanged()
