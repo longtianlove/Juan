@@ -19,6 +19,7 @@ import com.ja.assets.utils.ACacheUtil
 import com.ja.assets.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.common_title.*
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class LoginActivity : BaseActivity() {
@@ -95,7 +96,8 @@ class LoginActivity : BaseActivity() {
                 ACacheUtil.setToken(loginInfo.token)
                 ACacheUtil.setUsername(account)
                 ACacheUtil.setPassword(password)
-                val resultResponse: ResultResponse<UserInfo> = RetrofitClient.networkService.getUserInfo(loginInfo.token)
+                val resultResponse: ResultResponse<UserInfo> =
+                    async { RetrofitClient.networkService.getUserInfo(loginInfo.token) }.await()
                 if (resultResponse.isSuccess()) {
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)

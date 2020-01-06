@@ -12,6 +12,7 @@ data class MainData(var count: Int, val value: MainData) : LiveData<MainData>(va
 data class AdminBean(var adminId: Int, var adminName: String) : Serializable
 
 data class PurchaseAssetsInfo(
+    var assetsName:String,
     var purpose: String,
     var departmentName: String,
     var departmentId: Int,

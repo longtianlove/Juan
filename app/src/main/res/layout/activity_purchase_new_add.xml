@@ -11,7 +11,7 @@
 
         <variable
             name="assetsInfoBean"
-            type="com.ja.assets.model.AssetsInfo" />
+            type="com.ja.assets.model.PurchaseAssetsInfo" />
     </data>
 
     <LinearLayout
