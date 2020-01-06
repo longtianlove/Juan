@@ -19,25 +19,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            applicationIdSuffix = kotlin_version
+            versionNameSuffix = kotlin_version
         }
     }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
-    }
-    signingConfigs {
-        release {
-            keyAlias '张忍钰'
-            keyPassword '123456'
-            storeFile file('E:\\打包秘钥\\zry.jks')
-            storePassword '123456'
-        }
-        debug {
-            keyAlias '张忍钰'
-            keyPassword '123456'
-            storeFile file('E:\\打包秘钥\\zry.jks')
-            storePassword '123456'
-        }
     }
     dataBinding {
         enabled true
