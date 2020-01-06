@@ -58,11 +58,7 @@
         tools:replace="android:icon">
 
         <activity android:name=".ui.activity.splash.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider
@@ -102,6 +98,16 @@
         <activity
             android:name=".ui.activity.patrol.PatrolCheckListActivity"
             android:label="@string/patrolCheckList" />
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/patrolCheckList">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.activity.patrol.PatrolCheckRecordActivity"
             android:label="@string/patrolCheckRecord" />

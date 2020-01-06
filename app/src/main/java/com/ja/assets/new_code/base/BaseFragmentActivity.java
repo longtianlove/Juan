@@ -6,7 +6,8 @@ import android.view.Window;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.taisheng.now.view.chenjinshi.StatusBarUtil;
+import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
+
 
 //import android.support.v4.app.FragmentActivity;
 
