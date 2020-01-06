@@ -1,26 +1,16 @@
 package com.ja.assets.ui.activity.allocation;
 
+import android.os.Bundle;
+
 import com.ja.assets.R;
 import com.ja.assets.ui.base.BaseActivity;
+import com.ja.assets.ui.base.BaseJavaActivity;
 
-public class AllocationAddActivity extends  BaseActivity{
+import org.jetbrains.annotations.Nullable;
+
+public class AllocationAddActivity extends BaseJavaActivity {
     @Override
-    protected int getLayoutId() {
-        return  R.layout.activity_allocation_add;
-    }
-
-    @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initAdapter() {
-
-    }
-
-    @Override
-    protected void initData() {
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 }
