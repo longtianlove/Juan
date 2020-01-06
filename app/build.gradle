@@ -88,4 +88,8 @@ dependencies {
     implementation project(':multi-image-selector')
     implementation project(':zxinglibrary')
 
+
+
+    implementation 'org.ligboy.retrofit2:converter-fastjson:2.1.0'
+
 }
