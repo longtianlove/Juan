@@ -1,11 +1,13 @@
 package com.ja.assets.ui.activity.main
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
 import android.util.Log
+import android.view.View
 import com.fixed.u8.animation.RecyclerViewUtilKt
 import com.fixed.u8.ui.base.BaseFragment
 import com.github.mikephil.charting.components.Legend
@@ -17,10 +19,7 @@ import com.ja.assets.MainActivity
 import com.ja.assets.R
 import com.ja.assets.adapter.HomeAdapter
 import com.ja.assets.databinding.FragmentHomeLayoutBinding
-import com.ja.assets.model.HomeIndexCount
-import com.ja.assets.model.HomePage01
-import com.ja.assets.model.ResultResponse
-import com.ja.assets.model.UserInfo
+import com.ja.assets.model.*
 import com.ja.assets.retrofit.RetrofitClient
 import com.ja.assets.ui.activity.dispose.DisposeAddAttrActivity
 import com.ja.assets.ui.activity.purchase.PurchaseApplyActivity
@@ -115,17 +114,36 @@ class HomeFragment : BaseFragment() {
     }
 
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        initDataView()
+    }
+
+
+    @SuppressLint("SetTextI18n")
     private fun getData() {
         launch {
             val loadingDialog: Dialog = ToastUtil.loadingDialog(mainActivity!!)
             loadingDialog.show()
-            val resultResponse: ResultResponse<HomeIndexCount> =
-                async { RetrofitClient.networkService.getZcValueAndZcNumber(ACacheUtil.getToken()) }.await()
+            val resultResponse: ResultResponse<HomeIndexCount> = async { RetrofitClient.networkService.getZcValueAndZcNumber(ACacheUtil.getToken()) }.await()
+//            val resultResponse1: ResultResponse<MutableList<DeptBean>> =
+//                async { RetrofitClient.networkService.getAllWailDealList(ACacheUtil.getToken()) }.await()
             if (resultResponse.isSuccess()) {
                 homeBinding?.homeIndexCountBean = resultResponse.data
+                homeIndexCount = resultResponse.data
             } else {
                 Log.e("TAG", resultResponse.message)
             }
+
+//            if (resultResponse1.isSuccess()) {
+//                if (resultResponse1.data.size == 0) {
+//                    homeBinding!!.homeMsgToastTV.visibility = View.GONE
+//                    homeBinding!!.readyToDoNewsCheckAcceptTV.setText(R.string.readyNoNewsCheckAccept)
+//                } else {
+//                    homeBinding!!.homeMsgToastTV.visibility = View.VISIBLE
+//                    homeBinding!!.readyToDoNewsCheckAcceptTV.setText("您有" + resultResponse1.data.size + "条代办消息，请查收~")
+//                }
+//            }
             loadingDialog.dismiss()
         }
 

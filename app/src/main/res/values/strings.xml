@@ -21,7 +21,8 @@
     <string name="userInfo" translatable="false">我的</string>
     <string name="scanCodeQuery" translatable="false">扫码查询</string>
     <string name="readyToDoNews" translatable="false">待办消息</string>
-    <string name="readyToDoNewsCheckAccept" translatable="false">另有一条代办消息，请查收~</string>
+    <string name="readyToDoNewsCheckAccept" translatable="false">您有1条代办消息，请查收~</string>
+    <string name="readyNoNewsCheckAccept" translatable="false">今日暂无新通知~</string>
     <string name="enterAssetsName" translatable="false">请输入资产名称</string>
     <string name="assetsName" translatable="false">资产名称</string>
     <string name="assetsNameText" translatable="false">资产名称：</string>
