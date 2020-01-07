@@ -17,6 +17,7 @@ import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.fastjson.FastJsonConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -101,7 +102,8 @@ public class ApiUtils {
             httpClient = httpBuilder.build();
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
-                    .addConverterFactory(FastJsonConverterFactory.create())//使用Gson解析数据。
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(new NullOnEmptyConverterFactory())
                     .client(httpClient)//添加统一的Header和打印Logger的时候需要使用过滤器，需要使用到OKHttpClient。必须要注意添加的方式，不同版本（早期版本）不一样。
                     .build();
 
