@@ -36,6 +36,8 @@ public class HomePageList {
             //财务部门特有
             homePageList.add(new HomePage01(6, R.mipmap.home_icon_pandiandanchuangjian, "盘点单创建"));
             homePageList.add(new HomePage01(7, R.mipmap.home_icon_pandianjilu, "盘点记录"));
+
+
         } else if (userInfo.getC03().equals("zhb") || userInfo.getC03().equals("kjb") || userInfo.getC03().equals("yyb") || userInfo.getC03().equals("bwb")) {
 
 

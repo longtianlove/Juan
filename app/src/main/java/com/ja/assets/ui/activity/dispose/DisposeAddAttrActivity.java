@@ -1,9 +1,8 @@
 package com.ja.assets.ui.activity.dispose;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
-
-import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
 import com.ja.assets.databinding.ActivityDisposeAddAttrBinding;
@@ -14,14 +13,20 @@ import com.ja.assets.ui.base.BaseJavaActivity;
 import com.ja.assets.utils.PhotoUtils;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
 public class DisposeAddAttrActivity extends BaseJavaActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dispose_add_attr);
+    }
 
-//    private ActivityDisposeAddAttrBinding disposeAddAttrBinding;
+    //    private ActivityDisposeAddAttrBinding disposeAddAttrBinding;
 //
 //
 //    @Override
