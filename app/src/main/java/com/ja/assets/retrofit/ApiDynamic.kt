@@ -1,8 +1,6 @@
 package com.ja.assets.retrofit
 
-import com.ja.assets.model.LoginInfo
-import com.ja.assets.model.ResultResponse
-import com.ja.assets.model.UserInfo
+import com.ja.assets.model.*
 import retrofit2.http.*
 
 
@@ -24,8 +22,25 @@ interface ApiDynamic {
     /**
      * 获取用户信息
      */
-    @GET("api/getUserInfo")
+    @GET("/api/getUserInfo")
     suspend fun getUserInfo(@Header("token") token: String): ResultResponse<UserInfo>
 
+    /**
+     * 获取首页资产净值和资产数量
+     */
+    @POST("/api/getZcValueAndZcNumber")
+    suspend fun getZcValueAndZcNumber(@Header("token") token: String): ResultResponse<HomeIndexCount>
 
+    /**
+     * 获取所有的部门和支行
+     */
+    @POST("/api/getAllManagerDeptList")
+    suspend fun getAllBranchDeptList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
+
+
+    /**
+     * 获取所有的管理部门
+     */
+    @POST("/api/getAllManagerDeptList")
+    suspend fun getAllManagerDeptList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
 }

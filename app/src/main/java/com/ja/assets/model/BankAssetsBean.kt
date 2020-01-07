@@ -9,10 +9,10 @@ data class HomePage01(var position: Int, var funImgId: Int, var funName: String)
 
 data class MainData(var count: Int, val value: MainData) : LiveData<MainData>(value)
 
-data class AdminBean(var adminId: Int, var adminName: String) : Serializable
+data class DeptBean(var id: Int, var deptname: String) : Serializable
 
 data class PurchaseAssetsInfo(
-    var assetsName:String,
+    var assetsName: String,
     var purpose: String,
     var departmentName: String,
     var departmentId: Int,
@@ -55,7 +55,7 @@ data class AssetsInfo(
 )
 
 
-data class ResultResponse<out T>(val Code: Int, val Msg: String, val data: T) {
+data class ResultResponse<out T>(val Code: Int, val message: String, val data: T) {
     fun isSuccess() = Code == 0
 }
 
@@ -76,6 +76,13 @@ data class UserInfo(
     var c03: String,
     var deptId: Long
 ) : Serializable
+
+
+data class HomeIndexCount(
+    var zcValue: Int, var zcCount: Int, var caigouCount: Int, var diaoboCount: Int,
+    var pandianCount: Int, var baoxiuCount: Int, var xunjianCount: Int, var chuzhiCount: Int,
+    var bwbZcCount: Int, var kjbZcCount: Int, var zhbZcCount: Int, var yybZcCount: Int
+)
 
 data class PurchaseAudit(var username: String)
 data class AllocationApply(var username: String)

@@ -14,22 +14,20 @@ import com.ja.assets.model.*
 //    }
 //}
 
-class AdminPopupAdapter(layoutResId: Int, data: MutableList<AdminBean>) : BaseQuickAdapter<AdminBean, MyBaseViewHolder>(layoutResId, data) {
-    override fun convert(helper: MyBaseViewHolder, item: AdminBean?) {
-        helper.setText(R.id.itemAdminPopupTV, item!!.adminName)
-    }
-}
 
 class PurchaseApplyAdapter(layoutResId: Int, data: MutableList<PurchaseAssetsInfo>) :
     BaseQuickAdapter<PurchaseAssetsInfo, MyBaseViewHolder>(layoutResId, data) {
     override fun convert(helper: MyBaseViewHolder, item: PurchaseAssetsInfo?) {
-        helper.addOnClickListener(R.id.itemPurchaseApplyEdit).addOnClickListener(R.id.itemPurchaseApplyUnAgree)
+        helper.addOnClickListener(R.id.itemPurchaseApplyEdit)
+            .addOnClickListener(R.id.itemPurchaseApplyUnAgree)
             .addOnClickListener(R.id.itemPurchaseApplyAgree)
             .addOnClickListener(R.id.itemPurchaseApplyDelete)
         helper.setText(R.id.itemPurchaseApplyName, item!!.assetsName)
-        helper.setText(R.id.itemPurchaseApplyBrand, item.productBrand).setText(R.id.itemPurchaseApplySpecsModel, item.specsType)
+        helper.setText(R.id.itemPurchaseApplyBrand, item.productBrand)
+            .setText(R.id.itemPurchaseApplySpecsModel, item.specsType)
             .setText(R.id.itemPurchaseApplyCompany, item.meteringCompany)
-            .setText(R.id.itemPurchaseApplyUnitPurchasePrice, item.purchaseUnitPrice).setText(R.id.itemPurchaseApplyPurpose, item.purpose)
+            .setText(R.id.itemPurchaseApplyUnitPurchasePrice, item.purchaseUnitPrice)
+            .setText(R.id.itemPurchaseApplyPurpose, item.purpose)
             .setText(R.id.itemPurchaseApplySupplierName, item.supplierName)
             .setText(R.id.itemPurchaseApplyAdministrationDepartmentText, item.departmentName)
             .setText(R.id.itemPurchaseApplyPurchaseQuantity, item.purchaseQuantity.toString())
@@ -79,13 +77,15 @@ class PatrolCheckAdapter(layoutResId: Int, data: MutableList<PatrolCheck>) :
 }
 
 
-class DepartmentAdapter(layoutResId: Int, data: MutableList<AdminBean>) : BaseQuickAdapter<AdminBean, MyBaseViewHolder>(layoutResId, data) {
-    override fun convert(helper: MyBaseViewHolder, item: AdminBean) {
-        helper.setText(R.id.itemAdminPopupTV, item!!.adminName)
+class DepartmentAdapter(layoutResId: Int, data: MutableList<DeptBean>) :
+    BaseQuickAdapter<DeptBean, MyBaseViewHolder>(layoutResId, data) {
+    override fun convert(helper: MyBaseViewHolder, item: DeptBean) {
+        helper.setText(R.id.itemAdminPopupTV, item!!.deptname)
     }
 }
 
-class SelectAssetsAdapter(layoutResId: Int, data: MutableList<PurchaseAssetsInfo>) : BaseQuickAdapter<PurchaseAssetsInfo, MyBaseViewHolder>(layoutResId, data) {
+class SelectAssetsAdapter(layoutResId: Int, data: MutableList<PurchaseAssetsInfo>) :
+    BaseQuickAdapter<PurchaseAssetsInfo, MyBaseViewHolder>(layoutResId, data) {
     override fun convert(helper: MyBaseViewHolder, item: PurchaseAssetsInfo?) {
 
     }
