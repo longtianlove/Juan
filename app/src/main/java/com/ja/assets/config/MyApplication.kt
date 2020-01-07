@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit
 open class MyApplication : Application() {
 
 
-
     /**
      * 线程池
      */
@@ -28,6 +27,8 @@ open class MyApplication : Application() {
         ThreadPoolExecutor.CallerRunsPolicy()
     )
 
+    @JvmField
+    val photoSavePath: String = Environment.getExternalStorageDirectory().absolutePath + "/固定资产/"
 
 
     var cookieJar: ClearableCookieJar? = null
@@ -55,7 +56,6 @@ open class MyApplication : Application() {
 
 
     }
-
 
 
     /**

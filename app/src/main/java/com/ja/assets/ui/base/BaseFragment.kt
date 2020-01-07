@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
 
 /**
  * Created by Administrator on 2017/5/17 0017.
  */
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment(),  CoroutineScope by MainScope() {
 
 
     var fragmentDataBinding: ViewDataBinding? = null

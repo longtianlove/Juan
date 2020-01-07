@@ -58,7 +58,11 @@
         tools:replace="android:icon">
 
         <activity android:name=".ui.activity.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <provider
@@ -99,11 +103,7 @@
             android:name="com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckDetailActivity"
             android:screenOrientation="portrait"
             android:label="@string/patrolCheckDetail" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity

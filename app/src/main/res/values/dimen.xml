@@ -71,6 +71,7 @@
 
 
     <!--字体大小-->
+    <dimen name="textSize_8">8sp</dimen>
     <dimen name="textSize_10">10sp</dimen>
     <dimen name="textSize_11">11sp</dimen>
     <dimen name="textSize_12">12sp</dimen>

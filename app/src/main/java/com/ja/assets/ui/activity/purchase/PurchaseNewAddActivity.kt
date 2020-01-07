@@ -5,9 +5,8 @@ import android.content.Intent
 import android.view.View
 import com.ja.assets.R
 import com.ja.assets.databinding.ActivityPurchaseNewAddBinding
-import com.ja.assets.model.AdminBean
-import com.ja.assets.model.AssetsInfo
 import com.ja.assets.listener.HandlerClickListener
+import com.ja.assets.model.DeptBean
 import com.ja.assets.model.PurchaseAssetsInfo
 import com.ja.assets.ui.base.BaseActivity
 import com.ja.assets.utils.EditIsCanUseBtnUtils
@@ -78,10 +77,10 @@ class PurchaseNewAddActivity : BaseActivity(), HandlerClickListener {
             return
         }
         if (requestCode == 1) {
-            val adminBean: AdminBean = data.getSerializableExtra("adminBean") as AdminBean
-            adminDepartmentTV.text = adminBean.adminName
-            assetsInfo!!.departmentName = adminBean.adminName
-            assetsInfo!!.departmentId = adminBean.adminId
+            val deptBean: DeptBean = data.getSerializableExtra("deptBean") as DeptBean
+            adminDepartmentTV.text = deptBean.deptname
+            assetsInfo!!.departmentName = deptBean.deptname
+            assetsInfo!!.departmentId = deptBean.id
         }
     }
 

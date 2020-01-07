@@ -1,187 +1,194 @@
 <resources>
-    <string name="app_name">BankAssetsApp</string>
-    <string name="goBfack">返回</string>
-    <string name="Login">登录</string>
+    <string name="app_name" translatable="false">BankAssetsApp</string>
+    <string name="goBfack" translatable="false">返回</string>
+    <string name="Login" translatable="false">登录</string>
     <string name="company_zh" translatable="false">技术支持：山西巨安电子技术股份有限公司</string>
     <string name="company_Eg" translatable="false">Copyright © 2019 All Rights Reserved</string>
-    <string name="enter_account">请输入账号</string>
-    <string name="enter_password">请输入密码</string>
-    <string name="assetsTotal">资产净值（元）</string>
-    <string name="assetsQuantity">资产总数（件）</string>
-    <string name="monthlyDatakanban">月度数据看板</string>
-    <string name="departmentAssetAtatistics">部门资产统计</string>
-    <string name="functionModule">功能模块</string>
-    <string name="monthPurchaseQuantity">本月采购数量</string>
-    <string name="monthAllocationQuantity">本月调拨数量</string>
-    <string name="monthCountingTimes">本月盘点次数</string>
-    <string name="monthWarrantyQuantity">本月报修数量</string>
-    <string name="monthInspectionQuantity">本月巡检数量</string>
-    <string name="monthDisposalQuantity">本月处置数量</string>
-    <string name="homePage">首页</string>
-    <string name="userInfo">我的</string>
-    <string name="scanCodeQuery">扫码查询</string>
-    <string name="readyToDoNews">待办消息</string>
-    <string name="readyToDoNewsCheckAccept">另有一条代办消息，请查收~</string>
-    <string name="enterAssetsName">请输入资产名称</string>
-    <string name="assetsName">资产名称</string>
-    <string name="assetsNameText">资产名称：</string>
-    <string name="specialModel">规格型号</string>
-    <string name="enterSpecialModel">请输入规格型号</string>
-    <string name="meteringCompany">计量单位</string>
-    <string name="enterMeteringCompany">请输入计量单位</string>
-    <string name="productBrand">产品品牌</string>
-    <string name="enterProductBrand">请输入产品品牌</string>
-    <string name="purchaseUnitPrice">采购单价</string>
-    <string name="enterPurchaseUnitPrice">请输入采购单价</string>
-    <string name="element">元</string>
-    <string name="supplierName">供应商名称</string>
-    <string name="supplierNameText">供应商名：</string>
-    <string name="enterSupplierName">请输入供应商名称</string>
-    <string name="purpose">用途</string>
-    <string name="purposeText">用途：</string>
-    <string name="enterPurpose">请输入用途</string>
-    <string name="adminDepartment">管理部门</string>
-    <string name="adminDepartmentText">管理部门：</string>
-    <string name="enterSelectAdminDepartment">请选择管理部门</string>
-    <string name="purchaseQuantity">采购数量</string>
-    <string name="purchaseQuantityText">采购数量：</string>
-    <string name="enterPurchaseQuantity">请输入采购数量</string>
-    <string name="submit">提交</string>
-    <string name="purchaseApply">采购申请</string>
-    <string name="cancel">取消</string>
-    <string name="purchaseNewAdd">采购新增</string>
-    <string name="submitAudit">提交审核</string>
-    <string name="inAudit">审核中</string>
-    <string name="brand">品牌：</string>
-    <string name="specsModel">规格型号：</string>
-    <string name="Company">单位：</string>
-    <string name="unitPurchasePrice">采购单价：</string>
-    <string name="agree">同意</string>
-    <string name="unAgree">拒绝</string>
-    <string name="edit">编辑</string>
-    <string name="addAssets">添加资产</string>
-    <string name="confirm">确认</string>
-    <string name="code">编码：</string>
-    <string name="assetsCode">资产编码：</string>
-    <string name="category">类别：</string>
-    <string name="outDepartment">调出部门：</string>
-    <string name="outDepartmentText">调出部门</string>
-    <string name="source">来源：</string>
-    <string name="putDepartment">调入部门：</string>
-    <string name="putDepartmentText">调入部门</string>
-    <string name="originalValue">原值</string>
-    <string name="useDate">使用日期：</string>
-    <string name="netWorth">净值</string>
-    <string name="netWorthText">净值：</string>
-    <string name="surplusTerm">剩余期限：</string>
-    <string name="assetTraceCode">资产追溯码</string>
-    <string name="assetTraceCodeText">资产追溯码：</string>
-    <string name="enterAssetTraceCode">请输入资产追溯码</string>
-    <string name="assetCode">资产编码</string>
-    <string name="enterAssetCode">请输入资产编码</string>
-    <string name="assetClass">资产类别</string>
-    <string name="enterAssetClass">请输入资产类别</string>
-    <string name="enterAdminDepartment">请输入管理部门</string>
-    <string name="enterOutDepartmentText">请输入调出部门</string>
-    <string name="enterPutDepartment">请输入调入部门</string>
-    <string name="sourceText">来源</string>
-    <string name="enterSource">请输入来源</string>
-    <string name="startUseDate">开始使用日期</string>
-    <string name="enterStartUseDate">请输入开始使用日期</string>
-    <string name="remainingPeriod">剩余期限</string>
-    <string name="enterRemainingPeriod">请输入剩余期限</string>
-    <string name="originalValueText">原值：</string>
-    <string name="enterOriginalValue">请输入原值</string>
-    <string name="enterNetWorth">请输入净值</string>
-    <string name="noInventory">未盘点</string>
-    <string name="yesInventory">已盘点</string>
-    <string name="oddNumber">单号：</string>
-    <string name="useDepartmentText">使用部门</string>
-    <string name="useDepartment">使用部门：</string>
-    <string name="assetsAllTotal">资产总数：</string>
-    <string name="inventoryTime">盘点时间：</string>
-    <string name="inventoryDepartment">盘点部门：</string>
-    <string name="inventoryPerson">盘点人：</string>
-    <string name="inventoryResults">盘点结果：</string>
-    <string name="inventoryType">盘点类型：</string>
-    <string name="inventoryVolume">盘盈数量：</string>
-    <string name="inventoryLossesQuantity">盘亏数量：</string>
-    <string name="inventoryState">盘点状态：</string>
-    <string name="doubleCheck">是否复盘：</string>
-    <string name="inventorySurplusAssets">盘盈资产</string>
-    <string name="inventoryLossAssets">盘亏资产</string>
-    <string name="assetsNumber">资产编号：</string>
-    <string name="storageAddress">存放地址：</string>
-    <string name="enterSelectAssetsName">请选择资产名称</string>
-    <string name="disposeType">处置类型</string>
-    <string name="enterUseDepartment">请输入使用部门</string>
-    <string name="disposalReason">处置原因</string>
-    <string name="disposalAttr">处置附件</string>
-    <string name="lossReport">报损报告</string>
-    <string name="identificationAnnex">鉴定附件</string>
-    <string name="appraisalOpinion">鉴定意见</string>
-    <string name="enterAppraisalOpinion">请输入鉴定意见</string>
-    <string name="appearanceCondition">外观状况</string>
-    <string name="intact">完好</string>
-    <string name="damage">损坏</string>
-    <string name="functionalAtatus">功能状况</string>
-    <string name="normal">正常</string>
-    <string name="abnormal">异常</string>
-    <string name="inspectionResults">巡检结果</string>
-    <string name="reachingStandard">达标</string>
-    <string name="noReachingStandard">不达标</string>
-    <string name="uploadDevicePictures">上传设备图片</string>
-    <string name="uploadNotes">照片大小为200k以内，照片格式为png、jpg格式</string>
-    <string name="repairMode">维修方式</string>
-    <string name="localRepair">本地维修</string>
-    <string name="externalRepair">委外维修</string>
-    <string name="giveRepairMode">送修方式</string>
-    <string name="door">上门</string>
-    <string name="giveRepair">送修</string>
-    <string name="serviceProviderName">服务商名称</string>
-    <string name="enterServiceProviderName">请输入服务商名称</string>
-    <string name="address">地址</string>
-    <string name="enterAddress">请输入地址</string>
-    <string name="enterContacts">请输入联系人</string>
-    <string name="contacts">联系人</string>
-    <string name="enterPhone">请输入电话</string>
-    <string name="phone">电话</string>
-    <string name="repairAddress">送修地址</string>
-    <string name="enterRepairAddress">请输入送修地址</string>
-    <string name="logout">退出</string>
-    <string name="selectDepartment">选择部门</string>
-    <string name="selectBranch">选择支行</string>
-    <string name="selectDepartmentOrBranch">选择部门或支行</string>
-    <string name="noAssetsText">暂时没有资产</string>
-    <string name="clickRightBtnAdd">点击右上方按钮添加</string>
-    <string name="enterSelectDisposeType">请选择处置类型</string>
-    <string name="enterSelectDisposalResson">请选择处置原因</string>
-    <string name="enterpriseSearch">搜索</string>
-    <string name="enterFileTitle">请输入搜索条件</string>
-    <string name="serviceLife">使用年限：</string>
-    <string name="allocationAudit">调拨确认</string>
-    <string name="allocationAdd">调拨新增</string>
-    <string name="inventory">盘点</string>
-    <string name="inventoryRecord">盘点记录</string>
-    <string name="disposeApply">处置申请</string>
-    <string name="disposeAdd">处置新增</string>
-    <string name="patrolCheckList">巡检列表</string>
-    <string name="patrolCheckDetail">巡检详情</string>
-    <string name="repairInfo">维修信息</string>
-    <string name="repairApply">维修申请</string>
-    <string name="repairNewAdd">维修新增</string>
-    <string name="patrolCheckRecord">巡检记录</string>
-    <string name="patrolCheck">巡检列表</string>
-    <string name="department">部门</string>
-    <string name="selectAssets">选择资产</string>
-    <string name="allocationApply">调拨申请</string>
-    <string name="purchaseRecord">采购记录</string>
-    <string name="purchaseAudit">采购审核</string>
-    <string name="sweepCode">资产详情</string>
-    <string name="setsUp">设置</string>
-    <string name="serviceAgreement">服务协议</string>
-    <string name="scavengingCaching">清楚缓存</string>
-    <string name="checkUpdate">检查更新</string>
-    <string name="currentVersion">（当前版本1.0.0）</string>
-    <string name="exitLogon">退出登录</string>
+    <string name="enter_account" translatable="false">请输入账号</string>
+    <string name="enter_password" translatable="false">请输入密码</string>
+    <string name="assetsTotal" translatable="false">资产净值（元）</string>
+    <string name="assetsQuantity" translatable="false">资产总数（件）</string>
+    <string name="monthlyDatakanban" translatable="false">月度数据看板</string>
+    <string name="departmentAssetAtatistics" translatable="false">部门资产统计</string>
+    <string name="functionModule" translatable="false">功能模块</string>
+    <string name="monthPurchaseQuantity" translatable="false">本月采购数量</string>
+    <string name="monthAllocationQuantity" translatable="false">本月调拨数量</string>
+    <string name="monthCountingTimes" translatable="false">本月盘点次数</string>
+    <string name="monthWarrantyQuantity" translatable="false">本月报修数量</string>
+    <string name="monthInspectionQuantity" translatable="false">本月巡检数量</string>
+    <string name="monthDisposalQuantity" translatable="false">本月处置数量</string>
+    <string name="homePage" translatable="false">首页</string>
+    <string name="userInfo" translatable="false">我的</string>
+    <string name="scanCodeQuery" translatable="false">扫码查询</string>
+    <string name="readyToDoNews" translatable="false">待办消息</string>
+    <string name="readyToDoNewsCheckAccept" translatable="false">另有一条代办消息，请查收~</string>
+    <string name="enterAssetsName" translatable="false">请输入资产名称</string>
+    <string name="assetsName" translatable="false">资产名称</string>
+    <string name="assetsNameText" translatable="false">资产名称：</string>
+    <string name="specialModel" translatable="false">规格型号</string>
+    <string name="enterSpecialModel" translatable="false">请输入规格型号</string>
+    <string name="meteringCompany" translatable="false">计量单位</string>
+    <string name="enterMeteringCompany" translatable="false">请输入计量单位</string>
+    <string name="productBrand" translatable="false">产品品牌</string>
+    <string name="enterProductBrand" translatable="false">请输入产品品牌</string>
+    <string name="purchaseUnitPrice" translatable="false">采购单价</string>
+    <string name="enterPurchaseUnitPrice" translatable="false">请输入采购单价</string>
+    <string name="element" translatable="false">元</string>
+    <string name="supplierName" translatable="false">供应商名称</string>
+    <string name="supplierNameText" translatable="false">供应商名：</string>
+    <string name="enterSupplierName" translatable="false">请输入供应商名称</string>
+    <string name="purpose" translatable="false">用途</string>
+    <string name="purposeText" translatable="false">用途：</string>
+    <string name="enterPurpose" translatable="false">请输入用途</string>
+    <string name="adminDepartment" translatable="false">管理部门</string>
+    <string name="adminDepartmentText" translatable="false">管理部门：</string>
+    <string name="enterSelectAdminDepartment" translatable="false">请选择管理部门</string>
+    <string name="purchaseQuantity" translatable="false">采购数量</string>
+    <string name="purchaseQuantityText" translatable="false">采购数量：</string>
+    <string name="enterPurchaseQuantity" translatable="false">请输入采购数量</string>
+    <string name="submit" translatable="false">提交</string>
+    <string name="purchaseApply" translatable="false">采购申请</string>
+    <string name="cancel" translatable="false">取消</string>
+    <string name="purchaseNewAdd" translatable="false">采购新增</string>
+    <string name="submitAudit" translatable="false">提交审核</string>
+    <string name="inAudit" translatable="false">审核中</string>
+    <string name="brand" translatable="false">品牌：</string>
+    <string name="specsModel" translatable="false">规格型号：</string>
+    <string name="Company" translatable="false">单位：</string>
+    <string name="unitPurchasePrice" translatable="false">采购单价：</string>
+    <string name="agree" translatable="false">同意</string>
+    <string name="unAgree" translatable="false">拒绝</string>
+    <string name="edit" translatable="false">编辑</string>
+    <string name="addAssets" translatable="false">添加资产</string>
+    <string name="confirm" translatable="false">确认</string>
+    <string name="code" translatable="false">编码：</string>
+    <string name="assetsCode" translatable="false">资产编码：</string>
+    <string name="category" translatable="false">类别：</string>
+    <string name="outDepartment" translatable="false">调出部门：</string>
+    <string name="outDepartmentText" translatable="false">调出部门</string>
+    <string name="source" translatable="false">来源：</string>
+    <string name="putDepartment" translatable="false">调入部门：</string>
+    <string name="putDepartmentText" translatable="false">调入部门</string>
+    <string name="originalValue" translatable="false">原值</string>
+    <string name="useDate" translatable="false">使用日期：</string>
+    <string name="netWorth" translatable="false">净值</string>
+    <string name="netWorthText" translatable="false">净值：</string>
+    <string name="surplusTerm" translatable="false">剩余期限：</string>
+    <string name="assetTraceCode" translatable="false">资产追溯码</string>
+    <string name="assetTraceCodeText" translatable="false">资产追溯码：</string>
+    <string name="enterAssetTraceCode" translatable="false">请输入资产追溯码</string>
+    <string name="assetCode" translatable="false">资产编码</string>
+    <string name="enterAssetCode" translatable="false">请输入资产编码</string>
+    <string name="assetClass" translatable="false">资产类别</string>
+    <string name="enterAssetClass" translatable="false">请输入资产类别</string>
+    <string name="enterAdminDepartment" translatable="false">请输入管理部门</string>
+    <string name="enterOutDepartmentText" translatable="false">请输入调出部门</string>
+    <string name="enterPutDepartment" translatable="false">请输入调入部门</string>
+    <string name="sourceText" translatable="false">来源</string>
+    <string name="enterSource" translatable="false">请输入来源</string>
+    <string name="startUseDate" translatable="false">开始使用日期</string>
+    <string name="enterStartUseDate" translatable="false">请输入开始使用日期</string>
+    <string name="remainingPeriod" translatable="false">剩余期限</string>
+    <string name="enterRemainingPeriod" translatable="false">请输入剩余期限</string>
+    <string name="originalValueText" translatable="false">原值：</string>
+    <string name="enterOriginalValue" translatable="false">请输入原值</string>
+    <string name="enterNetWorth" translatable="false">请输入净值</string>
+    <string name="noInventory" translatable="false">未盘点</string>
+    <string name="yesInventory" translatable="false">已盘点</string>
+    <string name="oddNumber" translatable="false">单号：</string>
+    <string name="useDepartmentText" translatable="false">使用部门</string>
+    <string name="useDepartment" translatable="false">使用部门：</string>
+    <string name="assetsAllTotal" translatable="false">资产总数：</string>
+    <string name="inventoryTime" translatable="false">盘点时间：</string>
+    <string name="inventoryDepartment" translatable="false">盘点部门：</string>
+    <string name="inventoryPerson" translatable="false">盘点人：</string>
+    <string name="inventoryResults" translatable="false">盘点结果：</string>
+    <string name="inventoryType" translatable="false">盘点类型：</string>
+    <string name="inventoryVolume" translatable="false">盘盈数量：</string>
+    <string name="inventoryLossesQuantity" translatable="false">盘亏数量：</string>
+    <string name="inventoryState" translatable="false">盘点状态：</string>
+    <string name="doubleCheck" translatable="false">是否复盘：</string>
+    <string name="inventorySurplusAssets" translatable="false">盘盈资产</string>
+    <string name="inventoryLossAssets" translatable="false">盘亏资产</string>
+    <string name="assetsNumber" translatable="false">资产编号：</string>
+    <string name="storageAddress" translatable="false">存放地址：</string>
+    <string name="enterSelectAssetsName" translatable="false">请选择资产名称</string>
+    <string name="disposeType" translatable="false">处置类型</string>
+    <string name="enterUseDepartment" translatable="false">请输入使用部门</string>
+    <string name="disposalReason" translatable="false">处置原因</string>
+    <string name="disposalAttr" translatable="false">处置附件</string>
+    <string name="lossReport" translatable="false">报损报告</string>
+    <string name="identificationAnnex" translatable="false">鉴定附件</string>
+    <string name="appraisalOpinion" translatable="false">鉴定意见</string>
+    <string name="enterAppraisalOpinion" translatable="false">请输入鉴定意见</string>
+    <string name="appearanceCondition" translatable="false">外观状况</string>
+    <string name="intact" translatable="false">完好</string>
+    <string name="damage" translatable="false">损坏</string>
+    <string name="functionalAtatus" translatable="false">功能状况</string>
+    <string name="normal" translatable="false">正常</string>
+    <string name="abnormal" translatable="false">异常</string>
+    <string name="inspectionResults" translatable="false">巡检结果</string>
+    <string name="reachingStandard" translatable="false">达标</string>
+    <string name="noReachingStandard" translatable="false">不达标</string>
+    <string name="uploadDevicePictures" translatable="false">上传设备图片</string>
+    <string name="uploadNotes" translatable="false">照片大小为200k以内，照片格式为png、jpg格式</string>
+    <string name="repairMode" translatable="false">维修方式</string>
+    <string name="localRepair" translatable="false">本地维修</string>
+    <string name="externalRepair" translatable="false">委外维修</string>
+    <string name="giveRepairMode" translatable="false">送修方式</string>
+    <string name="door" translatable="false">上门</string>
+    <string name="giveRepair" translatable="false">送修</string>
+    <string name="serviceProviderName" translatable="false">服务商名称</string>
+    <string name="enterServiceProviderName" translatable="false">请输入服务商名称</string>
+    <string name="address" translatable="false">地址</string>
+    <string name="enterAddress" translatable="false">请输入地址</string>
+    <string name="enterContacts" translatable="false">请输入联系人</string>
+    <string name="contacts" translatable="false">联系人</string>
+    <string name="enterPhone" translatable="false">请输入电话</string>
+    <string name="phone" translatable="false">电话</string>
+    <string name="repairAddress" translatable="false">送修地址</string>
+    <string name="enterRepairAddress" translatable="false">请输入送修地址</string>
+    <string name="logout" translatable="false">退出</string>
+    <string name="selectDepartment" translatable="false">选择部门</string>
+    <string name="selectAdminDepartment" translatable="false">选择管理部门</string>
+    <string name="selectBranch" translatable="false">选择支行</string>
+    <string name="selectDepartmentOrBranch" translatable="false">选择部门或支行</string>
+    <string name="noAssetsText" translatable="false">暂时没有资产</string>
+    <string name="clickRightBtnAdd" translatable="false">点击右上方按钮添加</string>
+    <string name="enterSelectDisposeType" translatable="false">请选择处置类型</string>
+    <string name="enterSelectDisposalResson" translatable="false">请选择处置原因</string>
+    <string name="enterpriseSearch" translatable="false">搜索</string>
+    <string name="enterFileTitle" translatable="false">请输入搜索条件</string>
+    <string name="serviceLife" translatable="false">使用年限：</string>
+    <string name="allocationAudit" translatable="false">调拨确认</string>
+    <string name="allocationAdd" translatable="false">调拨新增</string>
+    <string name="inventory" translatable="false">盘点</string>
+    <string name="inventoryRecord" translatable="false">盘点记录</string>
+    <string name="disposeApply" translatable="false">处置申请</string>
+    <string name="disposeAdd" translatable="false">处置新增</string>
+    <string name="patrolCheckList" translatable="false">巡检列表</string>
+    <string name="patrolCheckDetail" translatable="false">巡检详情</string>
+    <string name="repairInfo" translatable="false">维修信息</string>
+    <string name="repairApply" translatable="false">维修申请</string>
+    <string name="repairNewAdd" translatable="false">维修新增</string>
+    <string name="patrolCheckRecord" translatable="false">巡检记录</string>
+    <string name="patrolCheck" translatable="false">巡检列表</string>
+    <string name="department" translatable="false">部门</string>
+    <string name="selectAssets" translatable="false">选择资产</string>
+    <string name="allocationApply" translatable="false">调拨申请</string>
+    <string name="purchaseRecord" translatable="false">采购记录</string>
+    <string name="purchaseAudit" translatable="false">采购审核</string>
+    <string name="sweepCode" translatable="false">资产详情</string>
+    <string name="setsUp" translatable="false">设置</string>
+    <string name="serviceAgreement" translatable="false">服务协议</string>
+    <string name="scavengingCaching" translatable="false">清楚缓存</string>
+    <string name="checkUpdate" translatable="false">检查更新</string>
+    <string name="currentVersion" translatable="false">（当前版本1.0.0）</string>
+    <string name="exitLogon" translatable="false">退出登录</string>
+    <string name="AdminDepartment01" translatable="false">财务会计部</string>
+    <string name="AdminDepartment02" translatable="false">综合办公室</string>
+    <string name="AdminDepartment03" translatable="false">电子科技部</string>
+    <string name="AdminDepartment04" translatable="false">运营管理部</string>
+    <string name="AdminDepartment05" translatable="false">安全保卫部</string>
+
 </resources>
