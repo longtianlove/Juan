@@ -150,6 +150,7 @@
     <string name="enterRepairAddress" translatable="false">请输入送修地址</string>
     <string name="logout" translatable="false">退出</string>
     <string name="selectDepartment" translatable="false">选择部门</string>
+    <string name="selectAdminDepartment" translatable="false">选择管理部门</string>
     <string name="selectBranch" translatable="false">选择支行</string>
     <string name="selectDepartmentOrBranch" translatable="false">选择部门或支行</string>
     <string name="noAssetsText" translatable="false">暂时没有资产</string>

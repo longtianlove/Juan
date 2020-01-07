@@ -3,7 +3,6 @@ package com.ja.assets.utils;
 import android.text.TextUtils;
 
 import com.ja.assets.R;
-import com.ja.assets.model.AdminBean;
 import com.ja.assets.model.HomePage01;
 import com.ja.assets.model.UserInfo;
 
@@ -33,16 +32,6 @@ public class HomePageList {
             homePageList.add(new HomePage01(13, R.mipmap.home_icon_xunjianjilu, "巡检记录"));
         }
         return homePageList;
-    }
-
-
-    public List<AdminBean> getAdaminList() {
-        List<AdminBean> adminBeanList = new ArrayList<>();
-        adminBeanList.add(new AdminBean(1, "综合办"));
-        adminBeanList.add(new AdminBean(2, "科技部"));
-        adminBeanList.add(new AdminBean(3, "运营部"));
-        adminBeanList.add(new AdminBean(4, "保卫部"));
-        return adminBeanList;
     }
 
 }

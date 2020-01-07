@@ -35,6 +35,7 @@ class HomeFragment : BaseFragment() {
     private var mainActivity: MainActivity? = null
     private var homeBinding: FragmentHomeLayoutBinding? = null
     private var homeAdapter: HomeAdapter? = null
+    private var homeIndexCount:HomeIndexCount?=null
 
     override fun setOnCreate() {
         mainActivity = activity as MainActivity
@@ -47,6 +48,7 @@ class HomeFragment : BaseFragment() {
         initAdapter()
 
         initView()
+
         getData()
     }
 
@@ -64,7 +66,6 @@ class HomeFragment : BaseFragment() {
                     startActivity(intent)
                 }
                 1 -> {
-
                 }
                 2 -> {
                 }
@@ -106,10 +107,11 @@ class HomeFragment : BaseFragment() {
             if (resultResponse.isSuccess()) {
                 homeBinding?.homeIndexCountBean = resultResponse.data
             } else {
-                Log.e("TAG", resultResponse.Msg)
+                Log.e("TAG", resultResponse.message)
             }
             loadingDialog.dismiss()
         }
+
     }
 
 
