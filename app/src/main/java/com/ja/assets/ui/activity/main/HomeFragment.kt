@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment() {
     private var mainActivity: MainActivity? = null
     private var homeBinding: FragmentHomeLayoutBinding? = null
     private var homeAdapter: HomeAdapter? = null
-    private var homeIndexCount:HomeIndexCount?=null
+    private var homeIndexCount: HomeIndexCount? = null
 
     override fun setOnCreate() {
         mainActivity = activity as MainActivity
@@ -61,37 +61,54 @@ class HomeFragment : BaseFragment() {
         recyclerViewUtilKt.setAdapter(homeAdapter!!)
         homeAdapter?.setOnItemClickListener { adapter, view, position ->
             when (homeList[position].position) {
+                /**0-5是使用部门的功能**/
+                /**6-7是财务部门的功能**/
+                /**8-13是管理部门的功能**/
                 0 -> {
+                    //采购申请
                     val intent = Intent(mainActivity!!, PurchaseApplyActivity::class.java)
                     startActivity(intent)
                 }
                 1 -> {
+                    //采购记录
                 }
                 2 -> {
+                    //报修申请
                 }
                 3 -> {
+                    //报修记录
                 }
                 4 -> {
+                    //处置申请
                 }
                 5 -> {
+                    //处置记录
                 }
                 6 -> {
+                    //采购记录
                 }
                 7 -> {
+                    //采购记录
                 }
                 8 -> {
+                    //采购记录
                 }
                 9 -> {
+                    //采购记录
                 }
                 10 -> {
+                    //采购记录
                 }
                 11 -> {
+                    //采购记录
                 }
                 12 -> {
+                    //采购记录
                     val intent = Intent(mainActivity!!, DisposeAddAttrActivity::class.java)
                     startActivity(intent)
                 }
                 13 -> {
+                    //采购记录
                 }
             }
         }
