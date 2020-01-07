@@ -96,8 +96,10 @@ class LoginActivity : BaseActivity() {
                 ACacheUtil.setToken(loginInfo.token)
                 ACacheUtil.setUsername(account)
                 ACacheUtil.setPassword(password)
-                val resultResponse: ResultResponse<UserInfo> = async { RetrofitClient.networkService.getUserInfo(loginInfo.token) }.await()
+                val resultResponse: ResultResponse<UserInfo> =
+                    async { RetrofitClient.networkService.getUserInfo(loginInfo.token) }.await()
                 if (resultResponse.isSuccess()) {
+                    ACacheUtil.setUserInfo(resultResponse.data)
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                 } else {

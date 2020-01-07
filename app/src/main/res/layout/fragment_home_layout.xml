@@ -45,6 +45,7 @@
                             android:textSize="@dimen/textSize_24" />
 
                         <TextView
+                            android:id="@+id/readyToDoNewsCheckAcceptTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/margin_10"
@@ -66,14 +67,15 @@
                             android:src="@mipmap/home_icon_message" />
 
                         <TextView
+                            android:id="@+id/homeMsgToastTV"
                             android:layout_width="@dimen/margin_15"
                             android:layout_height="@dimen/margin_15"
+                            android:visibility="gone"
                             android:layout_alignParentEnd="true"
                             android:background="@drawable/tv_remind_selector"
                             android:paddingBottom="@dimen/margin_3"
                             android:textSize="@dimen/textSize_10"
                             android:gravity="center"
-                            android:text="@{String.valueOf(2)}"
                             android:textColor="@color/white" />
                     </RelativeLayout>
 

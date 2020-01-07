@@ -43,4 +43,10 @@ interface ApiDynamic {
      */
     @POST("/api/getAllManagerDeptList")
     suspend fun getAllManagerDeptList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
+
+    /**
+     * 获取所有的待办事项列表
+     */
+    @POST("/api/getAllWailDealList")
+    suspend fun getAllWailDealList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
 }
