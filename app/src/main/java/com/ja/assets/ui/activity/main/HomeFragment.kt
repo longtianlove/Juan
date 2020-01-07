@@ -104,8 +104,8 @@ class HomeFragment : BaseFragment() {
                 }
                 12 -> {
                     //采购记录
-                    val intent = Intent(mainActivity!!, DisposeAddAttrActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(mainActivity!!, DisposeAddAttrActivity::class.java)
+//                    startActivity(intent)
                 }
                 13 -> {
                     //采购记录
