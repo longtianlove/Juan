@@ -74,7 +74,8 @@ data class UserInfo(
     var status: Int,
     var memo: String,
     var c03: String,
-    var deptId: Long
+    var deptId: Long,
+    var deptName:String
 ) : Serializable
 
 
