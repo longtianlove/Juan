@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.ja.assets.MainActivity;
 import com.ja.assets.R;
 import com.ja.assets.databinding.FragmentUserLayoutBinding;
@@ -24,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class UserFragment extends BaseFragment {
 
-
+    SimpleDraweeView sdv_header;
 
 
     @Nullable
@@ -32,9 +33,14 @@ public class UserFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.new_fragment_user_layout, container, false);
+        initView(rootView);
         return rootView;
     }
 
+void initView(View rootView){
+    sdv_header=rootView.findViewById(R.id.sdv_header);
+    sdv_header.setImageDrawable(getContext().getDrawable(R.drawable.icon_person_default));
+}
 
 
 

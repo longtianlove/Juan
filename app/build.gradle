@@ -18,7 +18,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.ja.assets"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 2
         versionName "1.0"
