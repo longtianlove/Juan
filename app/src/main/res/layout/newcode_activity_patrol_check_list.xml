@@ -8,10 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingBottom="10dp"
         android:paddingLeft="12dp"
+        android:paddingTop="10dp"
+        android:background="#4789F7"
         android:paddingRight="12dp"
-        android:paddingTop="10dp">
+        android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/iv_back"
@@ -20,7 +21,7 @@
             android:layout_centerVertical="true"
             android:paddingRight="10dp"
 
-            android:src="@drawable/icon_back" />
+            android:src="@drawable/icon_back_white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,9 +30,17 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="巡检列表"
-            android:textColor="#ff333333"
+            android:textColor="#fff"
             android:textSize="18sp" />
 
+        <ImageView
+            android:id="@+id/iv_saoyisiao"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_saoyisao"
+            ></ImageView>
 
     </RelativeLayout>
 
@@ -41,13 +50,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <!--            <androidx.recyclerview.widget.RecyclerView-->
-        <!--                android:id="@+id/inspectionRecycler"-->
-        <!--                style="@style/recyclerViewStyle" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--            <androidx.recyclerview.widget.RecyclerView-->
+            <!--                android:id="@+id/inspectionRecycler"-->
+            <!--                style="@style/recyclerViewStyle" />-->
 
 
             <com.ja.assets.new_code.view.WithScrolleViewListView
@@ -65,9 +75,7 @@
                 android:paddingRight="12dp" />
 
 
-
-
-    </LinearLayout>
+        </LinearLayout>
     </com.ja.assets.new_code.view.WithListViewScrollView>
 
 </LinearLayout>

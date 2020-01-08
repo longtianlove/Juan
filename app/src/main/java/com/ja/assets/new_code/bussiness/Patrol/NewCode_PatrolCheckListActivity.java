@@ -36,6 +36,7 @@ import retrofit2.Response;
 public class NewCode_PatrolCheckListActivity extends Activity {
 
     public View iv_back;
+    public View iv_saoyisiao;
     WithScrolleViewListView lv_zichans;
     ZiChansAdapter madapter;
 
@@ -60,6 +61,13 @@ public class NewCode_PatrolCheckListActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        iv_saoyisiao=findViewById(R.id.iv_saoyisiao);
+        iv_saoyisiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toSaomao();
             }
         });
         lv_zichans = findViewById(R.id.lv_zichans);
