@@ -45,6 +45,7 @@ public class UserFragment extends BaseJavaFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.new_fragment_user_layout, container, false);
         initView(rootView);
+        initData();
         return rootView;
     }
 
@@ -53,12 +54,10 @@ public class UserFragment extends BaseJavaFragment {
         sdv_header.setImageDrawable(getContext().getDrawable(R.drawable.icon_person_default));
 
         tv_nickname = rootView.findViewById(R.id.tv_nickname);
-        String nickname = ACacheUtil.getUserInfo().getNickname();
-        tv_nickname.setText(nickname);
+
 
         tv_bumen = rootView.findViewById(R.id.tv_bumen);
-        String bumen = ACacheUtil.getUserInfo().getDeptName();
-        tv_bumen.setText("隶属于：" + bumen);
+
 
         ll_gerenziliao = rootView.findViewById(R.id.ll_gerenziliao);
         ll_gerenziliao.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +98,14 @@ public class UserFragment extends BaseJavaFragment {
                 startActivity(intent);
             }
         });
+    }
+
+    void initData(){
+        String nickname = ACacheUtil.getUserInfo().getNickname();
+        tv_nickname.setText(nickname);
+
+        String bumen = ACacheUtil.getUserInfo().getDeptName();
+        tv_bumen.setText("隶属于：" + bumen);
     }
 
 

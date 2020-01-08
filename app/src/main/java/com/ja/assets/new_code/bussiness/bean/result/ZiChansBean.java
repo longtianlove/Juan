@@ -4,11 +4,12 @@ import java.util.Date;
 
 public class ZiChansBean {
     public int id;
+    public String zc_codenum;
     public String createTime;
     public String updateTime;
     public String selfCodenum;
     public String zcCodenum;
-    public String zcName;
+    public String zc_name;
     public int zcCategoryId;
     public String specification;
     public String model;
@@ -72,6 +73,7 @@ public class ZiChansBean {
     public String zcCategoryName;
     public String glDeptName;
     public String syDeptName;
+    public String store_address;
     public String updateor;
     public String useStatusName;
     public String quantity;

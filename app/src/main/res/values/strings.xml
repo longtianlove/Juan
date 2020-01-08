@@ -182,7 +182,7 @@
     <string name="sweepCode" translatable="false">资产详情</string>
     <string name="setsUp" translatable="false">设置</string>
     <string name="serviceAgreement" translatable="false">服务协议</string>
-    <string name="scavengingCaching" translatable="false">清楚缓存</string>
+    <string name="scavengingCaching" translatable="false">清除缓存</string>
     <string name="checkUpdate" translatable="false">检查更新</string>
     <string name="currentVersion" translatable="false">（当前版本1.0.0）</string>
     <string name="exitLogon" translatable="false">退出登录</string>

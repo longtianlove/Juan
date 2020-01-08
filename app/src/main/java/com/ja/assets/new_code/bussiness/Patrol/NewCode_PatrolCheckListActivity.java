@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.ja.assets.R;
 
@@ -25,6 +26,7 @@ import com.yzq.zxinglibrary.common.Constant;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.io.UTFDataFormatException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +44,12 @@ public class NewCode_PatrolCheckListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newcode_activity_patrol_check_list);
         initView();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         initData();
     }
 
@@ -58,7 +66,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
             public void onSuccess(Response<BaseBean<ArrayList<ZiChansBean>>> response, BaseBean<ArrayList<ZiChansBean>> message) {
                 if (message.code == 0) {
                     if (message.data.size() >= 0) {
-                        madapter.mData=message.data;
+                        madapter.mData = message.data;
                         madapter.notifyDataSetChanged();
                     }
                 }
@@ -125,12 +133,31 @@ public class NewCode_PatrolCheckListActivity extends Activity {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
                 convertView = inflater.inflate(R.layout.new_item_inventory_record, null);
-
-
+                util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
+                util.iv_erweima = convertView.findViewById(R.id.iv_erweima);
+                util.tv_zichanbianhao=convertView.findViewById(R.id.tv_zichanbianhao);
+                util.tv_zichanmingcheng=convertView.findViewById(R.id.tv_zichanmingcheng);
+                util.tv_shiyongbumen=convertView.findViewById(R.id.tv_shiyongbumen);
+                util.tv_guanlibumen=convertView.findViewById(R.id.tv_guanlibumen);
+                util.tv_cunfangdizhi=convertView.findViewById(R.id.tv_cunfangdizhi);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
             }
+            ZiChansBean bean = mData.get(position);
+            util.tv_epcid.setText(bean.epcid);
+            util.tv_zichanbianhao.setText(bean.zc_codenum);
+            util.iv_erweima.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    toSaomao();
+                }
+            });
+            util.tv_zichanmingcheng.setText(bean.zc_name);
+            util.tv_shiyongbumen.setText(bean.syDeptName);
+            util.tv_guanlibumen.setText(bean.glDeptName);
+            util.tv_cunfangdizhi.setText(bean.store_address);
 
 
             return convertView;
@@ -138,7 +165,13 @@ public class NewCode_PatrolCheckListActivity extends Activity {
 
 
         class Util {
-
+            public TextView tv_epcid;
+            public View iv_erweima;
+            public TextView tv_zichanbianhao;
+            public TextView tv_zichanmingcheng;
+            public TextView tv_shiyongbumen;
+            public TextView tv_guanlibumen;
+            public TextView tv_cunfangdizhi;
 
         }
     }

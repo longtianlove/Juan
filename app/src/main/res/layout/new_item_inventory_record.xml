@@ -29,6 +29,7 @@
                     android:text="@string/assetTraceCodeText" />
 
                 <TextView
+                    android:id="@+id/tv_epcid"
                     style="@style/itemEndTV"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_10"
@@ -44,6 +45,7 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/iv_erweima"
                     android:layout_width="@dimen/margin_40"
                     android:layout_height="@dimen/margin_40"
                     android:src="@mipmap/home_tab_trace_code_white" />
@@ -74,6 +76,7 @@
                     android:text="@string/assetsNumber" />
 
                 <TextView
+                    android:id="@+id/tv_zichanbianhao"
                     style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -95,6 +98,7 @@
                     android:text="@string/assetsNameText" />
 
                 <TextView
+                    android:id="@+id/tv_zichanmingcheng"
                     style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -121,6 +125,7 @@
                     android:text="@string/useDepartment" />
 
                 <TextView
+                    android:id="@+id/tv_shiyongbumen"
                     style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -141,6 +146,7 @@
                     android:text="@string/adminDepartmentText" />
 
                 <TextView
+                    android:id="@+id/tv_guanlibumen"
                     style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -161,6 +167,7 @@
                 android:text="@string/storageAddress" />
 
             <TextView
+                android:id="@+id/tv_cunfangdizhi"
                 style="@style/itemEndTV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
