@@ -17,7 +17,7 @@ import retrofit2.Response;
  * Created by long on 17/4/7.
  */
 @SuppressLint("WrongConstant")
-public abstract class JuanCallback<T extends BaseBean> implements Callback<T> {
+public abstract class JuanCallback<T> implements Callback<T> {
     @Override
     public void onResponse(Call<T> call, Response<T> response) {
         if (response.code() >= 200 && response.code() < 300) {

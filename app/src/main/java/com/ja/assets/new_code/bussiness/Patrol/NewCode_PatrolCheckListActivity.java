@@ -63,7 +63,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
                 finish();
             }
         });
-        iv_saoyisiao=findViewById(R.id.iv_saoyisiao);
+        iv_saoyisiao = findViewById(R.id.iv_saoyisiao);
         iv_saoyisiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +109,10 @@ public class NewCode_PatrolCheckListActivity extends Activity {
             return;
         }
         if (requestCode == requestBackCode && resultCode == RESULT_OK) {
-            String resultUrl = data.getStringExtra(Constant.CODED_CONTENT);
+            String epcid = data.getStringExtra(Constant.CODED_CONTENT);
+            Intent intent = new Intent(NewCode_PatrolCheckListActivity.this, NewCode_PatrolCheckDetailActivity.class);
+            intent.putExtra("epcid", epcid);
+            startActivity(intent);
 
         }
     }

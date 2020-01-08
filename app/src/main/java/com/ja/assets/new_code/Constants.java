@@ -16,6 +16,9 @@ public class Constants {
         public class Patrol {
             public static final String PatrolCheckList = "xunjian/list";
         }
+
+
+       public static final String UploadImage="files";
     }
 
 
