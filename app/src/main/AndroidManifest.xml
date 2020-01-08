@@ -57,6 +57,13 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute"
         tools:replace="android:icon">
 
+
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+
+
         <activity android:name=".ui.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -100,8 +107,21 @@
             android:name=".ui.activity.patrol.PatrolCheckDetailActivity"
             android:label="@string/patrolCheckDetail" />
         <activity
+            android:name="com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/patrolCheckDetail" >
+
+        </activity>
+
+        <activity
             android:name=".ui.activity.patrol.PatrolCheckListActivity"
             android:label="@string/patrolCheckList" />
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/patrolCheckList">
+
+        </activity>
         <activity
             android:name=".ui.activity.patrol.PatrolCheckRecordActivity"
             android:label="@string/patrolCheckRecord" />

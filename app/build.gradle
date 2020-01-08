@@ -5,24 +5,50 @@ apply plugin: 'kotlin-kapt'
 
 
 android {
+
+    signingConfigs {
+        release_sign_config {
+            keyAlias 'android.keystore'
+            keyPassword '123456'
+            storeFile file('android.keystore')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.ja.assets"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+        multiDexEnabled true
     }
+
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            applicationIdSuffix = kotlin_version
+//            applicationIdSuffix = kotlin_version
             versionNameSuffix = kotlin_version
+            signingConfig signingConfigs.release_sign_config
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            applicationIdSuffix = kotlin_version
+            versionNameSuffix = kotlin_version
+            signingConfig signingConfigs.release_sign_config
         }
     }
+
+
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
@@ -87,5 +113,18 @@ dependencies {
 
     implementation project(':multi-image-selector')
     implementation project(':zxinglibrary')
+
+
+
+    implementation 'org.ligboy.retrofit2:converter-fastjson:2.1.0'
+
+
+    implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+
+    implementation 'com.facebook.fresco:fresco:0.12.0'
+    // 引入multidex库
+    implementation 'com.android.support:multidex:1.0.3'
+
 
 }
