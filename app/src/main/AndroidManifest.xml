@@ -135,6 +135,12 @@
 
         </activity>
         <activity
+            android:name="com.ja.assets.new_code.bussiness.Patrol.Jilu_Code_PatrolCheckListActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/patrolCheckList">
+
+        </activity>
+        <activity
             android:name=".ui.activity.patrol.PatrolCheckRecordActivity"
             android:label="@string/patrolCheckRecord" />
         <activity

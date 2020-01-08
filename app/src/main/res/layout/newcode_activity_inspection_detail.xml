@@ -30,7 +30,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="巡检详情"
+            android:text="填写巡检信息"
             android:textColor="#fff"
             android:textSize="18sp" />
 
