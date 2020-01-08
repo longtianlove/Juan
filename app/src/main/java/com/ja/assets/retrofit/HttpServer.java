@@ -32,5 +32,20 @@ public class HttpServer implements ApiSupport {
         }, context));
     }
 
+    public void getAllBranchDeptList(String token) {
+        execute(getApi().getAllBranchDeptList(token), new ProgressSubscriber<>(resultResponse -> {
+            if (resultResponse.isSuccess()) {
+                showUserView.toMainActivity(2, resultResponse.getData());
+            }
+        }, context));
+    }
+
+    public void getAllManagerDeptList(String token) {
+        execute(getApi().getAllManagerDeptList(token), new ProgressSubscriber<>(resultResponse -> {
+            if (resultResponse.isSuccess()) {
+                showUserView.toMainActivity(3, resultResponse.getData());
+            }
+        }, context));
+    }
 
 }

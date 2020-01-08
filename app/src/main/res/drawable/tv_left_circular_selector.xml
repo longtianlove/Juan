@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:dither="true" android:shape="rectangle">
+            <!--颜色-->
+            <solid android:color="@color/main_background_color" />
+            <!--圆角-->
+            <corners android:bottomLeftRadius="@dimen/margin_5" />
+            <!--描边-->
+            <stroke android:width="@dimen/margin_1" android:color="@color/main_background_color" />
+        </shape>
+    </item>
+    <item>
+        <shape android:dither="true" android:shape="rectangle">
+            <!--颜色-->
+            <solid android:color="@color/main_background_color" />
+            <!--圆角-->
+            <corners android:bottomLeftRadius="@dimen/margin_5" />
+            <!--描边-->
+            <stroke android:width="@dimen/margin_1" android:color="@color/main_background_color" />
+        </shape>
+    </item>
+</selector>
