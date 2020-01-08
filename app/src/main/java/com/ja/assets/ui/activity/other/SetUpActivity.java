@@ -13,6 +13,7 @@ import com.ja.assets.utils.ToastUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class SetUpActivity extends BaseJavaActivity {
+
 //    private ActivitySetUpBinding setUpBinding;
 
 //    @Override

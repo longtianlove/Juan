@@ -53,10 +53,10 @@ public class HomePageList {
             //管理部门特有
             homePageList.add(new HomePage01(8, R.mipmap.home_icon_diaopeishenqing, "调配申请"));
             homePageList.add(new HomePage01(9, R.mipmap.home_icon_caigoushenhe, "调配记录"));
-            homePageList.add(new HomePage01(10, R.mipmap.home_icon_pandiandanchuangjian, "盘点单创建"));
-            homePageList.add(new HomePage01(11, R.mipmap.home_icon_pandianjilu, "盘点记录"));
-            homePageList.add(new HomePage01(12, R.mipmap.home_icon_xunjiankiebiao, "巡检列表"));
-            homePageList.add(new HomePage01(13, R.mipmap.home_icon_xunjianjilu, "巡检记录"));
+            homePageList.add(new HomePage01(6, R.mipmap.home_icon_pandiandanchuangjian, "盘点单创建"));
+            homePageList.add(new HomePage01(7, R.mipmap.home_icon_pandianjilu, "盘点记录"));
+            homePageList.add(new HomePage01(10, R.mipmap.home_icon_xunjiankiebiao, "巡检列表"));
+            homePageList.add(new HomePage01(11, R.mipmap.home_icon_xunjianjilu, "巡检记录"));
         }
         return homePageList;
     }
