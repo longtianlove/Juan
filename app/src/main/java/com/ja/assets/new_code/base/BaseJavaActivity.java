@@ -11,6 +11,7 @@ import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
  */
 public class BaseJavaActivity extends Activity {
     private static String TAG = "BaseJavaActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

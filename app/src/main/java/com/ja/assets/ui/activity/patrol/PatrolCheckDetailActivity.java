@@ -1,6 +1,8 @@
 package com.ja.assets.ui.activity.patrol;
 
 
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 public class PatrolCheckDetailActivity extends BaseJavaActivity {
 //
 //

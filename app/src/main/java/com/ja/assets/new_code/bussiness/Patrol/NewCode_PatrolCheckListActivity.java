@@ -10,12 +10,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.ja.assets.R;
+
 import com.ja.assets.new_code.base.BaseBean;
+
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.WithScrolleViewListView;
+
 import com.ja.assets.utils.ACacheUtil;
+
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.common.Constant;
 

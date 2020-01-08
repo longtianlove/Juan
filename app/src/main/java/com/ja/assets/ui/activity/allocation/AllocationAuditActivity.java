@@ -1,5 +1,8 @@
 package com.ja.assets.ui.activity.allocation;
 
+
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 public class AllocationAuditActivity extends BaseJavaActivity {
 
 //    @Override

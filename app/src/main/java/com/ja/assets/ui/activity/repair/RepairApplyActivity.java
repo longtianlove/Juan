@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import com.ja.assets.R;
 import com.ja.assets.model.UserInfo;
+
+import com.ja.assets.new_code.base.BaseJavaActivity;
 import com.ja.assets.utils.ACacheUtil;
 import com.ja.assets.utils.ToastUtil;
 
@@ -27,7 +29,6 @@ public class RepairApplyActivity extends BaseJavaActivity {
 
         String username = ToastUtil.getString(R.string.address);
 
-        toast("你好");
 
         ToastUtil.toast("你好");
 

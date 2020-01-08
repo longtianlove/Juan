@@ -6,6 +6,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
 
+
     signingConfigs {
         release_sign_config {
 //            keyAlias 'android.keystore'
@@ -14,6 +15,7 @@ android {
 //            storePassword '123456'
         }
     }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -35,16 +37,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            applicationIdSuffix = kotlin_version
             versionNameSuffix = kotlin_version
-//            signingConfig signingConfigs.release_sign_config
+
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            applicationIdSuffix = kotlin_version
             versionNameSuffix = kotlin_version
-//            signingConfig signingConfigs.release_sign_config
+
         }
     }
 
@@ -119,9 +119,9 @@ dependencies {
     implementation 'org.ligboy.retrofit2:converter-fastjson:2.1.0'
 
 
-    implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
-    implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
-
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.1' //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+//
     implementation 'com.facebook.fresco:fresco:0.12.0'
     // 引入multidex库
     implementation 'com.android.support:multidex:1.0.3'

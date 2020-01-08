@@ -1,6 +1,8 @@
 package com.ja.assets.ui.activity.allocation;
 
 
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 public class AllocationApplyActivity extends BaseJavaActivity {
 //    private AllocationApplyAdapter allocationApplyAdapter;
 //    private List<AllocationApply> allocationApplyList;

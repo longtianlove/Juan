@@ -1,5 +1,8 @@
 package com.ja.assets.ui.activity.other;
 
+
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 public class SetUpActivity extends BaseJavaActivity {
 
 //    private ActivitySetUpBinding setUpBinding;

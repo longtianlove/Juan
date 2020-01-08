@@ -1,5 +1,8 @@
 package com.ja.assets.ui.activity.patrol;
 
+
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 public class PatrolCheckListActivity extends BaseJavaActivity {
 //    private ActivityPatrolCheckListBinding patrolCheckListBinding;
 //    private InspectionAdapter inspectionAdapter;

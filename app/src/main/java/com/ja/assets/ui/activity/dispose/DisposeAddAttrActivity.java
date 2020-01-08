@@ -3,6 +3,8 @@ package com.ja.assets.ui.activity.dispose;
 import android.os.Bundle;
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 
 import org.jetbrains.annotations.Nullable;
 

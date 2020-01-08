@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+
+import com.fixed.u8.ui.base.BaseFragment;
 //import android.support.v4.app.Fragment;
 
 

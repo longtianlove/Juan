@@ -10,6 +10,7 @@ import android.view.View
 import com.ja.assets.MainActivity
 import com.ja.assets.R
 import com.ja.assets.databinding.ActivityLoginBinding
+import com.ja.assets.listener.HandlerClickListener
 import com.ja.assets.model.LoginInfo
 import com.ja.assets.model.ResultResponse
 import com.ja.assets.model.UserInfo
@@ -22,14 +23,16 @@ import kotlinx.android.synthetic.main.common_title.*
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class LoginActivity : BaseActivity() {
+class LoginActivity : BaseActivity() ,HandlerClickListener{
+
+
     private var loginBinding: ActivityLoginBinding? = null
     private var account: String? = null
     private var password: String? = null
     override fun getLayoutId(): Int = R.layout.activity_login
     override fun initView() {
         loginBinding = viewDataBinding as ActivityLoginBinding
-        loginBinding?.handlerClick = this
+        loginBinding?.click = this
         commonLeftLinearLayout.visibility = View.GONE
         titleCenterText.text = getString(R.string.Login)
     }
@@ -65,7 +68,8 @@ class LoginActivity : BaseActivity() {
         }
     }
 
-    fun loginHandleClick(view: View) {
+
+    override fun handlerClick(view: View) {
         when (view.id) {
             R.id.deletePassword -> {
                 loginAccount.setText("")

@@ -1,5 +1,8 @@
 package com.ja.assets.ui.activity.patrol;
 
+
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 public class PatrolCheckRecordActivity extends BaseJavaActivity {
 
 //    @Override

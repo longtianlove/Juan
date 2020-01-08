@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseJavaActivity;
 
+
 /**
  * Created by dragon on 2019/6/28.
  */

@@ -1,6 +1,8 @@
 package com.ja.assets.ui.activity.patrol;
 
 
+import com.ja.assets.new_code.base.BaseJavaActivity;
+
 public class PatrolCheckActivity extends BaseJavaActivity {
 //    private var patrolCheckBinding: ActivityPatorlCheckBinding? = null
 //    private var patrolCheckAdapter: PatrolCheckAdapter? = null
