@@ -29,12 +29,12 @@ import com.ja.assets.ui.activity.dispose.DisposeAddAttrActivity;
 import com.ja.assets.ui.activity.purchase.PurchaseApplyActivity;
 import com.ja.assets.utils.ACacheUtil;
 import com.ja.assets.utils.HomePageList;
+import com.ja.assets.utils.PieChartUtil;
 import com.ja.assets.utils.ToastUtil;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.net.HttpCookie;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -60,7 +60,6 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
     protected void initDataView() {
         homeBinding = (FragmentHomeLayoutBinding) getFragmentDataBinding();
         initAdapter();
-        initView();
         getData();
     }
 
@@ -123,7 +122,7 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
             case 0:
                 homeIndexCount = (HomeIndexCount) data;
                 homeBinding.setHomeIndexCountBean(homeIndexCount);
-                new HttpServer(this, mainActivity).getAllWailDealList(ACacheUtil.getToken());
+                initView();
                 break;
             case 1:
                 List<DeptBean> details = (List<DeptBean>) data;
@@ -132,6 +131,7 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                     homeBinding.readyToDoNewsCheckAcceptTV.setText(R.string.readyNoNewsCheckAccept);
                 } else {
                     homeBinding.homeMsgToastTV.setVisibility(View.VISIBLE);
+                    homeBinding.homeMsgToastTV.setText(String.valueOf(details.size()));
                     homeBinding.readyToDoNewsCheckAcceptTV.setText("您有" + details.size() + "条待办消息，请查收~");
                 }
                 break;
@@ -143,70 +143,19 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
 
     private void getData() {
         new HttpServer(this, mainActivity).getZcValueAndZcNumber(ACacheUtil.getToken());
+        new HttpServer(this, mainActivity).getAllWailDealList(ACacheUtil.getToken());
     }
+
     private void initView() {
+        HashMap<String, Float> dataMap = new HashMap();
+        dataMap.put(ToastUtil.getString(R.string.AdminDepartment02), (float) homeIndexCount.getZhbZcCount());
+        dataMap.put(ToastUtil.getString(R.string.AdminDepartment04), (float) homeIndexCount.getYybZcCount());
+        dataMap.put(ToastUtil.getString(R.string.AdminDepartment03), (float) homeIndexCount.getKjbZcCount());
+        dataMap.put(ToastUtil.getString(R.string.AdminDepartment05), (float) homeIndexCount.getBwbZcCount());
 
-        homeBinding.homeChat1.setUsePercentValues(true);
-        homeBinding.homeChat1.getDescription().setEnabled(false);
-        homeBinding.homeChat1.setExtraOffsets(5f, 10f, 5f, 5f);
-        homeBinding.homeChat1.setDragDecelerationFrictionCoef(0.95f);
-        homeBinding.homeChat1.setCenterText(generateCenterSpannableText());
-        homeBinding.homeChat1.setDrawHoleEnabled(true);
-        homeBinding.homeChat1.setHoleColor(Color.WHITE);
-        homeBinding.homeChat1.setTransparentCircleColor(Color.WHITE);
-        homeBinding.homeChat1.setTransparentCircleAlpha(110);
-        homeBinding.homeChat1.setHoleRadius(58f);
-        homeBinding.homeChat1.setTransparentCircleRadius(61f);
-        homeBinding.homeChat1.setDrawCenterText(true);
-        homeBinding.homeChat1.setRotationAngle(0f);
-        homeBinding.homeChat1.setRotationEnabled(true);
-        homeBinding.homeChat1.setHighlightPerTapEnabled(true);
-        homeBinding.homeChat1.setDrawEntryLabels(false);
 
-        Legend legend = homeBinding.homeChat1.getLegend();
-        legend.setEnabled(false);
-        homeBinding.homeChat1.setEntryLabelColor(Color.WHITE);
-        homeBinding.homeChat1.setEntryLabelTextSize(12f);
-        setData();
-    }
 
-    private void setData() {
-
-        ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(146 / 274));
-        entries.add(new PieEntry(76 / 274));
-        entries.add(new PieEntry(28 / 274));
-        entries.add(new PieEntry(24 / 274));
-        PieDataSet dataSet = new PieDataSet(entries, "");
-
-        dataSet.setDrawIcons(false);
-
-        //设置饼状图Item之间的间隙
-        dataSet.setSliceSpace(3f);
-        //饼图Item被选中时变化的距离
-        dataSet.setSelectionShift(10f);
-        ArrayList<Integer> colors = new ArrayList<>();
-        colors.add(Color.rgb(71, 173, 247));
-        colors.add(Color.rgb(39, 229, 153));
-        colors.add(Color.rgb(93, 112, 146));
-        colors.add(Color.rgb(255, 191, 0));
-        dataSet.setColors(colors);
-        PieData data = new PieData(dataSet);
-
-        data.setDrawValues(true);
-        data.setValueFormatter(new PercentFormatter());
-
-        data.setValueTextSize(11f);
-        data.setValueTextColor(Color.WHITE);
-        homeBinding.homeChat1.setData(data);
-        homeBinding.homeChat1.highlightValues(null);
-        homeBinding.homeChat1.invalidate();
-    }
-
-    private SpannableString generateCenterSpannableText() {
-        SpannableString s = new SpannableString("管理部门\n资产数量");
-        s.setSpan(new RelativeSizeSpan(0.7f), 0, 8, 0);
-        return s;
+        PieChartUtil.getPitChart().setPieChart(homeBinding.homeChat1, dataMap, "管理部门\n资产数量", false);
     }
 
 

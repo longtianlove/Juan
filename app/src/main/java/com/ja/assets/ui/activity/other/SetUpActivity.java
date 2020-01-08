@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 public class SetUpActivity extends BaseJavaActivity {
 
 //    private ActivitySetUpBinding setUpBinding;
-
+//
 //    @Override
 //    protected int getLayoutId() {
 //        return R.layout.activity_set_up;

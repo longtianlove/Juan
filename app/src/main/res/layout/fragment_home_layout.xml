@@ -407,7 +407,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@{String.valueOf(homeIndexCountBean.zhbZcCount)}"
-                                    android:textColor="@color/depColor01"
+                                    android:textColor="@color/depColor04"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -461,7 +461,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@{String.valueOf(homeIndexCountBean.yybZcCount)}"
-                                    android:textColor="@color/depColor03"
+                                    android:textColor="@color/depColor01"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -485,7 +485,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@{String.valueOf(homeIndexCountBean.bwbZcCount)}"
-                                    android:textColor="@color/depColor04"
+                                    android:textColor="@color/depColor03"
                                     android:textStyle="bold" />
 
                                 <TextView
