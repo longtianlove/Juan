@@ -13,10 +13,12 @@ import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.utils.ACacheUtil;
+import com.ja.assets.utils.LuBanImgUtils;
 import com.ja.assets.utils.PhotoUtils;
 import com.ja.assets.utils.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
@@ -89,9 +91,17 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
         }
         switch (requestCode) {
             case 0:
+
                 List<String> photoList1 = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
                 GlideImgUtils.loadImage(this, photoList1.get(0), R.mipmap.add_img, findViewById(R.id.lossReportImg));
-                uploadImage(photoList1.get(0));
+                LuBanImgUtils luBanImgUtils=new LuBanImgUtils(NewCode_PatrolCheckDetailActivity.this,photoList1.get(0));
+                luBanImgUtils.setListener(new LuBanImgUtils.ImgListener() {
+                    @Override
+                    public void handleResult(@NotNull File file) {
+                        uploadImage(file.getPath());
+                    }
+                });
+
                 break;
         }
     }
