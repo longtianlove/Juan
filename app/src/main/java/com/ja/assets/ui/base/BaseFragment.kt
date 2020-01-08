@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.ja.assets.retrofit.ApiSupport
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
@@ -14,7 +15,7 @@ import kotlinx.coroutines.MainScope
  * Created by Administrator on 2017/5/17 0017.
  */
 
-abstract class BaseFragment : Fragment(),  CoroutineScope by MainScope() {
+abstract class BaseFragment : Fragment(), ApiSupport, CoroutineScope by MainScope() {
 
 
     var fragmentDataBinding: ViewDataBinding? = null

@@ -2,6 +2,7 @@ package com.ja.assets.retrofit
 
 import com.ja.assets.model.*
 import retrofit2.http.*
+import rx.Observable
 
 
 /**
@@ -29,7 +30,15 @@ interface ApiDynamic {
      * 获取首页资产净值和资产数量
      */
     @POST("/api/getZcValueAndZcNumber")
-    suspend fun getZcValueAndZcNumber(@Header("token") token: String): ResultResponse<HomeIndexCount>
+    fun getZcValueAndZcNumber(@Header("token") token: String): Observable<ResultResponse<HomeIndexCount>>
+
+
+    /**
+     * 获取所有的待办事项列表
+     */
+    @POST("/api/getAllWailDealList")
+    fun getAllWailDealList(@Header("token") token: String): Observable<ResultResponse<MutableList<DeptBean>>>
+
 
     /**
      * 获取所有的部门和支行
@@ -44,9 +53,4 @@ interface ApiDynamic {
     @POST("/api/getAllManagerDeptList")
     suspend fun getAllManagerDeptList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
 
-    /**
-     * 获取所有的待办事项列表
-     */
-    @POST("/api/getAllWailDealList")
-    suspend fun getAllWailDealList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
 }
