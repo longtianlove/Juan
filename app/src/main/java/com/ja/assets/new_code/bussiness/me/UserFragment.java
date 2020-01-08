@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import org.jetbrains.annotations.NotNull;
 public class UserFragment extends BaseJavaFragment {
 
     SimpleDraweeView sdv_header;
+    private TextView tv_nickname;
+    private TextView tv_bumen;
 
     private View ll_xiugaimima;
 
@@ -42,6 +45,14 @@ public class UserFragment extends BaseJavaFragment {
     void initView(View rootView) {
         sdv_header = rootView.findViewById(R.id.sdv_header);
         sdv_header.setImageDrawable(getContext().getDrawable(R.drawable.icon_person_default));
+
+        tv_nickname=rootView.findViewById(R.id.tv_nickname);
+        String nickname=ACacheUtil.getUserInfo().getNickname();
+        tv_nickname.setText(nickname);
+
+        tv_bumen=rootView.findViewById(R.id.tv_bumen);
+        String bumen=ACacheUtil.getUserInfo().getNickname();
+        tv_bumen.setText("隶属于："+bumen);
 
         ll_xiugaimima = rootView.findViewById(R.id.ll_xiugaimima);
         ll_xiugaimima.setOnClickListener(new View.OnClickListener() {

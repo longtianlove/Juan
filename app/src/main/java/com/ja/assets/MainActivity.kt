@@ -8,8 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentTransaction
 import com.ja.assets.databinding.ActivityMainBinding
+import com.ja.assets.new_code.bussiness.me.UserFragment
 import com.ja.assets.ui.activity.main.HomeFragment
-import com.ja.assets.ui.activity.main.UserFragment
+
 import com.ja.assets.ui.activity.other.SweepCodeActivity
 import com.ja.assets.ui.base.BaseActivity
 
