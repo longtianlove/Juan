@@ -4,8 +4,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/common_title" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="10dp">
 
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="巡检列表"
+            android:textColor="#ff333333"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+
+
+    <com.ja.assets.new_code.view.WithListViewScrollView
+        android:id="@+id/scl_bag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,7 +57,7 @@
                 android:layout_marginBottom="15dp"
                 android:background="#fff"
                 android:divider="#EEEEEE"
-                android:dividerHeight="1dp"
+                android:dividerHeight="5dp"
                 android:footerDividersEnabled="false"
                 android:headerDividersEnabled="false"
                 android:listSelector="@android:color/transparent"
@@ -33,6 +68,7 @@
 
 
     </LinearLayout>
+    </com.ja.assets.new_code.view.WithListViewScrollView>
 
 </LinearLayout>
 

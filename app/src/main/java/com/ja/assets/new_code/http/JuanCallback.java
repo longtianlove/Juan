@@ -22,7 +22,8 @@ public abstract class JuanCallback<T extends BaseBean> implements Callback<T> {
     public void onResponse(Call<T> call, Response<T> response) {
         if (response.code() >= 200 && response.code() < 300) {
             T message = response.body();
-
+            onSuccess(response, message);
+            return;
         }
 
         ToastUtil.showTost("网络错误");

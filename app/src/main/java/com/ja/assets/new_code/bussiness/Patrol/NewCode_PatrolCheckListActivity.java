@@ -35,7 +35,7 @@ import retrofit2.Response;
 
 public class NewCode_PatrolCheckListActivity extends Activity {
 
-
+    public View iv_back;
     WithScrolleViewListView lv_zichans;
     ZiChansAdapter madapter;
 
@@ -54,6 +54,14 @@ public class NewCode_PatrolCheckListActivity extends Activity {
     }
 
     void initView() {
+        iv_back = findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         lv_zichans = findViewById(R.id.lv_zichans);
         madapter = new ZiChansAdapter(this);
         lv_zichans.setAdapter(madapter);
@@ -135,11 +143,11 @@ public class NewCode_PatrolCheckListActivity extends Activity {
                 convertView = inflater.inflate(R.layout.new_item_inventory_record, null);
                 util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
                 util.iv_erweima = convertView.findViewById(R.id.iv_erweima);
-                util.tv_zichanbianhao=convertView.findViewById(R.id.tv_zichanbianhao);
-                util.tv_zichanmingcheng=convertView.findViewById(R.id.tv_zichanmingcheng);
-                util.tv_shiyongbumen=convertView.findViewById(R.id.tv_shiyongbumen);
-                util.tv_guanlibumen=convertView.findViewById(R.id.tv_guanlibumen);
-                util.tv_cunfangdizhi=convertView.findViewById(R.id.tv_cunfangdizhi);
+                util.tv_zichanbianhao = convertView.findViewById(R.id.tv_zichanbianhao);
+                util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
+                util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
+                util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
+                util.tv_cunfangdizhi = convertView.findViewById(R.id.tv_cunfangdizhi);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();

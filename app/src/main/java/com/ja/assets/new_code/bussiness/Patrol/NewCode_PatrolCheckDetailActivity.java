@@ -19,6 +19,7 @@ import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 public class NewCode_PatrolCheckDetailActivity extends Activity {
 
     View ll_tijiaotupian;
+View iv_back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +29,14 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
     }
 
     void initView() {
+        iv_back=findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         ll_tijiaotupian = findViewById(R.id.ll_tijiaotupian);
         ll_tijiaotupian.setOnClickListener(new View.OnClickListener() {
             @Override
