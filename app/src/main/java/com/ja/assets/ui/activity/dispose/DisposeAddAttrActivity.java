@@ -1,23 +1,11 @@
 package com.ja.assets.ui.activity.dispose;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.ja.assets.R;
-import com.ja.assets.databinding.ActivityDisposeAddAttrBinding;
-import com.ja.assets.glide.GlideImgUtils;
-import com.ja.assets.listener.HandlerClickListener;
-import com.ja.assets.ui.base.BaseActivity;
-import com.ja.assets.ui.base.BaseJavaActivity;
-import com.ja.assets.utils.PhotoUtils;
+import com.ja.assets.new_code.base.BaseJavaActivity;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
-
-import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
 public class DisposeAddAttrActivity extends BaseJavaActivity {
     @Override

@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+
+import com.fixed.u8.ui.base.BaseFragment;
 //import android.support.v4.app.Fragment;
 
 
 /**
  * Created by dragon on 2019/6/27.
  */
-public class BaseFragment extends Fragment {
+public class BaseJavaFragment extends Fragment {
 
     protected Activity mActivity;
 

@@ -3,9 +3,7 @@ package com.ja.assets.ui.activity.repair;
 import android.os.Bundle;
 
 import com.ja.assets.R;
-import com.ja.assets.databinding.ActivityRepairInfoBinding;
-import com.ja.assets.ui.base.BaseActivity;
-import com.ja.assets.ui.base.BaseJavaActivity;
+import com.ja.assets.new_code.base.BaseJavaActivity;
 
 import org.jetbrains.annotations.Nullable;
 

@@ -1,16 +1,7 @@
 package com.ja.assets.ui.activity.allocation;
 
 
-import com.fixed.u8.animation.RecyclerViewUtilKt;
-import com.ja.assets.R;
-import com.ja.assets.adapter.AllocationApplyAdapter;
-import com.ja.assets.databinding.ActivityAllocationApplyBinding;
-import com.ja.assets.model.AllocationApply;
-import com.ja.assets.ui.base.BaseActivity;
-import com.ja.assets.ui.base.BaseJavaActivity;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.ja.assets.new_code.base.BaseJavaActivity;
 
 public class AllocationApplyActivity extends BaseJavaActivity {
 //    private AllocationApplyAdapter allocationApplyAdapter;

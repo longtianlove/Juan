@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 
 import com.ja.assets.R;
-import com.ja.assets.new_code.base.BaseActivity;
+import com.ja.assets.new_code.base.BaseJavaActivity;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -23,7 +23,7 @@ import retrofit2.Response;
  * Created by dragon on 2019/6/28.
  */
 
-public class UpdatePasswordFirstActivity extends BaseActivity {
+public class UpdatePasswordFirstActivity extends BaseJavaActivity {
     View iv_back;
     EditText et_password;
     ImageView iv_password_yincang;

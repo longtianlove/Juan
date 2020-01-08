@@ -3,14 +3,17 @@ package com.ja.assets
 import android.content.Intent
 import android.view.KeyEvent
 import android.view.View
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentTransaction
 import com.ja.assets.databinding.ActivityMainBinding
-import com.ja.assets.new_code.bussiness.me.UserFragment
 import com.ja.assets.ui.activity.main.HomeFragment
+import com.ja.assets.ui.activity.main.UserFragment
 import com.ja.assets.ui.activity.other.SweepCodeActivity
-
 import com.ja.assets.ui.base.BaseActivity
+
+
 import com.ja.assets.utils.ToastUtil
 import com.yzq.zxinglibrary.android.CaptureActivity
 import com.yzq.zxinglibrary.common.Constant

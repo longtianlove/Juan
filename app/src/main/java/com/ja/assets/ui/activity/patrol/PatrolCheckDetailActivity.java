@@ -1,15 +1,7 @@
 package com.ja.assets.ui.activity.patrol;
 
-import android.view.View;
 
-import com.ja.assets.R;
-import com.ja.assets.databinding.ActivityInspectionDetailBinding;
-import com.ja.assets.listener.HandlerClickListener;
-import com.ja.assets.ui.base.BaseActivity;
-import com.ja.assets.ui.base.BaseJavaActivity;
-
-import org.jetbrains.annotations.NotNull;
-
+import com.ja.assets.new_code.base.BaseJavaActivity;
 
 public class PatrolCheckDetailActivity extends BaseJavaActivity {
 //

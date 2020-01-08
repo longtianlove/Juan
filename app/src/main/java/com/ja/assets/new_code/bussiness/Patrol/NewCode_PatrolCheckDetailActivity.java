@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.ja.assets.R;
 import com.ja.assets.glide.GlideImgUtils;
-import com.ja.assets.ui.base.BaseJavaActivity;
 import com.ja.assets.utils.PhotoUtils;
 
 import org.jetbrains.annotations.Nullable;

@@ -3,21 +3,15 @@ package com.ja.assets.new_code.bussiness.Patrol;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
-
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.ja.assets.R;
-import com.ja.assets.new_code.base.BaseActivity;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 import com.ja.assets.new_code.view.WithScrolleViewListView;
-import com.ja.assets.ui.base.BaseJavaActivity;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.common.Constant;
 
