@@ -28,7 +28,7 @@ public class UserFragment extends BaseFragment {
 
     SimpleDraweeView sdv_header;
 
-
+    private View ll_xiugaimima;
 
     private View ll_kefurexian;
 
@@ -41,27 +41,31 @@ public class UserFragment extends BaseFragment {
         return rootView;
     }
 
-void initView(View rootView){
-    sdv_header=rootView.findViewById(R.id.sdv_header);
-    sdv_header.setImageDrawable(getContext().getDrawable(R.drawable.icon_person_default));
+    void initView(View rootView) {
+        sdv_header = rootView.findViewById(R.id.sdv_header);
+        sdv_header.setImageDrawable(getContext().getDrawable(R.drawable.icon_person_default));
 
+        ll_xiugaimima = rootView.findViewById(R.id.ll_xiugaimima);
+        ll_xiugaimima.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UpdatePasswordFirstActivity.class);
+                startActivity(intent);
+            }
+        });
 
-    ll_kefurexian=rootView.findViewById(R.id.ll_kefurexian);
-    ll_kefurexian.setOnClickListener(new View.OnClickListener(){
+        ll_kefurexian = rootView.findViewById(R.id.ll_kefurexian);
+        ll_kefurexian.setOnClickListener(new View.OnClickListener() {
 
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            Uri data = Uri.parse("tel:0359-2049830");
-            intent.setData(data);
-            startActivity(intent);
-        }
-    });
-}
-
-
-
-
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                Uri data = Uri.parse("tel:0359-2049830");
+                intent.setData(data);
+                startActivity(intent);
+            }
+        });
+    }
 
 
     public void handlerClick(@NotNull View view) {
