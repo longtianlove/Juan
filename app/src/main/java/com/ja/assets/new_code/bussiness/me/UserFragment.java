@@ -12,11 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.ja.assets.MainActivity;
 import com.ja.assets.R;
-import com.ja.assets.databinding.FragmentUserLayoutBinding;
-import com.ja.assets.listener.HandlerClickListener;
-import com.ja.assets.new_code.base.BaseFragment;
+import com.ja.assets.new_code.base.BaseJavaFragment;
 import com.ja.assets.ui.activity.login.LoginActivity;
 import com.ja.assets.utils.ACacheUtil;
 
@@ -24,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 ;
 
-public class UserFragment extends BaseFragment {
+public class UserFragment extends BaseJavaFragment {
 
     SimpleDraweeView sdv_header;
 

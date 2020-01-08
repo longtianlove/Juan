@@ -1,17 +1,5 @@
 package com.ja.assets.ui.activity.other;
 
-import android.view.View;
-import android.widget.TextView;
-
-import com.ja.assets.R;
-import com.ja.assets.databinding.ActivitySetUpBinding;
-import com.ja.assets.listener.HandlerClickListener;
-import com.ja.assets.ui.base.BaseActivity;
-import com.ja.assets.ui.base.BaseJavaActivity;
-import com.ja.assets.utils.ToastUtil;
-
-import org.jetbrains.annotations.NotNull;
-
 public class SetUpActivity extends BaseJavaActivity {
 
 //    private ActivitySetUpBinding setUpBinding;

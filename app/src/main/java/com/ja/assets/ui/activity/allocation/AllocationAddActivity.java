@@ -3,8 +3,6 @@ package com.ja.assets.ui.activity.allocation;
 import android.os.Bundle;
 
 import com.ja.assets.R;
-import com.ja.assets.ui.base.BaseActivity;
-import com.ja.assets.ui.base.BaseJavaActivity;
 
 import org.jetbrains.annotations.Nullable;
 

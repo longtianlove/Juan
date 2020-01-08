@@ -1,29 +1,23 @@
 package com.ja.assets.new_code.bussiness.me;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.ja.assets.R;
-import com.ja.assets.new_code.base.BaseActivity;
-
-import retrofit2.Call;
-import retrofit2.Response;
+import com.ja.assets.new_code.base.BaseJavaActivity;
 
 /**
  * Created by dragon on 2019/6/28.
  */
 
-public class UpdatePasswordFirstActivity extends BaseActivity {
+public class UpdatePasswordFirstActivity extends BaseJavaActivity {
     View iv_back;
     EditText et_password;
     ImageView iv_password_yincang;
@@ -60,7 +54,7 @@ public class UpdatePasswordFirstActivity extends BaseActivity {
 //                bean.userId = UserInstance.getInstance().getUid();
 //                bean.token = UserInstance.getInstance().getToken();
 //                bean.password = password;
-//                ApiUtils.getApiService().modifypasswrod(bean).enqueue(new TaiShengCallback<BaseBean>() {
+//                ApiUtils.getApiService().modifypasswrod(bean).enqueue(new JuanCallback<BaseBean>() {
 //                    @Override
 //                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
 //                        switch (message.code) {

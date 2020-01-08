@@ -9,8 +9,8 @@ import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 /**
  * Created by dragon on 2019/6/27.
  */
-public class BaseActivity extends Activity {
-    private static String TAG = "BaseActivity";
+public class BaseJavaActivity extends Activity {
+    private static String TAG = "BaseJavaActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

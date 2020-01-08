@@ -7,12 +7,7 @@ import java.io.Serializable;
  */
 
 public   class BaseBean<T> implements Serializable {
-    public boolean success;
-    public String message;
+    public String msg;
     public int code;
-    public long timestamp;
-    public T result;
-
-
-
+    public T data;
 }

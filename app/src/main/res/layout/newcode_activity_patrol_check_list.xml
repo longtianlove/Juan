@@ -16,7 +16,7 @@
 <!--                style="@style/recyclerViewStyle" />-->
 
 
-            <com.taisheng.now.view.WithScrolleViewListView
+            <com.ja.assets.new_code.view.WithScrolleViewListView
                 android:id="@+id/lv_zichans"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

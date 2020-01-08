@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 /**
  * Created by dragon on 2019/6/27.
  */
-public class BaseFragment extends Fragment {
+public class BaseJavaFragment extends Fragment {
 
     protected Activity mActivity;
 
@@ -23,7 +23,7 @@ public class BaseFragment extends Fragment {
 
 
 
-    private static final String TAG = BaseFragment.class.getSimpleName();
+    private static final String TAG = BaseJavaFragment.class.getSimpleName();
     //传递过来的参数Bundle，供子类使用
     protected Bundle args;
 

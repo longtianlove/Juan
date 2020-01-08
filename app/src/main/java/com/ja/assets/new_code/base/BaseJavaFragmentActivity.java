@@ -15,8 +15,8 @@ import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 /**
  * Created by Administrator on 2015/6/17.
  */
-public class BaseFragmentActivity extends FragmentActivity {
-    private static String TAG = "BaseFragmentActivity";
+public class BaseJavaFragmentActivity extends FragmentActivity {
+    private static String TAG = "BaseJavaFragmentActivity";
     private ViewGroup m_titleView;
 
     @Override

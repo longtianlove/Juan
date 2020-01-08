@@ -22,6 +22,7 @@ import com.ja.assets.R;
 import com.ja.assets.adapter.HomeAdapter;
 import com.ja.assets.databinding.FragmentHomeLayoutBinding;
 import com.ja.assets.model.*;
+import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
 import com.ja.assets.retrofit.HttpServer;
 import com.ja.assets.retrofit.RetrofitClient;
 import com.ja.assets.retrofit.ShowUserView;
@@ -70,13 +71,14 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
         homeAdapter = new HomeAdapter(mainActivity, R.layout.item_fragment_home_layout, homeList);
         recyclerViewUtilKt.setAdapter(homeAdapter);
         homeAdapter.setOnItemClickListener((adapter, view, position) -> {
+            Intent intent;
             switch (homeList.get(position).getPosition()) {
                 /**0-5是使用部门的功能**/
                 /**6-7是财务部门的功能**/
                 /**8-13是管理部门的功能**/
                 case 0:
                     //采购申请
-                    Intent intent = new Intent(mainActivity, PurchaseApplyActivity.class);
+                    intent = new Intent(mainActivity, PurchaseApplyActivity.class);
                     startActivity(intent);
                     break;
 
@@ -99,6 +101,8 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                 case 9:  //调配记录
                     break;
                 case 10: //巡检列表
+                    intent = new Intent(mainActivity, NewCode_PatrolCheckListActivity.class);
+                    startActivity(intent);
                     break;
                 case 11://巡检记录
                     break;

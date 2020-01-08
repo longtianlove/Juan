@@ -8,10 +8,10 @@ android {
 
     signingConfigs {
         release_sign_config {
-            keyAlias 'android.keystore'
-            keyPassword '123456'
-            storeFile file('android.keystore')
-            storePassword '123456'
+//            keyAlias 'android.keystore'
+//            keyPassword '123456'
+//            storeFile file('android.keystore')
+//            storePassword '123456'
         }
     }
     compileSdkVersion 29
@@ -37,14 +37,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 //            applicationIdSuffix = kotlin_version
             versionNameSuffix = kotlin_version
-            signingConfig signingConfigs.release_sign_config
+//            signingConfig signingConfigs.release_sign_config
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 //            applicationIdSuffix = kotlin_version
             versionNameSuffix = kotlin_version
-            signingConfig signingConfigs.release_sign_config
+//            signingConfig signingConfigs.release_sign_config
         }
     }
 

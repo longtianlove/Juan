@@ -1,16 +1,5 @@
 package com.ja.assets.ui.activity.patrol;
 
-import com.fixed.u8.animation.RecyclerViewUtilKt;
-import com.ja.assets.R;
-import com.ja.assets.adapter.InspectionAdapter;
-import com.ja.assets.databinding.ActivityPatrolCheckListBinding;
-import com.ja.assets.model.InspectionBean;
-import com.ja.assets.ui.base.BaseActivity;
-import com.ja.assets.ui.base.BaseJavaActivity;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class PatrolCheckListActivity extends BaseJavaActivity {
 //    private ActivityPatrolCheckListBinding patrolCheckListBinding;
 //    private InspectionAdapter inspectionAdapter;

@@ -3,21 +3,19 @@ package com.ja.assets.new_code.bussiness.Patrol;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
-
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.ja.assets.R;
-import com.ja.assets.new_code.base.BaseActivity;
+import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
+import com.ja.assets.new_code.http.ApiUtils;
+import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.WithScrolleViewListView;
-import com.ja.assets.ui.base.BaseJavaActivity;
+import com.ja.assets.utils.ACacheUtil;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.common.Constant;
 
@@ -25,6 +23,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class NewCode_PatrolCheckListActivity extends Activity {
 
@@ -47,7 +48,23 @@ public class NewCode_PatrolCheckListActivity extends Activity {
     }
 
     void initData() {
+        String token = ACacheUtil.getToken();
+        ApiUtils.getApiService().deviceBinding(token).enqueue(new JuanCallback<BaseBean<ArrayList<ZiChansBean>>>() {
+            @Override
+            public void onSuccess(Response<BaseBean<ArrayList<ZiChansBean>>> response, BaseBean<ArrayList<ZiChansBean>> message) {
+                if (message.code == 0) {
+                    if (message.data.size() >= 0) {
+                        madapter.mData=message.data;
+                        madapter.notifyDataSetChanged();
+                    }
+                }
+            }
 
+            @Override
+            public void onFail(Call<BaseBean<ArrayList<ZiChansBean>>> call, Throwable t) {
+
+            }
+        });
     }
 
     private int requestBackCode = 100;
