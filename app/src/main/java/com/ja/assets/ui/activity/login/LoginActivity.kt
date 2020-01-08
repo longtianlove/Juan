@@ -33,8 +33,8 @@ class LoginActivity : BaseActivity() ,HandlerClickListener{
     override fun initView() {
         loginBinding = viewDataBinding as ActivityLoginBinding
         loginBinding?.click = this
-        commonLeftLinearLayout.visibility = View.GONE
-        titleCenterText.text = getString(R.string.Login)
+//        commonLeftLinearLayout.visibility = View.GONE
+//        titleCenterText.text = getString(R.string.Login)
     }
 
     override fun initAdapter() = Unit

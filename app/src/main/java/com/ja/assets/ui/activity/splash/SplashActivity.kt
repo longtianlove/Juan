@@ -1,9 +1,11 @@
 package com.ja.assets.ui.activity.splash
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.Window
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import com.ja.assets.MainActivity
@@ -22,6 +24,15 @@ class SplashActivity : PermissionActivity(), CoroutineScope by MainScope() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+
+
+        //禁止横竖屏切换
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+
+
         val view = layoutInflater.inflate(R.layout.activity_splash, null)
         val animation = AlphaAnimation(0.3f, 1.0f)
         animation.duration = 1000
