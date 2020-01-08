@@ -43,6 +43,10 @@ class MainActivity : BaseActivity() {
 
     override fun initData() {
 
+        mainBinding!!.homeTraceCodeLinear.setOnClickListener {
+            val intent = Intent(this, CaptureActivity::class.java)
+            startActivityForResult(intent, requestBackCode)
+        }
     }
 
     fun mainHandlerClick(view: View) {
@@ -76,10 +80,6 @@ class MainActivity : BaseActivity() {
                     fragmentTransaction.show(userFragment!!)
                 }
                 fragmentTransaction.commit()
-            }
-            R.id.homeTraceCodeLinear -> {
-                val intent = Intent(this, CaptureActivity::class.java)
-                startActivityForResult(intent, requestBackCode)
             }
         }
     }
