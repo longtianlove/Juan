@@ -1,13 +1,8 @@
 package com.ja.assets.retrofit;
 
 import android.content.Context;
-
-import com.ja.assets.model.DeptBean;
-import com.ja.assets.model.HomeIndexCount;
-import com.ja.assets.model.ResultResponse;
 import com.ja.assets.retrofit.dialog.ProgressSubscriber;
 
-import java.util.List;
 
 
 public class HttpServer implements ApiSupport {
@@ -24,7 +19,7 @@ public class HttpServer implements ApiSupport {
     public void getZcValueAndZcNumber(String token) {
         execute(getApi().getZcValueAndZcNumber(token), new ProgressSubscriber<>(resultResponse -> {
             if (resultResponse.isSuccess()) {
-                showUserView.toMainActivity(0, resultResponse.getMessage());
+                showUserView.toMainActivity(0, resultResponse.getData());
             }
         }, context));
     }
@@ -32,7 +27,7 @@ public class HttpServer implements ApiSupport {
     public void getAllWailDealList(String token) {
         execute(getApi().getAllWailDealList(token), new ProgressSubscriber<>(resultResponse -> {
             if (resultResponse.isSuccess()) {
-                showUserView.toMainActivity(1, resultResponse.getMessage());
+                showUserView.toMainActivity(1, resultResponse.getData());
             }
         }, context));
     }
