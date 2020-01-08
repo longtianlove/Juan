@@ -51,7 +51,7 @@ public class UserFragment extends BaseJavaFragment {
         tv_nickname.setText(nickname);
 
         tv_bumen=rootView.findViewById(R.id.tv_bumen);
-        String bumen=ACacheUtil.getUserInfo().getNickname();
+        String bumen=ACacheUtil.getUserInfo().getDeptName();
         tv_bumen.setText("隶属于："+bumen);
 
         ll_xiugaimima = rootView.findViewById(R.id.ll_xiugaimima);
