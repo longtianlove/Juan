@@ -29,9 +29,15 @@ public class UserFragment extends BaseJavaFragment {
     private TextView tv_nickname;
     private TextView tv_bumen;
 
+
+    private View ll_gerenziliao;
+
     private View ll_xiugaimima;
 
     private View ll_kefurexian;
+
+
+    private View ll_setting;
 
     @Nullable
     @Override
@@ -46,13 +52,21 @@ public class UserFragment extends BaseJavaFragment {
         sdv_header = rootView.findViewById(R.id.sdv_header);
         sdv_header.setImageDrawable(getContext().getDrawable(R.drawable.icon_person_default));
 
-        tv_nickname=rootView.findViewById(R.id.tv_nickname);
-        String nickname=ACacheUtil.getUserInfo().getNickname();
+        tv_nickname = rootView.findViewById(R.id.tv_nickname);
+        String nickname = ACacheUtil.getUserInfo().getNickname();
         tv_nickname.setText(nickname);
 
-        tv_bumen=rootView.findViewById(R.id.tv_bumen);
-        String bumen=ACacheUtil.getUserInfo().getDeptName();
-        tv_bumen.setText("隶属于："+bumen);
+        tv_bumen = rootView.findViewById(R.id.tv_bumen);
+        String bumen = ACacheUtil.getUserInfo().getDeptName();
+        tv_bumen.setText("隶属于：" + bumen);
+
+        ll_gerenziliao = rootView.findViewById(R.id.ll_gerenziliao);
+        ll_gerenziliao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         ll_xiugaimima = rootView.findViewById(R.id.ll_xiugaimima);
         ll_xiugaimima.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +85,17 @@ public class UserFragment extends BaseJavaFragment {
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 Uri data = Uri.parse("tel:0359-2049830");
                 intent.setData(data);
+                startActivity(intent);
+            }
+        });
+
+
+        ll_setting = rootView.findViewById(R.id.ll_setting);
+        ll_setting.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), NewCode_SetUpActivity.class);
                 startActivity(intent);
             }
         });

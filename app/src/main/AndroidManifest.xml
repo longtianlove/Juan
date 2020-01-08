@@ -61,7 +61,14 @@
             android:name="com.ja.assets.new_code.bussiness.me.UpdatePasswordFirstActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" />
+
+            android:theme="@android:style/Theme.NoTitleBar"/>
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.me.NewCode_SetUpActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"/>
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
