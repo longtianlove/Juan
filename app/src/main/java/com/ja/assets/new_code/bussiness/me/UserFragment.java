@@ -1,6 +1,7 @@
 package com.ja.assets.new_code.bussiness.me;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,9 @@ public class UserFragment extends BaseFragment {
     SimpleDraweeView sdv_header;
 
 
+
+    private View ll_kefurexian;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,6 +44,19 @@ public class UserFragment extends BaseFragment {
 void initView(View rootView){
     sdv_header=rootView.findViewById(R.id.sdv_header);
     sdv_header.setImageDrawable(getContext().getDrawable(R.drawable.icon_person_default));
+
+
+    ll_kefurexian=rootView.findViewById(R.id.ll_kefurexian);
+    ll_kefurexian.setOnClickListener(new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            Uri data = Uri.parse("tel:0359-2049830");
+            intent.setData(data);
+            startActivity(intent);
+        }
+    });
 }
 
 
