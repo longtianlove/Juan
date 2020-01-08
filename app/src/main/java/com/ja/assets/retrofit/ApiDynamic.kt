@@ -44,13 +44,13 @@ interface ApiDynamic {
      * 获取所有的部门和支行
      */
     @POST("/api/getAllManagerDeptList")
-    suspend fun getAllBranchDeptList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
+    fun getAllBranchDeptList(@Header("token") token: String): Observable<ResultResponse<MutableList<DeptBean>>>
 
 
     /**
      * 获取所有的管理部门
      */
     @POST("/api/getAllManagerDeptList")
-    suspend fun getAllManagerDeptList(@Header("token") token: String): ResultResponse<MutableList<DeptBean>>
+    fun getAllManagerDeptList(@Header("token") token: String): Observable<ResultResponse<MutableList<DeptBean>>>
 
 }

@@ -22,17 +22,16 @@ class BackDialog(val activity: Activity) : HandlerClickListener {
     override fun handlerClick(view: View) {
         when (view.id) {
             R.id.dialogBackCancel -> {
+                dialogUtil!!.dialogDismiss()
+            }
+            R.id.dialogBackConfirm -> {
                 if (listener != null) {
                     listener!!.handleResult()
                 }
                 dialogUtil!!.dialogDismiss()
             }
-            R.id.dialogBackConfirm -> {
-                dialogUtil!!.dialogDismiss()
-
-            }
             R.id.dialogBackDeleteImg -> {
-              dialogUtil!!.dialogDismiss()
+                dialogUtil!!.dialogDismiss()
             }
         }
     }
