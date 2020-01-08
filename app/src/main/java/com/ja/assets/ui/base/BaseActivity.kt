@@ -2,6 +2,7 @@ package com.ja.assets.ui.base
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import com.ja.assets.utils.ACacheUtil
 
 
 abstract class BaseActivity : BaseOrientationActivity() {
