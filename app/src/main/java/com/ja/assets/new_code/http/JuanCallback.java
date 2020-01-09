@@ -34,6 +34,7 @@ public abstract class JuanCallback<T> implements Callback<T> {
     @Override
     public void onFailure(Call<T> call, Throwable t) {
         onFail(call, t);
+        ToastUtil.showTost("网络错误");
     }
 
     public abstract void onSuccess(Response<T> response, T message);

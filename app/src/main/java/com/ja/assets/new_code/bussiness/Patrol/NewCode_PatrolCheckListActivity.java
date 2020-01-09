@@ -165,7 +165,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
             }
             ZiChansBean bean = mData.get(position);
             util.tv_epcid.setText(bean.epcid);
-            util.tv_zichanbianhao.setText(bean.zc_codenum);
+            util.tv_zichanbianhao.setText(bean.zcCodenum);
             util.iv_erweima.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -173,10 +173,10 @@ public class NewCode_PatrolCheckListActivity extends Activity {
                     toSaomao();
                 }
             });
-            util.tv_zichanmingcheng.setText(bean.zc_name);
+            util.tv_zichanmingcheng.setText(bean.zcName);
             util.tv_shiyongbumen.setText(bean.syDeptName);
             util.tv_guanlibumen.setText(bean.glDeptName);
-            util.tv_cunfangdizhi.setText(bean.store_address);
+            util.tv_cunfangdizhi.setText(bean.storeAddress);
 
 
             return convertView;

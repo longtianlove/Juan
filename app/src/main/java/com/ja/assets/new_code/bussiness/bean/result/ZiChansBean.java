@@ -3,81 +3,79 @@ package com.ja.assets.new_code.bussiness.bean.result;
 import java.util.Date;
 
 public class ZiChansBean {
-    public int id;
-    public String zc_codenum;
-    public String createTime;
-    public String updateTime;
-    public String selfCodenum;
-    public String zcCodenum;
-    public String zc_name;
-    public int zcCategoryId;
-    public String specification;
-    public String model;
-    public String factory;
-    public String brand;
-    public String supportName;
-    public String supportPhone;
-    public String installationFactory;
-    public String depreciationTime;
-    public String jcz;
-    public String stockTime;
-    public String unit;
-    public String zcFrom;
-    public int useStatus;
-    public int accountentryStatus;
-    public String accountentryTime;
-    public String accountantNum;
-    public int originalValue;
-    public String cardNum;
-    public int cardStatus;
-    public String cardTime;
-    public String responsible;
-    public int glDeptId;
-    public int syDeptId;
-    public String syName;
-    public String storeAddress;
-    public Date startUseTime;
-    public String predictYears;
-    public String maintainCycle;
-    public String laveTime;
-    public String maintainDeadline;
-    public String lastMaintainTime;
-    public int ljZhejiu;
-    public int bnZhejiu;
-    public int netvalue;
-    public int jzzb;
-    public int net;
-    public int netResidualRate;
-    public int netResidualValue;
-    public int useMonths;
-    public int haveCount;
-    public int remainingperiod;
-    public String cname;
-    public String venperson;
-    public String venphone;
-    public String venaddress;
-    public String warrantyperiod;
-    public int del;
-    public String bf;
-    public String bz;
-    public String c01;
-    public String c02;
-    public String c03;
-    public int createBy;
-    public int updateBy;
-    public int inspectTime;
+    private int id;
+
+    /**
+     * 资产追溯码
+     */
     public String epcid;
-    public String zcCoding;
-    public String userId;
-    public String creator;
-    public String zcCategoryName;
-    public String glDeptName;
+
+    /**
+     * 使用部门id
+     */
+    public long syDeptId;
+
+    /**
+     * 使用部门名称
+     */
     public String syDeptName;
-    public String store_address;
-    public String updateor;
-    public String useStatusName;
-    public String quantity;
-    public int zcCategoryPid;
-    public String zcCategoryYiJi;
-    public String zcCategoryErJi;
+
+
+    /**
+     * 管理部门id
+     */
+    public long glDeptId;
+
+
+    /**
+     * 管理部门名称
+     */
+    public String glDeptName;
+
+
+    /**
+     * 存储地址
+     */
+    public String storeAddress;
+
+
+    /**
+     * 资产名称
+     */
+    public String zcName;
+
+
+    /**
+     * 创建时间
+     */
+    public String createTime;
+
+
+    /**
+     * 巡检状态
+     */
+    public int status;
+
+    /**
+     * 巡检周期
+     */
+    public String inspectTime;
+
+
+    /**
+     * 巡检结果
+     */
+    public String result;
+
+
+    /**
+     * 资产编码
+     */
+    public String zcCodenum;
+
+
+    /**
+     * 巡检关系id
+     */
+    public int zcRealId;
 }

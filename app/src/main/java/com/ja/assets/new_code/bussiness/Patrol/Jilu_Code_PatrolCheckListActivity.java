@@ -143,6 +143,8 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
                 util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
                 util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
                 util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
+                util.tv_xunjianjieguo=convertView.findViewById(R.id.tv_xunjianjieguo);
+                util.tv_xunjianshijian=convertView.findViewById(R.id.tv_xunjianshijian);
                 util.tv_cunfangdizhi = convertView.findViewById(R.id.tv_cunfangdizhi);
                 convertView.setTag(util);
             } else {
@@ -159,11 +161,13 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
 
             ZiChansBean bean = mData.get(position);
             util.tv_epcid.setText(bean.epcid);
-            util.tv_zichanbianhao.setText(bean.zc_codenum);
-            util.tv_zichanmingcheng.setText(bean.zc_name);
+            util.tv_zichanbianhao.setText(bean.zcCodenum);
+            util.tv_zichanmingcheng.setText(bean.zcName);
             util.tv_shiyongbumen.setText(bean.syDeptName);
             util.tv_guanlibumen.setText(bean.glDeptName);
-            util.tv_cunfangdizhi.setText(bean.store_address);
+            util.tv_xunjianjieguo.setText()
+
+            util.tv_cunfangdizhi.setText(bean.storeAddress);
 
 
             return convertView;
