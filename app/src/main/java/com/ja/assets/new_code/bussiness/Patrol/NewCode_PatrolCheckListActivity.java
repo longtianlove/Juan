@@ -77,7 +77,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
 
     void initData() {
         String token = ACacheUtil.getToken();
-        ApiUtils.getApiService().deviceBinding(token).enqueue(new JuanCallback<BaseBean<ArrayList<ZiChansBean>>>() {
+        ApiUtils.getApiService().PatrolCheckList(token).enqueue(new JuanCallback<BaseBean<ArrayList<ZiChansBean>>>() {
             @Override
             public void onSuccess(Response<BaseBean<ArrayList<ZiChansBean>>> response, BaseBean<ArrayList<ZiChansBean>> message) {
                 if (message.code == 0) {

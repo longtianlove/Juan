@@ -65,7 +65,7 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
 
     void initData() {
         String token = ACacheUtil.getToken();
-        ApiUtils.getApiService().deviceBinding(token).enqueue(new JuanCallback<BaseBean<ArrayList<ZiChansBean>>>() {
+        ApiUtils.getApiService().JiluPatrolCheckList(token).enqueue(new JuanCallback<BaseBean<ArrayList<ZiChansBean>>>() {
             @Override
             public void onSuccess(Response<BaseBean<ArrayList<ZiChansBean>>> response, BaseBean<ArrayList<ZiChansBean>> message) {
                 if (message.code == 0) {
@@ -143,8 +143,8 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
                 util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
                 util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
                 util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
-                util.tv_xunjianjieguo=convertView.findViewById(R.id.tv_xunjianjieguo);
-                util.tv_xunjianshijian=convertView.findViewById(R.id.tv_xunjianshijian);
+                util.tv_xunjianjieguo = convertView.findViewById(R.id.tv_xunjianjieguo);
+                util.tv_xunjianshijian = convertView.findViewById(R.id.tv_xunjianshijian);
                 util.tv_cunfangdizhi = convertView.findViewById(R.id.tv_cunfangdizhi);
                 convertView.setTag(util);
             } else {
@@ -165,8 +165,12 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
             util.tv_zichanmingcheng.setText(bean.zcName);
             util.tv_shiyongbumen.setText(bean.syDeptName);
             util.tv_guanlibumen.setText(bean.glDeptName);
-            util.tv_xunjianjieguo.setText()
-
+            if (bean.result == 0) {
+                util.tv_xunjianjieguo.setText("达标");
+            } else {
+                util.tv_xunjianjieguo.setText("不达标");
+            }
+            util.tv_xunjianshijian.setText(bean.createTime);
             util.tv_cunfangdizhi.setText(bean.storeAddress);
 
 

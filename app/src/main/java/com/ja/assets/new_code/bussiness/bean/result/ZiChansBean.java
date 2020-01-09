@@ -65,7 +65,7 @@ public class ZiChansBean {
     /**
      * 巡检结果
      */
-    public String result;
+    public int result;
 
 
     /**

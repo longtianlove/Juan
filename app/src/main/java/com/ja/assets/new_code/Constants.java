@@ -14,7 +14,10 @@ public class Constants {
 
 
         public class Patrol {
+            //巡检列表
             public static final String PatrolCheckList = "xunjian/list";
+            //巡检记录
+            public static final String JiluPatrolCheckList = "/xunjian/inspect/list";
         }
 
 

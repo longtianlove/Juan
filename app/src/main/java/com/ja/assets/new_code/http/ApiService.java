@@ -21,8 +21,10 @@ import retrofit2.http.Part;
 public interface ApiService {
 
     @POST(Constants.Url.Patrol.PatrolCheckList)
-    Call<BaseBean<ArrayList<ZiChansBean>>> deviceBinding(@Header("token") String token);
+    Call<BaseBean<ArrayList<ZiChansBean>>> PatrolCheckList(@Header("token") String token);
 
+    @POST(Constants.Url.Patrol.JiluPatrolCheckList)
+    Call<BaseBean<ArrayList<ZiChansBean>>> JiluPatrolCheckList(@Header("token") String token);
 
 
     //上传头像
