@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4789F7"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="10dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+
+            android:src="@drawable/icon_back_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="填写巡检信息"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:weightSum="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/appearanceCondition" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"></View>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="完好"
+
+                    ></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/functionalAtatus" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"></View>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="正常"
+
+                    ></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/inspectionResults" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"></View>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="达标"
+
+                    ></TextView>
+            </LinearLayout>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv_article"
+                android:layout_width="87dp"
+                android:layout_height="75dp"
+                android:gravity="center"
+                android:scaleType="fitXY"
+                fresco:actualImageScaleType="focusCrop"
+                fresco:fadeDuration="300"
+                fresco:failureImage="@mipmap/add_img"
+                fresco:failureImageScaleType="centerInside"
+                fresco:placeholderImage="@mipmap/add_img"
+                fresco:placeholderImageScaleType="fitCenter" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
