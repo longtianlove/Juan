@@ -18,6 +18,7 @@ import com.ja.assets.R;
 import com.ja.assets.adapter.HomeAdapter;
 import com.ja.assets.databinding.FragmentHomeLayoutBinding;
 import com.ja.assets.model.*;
+import com.ja.assets.new_code.bussiness.Patrol.Jilu_Code_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
 import com.ja.assets.retrofit.HttpServer;
 import com.ja.assets.retrofit.ShowUserView;
@@ -99,6 +100,8 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                     startActivity(intent);
                     break;
                 case 11://巡检记录
+                    intent = new Intent(mainActivity, Jilu_Code_PatrolCheckListActivity.class);
+                    startActivity(intent);
                     break;
                 default:
                     break;

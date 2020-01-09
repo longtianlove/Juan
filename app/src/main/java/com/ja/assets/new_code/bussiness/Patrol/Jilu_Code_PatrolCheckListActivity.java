@@ -58,13 +58,6 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
                 finish();
             }
         });
-        iv_saoyisiao=findViewById(R.id.iv_saoyisiao);
-        iv_saoyisiao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toSaomao();
-            }
-        });
         lv_zichans = findViewById(R.id.lv_zichans);
         madapter = new ZiChansAdapter(this);
         lv_zichans.setAdapter(madapter);
@@ -144,6 +137,7 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
                 convertView = inflater.inflate(R.layout.jilu_item_inventory_record, null);
+                util.ll_all = convertView.findViewById(R.id.ll_all);
                 util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
                 util.tv_zichanbianhao = convertView.findViewById(R.id.tv_zichanbianhao);
                 util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
@@ -154,6 +148,15 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
             } else {
                 util = (Util) convertView.getTag();
             }
+            util.ll_all.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Jilu_Code_PatrolCheckListActivity.this, Jilu_PatrolCheckDetailActivity.class);
+                    startActivity(intent);
+                }
+            });
+
             ZiChansBean bean = mData.get(position);
             util.tv_epcid.setText(bean.epcid);
             util.tv_zichanbianhao.setText(bean.zc_codenum);
@@ -168,6 +171,7 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
 
 
         class Util {
+            public View ll_all;
             public TextView tv_epcid;
             public TextView tv_zichanbianhao;
             public TextView tv_zichanmingcheng;

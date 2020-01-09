@@ -120,7 +120,12 @@
         <activity
             android:name="com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
+            android:label="@string/patrolCheckDetail" >
+
+        </activity>
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.Patrol.Jilu_PatrolCheckDetailActivity"
+            android:screenOrientation="portrait"
             android:label="@string/patrolCheckDetail" >
 
         </activity>
