@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.ja.assets.R;
 import com.ja.assets.glide.GlideImgUtils;
@@ -12,10 +14,11 @@ import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
+import com.ja.assets.new_code.util.ToastUtil;
 import com.ja.assets.utils.ACacheUtil;
 import com.ja.assets.utils.LuBanImgUtils;
 import com.ja.assets.utils.PhotoUtils;
-import com.ja.assets.utils.ToastUtil;
+
 
 import org.greenrobot.eventbus.EventBus;
 import org.jetbrains.annotations.NotNull;
@@ -37,6 +40,20 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
     View ll_tijiaotupian;
     View iv_back;
 
+    RadioGroup rg_waiguan;
+    RadioButton intactRadioBtn;
+    RadioButton damageRadioBtn;
+    public String waiguan="";
+
+    RadioGroup rg_gongneng;
+    RadioButton normalRadioBtn;
+    RadioButton abnormalRadioBtn;
+    public String gongneng="";
+
+    RadioGroup rg_jieguo;
+    RadioButton reachingStandardRadioBtn;
+    RadioButton noReachingStandardRadioBtn;
+    public String jieguo="";
 
     View submitInspectionDetailBtn;
 
@@ -57,6 +74,47 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
                 finish();
             }
         });
+        rg_waiguan=findViewById(R.id.rg_waiguan);
+        intactRadioBtn=findViewById(R.id.intactRadioBtn);
+        damageRadioBtn=findViewById(R.id.damageRadioBtn);
+        rg_waiguan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(R.id.intactRadioBtn==checkedId){
+
+                }else{
+
+                }
+            }
+        });
+        rg_gongneng=findViewById(R.id.rg_gongneng);
+        normalRadioBtn=findViewById(R.id.normalRadioBtn);
+        abnormalRadioBtn=findViewById(R.id.abnormalRadioBtn);
+        rg_gongneng.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(R.id.normalRadioBtn==checkedId){
+
+                }else{
+
+                }
+            }
+        });
+
+        rg_jieguo=findViewById(R.id.rg_jieguo);
+        reachingStandardRadioBtn=findViewById(R.id.reachingStandardRadioBtn);
+        noReachingStandardRadioBtn=findViewById(R.id.noReachingStandardRadioBtn);
+        rg_jieguo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(R.id.reachingStandardRadioBtn==checkedId){
+
+                }else{
+
+                }
+            }
+        });
+
         ll_tijiaotupian = findViewById(R.id.ll_tijiaotupian);
         ll_tijiaotupian.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,8 +128,21 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
 
             @Override
             public void onClick(View v) {
+                if(TextUtils.isEmpty(waiguan)){
+                    ToastUtil.showAtCenter("请查看外观状况");
+                    return;
+                }
+                if(TextUtils.isEmpty(gongneng)){
+                    ToastUtil.showAtCenter("请查看功能状况");
+                    return;
+                }
+                if(TextUtils.isEmpty(jieguo)){
+                    ToastUtil.showAtCenter("请选择巡检结果");
+                    return;
+                }
                 if(TextUtils.isEmpty(imageUrl)){
-                    //
+                    ToastUtil.showAtCenter("请上传设备图片");
+                    return;
                 }
             }
         });
@@ -80,6 +151,10 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
     void initData() {
         Intent intent = getIntent();
         String epcid = intent.getStringExtra("epcid");
+        waiguan="";
+        gongneng="";
+        jieguo="";
+        imageUrl="";
     }
 
 
