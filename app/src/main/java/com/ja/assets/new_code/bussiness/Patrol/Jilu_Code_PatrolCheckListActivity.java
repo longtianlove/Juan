@@ -150,16 +150,18 @@ public class Jilu_Code_PatrolCheckListActivity extends Activity {
             } else {
                 util = (Util) convertView.getTag();
             }
+            ZiChansBean bean = mData.get(position);
             util.ll_all.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(Jilu_Code_PatrolCheckListActivity.this, Jilu_PatrolCheckDetailActivity.class);
+                    intent.putExtra("id",bean.zcRealId);
                     startActivity(intent);
                 }
             });
 
-            ZiChansBean bean = mData.get(position);
+
             util.tv_epcid.setText(bean.epcid);
             util.tv_zichanbianhao.setText(bean.zcCodenum);
             util.tv_zichanmingcheng.setText(bean.zcName);

@@ -3,7 +3,8 @@ package com.ja.assets.new_code.bussiness.bean.result;
 import java.util.Date;
 
 public class ZiChansBean {
-    private int id;
+
+    public int id;
 
     /**
      * 资产追溯码

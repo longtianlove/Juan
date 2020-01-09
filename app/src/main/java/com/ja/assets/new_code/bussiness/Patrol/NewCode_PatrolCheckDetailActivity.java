@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.ja.assets.R;
 import com.ja.assets.glide.GlideImgUtils;
 import com.ja.assets.new_code.base.BaseBean;
+import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
@@ -43,17 +45,19 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
     RadioGroup rg_waiguan;
     RadioButton intactRadioBtn;
     RadioButton damageRadioBtn;
-    public String waiguan="";
+    public String waiguan = "";
 
     RadioGroup rg_gongneng;
     RadioButton normalRadioBtn;
     RadioButton abnormalRadioBtn;
-    public String gongneng="";
+    public String gongneng = "";
 
     RadioGroup rg_jieguo;
     RadioButton reachingStandardRadioBtn;
     RadioButton noReachingStandardRadioBtn;
-    public String jieguo="";
+    public String jieguo = "";
+
+    public EditText et_yijian;
 
     View submitInspectionDetailBtn;
 
@@ -74,43 +78,43 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
                 finish();
             }
         });
-        rg_waiguan=findViewById(R.id.rg_waiguan);
-        intactRadioBtn=findViewById(R.id.intactRadioBtn);
-        damageRadioBtn=findViewById(R.id.damageRadioBtn);
+        rg_waiguan = findViewById(R.id.rg_waiguan);
+        intactRadioBtn = findViewById(R.id.intactRadioBtn);
+        damageRadioBtn = findViewById(R.id.damageRadioBtn);
         rg_waiguan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(R.id.intactRadioBtn==checkedId){
-
-                }else{
-
+                if (R.id.intactRadioBtn == checkedId) {
+                    waiguan = "1";
+                } else {
+                    waiguan = "0";
                 }
             }
         });
-        rg_gongneng=findViewById(R.id.rg_gongneng);
-        normalRadioBtn=findViewById(R.id.normalRadioBtn);
-        abnormalRadioBtn=findViewById(R.id.abnormalRadioBtn);
+        rg_gongneng = findViewById(R.id.rg_gongneng);
+        normalRadioBtn = findViewById(R.id.normalRadioBtn);
+        abnormalRadioBtn = findViewById(R.id.abnormalRadioBtn);
         rg_gongneng.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(R.id.normalRadioBtn==checkedId){
-
-                }else{
-
+                if (R.id.normalRadioBtn == checkedId) {
+                    gongneng = "1";
+                } else {
+                    gongneng = "0";
                 }
             }
         });
 
-        rg_jieguo=findViewById(R.id.rg_jieguo);
-        reachingStandardRadioBtn=findViewById(R.id.reachingStandardRadioBtn);
-        noReachingStandardRadioBtn=findViewById(R.id.noReachingStandardRadioBtn);
+        rg_jieguo = findViewById(R.id.rg_jieguo);
+        reachingStandardRadioBtn = findViewById(R.id.reachingStandardRadioBtn);
+        noReachingStandardRadioBtn = findViewById(R.id.noReachingStandardRadioBtn);
         rg_jieguo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(R.id.reachingStandardRadioBtn==checkedId){
-
-                }else{
-
+                if (R.id.reachingStandardRadioBtn == checkedId) {
+                    jieguo = "1";
+                } else {
+                    jieguo = "0";
                 }
             }
         });
@@ -123,38 +127,70 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
             }
         });
 
-        submitInspectionDetailBtn=findViewById(R.id.submitInspectionDetailBtn);
-        submitInspectionDetailBtn.setOnClickListener(new View.OnClickListener(){
+
+        et_yijian = findViewById(R.id.et_yijian);
+
+        submitInspectionDetailBtn = findViewById(R.id.submitInspectionDetailBtn);
+        submitInspectionDetailBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if(TextUtils.isEmpty(waiguan)){
+                if (TextUtils.isEmpty(waiguan)) {
                     ToastUtil.showAtCenter("请查看外观状况");
                     return;
                 }
-                if(TextUtils.isEmpty(gongneng)){
+                if (TextUtils.isEmpty(gongneng)) {
                     ToastUtil.showAtCenter("请查看功能状况");
                     return;
                 }
-                if(TextUtils.isEmpty(jieguo)){
+                if (TextUtils.isEmpty(jieguo)) {
                     ToastUtil.showAtCenter("请选择巡检结果");
                     return;
                 }
-                if(TextUtils.isEmpty(imageUrl)){
+                if (TextUtils.isEmpty(et_yijian.getText().toString())) {
+                    ToastUtil.showAtCenter("请填写巡检意见");
+                    return;
+                }
+                if (TextUtils.isEmpty(imageUrl)) {
                     ToastUtil.showAtCenter("请上传设备图片");
                     return;
                 }
+
+                TianxiexunjianPostBean bean = new TianxiexunjianPostBean();
+                bean.appearance = waiguan;
+                bean.epcid = epcid;
+                bean.funct = gongneng;
+                bean.img = imageUrl;
+                bean.opinion = et_yijian.getText().toString();
+                bean.result = jieguo;
+                String token = ACacheUtil.getToken();
+                ApiUtils.getApiService().insertRecord(token, bean).enqueue(new JuanCallback<BaseBean>() {
+                    @Override
+                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
+                        if (message.code == 0) {
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Call<BaseBean> call, Throwable t) {
+
+                    }
+                });
+
             }
         });
     }
 
+    String epcid;
+
     void initData() {
         Intent intent = getIntent();
-        String epcid = intent.getStringExtra("epcid");
-        waiguan="";
-        gongneng="";
-        jieguo="";
-        imageUrl="";
+        epcid = intent.getStringExtra("epcid");
+        waiguan = "";
+        gongneng = "";
+        jieguo = "";
+        imageUrl = "";
     }
 
 
@@ -169,7 +205,7 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
 
                 List<String> photoList1 = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
                 GlideImgUtils.loadImage(this, photoList1.get(0), R.mipmap.add_img, findViewById(R.id.lossReportImg));
-                LuBanImgUtils luBanImgUtils=new LuBanImgUtils(NewCode_PatrolCheckDetailActivity.this,photoList1.get(0));
+                LuBanImgUtils luBanImgUtils = new LuBanImgUtils(NewCode_PatrolCheckDetailActivity.this, photoList1.get(0));
                 luBanImgUtils.setListener(new LuBanImgUtils.ImgListener() {
                     @Override
                     public void handleResult(@NotNull File file) {
@@ -182,7 +218,7 @@ public class NewCode_PatrolCheckDetailActivity extends Activity {
     }
 
 
-    public String imageUrl="";
+    public String imageUrl = "";
 
     //上传头像信息
     public void uploadImage(final String path) {
