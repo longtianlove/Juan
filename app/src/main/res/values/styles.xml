@@ -62,6 +62,9 @@
         <item name="android:layout_marginStart">@dimen/margin_16</item>
     </style>
 
+
+
+
     <style name="itemEndTV">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
@@ -127,4 +130,16 @@
         <!--是否有加载更多的属性-->
         <attr name="hasLoadMore" />
     </declare-styleable>
+
+
+
+    <style name="CustomProgress" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

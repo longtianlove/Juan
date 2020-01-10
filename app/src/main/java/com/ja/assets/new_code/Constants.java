@@ -27,6 +27,9 @@ public class Constants {
         public class Inventory {
             //未盘点
             public static final String getZcCheckList = "zcCheck/getZcCheckList";
+            //创建盘点
+            public static final String zcCheckSave = "zcCheck/save";
+
         }
 
 

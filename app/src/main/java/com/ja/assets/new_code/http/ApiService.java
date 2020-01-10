@@ -2,6 +2,7 @@ package com.ja.assets.new_code.http;
 
 import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
+import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
@@ -43,6 +44,10 @@ public interface ApiService {
 
     @POST(Constants.Url.Inventory.getZcCheckList)
     Call<BaseBean<ArrayList<WeiPandianResultBean>>> getZcCheckList(@Header("token") String token, @Body WeiPandianPostBean bean);
+
+
+    @POST(Constants.Url.Inventory.zcCheckSave)
+    Call<BaseBean> zcCheckSave(@Header("token") String token, @Body ChuangjianpandiandanBean bean);
 
 
     //上传头像

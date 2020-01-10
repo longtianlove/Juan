@@ -23,11 +23,14 @@ import com.ja.assets.adapter.ViewPageManagerAdapter;
 import com.ja.assets.databinding.ActivityInventoryBinding;
 import com.ja.assets.listener.HandlerClickListener;
 import com.ja.assets.new_code.base.BaseBean;
+import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
+import com.ja.assets.new_code.util.DialogUtil;
+import com.ja.assets.new_code.util.ToastUtil;
 import com.ja.assets.new_code.view.JuanListView;
 import com.ja.assets.new_code.view.refresh.MaterialDesignPtrFrameLayout;
 import com.ja.assets.ui.activity.inventory.NoInventoryFragment;
@@ -35,10 +38,13 @@ import com.ja.assets.ui.activity.inventory.YesInventoryFragment;
 import com.ja.assets.ui.base.BaseActivity;
 import com.ja.assets.utils.ACacheUtil;
 
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.UTFDataFormatException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
@@ -48,6 +54,8 @@ import retrofit2.Response;
 
 public class NewCode_InventoryActivity extends Activity {
 
+
+    View tv_create;
     MaterialDesignPtrFrameLayout ptr_refresh;
     JuanListView lv_weipandian;
     DoctorAdapter madapter;
@@ -56,6 +64,37 @@ public class NewCode_InventoryActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newcode_activity_inventory);
+        tv_create = findViewById(R.id.tv_create);
+        tv_create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChuangjianpandiandanBean bean = new ChuangjianpandiandanBean();
+                bean.checkDeptId = ACacheUtil.getUserInfo().getDeptId() + "";
+
+                Date temp = new Date();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                bean.checkTime =  dateFormat.format(temp);
+
+                String token = ACacheUtil.getToken();
+                DialogUtil.showProgress(NewCode_InventoryActivity.this, "");
+                ApiUtils.getApiService().zcCheckSave(token, bean).enqueue(new JuanCallback<BaseBean>() {
+                    @Override
+                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
+                        DialogUtil.closeProgress();
+                        if (message.code == 0) {
+                            ToastUtil.showAtCenter("创建成功");
+                            PAGE_NO = 1;
+                            getDoctors();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Call<BaseBean> call, Throwable t) {
+                        DialogUtil.closeProgress();
+                    }
+                });
+            }
+        });
         ptr_refresh = findViewById(R.id.ptr_refresh);
         /**
          * 下拉刷新
@@ -119,7 +158,7 @@ public class NewCode_InventoryActivity extends Activity {
                     } else {
                         //没有消息
                         lv_weipandian.setHasLoadMore(false);
-                        lv_weipandian.setLoadAllViewText("暂时只有这么多医生");
+                        lv_weipandian.setLoadAllViewText("暂时只有这么多单子");
                         lv_weipandian.setLoadAllFooterVisible(true);
                     }
                 }
@@ -185,7 +224,7 @@ public class NewCode_InventoryActivity extends Activity {
             util.tv_danhao.setText(bean.check_num);
             util.tv_shiyongbumen.setText(bean.checkDeptName);
             util.tv_guanlibumen.setText(bean.checkUserName);
-            util.tv_zichanzongshu.setText(bean.total+"");
+            util.tv_zichanzongshu.setText(bean.total + "");
             util.tv_pandianshijian.setText(bean.checkTime);
             return convertView;
         }
