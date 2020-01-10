@@ -121,4 +121,10 @@
         <item name="android:windowBackground">@android:color/transparent</item><!--背景透明-->
         <item name="android:backgroundDimEnabled">true</item><!--模糊-->
     </style>
+
+    <attr name="hasLoadMore" forMymat="boolean" />
+    <declare-styleable name="ChinaHrListView">
+        <!--是否有加载更多的属性-->
+        <attr name="hasLoadMore" />
+    </declare-styleable>
 </resources>

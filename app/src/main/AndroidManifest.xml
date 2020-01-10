@@ -62,13 +62,19 @@
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:screenOrientation="portrait"
 
-            android:theme="@android:style/Theme.NoTitleBar"/>
+            android:theme="@android:style/Theme.NoTitleBar" />
 
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.inventory.NewCode_InventoryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.ja.assets.new_code.bussiness.me.NewCode_SetUpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"/>
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
@@ -119,14 +125,14 @@
             android:label="@string/patrolCheckDetail" />
         <activity
             android:name="com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckDetailActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/patrolCheckDetail" >
+            android:label="@string/patrolCheckDetail"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity
             android:name="com.ja.assets.new_code.bussiness.Patrol.Jilu_PatrolCheckDetailActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/patrolCheckDetail" >
+            android:label="@string/patrolCheckDetail"
+            android:screenOrientation="portrait">
 
         </activity>
 
@@ -135,14 +141,14 @@
             android:label="@string/patrolCheckList" />
         <activity
             android:name="com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/patrolCheckList">
+            android:label="@string/patrolCheckList"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity
             android:name="com.ja.assets.new_code.bussiness.Patrol.Jilu_Code_PatrolCheckListActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/patrolCheckList">
+            android:label="@string/patrolCheckList"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity

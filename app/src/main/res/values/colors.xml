@@ -92,5 +92,5 @@
 
     <color name="inAuditBG">#20ff3737</color>
     <color name="inAuditTV">#FF3737</color>
-
+    <color name="refresh_color">#141e41</color>>
 </resources>

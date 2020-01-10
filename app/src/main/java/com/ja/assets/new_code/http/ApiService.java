@@ -4,8 +4,10 @@ import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
+import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 
 import java.util.ArrayList;
@@ -36,6 +38,11 @@ public interface ApiService {
 
     @POST(Constants.Url.Patrol.inspectDetail)
     Call<BaseBean<JiluXunjianDetail>> inspectDetail(@Header("token") String token, @Body JiluXunjianPostBean bean);
+
+
+
+    @POST(Constants.Url.Inventory.getZcCheckList)
+    Call<BaseBean<ArrayList<WeiPandianResultBean>>> getZcCheckList(@Header("token") String token, @Body WeiPandianPostBean bean);
 
 
     //上传头像

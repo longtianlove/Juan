@@ -20,6 +20,7 @@ import com.ja.assets.databinding.FragmentHomeLayoutBinding;
 import com.ja.assets.model.*;
 import com.ja.assets.new_code.bussiness.Patrol.Jilu_Code_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
+import com.ja.assets.new_code.bussiness.inventory.NewCode_InventoryActivity;
 import com.ja.assets.retrofit.HttpServer;
 import com.ja.assets.retrofit.ShowUserView;
 import com.ja.assets.ui.activity.purchase.PurchaseApplyActivity;
@@ -88,6 +89,9 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                 case 5://处置记录
                     break;
                 case 6:  //盘点单创建
+
+                    intent = new Intent(mainActivity, NewCode_InventoryActivity.class);
+                    startActivity(intent);
                     break;
                 case 7: //盘点记录
                     break;
@@ -153,7 +157,6 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
         dataMap.put(ToastUtil.getString(R.string.AdminDepartment04), (float) homeIndexCount.getYybZcCount());
         dataMap.put(ToastUtil.getString(R.string.AdminDepartment03), (float) homeIndexCount.getKjbZcCount());
         dataMap.put(ToastUtil.getString(R.string.AdminDepartment05), (float) homeIndexCount.getBwbZcCount());
-
 
 
         PieChartUtil.getPitChart().setPieChart(homeBinding.homeChat1, dataMap, "管理部门\n资产数量", false);
