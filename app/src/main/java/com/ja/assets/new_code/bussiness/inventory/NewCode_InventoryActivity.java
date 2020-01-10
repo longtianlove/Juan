@@ -73,7 +73,7 @@ public class NewCode_InventoryActivity extends Activity {
 
                 Date temp = new Date();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                bean.checkTime =  dateFormat.format(temp);
+                bean.checkTime = dateFormat.format(temp);
 
                 String token = ACacheUtil.getToken();
                 DialogUtil.showProgress(NewCode_InventoryActivity.this, "");
@@ -85,6 +85,8 @@ public class NewCode_InventoryActivity extends Activity {
                             ToastUtil.showAtCenter("创建成功");
                             PAGE_NO = 1;
                             getDoctors();
+                        } else if (message.code == 400) {
+                            ToastUtil.showAtCenter(message.msg);
                         }
                     }
 
@@ -117,9 +119,14 @@ public class NewCode_InventoryActivity extends Activity {
             }
         });
 
-        initData();
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initData();
+    }
 
     void initData() {
         PAGE_NO = 1;
@@ -211,6 +218,7 @@ public class NewCode_InventoryActivity extends Activity {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
                 convertView = inflater.inflate(R.layout.newcode_item_fragment_inventory, null);
+                util.ll_all = convertView.findViewById(R.id.ll_all);
                 util.tv_danhao = convertView.findViewById(R.id.tv_danhao);
                 util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
                 util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
@@ -221,6 +229,14 @@ public class NewCode_InventoryActivity extends Activity {
                 util = (Util) convertView.getTag();
             }
             WeiPandianResultBean bean = mData.get(position);
+            util.ll_all.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(NewCode_InventoryActivity.this, NewCode_ZichanliebiaoActivity.class);
+                    intent.putExtra("id", bean.id);
+                    startActivity(intent);
+                }
+            });
             util.tv_danhao.setText(bean.check_num);
             util.tv_shiyongbumen.setText(bean.checkDeptName);
             util.tv_guanlibumen.setText(bean.checkUserName);

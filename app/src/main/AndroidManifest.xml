@@ -70,6 +70,14 @@
             android:screenOrientation="portrait"
 
             android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.inventory.NewCode_ZichanliebiaoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
         <activity
             android:name="com.ja.assets.new_code.bussiness.me.NewCode_SetUpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"

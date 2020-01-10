@@ -6,7 +6,9 @@ import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
+import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
@@ -48,6 +50,9 @@ public interface ApiService {
 
     @POST(Constants.Url.Inventory.zcCheckSave)
     Call<BaseBean> zcCheckSave(@Header("token") String token, @Body ChuangjianpandiandanBean bean);
+
+    @POST(Constants.Url.Inventory.zichanliebiao)
+    Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> zichanliebiao(@Header("token") String token, @Body WeiPandiianzichanPostBean bean);
 
 
     //上传头像

@@ -30,6 +30,8 @@ public class Constants {
             //创建盘点
             public static final String zcCheckSave = "zcCheck/save";
 
+            //资产列表
+            public static final String zichanliebiao = "zcCheck/info";
         }
 
 
