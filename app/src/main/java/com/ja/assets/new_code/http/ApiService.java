@@ -4,9 +4,11 @@ import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
@@ -43,7 +45,6 @@ public interface ApiService {
     Call<BaseBean<JiluXunjianDetail>> inspectDetail(@Header("token") String token, @Body JiluXunjianPostBean bean);
 
 
-
     @POST(Constants.Url.Inventory.getZcCheckList)
     Call<BaseBean<ArrayList<WeiPandianResultBean>>> getZcCheckList(@Header("token") String token, @Body WeiPandianPostBean bean);
 
@@ -55,10 +56,18 @@ public interface ApiService {
     Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> zichanliebiao(@Header("token") String token, @Body WeiPandiianzichanPostBean bean);
 
 
+    @POST(Constants.Url.Inventory.updateZcItemStatus)
+    Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> updateZcItemStatus(@Header("token") String token, @Body ZichanSaomaPostBean bean);
+
+
+    @POST(Constants.Url.Inventory.finishAssetsStatus)
+    Call<BaseBean> finishAssetsStatus(@Header("token") String token, @Body PandianZichanWanchengPostBean bean);
+
+
     //上传头像
     @Multipart
     @POST(Constants.Url.UploadImage)
     Call<UploadImageResultBean> uploadLogo(
-            @Part MultipartBody.Part file,@Header("token") String token
+            @Part MultipartBody.Part file, @Header("token") String token
     );
 }

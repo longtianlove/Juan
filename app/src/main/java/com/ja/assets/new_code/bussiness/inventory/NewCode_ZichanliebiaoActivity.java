@@ -13,11 +13,14 @@ import android.widget.TextView;
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckDetailActivity;
+import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
+import com.ja.assets.new_code.util.ToastUtil;
 import com.ja.assets.new_code.view.JuanListView;
 import com.ja.assets.new_code.view.WithScrolleViewListView;
 import com.ja.assets.new_code.view.refresh.MaterialDesignPtrFrameLayout;
@@ -38,6 +41,7 @@ import retrofit2.Response;
 public class NewCode_ZichanliebiaoActivity extends Activity {
 
     public View iv_back;
+    View tv_create;
     MaterialDesignPtrFrameLayout ptr_refresh;
     JuanListView lv_zichans;
     ZiChansAdapter madapter;
@@ -57,6 +61,7 @@ public class NewCode_ZichanliebiaoActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+        PAGE_NO = 1;
         initData();
     }
 
@@ -70,6 +75,29 @@ public class NewCode_ZichanliebiaoActivity extends Activity {
             }
         });
 
+        tv_create = findViewById(R.id.tv_create);
+        tv_create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PandianZichanWanchengPostBean bean = new PandianZichanWanchengPostBean();
+                bean.id = id;
+                String token = ACacheUtil.getToken();
+                ApiUtils.getApiService().finishAssetsStatus(token, bean).enqueue(new JuanCallback<BaseBean>() {
+                    @Override
+                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
+                        if (message.code == 0) {
+                            ToastUtil.showAtCenter("此盘点单盘点完成");
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Call<BaseBean> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
         ptr_refresh = findViewById(R.id.ptr_refresh);
         /**
          * 下拉刷新
@@ -100,7 +128,7 @@ public class NewCode_ZichanliebiaoActivity extends Activity {
         bean.limit = 10;
         bean.offset = PAGE_NO;
         String token = ACacheUtil.getToken();
-        ApiUtils.getApiService().zichanliebiao(token,bean).enqueue(new JuanCallback<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>>() {
+        ApiUtils.getApiService().zichanliebiao(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>>() {
             @Override
             public void onSuccess(Response<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> response, BaseBean<ArrayList<Pandian_zichanliebiaoBean>> message) {
                 ptr_refresh.refreshComplete();
@@ -152,9 +180,31 @@ public class NewCode_ZichanliebiaoActivity extends Activity {
         }
         if (requestCode == requestBackCode && resultCode == RESULT_OK) {
             String epcid = data.getStringExtra(Constant.CODED_CONTENT);
-            Intent intent = new Intent(NewCode_ZichanliebiaoActivity.this, NewCode_PatrolCheckDetailActivity.class);
-            intent.putExtra("epcid", epcid);
-            startActivity(intent);
+//            Intent intent = new Intent(NewCode_ZichanliebiaoActivity.this, NewCode_PatrolCheckDetailActivity.class);
+//            intent.putExtra("epcid", epcid);
+//            startActivity(intent);
+
+
+            ZichanSaomaPostBean bean = new ZichanSaomaPostBean();
+            bean.epcid = epcid;
+            bean.zcCheckId = id;
+            String token = ACacheUtil.getToken();
+
+            ApiUtils.getApiService().updateZcItemStatus(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>>() {
+                @Override
+                public void onSuccess(Response<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> response, BaseBean<ArrayList<Pandian_zichanliebiaoBean>> message) {
+                    if (message.code == 0) {
+                        ToastUtil.showAtCenter("资产提交成功");
+                        PAGE_NO = 1;
+                        initData();
+                    }
+                }
+
+                @Override
+                public void onFail(Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> call, Throwable t) {
+
+                }
+            });
 
         }
     }

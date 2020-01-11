@@ -32,6 +32,11 @@ public class Constants {
 
             //资产列表
             public static final String zichanliebiao = "zcCheck/info";
+            //扫码
+            public static final String updateZcItemStatus = "zcCheck/updateZcItemStatus";
+            //            完成后,修改资产状态
+            public static final String finishAssetsStatus = "zcCheck/finishAssetsStatus";
+
         }
 
 
