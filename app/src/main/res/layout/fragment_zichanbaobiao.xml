@@ -8,11 +8,6 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-
-
-
-
-
     <com.ja.assets.new_code.view.refresh.MaterialDesignPtrFrameLayout xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ptr_refresh"
         android:layout_width="match_parent"

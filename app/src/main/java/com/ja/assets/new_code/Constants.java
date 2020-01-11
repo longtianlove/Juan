@@ -42,6 +42,8 @@ public class Constants {
             //            获取盘点报表--基本信息
             public static final String checkReport_base = "zcCheck/checkReport";
 
+            //            获取盘点报表信息--盘盈/盘亏列表
+            public static final String profitList = "zcCheck/checkReport/profitList";
 
         }
 

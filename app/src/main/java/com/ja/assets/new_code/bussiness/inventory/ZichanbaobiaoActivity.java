@@ -47,7 +47,7 @@ public class ZichanbaobiaoActivity extends FragmentActivity {
     TextView tv_shifoufupan;
 
 
-    public  TabLayout tl_tab;
+    public TabLayout tl_tab;
     ViewPager vp_content;
     private List<String> tabIndicators;
     private List<Fragment> tabFragments;
@@ -72,25 +72,28 @@ public class ZichanbaobiaoActivity extends FragmentActivity {
 
         tl_tab = (TabLayout) findViewById(R.id.tl_tab);
         vp_content = (ViewPager) findViewById(R.id.vp_content);
+        id = getIntent().getIntExtra("id", -1);
         initContent();
         initTab();
         initPandian_base();
     }
+
+    public int id;
 
     void initPandian_base() {
         tv_danhao = findViewById(R.id.tv_danhao);
         tv_pandianbumen = findViewById(R.id.tv_pandianbumen);
         tv_pandianren = findViewById(R.id.tv_pandianren);
         tv_zhuangtai = findViewById(R.id.tv_zhuangtai);
-        tv_pandianshijian=findViewById(R.id.tv_pandianshijian);
-        tv_pandianleixing=findViewById(R.id.tv_pandianleixing);
-        tv_zichanzongshu=findViewById(R.id.tv_zichanzongshu);
-        tv_pandianjieguo=findViewById(R.id.tv_pandianjieguo);
-        tv_shifoufupan=findViewById(R.id.tv_shifoufupan);
+        tv_pandianshijian = findViewById(R.id.tv_pandianshijian);
+        tv_pandianleixing = findViewById(R.id.tv_pandianleixing);
+        tv_zichanzongshu = findViewById(R.id.tv_zichanzongshu);
+        tv_pandianjieguo = findViewById(R.id.tv_pandianjieguo);
+        tv_shifoufupan = findViewById(R.id.tv_shifoufupan);
 
         String token = ACacheUtil.getToken();
         PandianbaobiaoBasePostBean bean = new PandianbaobiaoBasePostBean();
-        int id = getIntent().getIntExtra("id", -1);
+
         bean.id = id;
         ApiUtils.getApiService().checkReport_base(token, bean).enqueue(new JuanCallback<BaseBean<PandianBaseResultBean>>() {
             @Override
@@ -101,13 +104,13 @@ public class ZichanbaobiaoActivity extends FragmentActivity {
                     tv_pandianren.setText(message.data.checkUserName);
                     tv_zhuangtai.setText(message.data.statusFlag);
                     tv_pandianshijian.setText(message.data.checkTime);
-                    if(message.data.profit==1) {
+                    if (message.data.profit == 1) {
                         tv_pandianleixing.setText("实物盘点");
-                    }else{
+                    } else {
                         tv_pandianleixing.setText("账务盘点");
 
                     }
-                    tv_zichanzongshu.setText(message.data.total+"");
+                    tv_zichanzongshu.setText(message.data.total + "");
                     tv_pandianjieguo.setText(message.data.strResult);
                     tv_shifoufupan.setText(message.data.reCheckFlag);
                 }
@@ -230,9 +233,12 @@ public class ZichanbaobiaoActivity extends FragmentActivity {
 
 
         tabFragments = new ArrayList<>();
-
         yingZichanbaobiaoFragment = new ZichanbaobiaoFragment();
+        yingZichanbaobiaoFragment.type = 1;
+        yingZichanbaobiaoFragment.id = id;
         kuiZichanbaobiaoFragment = new ZichanbaobiaoFragment();
+        kuiZichanbaobiaoFragment.type = 0;
+        kuiZichanbaobiaoFragment.id = id;
 //        jichudaixieFragment = new DoctorsFenleiFragment();
 //        jichudaixieFragment.type = "4";
 //        fukejiankangFragment = new DoctorsFenleiFragment();

@@ -6,6 +6,7 @@ import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
+import com.ja.assets.new_code.bussiness.bean.post.PanyingAndkuiPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
@@ -71,6 +72,9 @@ public interface ApiService {
 
     @POST(Constants.Url.Inventory.checkReport_base)
     Call<BaseBean<PandianBaseResultBean>> checkReport_base(@Header("token") String token, @Body PandianbaobiaoBasePostBean bean);
+
+    @POST(Constants.Url.Inventory.profitList)
+    Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> profitList(@Header("token") String token, @Body PanyingAndkuiPostBean bean);
 
 
     //上传头像

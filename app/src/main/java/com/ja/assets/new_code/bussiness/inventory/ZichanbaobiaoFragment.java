@@ -16,11 +16,18 @@ import androidx.annotation.Nullable;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ja.assets.R;
+import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.base.BaseJavaFragment;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
+import com.ja.assets.new_code.bussiness.bean.post.PanyingAndkuiPostBean;
+import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
+import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
+import com.ja.assets.new_code.http.ApiUtils;
+import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.JuanListView;
 import com.ja.assets.new_code.view.refresh.MaterialDesignPtrFrameLayout;
+import com.ja.assets.utils.ACacheUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,21 +40,24 @@ import retrofit2.Response;
 public class ZichanbaobiaoFragment extends BaseJavaFragment {
 
 
-
+    public  int id;
+    public int type;
     MaterialDesignPtrFrameLayout ptr_refresh;
 
     com.ja.assets.new_code.view.JuanListView lv_doctors;
     ZiChansAdapter madapter;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         super.onCreateView(inflater, container, savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_zichanbaobiao, container, false);
         initView(rootView);
         initData();
         return rootView;
     }
-    void initView(View rootView){
+
+    void initView(View rootView) {
         ptr_refresh = (MaterialDesignPtrFrameLayout) rootView.findViewById(R.id.ptr_refresh);
         /**
          * 下拉刷新
@@ -79,9 +89,50 @@ public class ZichanbaobiaoFragment extends BaseJavaFragment {
 
     int PAGE_NO = 1;
     int PAGE_SIZE = 10;
-    public String type;
+
 
     void getDoctors() {
+        String token = ACacheUtil.getToken();
+        PanyingAndkuiPostBean bean = new PanyingAndkuiPostBean();
+        bean.limit = 10;
+        bean.offset = PAGE_NO;
+        bean.type = type;
+        bean.zcCheckId = id;
+        ApiUtils.getApiService().profitList(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>>() {
+            @Override
+            public void onSuccess(Response<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> response, BaseBean<ArrayList<Pandian_zichanliebiaoBean>> message) {
+                ptr_refresh.refreshComplete();
+                if (message.code == 0) {
+                    if (message.data != null && message.data.size() >= 0) {
+                        lv_doctors.setLoading(false);
+                        if (PAGE_NO == 1) {
+                            madapter.mData.clear();
+                        }
+                        //有消息
+                        PAGE_NO++;
+                        madapter.mData.addAll(message.data);
+                        if (message.data.size() < 10) {
+                            lv_doctors.setHasLoadMore(false);
+                            lv_doctors.setLoadAllViewText("暂时只有这么多资产");
+                            lv_doctors.setLoadAllFooterVisible(true);
+                        } else {
+                            lv_doctors.setHasLoadMore(true);
+                        }
+                        madapter.notifyDataSetChanged();
+                    } else {
+                        //没有消息
+                        lv_doctors.setHasLoadMore(false);
+                        lv_doctors.setLoadAllViewText("暂时只有这么多资产");
+                        lv_doctors.setLoadAllFooterVisible(true);
+                    }
+                }
+            }
+
+            @Override
+            public void onFail(Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> call, Throwable t) {
+                ptr_refresh.refreshComplete();
+            }
+        });
 //        getListDoctorTypePostBean bean = new getListDoctorTypePostBean();
 //        bean.userId = UserInstance.getInstance().getUid();
 //        bean.token = UserInstance.getInstance().getToken();
@@ -136,7 +187,7 @@ public class ZichanbaobiaoFragment extends BaseJavaFragment {
 
         public Context mcontext;
 
-        List<ZiChansBean> mData = new ArrayList<ZiChansBean>();
+        List<Pandian_zichanliebiaoBean> mData = new ArrayList<Pandian_zichanliebiaoBean>();
 
         public ZiChansAdapter(Context context) {
             this.mcontext = context;
@@ -178,7 +229,7 @@ public class ZichanbaobiaoFragment extends BaseJavaFragment {
             } else {
                 util = (ZiChansAdapter.Util) convertView.getTag();
             }
-            ZiChansBean bean = mData.get(position);
+            Pandian_zichanliebiaoBean bean = mData.get(position);
             util.tv_epcid.setText(bean.epcid);
             util.tv_zichanbianhao.setText(bean.zcCodenum);
 
