@@ -13,6 +13,7 @@ import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
+import com.ja.assets.new_code.bussiness.bean.result.YipandianResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 
 import java.util.ArrayList;
@@ -62,6 +63,9 @@ public interface ApiService {
 
     @POST(Constants.Url.Inventory.finishAssetsStatus)
     Call<BaseBean> finishAssetsStatus(@Header("token") String token, @Body PandianZichanWanchengPostBean bean);
+
+    @POST(Constants.Url.Inventory.checkRecordList)
+    Call<BaseBean<ArrayList<YipandianResultBean>>> checkRecordList(@Header("token") String token, @Body WeiPandianPostBean bean);
 
 
     //上传头像

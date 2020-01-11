@@ -36,6 +36,8 @@ public class Constants {
             public static final String updateZcItemStatus = "zcCheck/updateZcItemStatus";
             //            完成后,修改资产状态
             public static final String finishAssetsStatus = "zcCheck/finishAssetsStatus";
+            //            盘点记录列表
+            public static final String checkRecordList = "zcCheck/checkRecordList";
 
         }
 

@@ -21,6 +21,7 @@ import com.ja.assets.model.*;
 import com.ja.assets.new_code.bussiness.Patrol.Jilu_Code_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.inventory.NewCode_InventoryActivity;
+import com.ja.assets.new_code.bussiness.inventory.YipandianActivity;
 import com.ja.assets.retrofit.HttpServer;
 import com.ja.assets.retrofit.ShowUserView;
 import com.ja.assets.ui.activity.purchase.PurchaseApplyActivity;
@@ -94,6 +95,9 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                     startActivity(intent);
                     break;
                 case 7: //盘点记录
+
+                    intent = new Intent(mainActivity, YipandianActivity.class);
+                    startActivity(intent);
                     break;
                 case 8://调配申请
                     break;
