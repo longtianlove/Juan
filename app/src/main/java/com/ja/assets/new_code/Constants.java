@@ -39,6 +39,10 @@ public class Constants {
             //            盘点记录列表
             public static final String checkRecordList = "zcCheck/checkRecordList";
 
+            //            获取盘点报表--基本信息
+            public static final String checkReport_base = "zcCheck/checkReport";
+
+
         }
 
 

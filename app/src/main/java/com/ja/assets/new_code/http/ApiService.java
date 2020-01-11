@@ -5,11 +5,13 @@ import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
+import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
@@ -66,6 +68,9 @@ public interface ApiService {
 
     @POST(Constants.Url.Inventory.checkRecordList)
     Call<BaseBean<ArrayList<YipandianResultBean>>> checkRecordList(@Header("token") String token, @Body WeiPandianPostBean bean);
+
+    @POST(Constants.Url.Inventory.checkReport_base)
+    Call<BaseBean<PandianBaseResultBean>> checkReport_base(@Header("token") String token, @Body PandianbaobiaoBasePostBean bean);
 
 
     //上传头像

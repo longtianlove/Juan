@@ -190,9 +190,9 @@ public class YipandianActivity extends Activity {
             util.ll_all.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(YipandianActivity.this, NewCode_ZichanliebiaoActivity.class);
-//                    intent.putExtra("id", bean.id);
-//                    startActivity(intent);
+                    Intent intent = new Intent(YipandianActivity.this, ZichanbaobiaoActivity.class);
+                    intent.putExtra("id", bean.id);
+                    startActivity(intent);
                 }
             });
             util.tv_danhao.setText(bean.check_num);
