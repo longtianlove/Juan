@@ -3,6 +3,7 @@ package com.ja.assets.new_code.http;
 import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
+import com.ja.assets.new_code.bussiness.bean.post.DiaopeiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
@@ -11,6 +12,7 @@ import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
+import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
@@ -75,6 +77,12 @@ public interface ApiService {
 
     @POST(Constants.Url.Inventory.profitList)
     Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> profitList(@Header("token") String token, @Body PanyingAndkuiPostBean bean);
+
+
+    @POST(Constants.Url.DiaoPei.diaopei_zichanliebiao)
+    Call<BaseBean<ArrayList<Diaopei_zichanliebiaoBean>>> diaopei_zichanliebiao(@Header("token") String token, @Body DiaopeiZichanliiebiaoPostBean bean);
+
+
 
 
     //上传头像

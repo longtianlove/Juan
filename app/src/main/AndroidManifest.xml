@@ -71,6 +71,19 @@
 
             android:theme="@android:style/Theme.NoTitleBar" />
 
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.diaopei.DiaoPeiGuanliActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.diaopei.DiaopeizichanliebiaoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
 
         <activity
             android:name="com.ja.assets.new_code.bussiness.inventory.YipandianActivity"

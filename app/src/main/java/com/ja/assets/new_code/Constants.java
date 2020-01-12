@@ -46,6 +46,11 @@ public class Constants {
             public static final String profitList = "zcCheck/checkReport/profitList";
 
         }
+        public class DiaoPei{
+//            获取调配资产的列表数据
+            public static final String diaopei_zichanliebiao = "deploy/zc/deployList";
+
+        }
 
 
         public static final String UploadImage = "files";

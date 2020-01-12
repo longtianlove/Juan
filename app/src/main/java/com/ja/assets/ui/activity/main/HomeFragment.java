@@ -20,6 +20,7 @@ import com.ja.assets.databinding.FragmentHomeLayoutBinding;
 import com.ja.assets.model.*;
 import com.ja.assets.new_code.bussiness.Patrol.Jilu_Code_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
+import com.ja.assets.new_code.bussiness.diaopei.DiaoPeiGuanliActivity;
 import com.ja.assets.new_code.bussiness.inventory.NewCode_InventoryActivity;
 import com.ja.assets.new_code.bussiness.inventory.YipandianActivity;
 import com.ja.assets.retrofit.HttpServer;
@@ -100,6 +101,9 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                     startActivity(intent);
                     break;
                 case 8://调配申请
+                    intent = new Intent(mainActivity, DiaoPeiGuanliActivity.class);
+                    startActivity(intent);
+
                     break;
                 case 9:  //调配记录
                     break;

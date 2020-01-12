@@ -50,7 +50,7 @@ public class HomePageList {
 
 
             //管理部门特有
-            homePageList.add(new HomePage01(8, R.mipmap.home_icon_diaopeishenqing, "调配申请"));
+            homePageList.add(new HomePage01(8, R.mipmap.home_icon_diaopeishenqing, "调配管理"));
             homePageList.add(new HomePage01(9, R.mipmap.home_icon_caigoushenhe, "调配记录"));
             homePageList.add(new HomePage01(6, R.mipmap.home_icon_pandiandanchuangjian, "盘点管理"));
             homePageList.add(new HomePage01(7, R.mipmap.home_icon_pandianjilu, "盘点记录"));
