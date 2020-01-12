@@ -49,33 +49,55 @@
 
     </RelativeLayout>
 
-    <com.ja.assets.new_code.view.WithListViewScrollView
+    <FrameLayout
         android:id="@+id/scl_bag"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.ja.assets.new_code.view.WithListViewScrollView
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#ffffff">
 
-            <com.ja.assets.new_code.view.WithScrolleViewListView
-                android:id="@+id/lv_zichans"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp"
-                android:background="#fff"
-                android:divider="#EEEEEE"
-                android:dividerHeight="5dp"
-                android:footerDividersEnabled="false"
-                android:headerDividersEnabled="false"
-                android:listSelector="@android:color/transparent"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp" />
+                android:layout_height="match_parent">
 
-        </LinearLayout>
-    </com.ja.assets.new_code.view.WithListViewScrollView>
+                <com.ja.assets.new_code.view.WithScrolleViewListView
+                    android:id="@+id/lv_zichans"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="50dp"
+                    android:background="#fff"
+                    android:divider="#EEEEEE"
+                    android:dividerHeight="5dp"
+                    android:footerDividersEnabled="false"
+                    android:headerDividersEnabled="false"
+                    android:listSelector="@android:color/transparent"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp" />
 
+
+            </FrameLayout>
+        </com.ja.assets.new_code.view.WithListViewScrollView>
+
+        <TextView
+            android:id="@+id/tv_done"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/xml_login_background"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="14sp"></TextView>
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/noAssetsLinear"
