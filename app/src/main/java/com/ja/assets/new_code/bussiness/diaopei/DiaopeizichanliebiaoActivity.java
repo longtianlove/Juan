@@ -289,16 +289,33 @@ public class DiaopeizichanliebiaoActivity extends Activity {
             }
             Diaopei_zichanliebiaoBean bean = mData.get(position);
             util.ck_chose.setChecked(bean.isChecked);
-            util.ck_chose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            util.ck_chose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                @Override
+//                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                    if (isChecked) {
+//                        //如果选中
+//                        bean.isChecked = true;
+//                        yixuanzeZiChanliebiao.add(bean);
+//                    } else {
+//                        //如果没选中
+//                        bean.isChecked = false;
+//                        Iterator<Diaopei_zichanliebiaoBean> it = yixuanzeZiChanliebiao.iterator();
+//                        while (it.hasNext()) {
+//                            Diaopei_zichanliebiaoBean bean1 = it.next();
+//                            if (bean1.id == bean.id) {
+//                                it.remove();
+//                            }
+//                        }
+//                    }
+//                }
+//            });
+            Util finalUtil = util;
+            util.ck_chose.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        //如果选中
-                        bean.isChecked = true;
-                        yixuanzeZiChanliebiao.add(bean);
-                    } else {
-                        //如果没选中
+                public void onClick(View v) {
+                    if (bean.isChecked) {
                         bean.isChecked = false;
+                        finalUtil.ck_chose.setChecked(false);
                         Iterator<Diaopei_zichanliebiaoBean> it = yixuanzeZiChanliebiao.iterator();
                         while (it.hasNext()) {
                             Diaopei_zichanliebiaoBean bean1 = it.next();
@@ -306,6 +323,12 @@ public class DiaopeizichanliebiaoActivity extends Activity {
                                 it.remove();
                             }
                         }
+
+                    } else {
+                        //如果选中
+                        bean.isChecked = true;
+                        finalUtil.ck_chose.setChecked(true);
+                        yixuanzeZiChanliebiao.add(bean);
                     }
                 }
             });
