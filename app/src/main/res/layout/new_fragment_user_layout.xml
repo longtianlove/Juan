@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/fragment_me_background"
-            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <LinearLayout
@@ -31,7 +30,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="个人中心"
 
@@ -50,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:weightSum="1">
 
                 <com.facebook.drawee.view.SimpleDraweeView
@@ -136,7 +135,7 @@
                 android:gravity="center"
                 android:text="个人资料"
                 android:textColor="#ff666666"
-                android:textSize="@dimen/textSize_10" />
+                />
 
             <View
                 android:layout_width="0dp"
@@ -177,7 +176,7 @@
                 android:gravity="center"
                 android:text="修改密码"
                 android:textColor="#ff666666"
-                android:textSize="@dimen/textSize_10" />
+                 />
 
             <View
                 android:layout_width="0dp"
@@ -218,7 +217,7 @@
                 android:gravity="center"
                 android:text="帮助中心"
                 android:textColor="#ff666666"
-                android:textSize="@dimen/textSize_10" />
+                 />
 
             <View
                 android:layout_width="0dp"
@@ -260,7 +259,7 @@
                 android:gravity="center"
                 android:text="客服热线"
                 android:textColor="#ff666666"
-                android:textSize="@dimen/textSize_10" />
+                 />
 
             <View
                 android:layout_width="0dp"
@@ -274,7 +273,7 @@
                 android:gravity="center_vertical"
                 android:text="0359-2049830"
                 android:textColor="#ff4789f7"
-                android:textSize="@dimen/textSize_10" />
+                />
         </LinearLayout>
 
         <View
@@ -305,7 +304,7 @@
                 android:gravity="center"
                 android:text="关于我们"
                 android:textColor="#ff666666"
-                android:textSize="@dimen/textSize_10" />
+               />
 
             <View
                 android:layout_width="0dp"
@@ -347,7 +346,7 @@
                 android:gravity="center"
                 android:text="设置"
                 android:textColor="#ff666666"
-                android:textSize="@dimen/textSize_10" />
+                />
 
             <View
                 android:layout_width="0dp"
