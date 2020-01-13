@@ -32,27 +32,14 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="调配管理"
+            android:text="调入部门"
             android:textColor="#fff"
             android:textSize="18sp" />
 
 
-        <TextView
-            android:id="@+id/tv_tianjiazichan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
-            android:text="添加资产"
-            android:textColor="#fff"
-            android:textSize="18sp"></TextView>
-
     </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/scl_bag"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <com.ja.assets.new_code.view.WithListViewScrollView
 
@@ -65,7 +52,7 @@
                 android:layout_height="match_parent">
 
                 <com.ja.assets.new_code.view.WithScrolleViewListView
-                    android:id="@+id/lv_zichans"
+                    android:id="@+id/lv_bumens"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="50dp"
@@ -82,51 +69,8 @@
             </FrameLayout>
         </com.ja.assets.new_code.view.WithListViewScrollView>
 
-        <TextView
-            android:id="@+id/tv_tijiao"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="37dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/xml_login_background"
-            android:enabled="false"
-            android:gravity="center"
-            android:text="提交"
-            android:textColor="@color/white"
-            android:textSize="14sp"></TextView>
 
-    </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/noAssetsLinear"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/submitAuditLinear"
-        android:gravity="center"
-        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/margin_120"
-            android:layout_height="@dimen/margin_120"
-            android:src="@mipmap/not_health_order" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:text="@string/noAssetsText"
-            android:textColor="@color/mainBgColor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:text="@string/clickRightBtnAdd"
-            android:textColor="@color/mainBgColor"
-            android:textSize="@dimen/textSize_18"
-            android:textStyle="bold" />
-    </LinearLayout>
 
 </LinearLayout>

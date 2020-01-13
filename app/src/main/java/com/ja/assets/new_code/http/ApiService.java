@@ -12,6 +12,7 @@ import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
+import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
@@ -22,6 +23,7 @@ import com.ja.assets.new_code.bussiness.bean.result.YipandianResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -83,6 +85,13 @@ public interface ApiService {
     Call<BaseBean<ArrayList<Diaopei_zichanliebiaoBean>>> diaopei_zichanliebiao(@Header("token") String token, @Body DiaopeiZichanliiebiaoPostBean bean);
 
 
+    @POST(Constants.Url.DiaoPei.diaopei_bumenlist)
+    Call<BaseBean<ArrayList<BumenListBean>>> diaopei_bumenlist(@Header("token") String token);
+
+
+
+    @POST(Constants.Url.DiaoPei.insertZcDeployData)
+    Call<BaseBean> insertZcDeployData(@Header("token") String token, @Body List<Diaopei_zichanliebiaoBean> bean);
 
 
     //上传头像

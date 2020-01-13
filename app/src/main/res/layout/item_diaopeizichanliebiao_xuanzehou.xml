@@ -28,8 +28,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/assetTraceCodeText" />
 
                 <TextView
@@ -46,8 +46,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/tv_trace_code_selector"
-                android:visibility="gone"
-                android:gravity="center">
+                android:gravity="center"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/iv_erweima"
@@ -160,26 +160,67 @@
             </LinearLayout>
         </LinearLayout>
 
-
         <LinearLayout
-            style="@style/itemLinear"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#fff"
+            android:weightSum="2">
 
-            <TextView
-                style="@style/itemStartTV"
-                android:layout_width="wrap_content"
-                android:layout_margin="@dimen/margin_5"
-                android:text="@string/storageAddress" />
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_cunfangdizhi"
-                style="@style/itemEndTV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text=""
-                android:textColor="@color/mainBgColor" />
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="@string/storageAddress" />
+
+                <TextView
+                    android:id="@+id/tv_cunfangdizhi"
+                    style="@style/itemEndTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="调出部门：" />
+
+                <TextView
+                    android:id="@+id/tv_diaochubumen"
+                    style="@style/itemEndTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_diaochubumen_dianji"
+                    style="@style/itemEndTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="点击选择"
+                    android:textColor="@color/red" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

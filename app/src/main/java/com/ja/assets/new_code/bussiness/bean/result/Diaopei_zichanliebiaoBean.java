@@ -25,7 +25,20 @@ public class Diaopei_zichanliebiaoBean {
     public boolean isChecked = false;
 
 
-    private BigDecimal originalValue;
+    public BigDecimal originalValue;
 
-    private BigDecimal netvalue;
+    public BigDecimal netvalue;
+
+    /**
+     * 调入部门id
+     */
+    public int backDeptId;
+
+    /**
+     * 调入部门名称
+     */
+    public String backUsername;
+
+    public int syDeptId;
+    public int glDeptId;
 }
