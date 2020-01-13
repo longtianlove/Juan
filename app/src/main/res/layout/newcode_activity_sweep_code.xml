@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4789F7"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="10dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+
+            android:src="@drawable/icon_back_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="盘点记录"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_100">
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/assetsName" />
+
+                <TextView
+                    android:id="@+id/sweepCodeAssetsNameTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterAssetsName"
+                    android:text="@{assetsInfoBean.assetsName}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/assetTraceCode" />
+
+                <TextView
+                    android:id="@+id/sweepCodeAssetTraceCodeTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterAssetTraceCode"
+                    android:text="@{assetsInfoBean.assetsTraceCode}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/assetCode" />
+
+                <TextView
+                    android:id="@+id/sweepCodeAssetCodeTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterAssetCode"
+                    android:text="@{assetsInfoBean.assetsNumber}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/assetClass" />
+
+                <TextView
+                    android:id="@+id/sweepCodeAssetClassTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterAssetClass"
+                    android:text="@{assetsInfoBean.assetsType}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/adminDepartment" />
+
+                <TextView
+                    android:id="@+id/sweepCodeAdminDepartmentTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterAdminDepartment"
+                    android:text="@{assetsInfoBean.adminDepartmentName}" />
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/sourceText" />
+
+                <TextView
+                    android:id="@+id/sweepCodeSourceTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterSource"
+                    android:text="@{assetsInfoBean.assetsSource}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/startUseDate" />
+
+                <TextView
+                    android:id="@+id/sweepCodeStartUseDateTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterStartUseDate"
+                    android:text="@{assetsInfoBean.startUserTime}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/remainingPeriod" />
+
+                <TextView
+                    android:id="@+id/sweepCodeRemainingPeriodTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterRemainingPeriod"
+                    android:text="@{assetsInfoBean.remainingPeriod}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/originalValue" />
+
+                <TextView
+                    android:id="@+id/sweepCodeOriginalValueTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterOriginalValue"
+                    android:text="@{assetsInfoBean.originalValue}" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/itemLinear">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:text="@string/netWorth" />
+
+                <TextView
+                    android:id="@+id/sweepCodeNetWorthTV"
+                    style="@style/itemEndTV"
+                    android:hint="@string/enterNetWorth"
+                    android:text="@{assetsInfoBean.netWorth}" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+
+

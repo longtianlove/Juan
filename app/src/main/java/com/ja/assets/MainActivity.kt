@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentTransaction
 import com.ja.assets.databinding.ActivityMainBinding
 import com.ja.assets.new_code.bussiness.me.UserFragment
+import com.ja.assets.new_code.bussiness.other.NewCode_SweepCodeActivity
 import com.ja.assets.ui.activity.main.HomeFragment
 
 import com.ja.assets.ui.activity.other.SweepCodeActivity
@@ -113,7 +114,7 @@ class MainActivity : BaseActivity() {
         }
         if (requestCode == requestBackCode && resultCode == RESULT_OK) {
             val resultUrl = data.getStringExtra(Constant.CODED_CONTENT)
-            val intent = Intent(this, SweepCodeActivity::class.java)
+            val intent = Intent(this, NewCode_SweepCodeActivity::class.java)
             intent.putExtra("resultUrl", resultUrl)
             startActivity(intent)
         }
