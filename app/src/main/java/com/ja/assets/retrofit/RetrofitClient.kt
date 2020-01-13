@@ -36,7 +36,8 @@ object   RetrofitClient {
     //本地部署固定资产网址
 //    const val BASE_URL = "http://123.56.66.231:8080/"
 
-    const val BASE_URL = "http://10.0.26.42:8080/"
+//    const val BASE_URL = "http://10.0.26.42:8080/"
+const val BASE_URL = "http://10.0.26.18:8080/"
 
     /**
      * 图片加载

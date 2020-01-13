@@ -190,7 +190,7 @@ public class DiaopeijiluActivity extends Activity {
             util.ll_all.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(DiaopeijiluActivity.this, ZichanbaobiaoActivity.class);
+                    Intent intent = new Intent(DiaopeijiluActivity.this, DiaopeijiluxiangqingActivity.class);
                     intent.putExtra("id", bean.id);
                     startActivity(intent);
                 }

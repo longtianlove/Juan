@@ -9,7 +9,9 @@ public class Constants {
 
     public static class Url {
         //        public static String Host = "http://47.93.249.1:9100/";
-        public static String Host = "http://10.0.26.42:8080/";
+        public static String Host = "http://10.0.26.18:8080/";
+//        public static String Host = "http://10.0.26.42:8080/";
+//        public static String Host = "http://172.20.10.3:8080/";
 
 
         public class Patrol {
@@ -59,6 +61,10 @@ public class Constants {
 
             //            获取调配记录的列表
             public static final String deployRecordList = "deploy/deployRecordList";
+
+
+//            获取调配记录找到子记录数据
+            public static final String listByZcDeployId = "deploy/listByZcDeployId";
 
         }
 

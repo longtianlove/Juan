@@ -5,6 +5,7 @@ import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeijiluPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.DiaopeixiangqingPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
@@ -16,6 +17,7 @@ import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluBean;
+import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluxiangqingBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
@@ -100,6 +102,12 @@ public interface ApiService {
 
     @POST(Constants.Url.DiaoPei.deployRecordList)
     Call<BaseBean<ArrayList<DiaopeijiluBean>>> deployRecordList(@Header("token") String token, @Body DiaopeijiluPostBean bean);
+
+
+
+
+    @POST(Constants.Url.DiaoPei.listByZcDeployId)
+    Call<BaseBean<ArrayList<DiaopeijiluxiangqingBean>>> listByZcDeployId(@Header("token") String token, @Body DiaopeixiangqingPostBean bean);
 
 
     //上传头像
