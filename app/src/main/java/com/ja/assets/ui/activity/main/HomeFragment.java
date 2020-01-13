@@ -21,6 +21,7 @@ import com.ja.assets.model.*;
 import com.ja.assets.new_code.bussiness.Patrol.Jilu_Code_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.diaopei.DiaoPeiGuanliActivity;
+import com.ja.assets.new_code.bussiness.diaopei.DiaopeijiluActivity;
 import com.ja.assets.new_code.bussiness.inventory.NewCode_InventoryActivity;
 import com.ja.assets.new_code.bussiness.inventory.YipandianActivity;
 import com.ja.assets.retrofit.HttpServer;
@@ -91,12 +92,10 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                 case 5://处置记录
                     break;
                 case 6:  //盘点单创建
-
                     intent = new Intent(mainActivity, NewCode_InventoryActivity.class);
                     startActivity(intent);
                     break;
                 case 7: //盘点记录
-
                     intent = new Intent(mainActivity, YipandianActivity.class);
                     startActivity(intent);
                     break;
@@ -106,6 +105,8 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
 
                     break;
                 case 9:  //调配记录
+                    intent = new Intent(mainActivity, DiaopeijiluActivity.class);
+                    startActivity(intent);
                     break;
                 case 10: //巡检列表
                     intent = new Intent(mainActivity, NewCode_PatrolCheckListActivity.class);

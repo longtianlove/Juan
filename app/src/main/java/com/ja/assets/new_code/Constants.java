@@ -56,6 +56,10 @@ public class Constants {
             //            添加资产调配的数据信息
             public static final String insertZcDeployData = "deploy/zc/insertZcDeployData";
 
+
+            //            获取调配记录的列表
+            public static final String deployRecordList = "deploy/deployRecordList";
+
         }
 
 
