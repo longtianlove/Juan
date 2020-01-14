@@ -26,6 +26,7 @@
                 style="@style/itemStartTV"
                 android:layout_width="wrap_content"
                 android:layout_margin="@dimen/margin_5"
+                android:textColor="@color/textColor"
                 android:text="@string/oddNumber" />
 
             <TextView
@@ -59,6 +60,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="申请人：" />
 
                 <TextView
@@ -80,6 +82,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="申请部门：" />
 
                 <TextView
@@ -110,6 +113,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="账号：" />
 
                 <TextView
@@ -132,6 +136,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="申请时间：" />
 
                 <TextView
@@ -159,6 +164,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="流程环节：" />
 
                 <TextView
@@ -178,6 +184,7 @@
                 <TextView
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/textColor"
                     android:layout_margin="@dimen/margin_5"
                     android:text="流程状态：" />
 

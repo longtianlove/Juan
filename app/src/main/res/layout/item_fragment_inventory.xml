@@ -21,6 +21,7 @@
                 style="@style/itemStartTV"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/margin_5"
+                android:textColor="@color/textColor"
                 android:text="@string/oddNumber" />
 
             <TextView
@@ -50,6 +51,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/useDepartment" />
 
                 <TextView
@@ -71,6 +73,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/adminDepartmentText" />
 
                 <TextView
@@ -96,6 +99,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/assetsAllTotal" />
 
                 <TextView
@@ -114,6 +118,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/inventoryTime" />
                 <TextView
                     style="@style/itemEndTV"

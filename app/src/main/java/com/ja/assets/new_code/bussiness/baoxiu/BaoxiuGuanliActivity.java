@@ -70,22 +70,22 @@ public class BaoxiuGuanliActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String token = ACacheUtil.getToken();
-//                ApiUtils.getApiService().insertZcDeployData(token, BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao).enqueue(new JuanCallback<BaseBean>() {
-//                    @Override
-//                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
-//                        if (message.code == 0) {
-//                            BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
-//                            noAssetsLinear.setVisibility(View.VISIBLE);
-//                            scl_bag.setVisibility(View.GONE);
-//                            lv_zichans.setVisibility(View.GONE);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFail(Call<BaseBean> call, Throwable t) {
-//
-//                    }
-//                });
+                ApiUtils.getApiService().insertRepairData(token, BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao).enqueue(new JuanCallback<BaseBean>() {
+                    @Override
+                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
+                        if (message.code == 0) {
+                            BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
+                            noAssetsLinear.setVisibility(View.VISIBLE);
+                            scl_bag.setVisibility(View.GONE);
+                            lv_zichans.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Call<BaseBean> call, Throwable t) {
+
+                    }
+                });
             }
         });
 
@@ -184,29 +184,16 @@ public class BaoxiuGuanliActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(BaoxiuGuanliActivity.this, BaoxiushangchuanfujianActivity.class);
-                        intent.putExtra("position", position);
-                        startActivity(intent);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
                 }
             });
-//            if (TextUtils.isEmpty(bean.backUsername)) {
-//                util.tv_diaochubumen.setVisibility(View.GONE);
-//                util.tv_diaochubumen_dianji.setVisibility(View.VISIBLE);
-//                util.tv_diaochubumen_dianji.setOnClickListener(new View.OnClickListener() {
-//
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(BaoxiuGuanliActivity.this, DiaopeiBumenActivity.class);
-//                        intent.putExtra("position", position);
-//                        startActivity(intent);
-//                    }
-//                });
-//            } else {
-//                util.tv_diaochubumen.setVisibility(View.VISIBLE);
-//                util.tv_diaochubumen.setText(bean.backUsername);
-//                util.tv_diaochubumen_dianji.setVisibility(View.GONE);
-//            }
-
-
+            if (TextUtils.isEmpty(bean.imageUrl)) {
+                util.tv_shangchuanfujiian.setVisibility(View.VISIBLE);
+            } else {
+                util.tv_shangchuanfujiian.setVisibility(View.GONE);
+            }
+            
             return convertView;
         }
 

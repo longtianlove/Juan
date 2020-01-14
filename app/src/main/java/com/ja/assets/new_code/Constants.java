@@ -72,7 +72,8 @@ public class Constants {
             //            获取保修的资产列表
             public static final String repairList = "app/repair/list";
 
-
+            //            提交上传的报修的信息
+            public static final String insertRepairData = "app/repair/insertRepairData";
         }
 
         public class Me {

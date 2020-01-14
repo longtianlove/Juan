@@ -43,6 +43,7 @@
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/textColor"
                     android:text="@string/assetTraceCodeText" />
 
                 <TextView
@@ -91,6 +92,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/assetsNumber" />
 
                 <TextView
@@ -113,6 +115,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/assetsNameText" />
 
                 <TextView
@@ -140,6 +143,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/useDepartment" />
 
                 <TextView
@@ -161,6 +165,7 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
+                    android:textColor="@color/textColor"
                     android:text="@string/adminDepartmentText" />
 
                 <TextView
@@ -183,6 +188,7 @@
                 style="@style/itemStartTV"
                 android:layout_width="wrap_content"
                 android:layout_margin="@dimen/margin_5"
+                android:textColor="@color/textColor"
                 android:text="@string/storageAddress" />
 
             <TextView

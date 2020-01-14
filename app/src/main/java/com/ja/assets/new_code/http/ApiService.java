@@ -110,6 +110,9 @@ public interface ApiService {
 
 
 
+    @POST(Constants.Url.BaoXiu.insertRepairData)
+    Call<BaseBean> insertRepairData(@Header("token") String token, @Body List<Biaoxiiu_zichanliebiaoBean> bean);
+
 
     @POST(Constants.Url.DiaoPei.deployRecordList)
     Call<BaseBean<ArrayList<DiaopeijiluBean>>> deployRecordList(@Header("token") String token, @Body DiaopeijiluPostBean bean);
