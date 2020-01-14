@@ -75,6 +75,11 @@ public class Constants {
 
         }
 
+        public class Me {
+            //            修改密码
+            public static final String updatePassword = "mine/updatePassword";
+        }
+
         public static final String UploadImage = "files";
     }
 

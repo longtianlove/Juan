@@ -11,7 +11,17 @@ import android.widget.TextView;
 
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.base.BaseJavaActivity;
+import com.ja.assets.new_code.bussiness.bean.post.UpdatePasswordPostBean;
+import com.ja.assets.new_code.http.ApiUtils;
+import com.ja.assets.new_code.http.JuanCallback;
+import com.ja.assets.new_code.util.ToastUtil;
+import com.ja.assets.utils.ACacheUtil;
+
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 
 /**
@@ -50,31 +60,25 @@ public class UpdatePasswordFirstActivity extends BaseJavaActivity {
         tv_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String password = et_password.getText().toString();
-//                UpdatePswPostBean bean = new UpdatePswPostBean();
-//                bean.userId = UserInstance.getInstance().getUid();
-//                bean.token = UserInstance.getInstance().getToken();
-//                bean.password = password;
-//                ApiUtils.getApiService().modifypasswrod(bean).enqueue(new JuanCallback<BaseBean>() {
-//                    @Override
-//                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
-//                        switch (message.code) {
-//                            case Constants.HTTP_SUCCESS:
-//                                Intent intent = new Intent(UpdatePasswordFirstActivity.this, UpdatePasswordLastActivity.class);
-//                                startActivity(intent);
-//                                finish();
-//                                break;
-//                            default:
-//                                ToastUtil.showTost("更新失败");
-//                                break;
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFail(Call<BaseBean> call, Throwable t) {
-//
-//                    }
-//                });
+                UpdatePasswordPostBean bean=new UpdatePasswordPostBean();
+                bean.newPassword=et_password.getText().toString();
+                bean.oldPassword=ACacheUtil.getPassword();
+                bean.username=ACacheUtil.getUsername();
+                String token=ACacheUtil.getToken();
+                ApiUtils.getApiService().updatePassword(token,bean).enqueue(new JuanCallback<BaseBean>() {
+                    @Override
+                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
+                        if(message.code==0){
+                            ToastUtil.showAtCenter("修改成功");
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Call<BaseBean> call, Throwable t) {
+
+                    }
+                });
             }
         });
         et_password = (EditText) findViewById(R.id.et_password);

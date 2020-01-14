@@ -12,6 +12,7 @@ import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PanyingAndkuiPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.UpdatePasswordPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
@@ -43,6 +44,9 @@ import retrofit2.http.Part;
  * Created by long
  */
 public interface ApiService {
+
+    @POST(Constants.Url.Me.updatePassword)
+    Call<BaseBean> updatePassword(@Header("token") String token,@Body UpdatePasswordPostBean bean);
 
     @POST(Constants.Url.Patrol.PatrolCheckList)
     Call<BaseBean<ArrayList<ZiChansBean>>> PatrolCheckList(@Header("token") String token);
