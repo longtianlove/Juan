@@ -78,6 +78,26 @@
 
             android:theme="@android:style/Theme.NoTitleBar" />
 
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.baoxiu.BaoxiuGuanliActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.baoxiu.BaoxiuzichanliebiaoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.baoxiu.BaoxiushangchuanfujianActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.ja.assets.new_code.bussiness.diaopei.DiaopeiBumenActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"

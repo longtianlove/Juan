@@ -63,11 +63,17 @@ public class Constants {
             public static final String deployRecordList = "deploy/deployRecordList";
 
 
-//            获取调配记录找到子记录数据
+            //            获取调配记录找到子记录数据
             public static final String listByZcDeployId = "deploy/listByZcDeployId";
 
         }
 
+        public class BaoXiu {
+            //            获取保修的资产列表
+            public static final String repairList = "app/repair/list";
+
+
+        }
 
         public static final String UploadImage = "files";
     }

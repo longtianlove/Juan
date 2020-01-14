@@ -2,6 +2,7 @@ package com.ja.assets.new_code.http;
 
 import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
+import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeijiluPostBean;
@@ -14,6 +15,7 @@ import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
+import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluBean;
@@ -91,6 +93,11 @@ public interface ApiService {
 
     @POST(Constants.Url.DiaoPei.diaopei_bumenlist)
     Call<BaseBean<ArrayList<BumenListBean>>> diaopei_bumenlist(@Header("token") String token);
+
+
+
+    @POST(Constants.Url.BaoXiu.repairList)
+    Call<BaseBean<ArrayList<Biaoxiiu_zichanliebiaoBean>>> repairList(@Header("token") String token, @Body BaoXiuZichanliiebiaoPostBean bean);
 
 
 

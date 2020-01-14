@@ -1,4 +1,4 @@
-package com.ja.assets.new_code.bussiness.diaopei;
+package com.ja.assets.new_code.bussiness.baoxiu;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,31 +16,21 @@ import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseBean;
-import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
-import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
+import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
-import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
-import com.ja.assets.new_code.bussiness.inventory.NewCode_ZichanliebiaoActivity;
+import com.ja.assets.new_code.bussiness.diaopei.DiaopeiBumenActivity;
+
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
-import com.ja.assets.new_code.util.DialogUtil;
-import com.ja.assets.new_code.util.ToastUtil;
-import com.ja.assets.new_code.view.JuanListView;
-import com.ja.assets.new_code.view.refresh.MaterialDesignPtrFrameLayout;
 import com.ja.assets.utils.ACacheUtil;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrFrameLayout;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class DiaoPeiGuanliActivity extends Activity {
+public class BaoxiuGuanliActivity extends Activity {
 
     View iv_back;
     View tv_tianjiazichan;
@@ -55,7 +43,7 @@ public class DiaoPeiGuanliActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diaopeiguanli);
+        setContentView(R.layout.activity_baoxiuguanli);
         iv_back = findViewById(R.id.iv_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +57,7 @@ public class DiaoPeiGuanliActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DiaoPeiGuanliActivity.this, DiaopeizichanliebiaoActivity.class);
+                Intent intent = new Intent(BaoxiuGuanliActivity.this, BaoxiuzichanliebiaoActivity.class);
                 startActivity(intent);
             }
         });
@@ -82,32 +70,33 @@ public class DiaoPeiGuanliActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String token = ACacheUtil.getToken();
-                ApiUtils.getApiService().insertZcDeployData(token, DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao).enqueue(new JuanCallback<BaseBean>() {
-                    @Override
-                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
-                        if (message.code == 0) {
-                            DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
-                            noAssetsLinear.setVisibility(View.VISIBLE);
-                            scl_bag.setVisibility(View.GONE);
-                            lv_zichans.setVisibility(View.GONE);
-                        }
-                    }
-
-                    @Override
-                    public void onFail(Call<BaseBean> call, Throwable t) {
-
-                    }
-                });
+//                ApiUtils.getApiService().insertZcDeployData(token, BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao).enqueue(new JuanCallback<BaseBean>() {
+//                    @Override
+//                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
+//                        if (message.code == 0) {
+//                            BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
+//                            noAssetsLinear.setVisibility(View.VISIBLE);
+//                            scl_bag.setVisibility(View.GONE);
+//                            lv_zichans.setVisibility(View.GONE);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFail(Call<BaseBean> call, Throwable t) {
+//
+//                    }
+//                });
             }
         });
-        DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
+
+        BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao.size() == 0) {
+        if (BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao.size() == 0) {
             noAssetsLinear.setVisibility(View.VISIBLE);
             scl_bag.setVisibility(View.GONE);
             lv_zichans.setVisibility(View.GONE);
@@ -115,7 +104,7 @@ public class DiaoPeiGuanliActivity extends Activity {
             noAssetsLinear.setVisibility(View.GONE);
             scl_bag.setVisibility(View.VISIBLE);
             ZiChansAdapter mapapter = new ZiChansAdapter(this);
-            mapapter.mData = DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao;
+            mapapter.mData = BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao;
             lv_zichans.setVisibility(View.VISIBLE);
             lv_zichans.setAdapter(mapapter);
         }
@@ -123,8 +112,8 @@ public class DiaoPeiGuanliActivity extends Activity {
     }
 
     void tijiaoganniu() {
-        for (Diaopei_zichanliebiaoBean bean : DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao) {
-            if (TextUtils.isEmpty(bean.backUsername)) {
+        for (Biaoxiiu_zichanliebiaoBean bean : BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao) {
+            if (TextUtils.isEmpty(bean.imageUrl)) {
                 tv_tijiao.setEnabled(false);
                 return;
             }
@@ -136,7 +125,7 @@ public class DiaoPeiGuanliActivity extends Activity {
 
         public Context mcontext;
 
-        List<Diaopei_zichanliebiaoBean> mData = new ArrayList<Diaopei_zichanliebiaoBean>();
+        List<Biaoxiiu_zichanliebiaoBean> mData = new ArrayList<Biaoxiiu_zichanliebiaoBean>();
 
         public ZiChansAdapter(Context context) {
             this.mcontext = context;
@@ -166,45 +155,56 @@ public class DiaoPeiGuanliActivity extends Activity {
             if (convertView == null) {
                 util = new ZiChansAdapter.Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
-                convertView = inflater.inflate(R.layout.item_diaopeizichanliebiao_xuanzehou, null);
+                convertView = inflater.inflate(R.layout.item_baoxiuzichanliebiao_xuanzehou, null);
                 util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
+                util.tv_shangchuanfujiian = convertView.findViewById(R.id.tv_shangchuanfujiian);
 //                util.iv_erweima = convertView.findViewById(R.id.iv_erweima);
                 util.tv_zichanbianhao = convertView.findViewById(R.id.tv_zichanbianhao);
                 util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
                 util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
                 util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
                 util.tv_cunfangdizhi = convertView.findViewById(R.id.tv_cunfangdizhi);
-                util.tv_diaochubumen = convertView.findViewById(R.id.tv_diaochubumen);
-                util.tv_diaochubumen_dianji = convertView.findViewById(R.id.tv_diaochubumen_dianji);
+//                util.tv_diaochubumen = convertView.findViewById(R.id.tv_diaochubumen);
+//                util.tv_diaochubumen_dianji = convertView.findViewById(R.id.tv_diaochubumen_dianji);
                 convertView.setTag(util);
             } else {
                 util = (ZiChansAdapter.Util) convertView.getTag();
             }
-            Diaopei_zichanliebiaoBean bean = mData.get(position);
+            Biaoxiiu_zichanliebiaoBean bean = mData.get(position);
 
             util.tv_epcid.setText(bean.epcid);
+//            tv_tianxieshenqing
             util.tv_zichanbianhao.setText(bean.zcCodenum);
             util.tv_zichanmingcheng.setText(bean.zcName);
             util.tv_shiyongbumen.setText(bean.syDeptName);
             util.tv_guanlibumen.setText(bean.glDeptName);
             util.tv_cunfangdizhi.setText(bean.storeAddress);
-            if (TextUtils.isEmpty(bean.backUsername)) {
-                util.tv_diaochubumen.setVisibility(View.GONE);
-                util.tv_diaochubumen_dianji.setVisibility(View.VISIBLE);
-                util.tv_diaochubumen_dianji.setOnClickListener(new View.OnClickListener() {
 
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(DiaoPeiGuanliActivity.this, DiaopeiBumenActivity.class);
+            util.tv_shangchuanfujiian.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(BaoxiuGuanliActivity.this, BaoxiushangchuanfujianActivity.class);
                         intent.putExtra("position", position);
                         startActivity(intent);
-                    }
-                });
-            } else {
-                util.tv_diaochubumen.setVisibility(View.VISIBLE);
-                util.tv_diaochubumen.setText(bean.backUsername);
-                util.tv_diaochubumen_dianji.setVisibility(View.GONE);
-            }
+                }
+            });
+//            if (TextUtils.isEmpty(bean.backUsername)) {
+//                util.tv_diaochubumen.setVisibility(View.GONE);
+//                util.tv_diaochubumen_dianji.setVisibility(View.VISIBLE);
+//                util.tv_diaochubumen_dianji.setOnClickListener(new View.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent intent = new Intent(BaoxiuGuanliActivity.this, DiaopeiBumenActivity.class);
+//                        intent.putExtra("position", position);
+//                        startActivity(intent);
+//                    }
+//                });
+//            } else {
+//                util.tv_diaochubumen.setVisibility(View.VISIBLE);
+//                util.tv_diaochubumen.setText(bean.backUsername);
+//                util.tv_diaochubumen_dianji.setVisibility(View.GONE);
+//            }
 
 
             return convertView;
@@ -213,6 +213,7 @@ public class DiaoPeiGuanliActivity extends Activity {
 
         class Util {
             public TextView tv_epcid;
+            public View tv_shangchuanfujiian;
             //            public View iv_erweima;
             public TextView tv_zichanbianhao;
             public TextView tv_zichanmingcheng;
@@ -220,8 +221,8 @@ public class DiaoPeiGuanliActivity extends Activity {
             public TextView tv_guanlibumen;
             public TextView tv_cunfangdizhi;
 
-            public TextView tv_diaochubumen;
-            public View tv_diaochubumen_dianji;
+//            public TextView tv_diaochubumen;
+//            public View tv_diaochubumen_dianji;
 
         }
     }
