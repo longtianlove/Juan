@@ -10,13 +10,13 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="#4789F7"
+        android:background="@color/title_color"
 
         />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4789F7"
+        android:background="@color/title_color"
         android:gravity="center_vertical"
         android:paddingLeft="12dp"
         android:paddingTop="10dp"

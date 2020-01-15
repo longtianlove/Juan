@@ -89,6 +89,8 @@
     <color name="depColor03">#5D7092</color>
     <color name="depColor04">#FFBF00</color>
 
+    <color name="title_color">#4789F7</color>
+
 
     <color name="inAuditBG">#20ff3737</color>
     <color name="inAuditTV">#FF3737</color>

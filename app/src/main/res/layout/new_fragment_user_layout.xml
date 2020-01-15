@@ -272,7 +272,7 @@
                 android:layout_marginRight="12dp"
                 android:gravity="center_vertical"
                 android:text="0359-2049830"
-                android:textColor="#ff4789f7"
+                android:textColor="@color/title_color"
                 />
         </LinearLayout>
 
