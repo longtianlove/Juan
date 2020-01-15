@@ -74,6 +74,11 @@ public class Constants {
 
             //            提交上传的报修的信息
             public static final String insertRepairData = "app/repair/insertRepairData";
+            //            获取保修的【记录列表】
+            public static final String repairRecordList = "app/repair/repair/recordList";
+            //            报修详情
+            public static final String listByZcReId = "app/repair/listByZcReId";
+
         }
 
         public class Me {

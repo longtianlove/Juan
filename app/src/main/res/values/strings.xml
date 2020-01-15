@@ -26,6 +26,7 @@
     <string name="enterAssetsName" translatable="false">请输入资产名称</string>
     <string name="assetsName" translatable="false">资产名称</string>
     <string name="assetsNameText" translatable="false">资产名称：</string>
+    <string name="zhuangtai" translatable="false">维修状态：</string>
     <string name="specialModel" translatable="false">规格型号</string>
     <string name="enterSpecialModel" translatable="false">请输入规格型号</string>
     <string name="meteringCompany" translatable="false">计量单位</string>
@@ -43,6 +44,7 @@
     <string name="enterPurpose" translatable="false">请输入用途</string>
     <string name="adminDepartment" translatable="false">管理部门</string>
     <string name="adminDepartmentText" translatable="false">管理部门：</string>
+    <string name="shenqingbumen" translatable="false">申请部门：</string>
     <string name="enterSelectAdminDepartment" translatable="false">请选择管理部门</string>
     <string name="purchaseQuantity" translatable="false">采购数量</string>
     <string name="purchaseQuantityText" translatable="false">采购数量：</string>
@@ -99,6 +101,7 @@
     <string name="oddNumber" translatable="false">单号：</string>
     <string name="useDepartmentText" translatable="false">使用部门</string>
     <string name="useDepartment" translatable="false">使用部门：</string>
+    <string name="shenqingyonghu" translatable="false">申请用户：</string>
     <string name="assetsAllTotal" translatable="false">资产总数：</string>
     <string name="inventoryTime" translatable="false">盘点时间：</string>
     <string name="inventoryDepartment" translatable="false">盘点部门：</string>
@@ -112,6 +115,7 @@
     <string name="inventorySurplusAssets" translatable="false">盘盈资产</string>
     <string name="inventoryLossAssets" translatable="false">盘亏资产</string>
     <string name="assetsNumber" translatable="false">资产编号：</string>
+    <string name="weixiuDanhao" translatable="false">维修单号：</string>
     <string name="storageAddress" translatable="false">存放地址：</string>
     <string name="enterSelectAssetsName" translatable="false">请选择资产名称</string>
     <string name="disposeType" translatable="false">处置类型</string>
@@ -123,6 +127,7 @@
     <string name="appraisalOpinion" translatable="false">鉴定意见</string>
     <string name="enterAppraisalOpinion" translatable="false">请输入鉴定意见</string>
     <string name="appearanceCondition" translatable="false">外观状况</string>
+    <string name="chuangjianshijian" translatable="false">创建时间：</string>
     <string name="intact" translatable="false">完好</string>
     <string name="damage" translatable="false">损坏</string>
     <string name="functionalAtatus" translatable="false">功能状况</string>

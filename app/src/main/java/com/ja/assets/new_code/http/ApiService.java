@@ -3,6 +3,7 @@ package com.ja.assets.new_code.http;
 import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeijiluPostBean;
@@ -16,6 +17,8 @@ import com.ja.assets.new_code.bussiness.bean.post.UpdatePasswordPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
+import com.ja.assets.new_code.bussiness.bean.result.BaoxiuDetailBean;
+import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
@@ -59,8 +62,18 @@ public interface ApiService {
     @POST(Constants.Url.Patrol.JiluPatrolCheckList)
     Call<BaseBean<ArrayList<ZiChansBean>>> JiluPatrolCheckList(@Header("token") String token);
 
+
+
+    @POST(Constants.Url.BaoXiu.repairRecordList)
+    Call<BaseBean<ArrayList<BaoxiuijilulistBean>>> repairRecordList(@Header("token") String token, @Body BaoxiujiluPostBean bean);
+
     @POST(Constants.Url.Patrol.inspectDetail)
     Call<BaseBean<JiluXunjianDetail>> inspectDetail(@Header("token") String token, @Body JiluXunjianPostBean bean);
+
+
+    @POST(Constants.Url.BaoXiu.listByZcReId)
+    Call<BaseBean<ArrayList<BaoxiuDetailBean>>> listByZcReId(@Header("token") String token, @Body JiluXunjianPostBean bean);
+
 
 
     @POST(Constants.Url.Inventory.getZcCheckList)
