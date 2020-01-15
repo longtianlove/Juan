@@ -7,6 +7,12 @@
     android:background="@color/main_background_color"
     android:orientation="vertical">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#4789F7"
+
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
