@@ -44,6 +44,7 @@
     <string name="enterPurpose" translatable="false">请输入用途</string>
     <string name="adminDepartment" translatable="false">管理部门</string>
     <string name="adminDepartmentText" translatable="false">管理部门：</string>
+    <string name="chuzhiyuanyin" translatable="false">处置原因：</string>
     <string name="shenqingbumen" translatable="false">申请部门：</string>
     <string name="enterSelectAdminDepartment" translatable="false">请选择管理部门</string>
     <string name="purchaseQuantity" translatable="false">采购数量</string>
@@ -72,6 +73,7 @@
     <string name="source" translatable="false">来源：</string>
     <string name="putDepartment" translatable="false">调入部门：</string>
     <string name="putDepartmentText" translatable="false">调入部门</string>
+    <string name="chuyiyuanyin" translatable="false">处置原因</string>
     <string name="originalValue" translatable="false">原值</string>
     <string name="useDate" translatable="false">使用日期：</string>
     <string name="netWorth" translatable="false">净值</string>

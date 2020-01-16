@@ -5,6 +5,8 @@ import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
+import com.ja.assets.new_code.bussiness.bean.post.ChuzhiZichanliiebiaoPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.ChuzhishenqingPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeijiluPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeixiangqingPostBean;
@@ -21,6 +23,7 @@ import com.ja.assets.new_code.bussiness.bean.result.BaoxiuDetailBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
+import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluxiangqingBean;
@@ -116,6 +119,8 @@ public interface ApiService {
     @POST(Constants.Url.BaoXiu.repairList)
     Call<BaseBean<ArrayList<Biaoxiiu_zichanliebiaoBean>>> repairList(@Header("token") String token, @Body BaoXiuZichanliiebiaoPostBean bean);
 
+    @POST(Constants.Url.ChuZhi.dealBfList)
+    Call<BaseBean<ArrayList<Chuzhi_zichanliebiaoBean>>> dealBfList(@Header("token") String token, @Body ChuzhiZichanliiebiaoPostBean bean);
 
 
     @POST(Constants.Url.DiaoPei.insertZcDeployData)
@@ -126,6 +131,8 @@ public interface ApiService {
     @POST(Constants.Url.BaoXiu.insertRepairData)
     Call<BaseBean> insertRepairData(@Header("token") String token, @Body List<Biaoxiiu_zichanliebiaoBean> bean);
 
+    @POST(Constants.Url.ChuZhi.insertBfData)
+    Call<BaseBean> insertBfData(@Header("token") String token, @Body ChuzhishenqingPostBean bean);
 
     @POST(Constants.Url.DiaoPei.deployRecordList)
     Call<BaseBean<ArrayList<DiaopeijiluBean>>> deployRecordList(@Header("token") String token, @Body DiaopeijiluPostBean bean);

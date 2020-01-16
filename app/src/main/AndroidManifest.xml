@@ -86,7 +86,34 @@
 
             android:theme="@android:style/Theme.NoTitleBar" />
 
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.chuzhi.ChuzhiGuanliActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
 
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.chuzhi.ChuzhizichanliebiaoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.chuzhi.ChuzhiYuanyinActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.chuzhi.ChuzhishangchuanfujianActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.ja.assets.new_code.bussiness.baoxiu.BaoxiujiluActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"

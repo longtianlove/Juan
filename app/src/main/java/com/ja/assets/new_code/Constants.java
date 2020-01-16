@@ -9,7 +9,7 @@ public class Constants {
 
     public static class Url {
         //        public static String Host = "http://47.93.249.1:9100/";
-        public static String Host = "http://10.0.26.18:8080/";
+        public static String Host = "http://10.0.26.12:8080/";
 //        public static String Host = "http://10.0.26.42:8080/";
 //        public static String Host = "http://172.20.10.3:8080/";
 
@@ -78,6 +78,14 @@ public class Constants {
             public static final String repairRecordList = "app/repair/repair/recordList";
             //            报修详情
             public static final String listByZcReId = "app/repair/listByZcReId";
+
+        }
+
+        public class ChuZhi {
+            //            获取资产报废的列表
+            public static final String dealBfList = "deal/bfList";
+            //            添加报废记录申请
+            public static final String insertBfData = "deal/insertBfData";
 
         }
 
