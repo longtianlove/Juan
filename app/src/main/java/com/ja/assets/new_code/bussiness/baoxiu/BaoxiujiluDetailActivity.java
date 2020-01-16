@@ -92,6 +92,7 @@ public class BaoxiujiluDetailActivity extends Activity {
             @Override
             public void onSuccess(Response<BaseBean<ArrayList<BaoxiuDetailBean>>> response, BaseBean<ArrayList<BaoxiuDetailBean>> message) {
                 if (message.code == 0) {
+                    //todo test
                     BaoxiuDetailBean bean=message.data.get(0);
                     tv_epcid.setText(bean.epcid);
                     tv_weixiudanhao.setText(bean.code);
