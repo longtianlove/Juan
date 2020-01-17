@@ -9,7 +9,7 @@ public class Constants {
 
     public static class Url {
         //        public static String Host = "http://47.93.249.1:9100/";
-        public static String Host = "http://10.0.26.12:8080/";
+        public static String Host = "http://10.0.26.3:8080/";
 //        public static String Host = "http://10.0.26.42:8080/";
 //        public static String Host = "http://172.20.10.3:8080/";
 
@@ -86,7 +86,10 @@ public class Constants {
             public static final String dealBfList = "deal/bfList";
             //            添加报废记录申请
             public static final String insertBfData = "deal/insertBfData";
-
+            //            获取报废的记录列表
+            public static final String getBFRecordList = "deal/getBFRecordList";
+            //            获取报废的记录列表下面的详情数据列表
+            public static final String getBFRecordItemList = "deal/getBFRecordItemList";
         }
 
         public class Me {

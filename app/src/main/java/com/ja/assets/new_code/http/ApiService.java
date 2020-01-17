@@ -5,8 +5,10 @@ import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
+import com.ja.assets.new_code.bussiness.bean.post.ChuzhiLiebiaoPostbean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhishenqingPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.ChuzhizichanPostbean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeijiluPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeixiangqingPostBean;
@@ -24,6 +26,8 @@ import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
+import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliiebiaoBean;
+import com.ja.assets.new_code.bussiness.bean.result.ChuzhiliiebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluxiangqingBean;
@@ -90,6 +94,12 @@ public interface ApiService {
     Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> zichanliebiao(@Header("token") String token, @Body WeiPandiianzichanPostBean bean);
 
 
+    @POST(Constants.Url.ChuZhi.getBFRecordItemList)
+    Call<BaseBean<ArrayList<Chuzhi_zichanliiebiaoBean>>> getBFRecordItemList(@Header("token") String token, @Body ChuzhizichanPostbean bean);
+
+
+
+
     @POST(Constants.Url.Inventory.updateZcItemStatus)
     Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> updateZcItemStatus(@Header("token") String token, @Body ZichanSaomaPostBean bean);
 
@@ -138,6 +148,9 @@ public interface ApiService {
     Call<BaseBean<ArrayList<DiaopeijiluBean>>> deployRecordList(@Header("token") String token, @Body DiaopeijiluPostBean bean);
 
 
+
+    @POST(Constants.Url.ChuZhi.getBFRecordList)
+    Call<BaseBean<ArrayList<ChuzhiliiebiaoBean>>> getBFRecordList(@Header("token") String token, @Body ChuzhiLiebiaoPostbean bean);
 
 
     @POST(Constants.Url.DiaoPei.listByZcDeployId)
