@@ -110,7 +110,7 @@ public class NewCode_InventoryActivity extends Activity {
                             PAGE_NO = 1;
                             getDoctors();
                         } else if (message.code == 400) {
-                            ToastUtil.showAtCenter(message.msg);
+                            ToastUtil.showAtCenter("该盘点单已经创建过了");
                         }
                     }
 
