@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -40,8 +44,11 @@ public class ChuzhiGuanliActivity extends Activity {
     TextView tv_tijiao;
 
     View noAssetsLinear;
+    RadioGroup rg_chuzhileiinng;
+    EditText et_chuzhimiaoshu;
     View scl_bag;
     ListView lv_zichans;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,6 +89,67 @@ public class ChuzhiGuanliActivity extends Activity {
             }
         });
         noAssetsLinear = findViewById(R.id.noAssetsLinear);
+        rg_chuzhileiinng = findViewById(R.id.rg_chuzhileiinng);
+        rg_chuzhileiinng.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rb_baofei) {
+                    bfCategory = 1;
+                } else if (checkedId == R.id.rb_juanzeng) {
+                    bfCategory = 2;
+                } else if (checkedId == R.id.rb_chushou) {
+                    bfCategory = 3;
+                }
+
+                for (Chuzhi_zichanliebiaoBean bean : ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao) {
+                    if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.chuzhiyuanyin)) {
+                        tv_tijiao.setEnabled(false);
+                        return;
+                    }
+                }
+                if (bfCategory == -1) {
+                    tv_tijiao.setEnabled(false);
+                    return;
+                }
+                if (TextUtils.isEmpty(bfDes)) {
+                    tv_tijiao.setEnabled(false);
+                    return;
+                }
+                tv_tijiao.setEnabled(true);
+            }
+        });
+        et_chuzhimiaoshu = findViewById(R.id.et_chuzhimiaoshu);
+        et_chuzhimiaoshu.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                bfDes = s.toString();
+                for (Chuzhi_zichanliebiaoBean bean : ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao) {
+                    if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.chuzhiyuanyin)) {
+                        tv_tijiao.setEnabled(false);
+                        return;
+                    }
+                }
+                if (bfCategory == -1) {
+                    tv_tijiao.setEnabled(false);
+                    return;
+                }
+                if (TextUtils.isEmpty(s.toString())) {
+                    tv_tijiao.setEnabled(false);
+                    return;
+                }
+                tv_tijiao.setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         scl_bag = findViewById(R.id.scl_bag);
         lv_zichans = findViewById(R.id.lv_zichans);
         tv_tijiao = findViewById(R.id.tv_tijiao);
@@ -91,6 +159,8 @@ public class ChuzhiGuanliActivity extends Activity {
             public void onClick(View v) {
                 ChuzhishenqingPostBean bean = new ChuzhishenqingPostBean();
                 bean.zcBfItemList = ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao;
+                bean.bfCategory = bfCategory;
+                bean.bfDes = et_chuzhimiaoshu.getText().toString();
                 String token = ACacheUtil.getToken();
                 ApiUtils.getApiService().insertBfData(token, bean).enqueue(new JuanCallback<BaseBean>() {
                     @Override
@@ -114,6 +184,9 @@ public class ChuzhiGuanliActivity extends Activity {
         ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
 
     }
+
+    public int bfCategory = -1;
+    public String bfDes = "";
 
     @Override
     protected void onStart() {
@@ -139,6 +212,14 @@ public class ChuzhiGuanliActivity extends Activity {
                 tv_tijiao.setEnabled(false);
                 return;
             }
+        }
+        if (bfCategory == -1) {
+            tv_tijiao.setEnabled(false);
+            return;
+        }
+        if(TextUtils.isEmpty(bfDes)){
+            tv_tijiao.setEnabled(false);
+            return;
         }
         tv_tijiao.setEnabled(true);
     }

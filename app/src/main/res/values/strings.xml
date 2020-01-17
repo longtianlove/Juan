@@ -129,8 +129,13 @@
     <string name="appraisalOpinion" translatable="false">鉴定意见</string>
     <string name="enterAppraisalOpinion" translatable="false">请输入鉴定意见</string>
     <string name="appearanceCondition" translatable="false">外观状况</string>
+    <string name="chuzhileiing" translatable="false">处置类型：</string>
+    <string name="chuzhimiaoshu" translatable="false">处置描述：</string>
     <string name="chuangjianshijian" translatable="false">创建时间：</string>
     <string name="intact" translatable="false">完好</string>
+    <string name="baofei" translatable="false">报废</string>
+    <string name="juanzeng" translatable="false">捐赠</string>
+    <string name="chushou" translatable="false">出售</string>
     <string name="damage" translatable="false">损坏</string>
     <string name="functionalAtatus" translatable="false">功能状况</string>
     <string name="normal" translatable="false">正常</string>

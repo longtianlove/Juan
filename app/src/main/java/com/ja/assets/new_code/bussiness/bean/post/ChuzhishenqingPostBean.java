@@ -29,7 +29,7 @@ public class ChuzhishenqingPostBean {
 //  ]
 //    }
     public int bfCategory = 1;
-    public String bfDes = "test";
+    public String bfDes = "";
     public int type = 1;
     public List<Chuzhi_zichanliebiaoBean> zcBfItemList;
 }
