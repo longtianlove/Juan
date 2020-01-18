@@ -9,7 +9,7 @@ public class Constants {
 
     public static class Url {
         //        public static String Host = "http://47.93.249.1:9100/";
-        public static String Host = "http://10.0.26.3:8080/";
+        public static String Host = "http://testyq.17sys.cn/";
 //        public static String Host = "http://10.0.26.42:8080/";
 //        public static String Host = "http://172.20.10.3:8080/";
 
