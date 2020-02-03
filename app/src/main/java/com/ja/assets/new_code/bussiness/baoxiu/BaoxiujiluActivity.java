@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ja.assets.R;
@@ -37,7 +38,7 @@ public class BaoxiujiluActivity extends Activity {
 
     public View iv_back;
     public View iv_saoyisiao;
-    WithScrolleViewListView lv_zichans;
+  ListView lv_zichans;
     ZiChansAdapter madapter;
 
     @Override
