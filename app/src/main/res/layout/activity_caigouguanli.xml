@@ -7,13 +7,13 @@
     android:background="@color/main_background_color"
     android:orientation="vertical">
 
-
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:background="@color/title_color"
 
         />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,10 +23,12 @@
         android:paddingTop="10dp"
         android:paddingRight="12dp"
         android:paddingBottom="10dp">
+
         <RelativeLayout
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/iv_back_temp"
                 android:layout_width="wrap_content"
@@ -40,9 +42,9 @@
                 android:id="@+id/titleLeftTextBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_toRightOf="@+id/iv_back_temp"
                 android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_back_temp"
+                android:gravity="center"
                 android:text="@string/goBfack"
                 android:textColor="@color/white" />
         </RelativeLayout>
@@ -53,47 +55,53 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/putDepartmentText"
+            android:text="采购申请"
             android:textColor="#fff"
             android:textSize="18sp" />
 
+
+        <TextView
+            android:id="@+id/tv_tianjiazichan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:text="添加资产"
+            android:textColor="#fff"
+            android:textSize="18sp"></TextView>
 
     </RelativeLayout>
 
 
 
-<!--        <com.ja.assets.new_code.view.WithListViewScrollView-->
+    <LinearLayout
+        android:id="@+id/noAssetsLinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/submitAuditLinear"
+        android:gravity="center"
+        android:orientation="vertical">
 
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="#ffffff">-->
+        <ImageView
+            android:layout_width="@dimen/margin_120"
+            android:layout_height="@dimen/margin_120"
+            android:src="@mipmap/not_health_order" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:text="@string/noAssetsText"
+            android:textColor="@color/mainBgColor" />
 
-                <ListView
-                    android:id="@+id/lv_bumens"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="50dp"
-                    android:background="#fff"
-                    android:divider="#EEEEEE"
-                    android:dividerHeight="5dp"
-                    android:footerDividersEnabled="false"
-                    android:headerDividersEnabled="false"
-                    android:listSelector="@android:color/transparent"
-                    android:paddingLeft="12dp"
-                 />
-
-
-            </FrameLayout>
-<!--        </com.ja.assets.new_code.view.WithListViewScrollView>-->
-
-
-
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:text="@string/clickRightBtnAdd"
+            android:textColor="@color/mainBgColor"
+            android:textSize="@dimen/textSize_18"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -14,6 +14,7 @@
         android:background="@color/title_color"
 
         />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,10 +24,12 @@
         android:paddingTop="10dp"
         android:paddingRight="12dp"
         android:paddingBottom="10dp">
+
         <RelativeLayout
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/iv_back_temp"
                 android:layout_width="wrap_content"
@@ -40,9 +43,9 @@
                 android:id="@+id/titleLeftTextBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_toRightOf="@+id/iv_back_temp"
                 android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_back_temp"
+                android:gravity="center"
                 android:text="@string/goBfack"
                 android:textColor="@color/white" />
         </RelativeLayout>
@@ -53,7 +56,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/putDepartmentText"
+            android:text="管理部门"
             android:textColor="#fff"
             android:textSize="18sp" />
 
@@ -61,39 +64,33 @@
     </RelativeLayout>
 
 
+    <!--        <com.ja.assets.new_code.view.WithListViewScrollView-->
 
-<!--        <com.ja.assets.new_code.view.WithListViewScrollView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="#ffffff">-->
 
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="#ffffff">-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                >
-
-                <ListView
-                    android:id="@+id/lv_bumens"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="50dp"
-                    android:background="#fff"
-                    android:divider="#EEEEEE"
-                    android:dividerHeight="5dp"
-                    android:footerDividersEnabled="false"
-                    android:headerDividersEnabled="false"
-                    android:listSelector="@android:color/transparent"
-                    android:paddingLeft="12dp"
-                 />
+        <ListView
+            android:id="@+id/lv_bumens"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:background="#fff"
+            android:divider="#EEEEEE"
+            android:dividerHeight="5dp"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:listSelector="@android:color/transparent"
+            android:paddingLeft="12dp" />
 
 
-            </FrameLayout>
-<!--        </com.ja.assets.new_code.view.WithListViewScrollView>-->
-
-
-
+    </FrameLayout>
+    <!--        </com.ja.assets.new_code.view.WithListViewScrollView>-->
 
 
 </LinearLayout>

@@ -67,6 +67,11 @@ public class Constants {
             public static final String listByZcDeployId = "deploy/listByZcDeployId";
 
         }
+        public class Caigou{
+            public static final String caigou_guanlibumen="appDept/glDeptList";
+        }
+
+
 
         public class BaoXiu {
             //            获取保修的资产列表

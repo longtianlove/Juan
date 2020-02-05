@@ -123,6 +123,29 @@
             android:screenOrientation="portrait"
 
             android:theme="@android:style/Theme.NoTitleBar" />
+
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.caigou.CaigouGuanliActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.caigou.CaigouNewZichanActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.caigou.CaigouBumenActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
         <activity
             android:name="com.ja.assets.new_code.bussiness.chuzhi.ChuzhishangchuanfujianActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"

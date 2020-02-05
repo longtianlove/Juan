@@ -31,6 +31,7 @@ import com.ja.assets.new_code.bussiness.bean.result.ChuzhiliiebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluxiangqingBean;
+import com.ja.assets.new_code.bussiness.bean.result.GuanliBumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
@@ -45,6 +46,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -123,6 +125,11 @@ public interface ApiService {
 
     @POST(Constants.Url.DiaoPei.diaopei_bumenlist)
     Call<BaseBean<ArrayList<BumenListBean>>> diaopei_bumenlist(@Header("token") String token);
+
+
+
+    @GET(Constants.Url.Caigou.caigou_guanlibumen)
+    Call<BaseBean<ArrayList<GuanliBumenListBean>>> caigou_guanlibumen(@Header("token") String token);
 
 
 

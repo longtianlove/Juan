@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/title_color"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title_color"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="10dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="10dp">
+
+        <RelativeLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_back_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingRight="10dp"
+
+                android:src="@drawable/icon_back_white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleLeftTextBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_back_temp"
+                android:gravity="center"
+                android:text="@string/goBfack"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="新增资产"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/activity_purchase_apply"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:ignore="RedundantNamespace">
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                android:id="@+id/tv_zichan_name"
+                style="@style/itemStartTV"
+                android:text="@string/assetsName" />
+
+            <EditText
+                android:id="@+id/et_zichan_name"
+                style="@style/itemEndTV"
+                android:hint="@string/enterAssetsName"
+                android:text="" />
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/purpose" />
+
+            <EditText
+                android:id="@+id/et_yongtu"
+                style="@style/itemEndTV"
+                android:hint="@string/enterPurpose"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/itemLinear"
+android:id="@+id/ll_guanlibumen"
+            >
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/adminDepartment" />
+
+            <RelativeLayout
+                android:id="@+id/departmentNameLinear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/adminDepartmentTV"
+                    style="@style/itemEndTV"
+                    android:layout_marginEnd="@dimen/margin_5"
+                    android:layout_toStartOf="@+id/departmentNameImg"
+                    android:hint="@string/enterSelectAdminDepartment"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/departmentNameImg"
+                    android:layout_width="@dimen/margin_40"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/margin_10"
+                    android:layout_height="@dimen/margin_40"
+                    android:src="@mipmap/icon_next" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/purchaseQuantity" />
+
+            <EditText
+                android:id="@+id/et_caigoushuliang"
+                style="@style/itemEndTV"
+                android:hint="@string/enterPurchaseQuantity"
+                android:text=""
+                android:inputType="number"
+
+                />
+        </LinearLayout>
+
+
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/specialModel" />
+
+            <EditText
+                android:id="@+id/et_guigexinghao"
+                style="@style/itemEndTV"
+                android:hint="@string/enterSpecialModel"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/meteringCompany" />
+
+            <EditText
+                android:id="@+id/et_jiliangdanwei"
+                style="@style/itemEndTV"
+                android:hint="@string/enterMeteringCompany"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/productBrand" />
+
+            <EditText
+                android:id="@+id/et_chanpinpinpai"
+                style="@style/itemEndTV"
+                android:hint="@string/enterProductBrand"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/supplierName" />
+
+            <EditText
+                android:id="@+id/et_gongyingshangmingcheng"
+                style="@style/itemEndTV"
+                android:hint="@string/enterSupplierName"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="@string/purchaseUnitPrice" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/et_danjia"
+                    style="@style/itemEndTV"
+                    android:layout_marginEnd="@dimen/margin_5"
+                    android:layout_toStartOf="@+id/elementTV"
+                    android:hint="@string/enterPurchaseUnitPrice"
+                    android:text=""
+                    android:inputType="numberDecimal"
+                    />
+
+                <TextView
+                    android:id="@+id/elementTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:gravity="center"
+                    android:text="@string/element"
+                    android:textColor="@color/textColor" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_tijiao"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/xml_login_background"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="14sp"></TextView>
+
+    </LinearLayout>
+
+</LinearLayout>
