@@ -135,6 +135,7 @@ public class CaigouBumenActivity extends Activity {
 //                    DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao.get(nowPosition).backUsername = bean.deptname;
                     Intent intent = new Intent();
                     intent.putExtra("name", bean.name);
+                    intent.putExtra("glDeptId",bean.id);
                     setResult(2,intent);
                     finish();
                 }

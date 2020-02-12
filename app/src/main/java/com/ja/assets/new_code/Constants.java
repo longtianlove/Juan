@@ -67,10 +67,12 @@ public class Constants {
             public static final String listByZcDeployId = "deploy/listByZcDeployId";
 
         }
-        public class Caigou{
-            public static final String caigou_guanlibumen="appDept/glDeptList";
-        }
 
+        public class Caigou {
+            public static final String caigou_guanlibumen = "appDept/glDeptList";
+
+            public static final String buy_insertData = "buy/insertData";
+        }
 
 
         public class BaoXiu {

@@ -4,6 +4,7 @@ import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.CaigouzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhiLiebiaoPostbean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhiZichanliiebiaoPostBean;
@@ -132,6 +133,8 @@ public interface ApiService {
     Call<BaseBean<ArrayList<GuanliBumenListBean>>> caigou_guanlibumen(@Header("token") String token);
 
 
+    @POST(Constants.Url.Caigou.buy_insertData)
+    Call<BaseBean>  buy_insertData(@Header("token") String token, @Body CaigouzichanPostBean bean);
 
     @POST(Constants.Url.BaoXiu.repairList)
     Call<BaseBean<ArrayList<Biaoxiiu_zichanliebiaoBean>>> repairList(@Header("token") String token, @Body BaoXiuZichanliiebiaoPostBean bean);

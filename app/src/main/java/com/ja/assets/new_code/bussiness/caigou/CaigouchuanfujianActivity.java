@@ -1,4 +1,4 @@
-package com.ja.assets.new_code.bussiness.chuzhi;
+package com.ja.assets.new_code.bussiness.caigou;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 
 import com.ja.assets.R;
 import com.ja.assets.glide.GlideImgUtils;
-
+import com.ja.assets.new_code.bussiness.baoxiu.BaoxiuzichanliebiaoActivity;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
@@ -34,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 
-public class ChuzhishangchuanfujianActivity extends Activity {
+public class CaigouchuanfujianActivity extends Activity {
 
     View ll_tijiaotupian;
     View iv_back;
@@ -60,7 +60,7 @@ public class ChuzhishangchuanfujianActivity extends Activity {
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
 
-        setContentView(R.layout.activity_chuzhishangchuanfujian);
+        setContentView(R.layout.activity_caigoushangchuanfujian);
         initView();
         initData();
     }
@@ -80,7 +80,7 @@ public class ChuzhishangchuanfujianActivity extends Activity {
         ll_tijiaotupian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new PhotoUtils().pickImage(ChuzhishangchuanfujianActivity.this, 1, 0);
+                new PhotoUtils().pickImage(CaigouchuanfujianActivity.this, 1, 0);
             }
         });
 
@@ -106,7 +106,7 @@ public class ChuzhishangchuanfujianActivity extends Activity {
 
                 List<String> photoList1 = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
                 GlideImgUtils.loadImage(this, photoList1.get(0), R.mipmap.add_img, findViewById(R.id.lossReportImg));
-                LuBanImgUtils luBanImgUtils = new LuBanImgUtils(ChuzhishangchuanfujianActivity.this, photoList1.get(0));
+                LuBanImgUtils luBanImgUtils = new LuBanImgUtils(CaigouchuanfujianActivity.this, photoList1.get(0));
                 luBanImgUtils.setListener(new LuBanImgUtils.ImgListener() {
                     @Override
                     public void handleResult(@NotNull File file) {
@@ -135,7 +135,9 @@ public class ChuzhishangchuanfujianActivity extends Activity {
                                                                          @Override
                                                                          public void onSuccess(Response<UploadImageResultBean> response, UploadImageResultBean message) {
                                                                              imageUrl = message.url;
-                                                                             ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao.get(position).imageUrl = imageUrl;
+                                                                             CaigouGuanliActivity.caigouzichanPostBean.fileUrl = imageUrl;
+                                                                             CaigouGuanliActivity.caigouzichanPostBean.fileName=fImage.getName();
+                                                                             CaigouGuanliActivity.tv_wenjianmingcheng.setText( CaigouGuanliActivity.caigouzichanPostBean.fileName);
                                                                              finish();
 //                                                                      switch (message.code) {
 //                                                                          case Constants.HTTP_SUCCESS:

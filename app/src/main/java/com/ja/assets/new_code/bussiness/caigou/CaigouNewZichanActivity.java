@@ -15,10 +15,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.bussiness.bean.post.Caigouitemzichan;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhizichanliebiaoActivity;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 
 import org.w3c.dom.Text;
+
+import java.math.BigDecimal;
 
 public class CaigouNewZichanActivity extends Activity {
 
@@ -101,8 +104,8 @@ public class CaigouNewZichanActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CaigouNewZichanActivity.this,CaigouBumenActivity.class);
-                startActivityForResult(intent,1);
+                Intent intent = new Intent(CaigouNewZichanActivity.this, CaigouBumenActivity.class);
+                startActivityForResult(intent, 1);
             }
         });
         adminDepartmentTV = findViewById(R.id.adminDepartmentTV);
@@ -127,6 +130,25 @@ public class CaigouNewZichanActivity extends Activity {
         et_danjia.addTextChangedListener(textWatcherListener);
 
         btn_tiaojiao = findViewById(R.id.tv_tijiao);
+        btn_tiaojiao.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Caigouitemzichan bean = new Caigouitemzichan();
+                bean.name = et_zichan_name.getText().toString();
+                bean.unit = et_jiliangdanwei.getText().toString();
+                bean.brand = et_chanpinpinpai.getText().toString();
+                bean.price = new BigDecimal(et_danjia.getText().toString());
+                bean.supplierName = et_gongyingshangmingcheng.getText().toString();
+                bean.useDes = et_yongtu.getText().toString();
+                bean.num = Integer.parseInt(et_caigoushuliang.getText().toString());
+                bean.model=et_guigexinghao.getText().toString();
+                bean.glDeptName = glDeptName;
+                bean.glDeptId = glDeptId;
+                CaigouGuanliActivity.caigouzichanPostBean.zcBuyItemList.add(bean);
+                finish();
+            }
+        });
     }
 
     boolean checkEmpty() {
@@ -162,10 +184,15 @@ public class CaigouNewZichanActivity extends Activity {
         return false;
     }
 
+
+    private String glDeptName;
+    private long glDeptId;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String name=data.getStringExtra("name");
-        adminDepartmentTV.setText(name);
+        glDeptName = data.getStringExtra("name");
+        adminDepartmentTV.setText(glDeptName);
+        glDeptId = data.getIntExtra("glDeptId", -1);
     }
 }

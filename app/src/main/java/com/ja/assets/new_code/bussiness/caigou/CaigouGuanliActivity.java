@@ -23,8 +23,11 @@ import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseBean;
+import com.ja.assets.new_code.bussiness.bean.post.Caigouitemzichan;
+import com.ja.assets.new_code.bussiness.bean.post.CaigouzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhishenqingPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
+import com.ja.assets.new_code.bussiness.chuzhi.ChuzhiGuanliActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhiYuanyinActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhishangchuanfujianActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhizichanliebiaoActivity;
@@ -32,6 +35,7 @@ import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
+import com.ja.assets.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,10 +49,20 @@ public class CaigouGuanliActivity extends Activity {
     View tv_tianjiazichan;
 
 
+    View scl_bag;
+    TextView tv_bumen;
+    TextView tv_shangchuanfujiian;
+    ListView lv_zichans;
+    ZiChansAdapter madapter;
+
+
+    public static TextView tv_wenjianmingcheng;
+    TextView tv_tijiao;
+
+
     View noAssetsLinear;
 
-
-
+    public static CaigouzichanPostBean caigouzichanPostBean = new CaigouzichanPostBean();
 
 
     @Override
@@ -89,13 +103,151 @@ public class CaigouGuanliActivity extends Activity {
                 startActivity(intent);
             }
         });
+        scl_bag = findViewById(R.id.scl_bag);
+        tv_bumen = findViewById(R.id.tv_bumen);
+        tv_bumen.setText(ACacheUtil.getUserInfo().getDeptName());
+        caigouzichanPostBean.companyName = ACacheUtil.getUserInfo().getDeptName();
+        tv_shangchuanfujiian = findViewById(R.id.tv_shangchuanfujiian);
+        tv_shangchuanfujiian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CaigouGuanliActivity.this, CaigouchuanfujianActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        lv_zichans=findViewById(R.id.lv_zichans);
+        madapter=new ZiChansAdapter(this);
+        lv_zichans.setAdapter(madapter);
+        tv_wenjianmingcheng = findViewById(R.id.tv_wenjianmingcheng);
+        tv_tijiao = findViewById(R.id.tv_tijiao);
+        tv_tijiao.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (TextUtils.isEmpty(caigouzichanPostBean.fileUrl)) {
+                    ToastUtil.toast("请上传附件");
+                    return;
+                }
+                String token = ACacheUtil.getToken();
+                ApiUtils.getApiService().buy_insertData(token, caigouzichanPostBean).enqueue(new JuanCallback<BaseBean>() {
+                    @Override
+                    public void onSuccess(Response<BaseBean> response, BaseBean message) {
+                        if (message.code == 0) {
+                            caigouzichanPostBean.fileUrl = "";
+                            caigouzichanPostBean.fileName = "";
+                            caigouzichanPostBean.zcBuyItemList.clear();
+                            noAssetsLinear.setVisibility(View.VISIBLE);
+                            scl_bag.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Call<BaseBean> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+
         noAssetsLinear = findViewById(R.id.noAssetsLinear);
 
+        caigouzichanPostBean.fileUrl = "";
+        caigouzichanPostBean.fileName = "";
+        caigouzichanPostBean.zcBuyItemList.clear();
 
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (caigouzichanPostBean.zcBuyItemList.size() == 0) {
+            scl_bag.setVisibility(View.GONE);
+            noAssetsLinear.setVisibility(View.VISIBLE);
+        } else {
+            scl_bag.setVisibility(View.VISIBLE);
+            madapter.mData=caigouzichanPostBean.zcBuyItemList;
+            madapter.notifyDataSetChanged();
+            noAssetsLinear.setVisibility(View.GONE);
+        }
+
+    }
 
 
+    class ZiChansAdapter extends BaseAdapter {
 
+        public Context mcontext;
+
+        List<Caigouitemzichan> mData = new ArrayList<Caigouitemzichan>();
+
+        public ZiChansAdapter(Context context) {
+            this.mcontext = context;
+        }
+
+        @Override
+        public int getCount() {
+            return mData.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mData.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            // 声明内部类
+            Util util = null;
+            // 中间变量
+            final int flag = position;
+            if (convertView == null) {
+                util = new Util();
+                LayoutInflater inflater = LayoutInflater.from(mcontext);
+                convertView = inflater.inflate(R.layout.item_caigouzichan_xuanzehou, null);
+                util.tv_zichanmingcheng=convertView.findViewById(R.id.tv_zichanmingcheng);
+                util.tv_guanlibumen=convertView.findViewById(R.id.tv_guanlibumen);
+                util.tv_caigoushuliang=convertView.findViewById(R.id.tv_caigoushuliang);
+                util.tv_guigexinghao=convertView.findViewById(R.id.tv_guigexinghao);
+                util.tv_chanpinpinpai=convertView.findViewById(R.id.tv_chanpinpinpai);
+                util.tv_gongyingshangmingcheng=convertView.findViewById(R.id.tv_gongyingshangmingcheng);
+                util.tv_jiliangdanwei=convertView.findViewById(R.id.tv_jiliangdanwei);
+                util.tv_caigoudanjia=convertView.findViewById(R.id.tv_caigoudanjia);
+
+
+                convertView.setTag(util);
+            } else {
+                util = (Util) convertView.getTag();
+            }
+            Caigouitemzichan bean=mData.get(position);
+            util.tv_zichanmingcheng.setText(bean.name);
+            util.tv_guanlibumen.setText(bean.glDeptName);
+            util.tv_caigoushuliang.setText(bean.num+"");
+            util.tv_guigexinghao.setText(bean.model);
+            util.tv_chanpinpinpai.setText(bean.brand);
+            util.tv_gongyingshangmingcheng.setText(bean.supplierName);
+            util.tv_jiliangdanwei.setText(bean.unit);
+            util.tv_caigoudanjia.setText(bean.price+"");
+            return convertView;
+        }
+
+
+        class Util {
+            TextView tv_zichanmingcheng;
+            TextView tv_guanlibumen;
+            TextView tv_caigoushuliang;
+            TextView tv_guigexinghao;
+            TextView tv_chanpinpinpai;
+            TextView tv_gongyingshangmingcheng;
+            TextView tv_jiliangdanwei;
+            TextView tv_caigoudanjia;
+
+        }
+    }
 }
