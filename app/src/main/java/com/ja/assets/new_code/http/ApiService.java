@@ -4,6 +4,9 @@ import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.CaigouiLiebiaoPostbean;
+import com.ja.assets.new_code.bussiness.bean.post.Caigouitemzichan;
+import com.ja.assets.new_code.bussiness.bean.post.CaigouxiangqingPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.CaigouzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuangjianpandiandanBean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhiLiebiaoPostbean;
@@ -26,6 +29,7 @@ import com.ja.assets.new_code.bussiness.bean.result.BaoxiuDetailBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
+import com.ja.assets.new_code.bussiness.bean.result.CaigoulistResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliiebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.ChuzhiliiebiaoBean;
@@ -135,6 +139,14 @@ public interface ApiService {
 
     @POST(Constants.Url.Caigou.buy_insertData)
     Call<BaseBean>  buy_insertData(@Header("token") String token, @Body CaigouzichanPostBean bean);
+
+
+
+    @POST(Constants.Url.Caigou.buyRecordList)
+    Call<BaseBean<ArrayList<CaigoulistResultBean>>> buyRecordList(@Header("token") String token, @Body CaigouiLiebiaoPostbean bean);
+
+    @POST(Constants.Url.Caigou.getBuyRecordItemDetailList)
+    Call<BaseBean<ArrayList<Caigouitemzichan>>> getBuyRecordItemDetailList(@Header("token") String token,@Body CaigouxiangqingPostBean bean);
 
     @POST(Constants.Url.BaoXiu.repairList)
     Call<BaseBean<ArrayList<Biaoxiiu_zichanliebiaoBean>>> repairList(@Header("token") String token, @Body BaoXiuZichanliiebiaoPostBean bean);

@@ -69,9 +69,17 @@ public class Constants {
         }
 
         public class Caigou {
+            //管理部门列表
             public static final String caigou_guanlibumen = "appDept/glDeptList";
 
+            //提交采购资产列表
             public static final String buy_insertData = "buy/insertData";
+
+            //获取采购资产列表
+            public static final String buyRecordList="buy/buyRecordList";
+
+            //采购列表详情
+            public static final String getBuyRecordItemDetailList="buy/getBuyRecordItemDetailList";
         }
 
 

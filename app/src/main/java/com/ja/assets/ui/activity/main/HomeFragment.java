@@ -23,6 +23,7 @@ import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckListActivity;
 import com.ja.assets.new_code.bussiness.baoxiu.BaoxiuGuanliActivity;
 import com.ja.assets.new_code.bussiness.baoxiu.BaoxiujiluActivity;
 import com.ja.assets.new_code.bussiness.caigou.CaigouGuanliActivity;
+import com.ja.assets.new_code.bussiness.caigou.CaigoujiluActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhiGuanliActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhijiluActivity;
 import com.ja.assets.new_code.bussiness.diaopei.DiaoPeiGuanliActivity;
@@ -87,6 +88,8 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
                     break;
 
                 case 1: //采购记录
+                    intent = new Intent(mainActivity, CaigoujiluActivity.class);
+                    startActivity(intent);
                     break;
                 case 2://报修申请
                     intent = new Intent(mainActivity, BaoxiuGuanliActivity.class);
