@@ -30,6 +30,7 @@ import com.ja.assets.new_code.bussiness.diaopei.DiaoPeiGuanliActivity;
 import com.ja.assets.new_code.bussiness.diaopei.DiaopeijiluActivity;
 import com.ja.assets.new_code.bussiness.inventory.NewCode_InventoryActivity;
 import com.ja.assets.new_code.bussiness.inventory.YipandianActivity;
+import com.ja.assets.new_code.bussiness.message.MessageActivity;
 import com.ja.assets.retrofit.HttpServer;
 import com.ja.assets.retrofit.ShowUserView;
 import com.ja.assets.ui.activity.purchase.PurchaseApplyActivity;
@@ -67,6 +68,14 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
         homeBinding = (FragmentHomeLayoutBinding) getFragmentDataBinding();
         initAdapter();
         getData();
+        homeBinding.rlMessage.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mainActivity, MessageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initAdapter() {
@@ -157,12 +166,15 @@ public class HomeFragment extends BaseFragment implements ShowUserView {
             case 1:
                 List<DeptBean> details = (List<DeptBean>) data;
                 if (details.size() == 0) {
+
                     homeBinding.homeMsgToastTV.setVisibility(View.GONE);
                     homeBinding.readyToDoNewsCheckAcceptTV.setText(R.string.readyNoNewsCheckAccept);
+                    homeBinding.rlMessage.setEnabled(false);
                 } else {
                     homeBinding.homeMsgToastTV.setVisibility(View.VISIBLE);
                     homeBinding.homeMsgToastTV.setText(String.valueOf(details.size()));
                     homeBinding.readyToDoNewsCheckAcceptTV.setText("您有" + details.size() + "条待办消息，请查收~");
+                    homeBinding.rlMessage.setEnabled(true);
                 }
                 break;
             default:

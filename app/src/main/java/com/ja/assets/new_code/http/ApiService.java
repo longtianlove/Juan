@@ -33,6 +33,7 @@ import com.ja.assets.new_code.bussiness.bean.result.CaigoulistResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliiebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.ChuzhiliiebiaoBean;
+import com.ja.assets.new_code.bussiness.bean.result.DaibanMessageResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluxiangqingBean;
@@ -61,6 +62,9 @@ import retrofit2.http.Part;
  * Created by long
  */
 public interface ApiService {
+
+    @POST(Constants.Url.Message.getAllWailDealList)
+    Call<BaseBean<ArrayList<DaibanMessageResultBean>>> getAllWailDealList(@Header("token") String token);
 
     @POST(Constants.Url.Me.updatePassword)
     Call<BaseBean> updatePassword(@Header("token") String token,@Body UpdatePasswordPostBean bean);
@@ -128,7 +132,7 @@ public interface ApiService {
     Call<BaseBean<ArrayList<Diaopei_zichanliebiaoBean>>> diaopei_zichanliebiao(@Header("token") String token, @Body DiaopeiZichanliiebiaoPostBean bean);
 
 
-    @POST(Constants.Url.DiaoPei.diaopei_bumenlist)
+    @GET(Constants.Url.DiaoPei.diaopei_bumenlist)
     Call<BaseBean<ArrayList<BumenListBean>>> diaopei_bumenlist(@Header("token") String token);
 
 

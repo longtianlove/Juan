@@ -9,7 +9,7 @@ public class Constants {
 
     public static class Url {
         //        public static String Host = "http://47.93.249.1:9100/";
-        public static String Host = "http://testyq.17sys.cn/";
+        public final static String Host = "http://u38n5x.natappfree.cc/";
 //        public static String Host = "http://10.0.26.42:8080/";
 //        public static String Host = "http://172.20.10.3:8080/";
 
@@ -53,7 +53,7 @@ public class Constants {
             //            获取调配资产的列表数据
             public static final String diaopei_zichanliebiao = "deploy/zc/deployList";
             //            获取eleTree部门树列表
-            public static final String diaopei_bumenlist = "deploy/dept/subDeptList";
+            public static final String diaopei_bumenlist = "appDept/deptList";
 
             //            添加资产调配的数据信息
             public static final String insertZcDeployData = "deploy/zc/insertZcDeployData";
@@ -110,6 +110,12 @@ public class Constants {
         public class Me {
             //            修改密码
             public static final String updatePassword = "mine/updatePassword";
+        }
+
+        public class Message{
+            public static final String getAllWailDealList = "api/getAllWailDealList";
+
+
         }
 
         public static final String UploadImage = "files";

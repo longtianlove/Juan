@@ -162,6 +162,16 @@
 
             android:theme="@android:style/Theme.NoTitleBar" />
 
+
+
+
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.message.MessageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+
+            android:theme="@android:style/Theme.NoTitleBar" />
+
         <activity
             android:name="com.ja.assets.new_code.bussiness.caigou.CaigoujiluXiangqingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"

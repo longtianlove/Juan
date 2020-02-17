@@ -2,6 +2,7 @@ package com.ja.assets.retrofit
 
 import android.util.Log
 import com.ja.assets.config.MyApplication
+import com.ja.assets.new_code.Constants
 import com.tsy.sdk.myokhttp.MyOkHttp
 import okhttp3.ConnectionPool
 import okhttp3.OkHttpClient
@@ -38,7 +39,8 @@ object   RetrofitClient {
 
 //    const val BASE_URL = "http://10.0.26.42:8080/"
 //const val BASE_URL = "http://10.0.26.3:8080/"
-const val BASE_URL = "http://testyq.17sys.cn/"
+//const val BASE_URL = "http://u38n5x.natappfree.cc/"
+const val BASE_URL = Constants.Url.Host
 
     /**
      * 图片加载
