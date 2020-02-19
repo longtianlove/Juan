@@ -1,7 +1,7 @@
 package com.ja.assets.new_code.bussiness.bean.result;
 
 public class DaibanMessageResultBean {
-    public int id;
+    public long id;
     public String createTime;
     public String updateTime;
     public String type;

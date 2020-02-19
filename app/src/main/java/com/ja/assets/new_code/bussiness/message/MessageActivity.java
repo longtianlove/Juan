@@ -168,13 +168,20 @@ public class MessageActivity extends Activity {
 //                    zcbf/cwauditZcBf.html  处置财务确认
 
 
+                    if ("zcdeploy/auditZcDeploy.html".equals(bean.url)) {
+                        Intent intent = new Intent(MessageActivity.this, DiaopeiMessageActivity.class);
+                        intent.putExtra("bizid",bean.bizid);
+                        intent.putExtra("id",bean.id);
+                        startActivity(intent);
+                    }
+
 
                 }
             });
-            util.tv_chuanjianren.setText(bean.bizcreateby+"");
-            util.tv_chuanjianrenbumen.setText(bean.bizdeptid+"");
-            util.tv_shenheren.setText(bean.auditby+"");
-            util.tv_fasongren.setText(bean.sendby+"");
+            util.tv_chuanjianren.setText(bean.bizcreateby + "");
+            util.tv_chuanjianrenbumen.setText(bean.bizdeptid + "");
+            util.tv_shenheren.setText(bean.auditby + "");
+            util.tv_fasongren.setText(bean.sendby + "");
             util.tv_biaoti.setText(bean.biaoti);
             util.tv_shenheneirong.setText(bean.neirong);
             util.tv_chuanjianshijian.setText(bean.createTime);

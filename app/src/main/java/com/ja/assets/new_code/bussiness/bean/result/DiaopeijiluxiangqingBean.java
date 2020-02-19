@@ -9,7 +9,7 @@ public class DiaopeijiluxiangqingBean {
     public int glDeptId;
     public int use_status;
     public int frontUser;
-    public int originalvalue;
+    public double originalvalue;
     public String categoryName;
     public String startusetime;
     public String frontUsername;

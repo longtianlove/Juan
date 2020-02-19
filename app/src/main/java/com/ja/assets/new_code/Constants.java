@@ -9,7 +9,9 @@ public class Constants {
 
     public static class Url {
         //        public static String Host = "http://47.93.249.1:9100/";
-        public final static String Host = "http://u38n5x.natappfree.cc/";
+//        public final static String Host = "http://u38n5x.natappfree.cc/";
+        public final static String Host = "http://testyq.17sys.cn/";
+
 //        public static String Host = "http://10.0.26.42:8080/";
 //        public static String Host = "http://172.20.10.3:8080/";
 
@@ -76,10 +78,10 @@ public class Constants {
             public static final String buy_insertData = "buy/insertData";
 
             //获取采购资产列表
-            public static final String buyRecordList="buy/buyRecordList";
+            public static final String buyRecordList = "buy/buyRecordList";
 
             //采购列表详情
-            public static final String getBuyRecordItemDetailList="buy/getBuyRecordItemDetailList";
+            public static final String getBuyRecordItemDetailList = "buy/getBuyRecordItemDetailList";
         }
 
 
@@ -112,8 +114,16 @@ public class Constants {
             public static final String updatePassword = "mine/updatePassword";
         }
 
-        public class Message{
+        public class Message {
+            //获取所有代办消息列表
             public static final String getAllWailDealList = "api/getAllWailDealList";
+            //            调配审核主信息
+            public static final String deployCheckMainInfo = "deploy/deployCheckMainInfo";
+            //            调配审核资产列表
+            public static final String deployCheckItemList = "deploy/deployCheckItemList";
+//            资产调配审核
+
+            public static final String deployCheck = "deploy/deployCheck";
 
 
         }
