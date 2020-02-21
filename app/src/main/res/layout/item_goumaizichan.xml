@@ -270,13 +270,14 @@
             android:background="#fff"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingLeft="10dp"
+            android:paddingLeft="5dp"
             android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="操作："
+                android:textSize="14dp"
                 android:textColor="@color/textColor" />
 
             <RadioGroup
@@ -291,6 +292,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="同意"
+                    android:textSize="14dp"
                     android:textColor="#ff333333" />
 
                 <RadioButton
@@ -299,6 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="拒绝"
+                    android:textSize="14dp"
                     android:textColor="#ff333333" />
 
                 <RadioButton
@@ -307,6 +310,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="驳回"
+                    android:textSize="14dp"
                     android:textColor="#ff333333" />
 
             </RadioGroup>
