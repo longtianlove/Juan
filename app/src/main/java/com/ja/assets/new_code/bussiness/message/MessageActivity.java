@@ -174,6 +174,12 @@ public class MessageActivity extends Activity {
                         intent.putExtra("id",bean.id);
                         startActivity(intent);
                     }
+                    if("zcbuy/auditZcBuy.html".equals(bean.url)){
+                        Intent intent = new Intent(MessageActivity.this, GouMaiMessageActivity.class);
+                        intent.putExtra("bizid",bean.bizid);
+                        intent.putExtra("id",bean.id);
+                        startActivity(intent);
+                    }
 
 
                 }

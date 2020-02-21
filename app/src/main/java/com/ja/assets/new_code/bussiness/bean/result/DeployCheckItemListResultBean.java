@@ -2,10 +2,10 @@ package com.ja.assets.new_code.bussiness.bean.result;
 
 public class DeployCheckItemListResultBean {
     public int frontDeptStatus;
-    public int netvalue;
+    public double netvalue;
     public int flowTodoId;
     public int use_status;
-    public int originalvalue;
+    public double originalvalue;
     public int deployId;
     public String categoryName;
     public String startusetime;

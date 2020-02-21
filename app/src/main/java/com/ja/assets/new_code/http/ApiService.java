@@ -4,6 +4,9 @@ import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.BuyCheckItemListPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.BuyCheckMainInfoPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.BuyCheckPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.CaigouiLiebiaoPostbean;
 import com.ja.assets.new_code.bussiness.bean.post.Caigouitemzichan;
 import com.ja.assets.new_code.bussiness.bean.post.CaigouxiangqingPostBean;
@@ -32,6 +35,8 @@ import com.ja.assets.new_code.bussiness.bean.result.BaoxiuDetailBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
+import com.ja.assets.new_code.bussiness.bean.result.BuyCheckItemListResultBean;
+import com.ja.assets.new_code.bussiness.bean.result.BuyCheckMainInfoResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.CaigoulistResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliiebiaoBean;
@@ -72,15 +77,27 @@ public interface ApiService {
     Call<BaseBean<ArrayList<DaibanMessageResultBean>>> getAllWailDealList(@Header("token") String token);
 
     @POST(Constants.Url.Message.deployCheckMainInfo)
-    Call<BaseBean<DeployCheckMainInfoResultBean>> deployCheckMainInfo(@Header("token") String token,@Body DeployCheckMainInfoPostBean bean);
+    Call<BaseBean<DeployCheckMainInfoResultBean>> deployCheckMainInfo(@Header("token") String token, @Body DeployCheckMainInfoPostBean bean);
+
+
+    @POST(Constants.Url.Message.buyCheckMainInfo)
+    Call<BaseBean<BuyCheckMainInfoResultBean>> buyCheckMainInfo(@Header("token") String token, @Body BuyCheckMainInfoPostBean bean);
 
 
     @POST(Constants.Url.Message.deployCheckItemList)
-    Call<BaseBean<ArrayList<DeployCheckItemListResultBean>>> deployCheckItemList(@Header("token") String token,@Body DeployCheckItemListPostBean bean);
+    Call<BaseBean<ArrayList<DeployCheckItemListResultBean>>> deployCheckItemList(@Header("token") String token, @Body DeployCheckItemListPostBean bean);
+
+
+    @POST(Constants.Url.Message.buyCheckItemList)
+    Call<BaseBean<ArrayList<BuyCheckItemListResultBean>>> buyCheckItemList(@Header("token") String token, @Body BuyCheckItemListPostBean bean);
+
 
     @POST(Constants.Url.Message.deployCheck)
-    Call<BaseBean> deployCheck(@Header("token") String token,@Body DeployCheckPostBean bean);
+    Call<BaseBean> deployCheck(@Header("token") String token, @Body DeployCheckPostBean bean);
 
+
+    @POST(Constants.Url.Message.buyCheck)
+    Call<BaseBean> buyCheck(@Header("token") String token, @Body BuyCheckPostBean bean);
 
 
     @POST(Constants.Url.Me.updatePassword)

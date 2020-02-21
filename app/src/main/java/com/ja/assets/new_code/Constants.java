@@ -121,9 +121,16 @@ public class Constants {
             public static final String deployCheckMainInfo = "deploy/deployCheckMainInfo";
             //            调配审核资产列表
             public static final String deployCheckItemList = "deploy/deployCheckItemList";
-//            资产调配审核
-
+            //            资产调配审核
             public static final String deployCheck = "deploy/deployCheck";
+
+
+            //            资产购买主信息
+            public static final String buyCheckMainInfo = "buy/buyCheckMainInfo";
+            //            购买待办列表信息
+            public static final String buyCheckItemList = "buy/buyCheckItemList";
+            //            购买审核
+            public static final String buyCheck = "buy/buyCheck";
 
 
         }

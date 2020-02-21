@@ -154,15 +154,12 @@
             android:theme="@android:style/Theme.NoTitleBar" />
 
 
-
         <activity
             android:name="com.ja.assets.new_code.bussiness.caigou.CaigoujiluActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:screenOrientation="portrait"
 
             android:theme="@android:style/Theme.NoTitleBar" />
-
-
 
 
         <activity
@@ -177,17 +174,22 @@
             android:name="com.ja.assets.new_code.bussiness.message.DiaopeiMessageActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:theme="@android:style/Theme.NoTitleBar" />
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
 
+        <activity
+            android:name="com.ja.assets.new_code.bussiness.message.GouMaiMessageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name="com.ja.assets.new_code.bussiness.caigou.CaigoujiluXiangqingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:screenOrientation="portrait"
 
             android:theme="@android:style/Theme.NoTitleBar" />
-
 
 
         <activity
