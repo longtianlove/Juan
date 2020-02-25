@@ -28,6 +28,7 @@ import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PanyingAndkuiPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckItemListPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckMainInfoPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.RepairCheckPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.UpdatePasswordPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
@@ -111,6 +112,11 @@ public interface ApiService {
 
     @POST(Constants.Url.Message.buyCheck)
     Call<BaseBean> buyCheck(@Header("token") String token, @Body BuyCheckPostBean bean);
+
+
+    @POST(Constants.Url.Message.repairCheck)
+    Call<BaseBean> repairCheck(@Header("token") String token, @Body RepairCheckPostBean bean);
+
 
 
     @POST(Constants.Url.Me.updatePassword)

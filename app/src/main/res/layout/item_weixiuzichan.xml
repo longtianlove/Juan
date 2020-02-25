@@ -3,7 +3,7 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_all"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="280dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingTop="20dp"
@@ -106,6 +106,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -225,11 +226,11 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
-                    android:text="原值："
+                    android:text="联系人："
                     android:textColor="@color/textColor" />
 
                 <TextView
-                    android:id="@+id/tv_originalValue"
+                    android:id="@+id/tv_outUsername"
                     style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -249,11 +250,67 @@
                     style="@style/itemStartTV"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
-                    android:text="净值："
+                    android:text="联系电话："
                     android:textColor="@color/textColor" />
 
                 <TextView
-                    android:id="@+id/tv_netvalue"
+                    android:id="@+id/tv_outPhone"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="送修地址："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_outAddress"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="服务商名称："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_outCompany"
                     style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

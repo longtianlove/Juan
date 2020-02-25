@@ -141,6 +141,10 @@ public class Constants {
             public static final String repairCheckItemList = "app/repair/repairCheckItemList";
 
 
+            //            维修审核
+            public static final String repairCheck = "app/repair/repairCheck";
+
+
         }
 
         public static final String UploadImage = "files";

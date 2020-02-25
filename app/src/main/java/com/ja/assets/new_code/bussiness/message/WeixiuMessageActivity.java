@@ -22,6 +22,7 @@ import com.ja.assets.new_code.bussiness.bean.post.BuyCheckMainInfoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BuyCheckPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckItemListPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckMainInfoPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.RepairCheckPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.BuyCheckItemListResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.BuyCheckMainInfoResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.RepairCheckItemListResultBean;
@@ -110,12 +111,12 @@ public class WeixiuMessageActivity extends Activity {
                 if (s.length() == 0) {
                     tv_querendiaopei.setEnabled(false);
                 } else {
-                    for (BuyCheckItemListResultBean bean2 : buyCheckPostBean.flowTodoItems) {
-                        if (bean2.status == 0) {
-                            tv_querendiaopei.setEnabled(false);
-                            return;
-                        }
-                    }
+//                    for (BuyCheckItemListResultBean bean2 : buyCheckPostBean.flowTodoItems) {
+//                        if (bean2.status == 0) {
+//                            tv_querendiaopei.setEnabled(false);
+//                            return;
+//                        }
+//                    }
                     tv_querendiaopei.setEnabled(true);
                 }
             }
@@ -132,13 +133,12 @@ public class WeixiuMessageActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String neirong = et_shenpiyijian.getText().toString();
-                buyCheckPostBean.zcBuyId = bizid;
-                buyCheckPostBean.itemStatus = itemStatus;
-                buyCheckPostBean.neirong = neirong;
-                buyCheckPostBean.againSubmit = "1";
+                repairCheckPostBean.zcRepairId = bizid;
+                repairCheckPostBean.flowTodoId=id;
+                repairCheckPostBean.neirong = neirong;
                 String token = ACacheUtil.getToken();
 
-                ApiUtils.getApiService().buyCheck(token, buyCheckPostBean).enqueue(new JuanCallback<BaseBean>() {
+                ApiUtils.getApiService().repairCheck(token, repairCheckPostBean).enqueue(new JuanCallback<BaseBean>() {
                     @Override
                     public void onSuccess(Response<BaseBean> response, BaseBean message) {
                         if (message.code == 0) {
@@ -156,7 +156,7 @@ public class WeixiuMessageActivity extends Activity {
         });
     }
 
-    BuyCheckPostBean buyCheckPostBean;
+    RepairCheckPostBean repairCheckPostBean;
 
     TextView tv_shenqingren;
     TextView tv_shenqingbumen;
@@ -217,7 +217,7 @@ public class WeixiuMessageActivity extends Activity {
         });
 
 
-        buyCheckPostBean = new BuyCheckPostBean();
+        repairCheckPostBean = new RepairCheckPostBean();
 
     }
 
@@ -265,8 +265,11 @@ public class WeixiuMessageActivity extends Activity {
                 util.tv_startUseTime = convertView.findViewById(R.id.tv_startUseTime);
                 util.tv_remainingperiod = convertView.findViewById(R.id.tv_remainingperiod);
                 util.tv_warrantyperiod = convertView.findViewById(R.id.tv_warrantyperiod);
-                util.tv_originalValue = convertView.findViewById(R.id.tv_originalValue);
-                util.tv_netvalue = convertView.findViewById(R.id.tv_netvalue);
+                util.tv_outUsername = convertView.findViewById(R.id.tv_outUsername);
+                util.tv_outPhone = convertView.findViewById(R.id.tv_outPhone);
+
+                util.tv_outAddress = convertView.findViewById(R.id.tv_outAddress);
+                util.tv_outCompany = convertView.findViewById(R.id.tv_outCompany);
                 util.rg_weixiujielun = convertView.findViewById(R.id.rg_weixiujielun);
                 convertView.setTag(util);
             } else {
@@ -280,8 +283,16 @@ public class WeixiuMessageActivity extends Activity {
             util.tv_startUseTime.setText(bean.startUseTime);
             util.tv_remainingperiod.setText(bean.remainingperiod);
             util.tv_warrantyperiod.setText(bean.warrantyperiod);
-            util.tv_netvalue.setText(bean.netvalue);
-            util.tv_originalValue.setText(bean.originalValue);
+            util.tv_outPhone.setText(bean.outPhone);
+            util.tv_outUsername.setText(bean.outUsername);
+            util.tv_outAddress.setText(bean.outAddress);
+            util.tv_outCompany.setText(bean.outCompany);
+            util.rg_weixiujielun.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                }
+            });
 //            util.rg_goumai_caozuo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 //                @Override
 //                public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -322,8 +333,10 @@ public class WeixiuMessageActivity extends Activity {
             TextView tv_startUseTime;
             TextView tv_remainingperiod;
             TextView tv_warrantyperiod;
-            TextView tv_originalValue;
-            TextView tv_netvalue;
+            TextView tv_outUsername;
+            TextView tv_outPhone;
+            TextView tv_outAddress;
+            TextView tv_outCompany;
 
             RadioGroup rg_weixiujielun;
 
