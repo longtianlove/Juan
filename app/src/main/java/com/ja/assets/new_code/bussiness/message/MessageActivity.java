@@ -166,8 +166,6 @@ public class MessageActivity extends Activity {
 //                    zcdeploy/auditZcDeploy.html  资产调配
 //                    zcbf/auditZcBf.html   处置审核
 //                    zcbf/cwauditZcBf.html  处置财务确认
-
-
                     if ("zcdeploy/auditZcDeploy.html".equals(bean.url)) {
                         Intent intent = new Intent(MessageActivity.this, DiaopeiMessageActivity.class);
                         intent.putExtra("bizid",bean.bizid);
@@ -176,6 +174,19 @@ public class MessageActivity extends Activity {
                     }
                     if("zcbuy/auditZcBuy.html".equals(bean.url)){
                         Intent intent = new Intent(MessageActivity.this, GouMaiMessageActivity.class);
+                        intent.putExtra("bizid",bean.bizid);
+                        intent.putExtra("id",bean.id);
+                        startActivity(intent);
+                    }
+                    if("zcrepair/auditZcRepair.html".equals(bean.url)){
+                        Intent intent = new Intent(MessageActivity.this, WeixiuMessageActivity.class);
+                        intent.putExtra("bizid",bean.bizid);
+                        intent.putExtra("id",bean.id);
+                        startActivity(intent);
+                    }
+
+                    if("zcrepair/confirmZcRepair.html".equals(bean.url)){
+                        Intent intent = new Intent(MessageActivity.this, WeixiuMessageActivity.class);
                         intent.putExtra("bizid",bean.bizid);
                         intent.putExtra("id",bean.id);
                         startActivity(intent);

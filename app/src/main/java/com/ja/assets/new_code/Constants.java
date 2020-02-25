@@ -133,6 +133,14 @@ public class Constants {
             public static final String buyCheck = "buy/buyCheck";
 
 
+            //            资产维修主信息
+            public static final String repairCheckMainInfo = "app/repair/repairCheckMainInfo";
+
+
+            //            资产维修审核列表信息
+            public static final String repairCheckItemList = "app/repair/repairCheckItemList";
+
+
         }
 
         public static final String UploadImage = "files";

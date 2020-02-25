@@ -26,6 +26,8 @@ import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PanyingAndkuiPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.RepairCheckItemListPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.RepairCheckMainInfoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.UpdatePasswordPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
@@ -51,6 +53,8 @@ import com.ja.assets.new_code.bussiness.bean.result.GuanliBumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
+import com.ja.assets.new_code.bussiness.bean.result.RepairCheckItemListResultBean;
+import com.ja.assets.new_code.bussiness.bean.result.RepairCheckMainInfoResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.YipandianResultBean;
@@ -84,6 +88,9 @@ public interface ApiService {
     Call<BaseBean<BuyCheckMainInfoResultBean>> buyCheckMainInfo(@Header("token") String token, @Body BuyCheckMainInfoPostBean bean);
 
 
+    @POST(Constants.Url.Message.repairCheckMainInfo)
+    Call<BaseBean<RepairCheckMainInfoResultBean>> repairCheckMainInfo(@Header("token") String token, @Body RepairCheckMainInfoPostBean bean);
+
     @POST(Constants.Url.Message.deployCheckItemList)
     Call<BaseBean<ArrayList<DeployCheckItemListResultBean>>> deployCheckItemList(@Header("token") String token, @Body DeployCheckItemListPostBean bean);
 
@@ -91,6 +98,12 @@ public interface ApiService {
     @POST(Constants.Url.Message.buyCheckItemList)
     Call<BaseBean<ArrayList<BuyCheckItemListResultBean>>> buyCheckItemList(@Header("token") String token, @Body BuyCheckItemListPostBean bean);
 
+
+
+
+
+    @POST(Constants.Url.Message.repairCheckItemList)
+    Call<BaseBean<ArrayList<RepairCheckItemListResultBean>>>  repairCheckItemList(@Header("token") String token, @Body RepairCheckItemListPostBean bean);
 
     @POST(Constants.Url.Message.deployCheck)
     Call<BaseBean> deployCheck(@Header("token") String token, @Body DeployCheckPostBean bean);
