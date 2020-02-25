@@ -8,5 +8,5 @@ public class RepairCheckPostBean {
     public long zcRepairId;
     public long flowTodoId;
     public String neirong;
-    ArrayList<RepairCheckItemListResultBean> zcRepairItemList=new ArrayList<>();
+   public  ArrayList<RepairCheckItemListResultBean> zcRepairItemList=new ArrayList<>();
 }

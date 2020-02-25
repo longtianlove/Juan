@@ -111,12 +111,12 @@ public class WeixiuMessageActivity extends Activity {
                 if (s.length() == 0) {
                     tv_querendiaopei.setEnabled(false);
                 } else {
-//                    for (BuyCheckItemListResultBean bean2 : buyCheckPostBean.flowTodoItems) {
-//                        if (bean2.status == 0) {
-//                            tv_querendiaopei.setEnabled(false);
-//                            return;
-//                        }
-//                    }
+                    for (RepairCheckItemListResultBean bean2 : repairCheckPostBean.zcRepairItemList) {
+                        if (TextUtils.isEmpty(bean2.qrStatus)) {
+                            tv_querendiaopei.setEnabled(false);
+                            return;
+                        }
+                    }
                     tv_querendiaopei.setEnabled(true);
                 }
             }
@@ -134,7 +134,7 @@ public class WeixiuMessageActivity extends Activity {
             public void onClick(View v) {
                 String neirong = et_shenpiyijian.getText().toString();
                 repairCheckPostBean.zcRepairId = bizid;
-                repairCheckPostBean.flowTodoId=id;
+                repairCheckPostBean.flowTodoId = id;
                 repairCheckPostBean.neirong = neirong;
                 String token = ACacheUtil.getToken();
 
@@ -166,7 +166,7 @@ public class WeixiuMessageActivity extends Activity {
 
     int bizid;
     long id;
-    public long itemStatus;
+
 
     void initData() {
         String token = ACacheUtil.getToken();
@@ -203,7 +203,7 @@ public class WeixiuMessageActivity extends Activity {
                 if (message.code == 0) {
                     if (message.data.size() >= 0) {
                         madapter.mData = message.data;
-//                        buyCheckPostBean.flowTodoItems = message.data;
+                        repairCheckPostBean.zcRepairItemList=message.data;
                         madapter.notifyDataSetChanged();
 
                     }
@@ -290,35 +290,26 @@ public class WeixiuMessageActivity extends Activity {
             util.rg_weixiujielun.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    if (checkedId == R.id.rb_hege) {
+                        bean.qrStatus = "1";
+                    } else {
+                        bean.qrStatus = "0";
+                    }
+
+
+                    for (RepairCheckItemListResultBean bean2 : mData) {
+                        if (TextUtils.isEmpty(bean2.qrStatus)) {
+                            tv_querendiaopei.setEnabled(false);
+                            return;
+                        }
+                    }
+                    if (!TextUtils.isEmpty(et_shenpiyijian.getText().toString())) {
+                        tv_querendiaopei.setEnabled(true);
+                    }
 
                 }
             });
-//            util.rg_goumai_caozuo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//                @Override
-//                public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                    if (checkedId == R.id.rb_tongyi) {
-//                        bean.status = 1;
-//                    } else if (checkedId == R.id.rb_jujue) {
-//                        bean.status = 2;
-//                    } else if (checkedId == R.id.rb_bohui) {
-//                        bean.status = 3;
-//                    }
-//
-//                    for (BuyCheckItemListResultBean bean2 : mData) {
-//                        if (bean2.status == 0) {
-//                            tv_querendiaopei.setEnabled(false);
-//                            return;
-//                        }
-//                    }
-//                    if (!TextUtils.isEmpty(et_shenpiyijian.getText().toString())) {
-//                        tv_querendiaopei.setEnabled(true);
-//                    }
-//
-//
-//                }
-//            });
 
-//            itemStatus = bean.itemStatus;
 
             return convertView;
         }
