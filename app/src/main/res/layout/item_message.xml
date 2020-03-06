@@ -3,7 +3,7 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_all"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingTop="20dp"
@@ -26,7 +26,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    style="@style/itemStartTV"
+                    android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
                     android:text="标题："
@@ -34,8 +34,7 @@
 
                 <TextView
                     android:id="@+id/tv_biaoti"
-                    style="@style/itemEndTV"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:textColor="@color/mainBgColor" />
@@ -43,12 +42,12 @@
             </LinearLayout>
 
             <LinearLayout
-                style="@style/itemLinear"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
                 <TextView
-                    style="@style/itemStartTV"
+                    android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
                     android:text="发送人："
@@ -56,15 +55,12 @@
 
                 <TextView
                     android:id="@+id/tv_fasongren"
-                    style="@style/itemEndTV"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:textColor="@color/mainBgColor" />
             </LinearLayout>
         </LinearLayout>
-
-
 
 
         <LinearLayout
@@ -79,7 +75,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    style="@style/itemStartTV"
+                    android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
                     android:text="创建时间："
@@ -87,8 +83,7 @@
 
                 <TextView
                     android:id="@+id/tv_chuanjianshijian"
-                    style="@style/itemEndTV"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:textColor="@color/mainBgColor" />
@@ -102,7 +97,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    style="@style/itemStartTV"
+                    android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
                     android:text="状态："
@@ -110,8 +105,7 @@
 
                 <TextView
                     android:id="@+id/tv_zhuangtai"
-                    style="@style/itemEndTV"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text=""
