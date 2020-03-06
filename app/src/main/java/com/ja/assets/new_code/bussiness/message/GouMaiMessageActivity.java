@@ -136,7 +136,6 @@ public class GouMaiMessageActivity extends Activity {
                 buyCheckPostBean.zcBuyId = bizid;
                 buyCheckPostBean.itemStatus = itemStatus;
                 buyCheckPostBean.neirong = neirong;
-                buyCheckPostBean.againSubmit = "1";
                 String token = ACacheUtil.getToken();
 
                 ApiUtils.getApiService().buyCheck(token, buyCheckPostBean).enqueue(new JuanCallback<BaseBean>() {
@@ -269,6 +268,8 @@ public class GouMaiMessageActivity extends Activity {
                 util.tv_brand = convertView.findViewById(R.id.tv_brand);
                 util.tv_model = convertView.findViewById(R.id.tv_model);
                 util.rg_goumai_caozuo = convertView.findViewById(R.id.rg_goumai_caozuo);
+                util.tv_gongyingshangminngcheng=convertView.findViewById(R.id.tv_gongyingshangminngcheng);
+                util.tv_beizhu=convertView.findViewById(R.id.tv_beizhu);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
@@ -309,6 +310,8 @@ public class GouMaiMessageActivity extends Activity {
             });
 
             itemStatus = bean.itemStatus;
+            util.tv_gongyingshangminngcheng.setText(bean.supplierName);
+            util.tv_beizhu.setText(bean.buyBz);
 
             return convertView;
         }
@@ -325,6 +328,8 @@ public class GouMaiMessageActivity extends Activity {
             TextView tv_useDes;
             TextView tv_brand;
             TextView tv_model;
+            TextView tv_gongyingshangminngcheng;
+            TextView tv_beizhu;
 
             RadioGroup rg_goumai_caozuo;
 

@@ -60,10 +60,7 @@
             android:textSize="18sp" />
 
 
-
-
     </RelativeLayout>
-
 
 
     <LinearLayout
@@ -103,9 +100,8 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/itemLinear"
-android:id="@+id/ll_guanlibumen"
-            >
+            android:id="@+id/ll_guanlibumen"
+            style="@style/itemLinear">
 
             <TextView
                 style="@style/itemStartTV"
@@ -127,10 +123,10 @@ android:id="@+id/ll_guanlibumen"
                 <ImageView
                     android:id="@+id/departmentNameImg"
                     android:layout_width="@dimen/margin_40"
+                    android:layout_height="@dimen/margin_40"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/margin_10"
-                    android:layout_height="@dimen/margin_40"
                     android:src="@mipmap/icon_next" />
             </RelativeLayout>
         </LinearLayout>
@@ -146,12 +142,11 @@ android:id="@+id/ll_guanlibumen"
                 android:id="@+id/et_caigoushuliang"
                 style="@style/itemEndTV"
                 android:hint="@string/enterPurchaseQuantity"
-                android:text=""
                 android:inputType="number"
+                android:text=""
 
                 />
         </LinearLayout>
-
 
 
         <LinearLayout style="@style/itemLinear">
@@ -222,9 +217,8 @@ android:id="@+id/ll_guanlibumen"
                     android:layout_marginEnd="@dimen/margin_5"
                     android:layout_toStartOf="@+id/elementTV"
                     android:hint="@string/enterPurchaseUnitPrice"
-                    android:text=""
                     android:inputType="numberDecimal"
-                    />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/elementTV"
@@ -239,15 +233,29 @@ android:id="@+id/ll_guanlibumen"
         </LinearLayout>
 
 
+
+        <LinearLayout style="@style/itemLinear">
+
+            <TextView
+                style="@style/itemStartTV"
+                android:text="备注" />
+
+            <EditText
+                android:id="@+id/et_beizhu"
+                style="@style/itemEndTV"
+                android:hint="@string/enterSupplierName"
+                android:text="" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/tv_tijiao"
             android:layout_width="match_parent"
             android:layout_height="39dp"
             android:layout_gravity="bottom"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="37dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="35dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/xml_login_background"
             android:enabled="false"
             android:gravity="center"

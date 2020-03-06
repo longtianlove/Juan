@@ -140,14 +140,10 @@ public class MessageActivity extends Activity {
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
                 convertView = inflater.inflate(R.layout.item_message, null);
                 util.ll_all = convertView.findViewById(R.id.ll_all);
-                util.tv_chuanjianren = convertView.findViewById(R.id.tv_chuanjianren);
-                util.tv_chuanjianrenbumen = convertView.findViewById(R.id.tv_chuanjianrenbumen);
-                util.tv_shenheren = convertView.findViewById(R.id.tv_shenheren);
                 util.tv_fasongren = convertView.findViewById(R.id.tv_fasongren);
                 util.tv_biaoti = convertView.findViewById(R.id.tv_biaoti);
-                util.tv_shenheneirong = convertView.findViewById(R.id.tv_shenheneirong);
                 util.tv_chuanjianshijian = convertView.findViewById(R.id.tv_chuanjianshijian);
-                util.tv_gengxinshijian = convertView.findViewById(R.id.tv_gengxinshijian);
+                util.tv_zhuangtai = convertView.findViewById(R.id.tv_zhuangtai);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
@@ -168,41 +164,43 @@ public class MessageActivity extends Activity {
 //                    zcbf/cwauditZcBf.html  处置财务确认
                     if ("zcdeploy/auditZcDeploy.html".equals(bean.url)) {
                         Intent intent = new Intent(MessageActivity.this, DiaopeiMessageActivity.class);
-                        intent.putExtra("bizid",bean.bizid);
-                        intent.putExtra("id",bean.id);
+                        intent.putExtra("bizid", bean.bizid);
+                        intent.putExtra("id", bean.id);
                         startActivity(intent);
                     }
-                    if("zcbuy/auditZcBuy.html".equals(bean.url)){
+                    if ("zcbuy/auditZcBuy.html".equals(bean.url)) {
                         Intent intent = new Intent(MessageActivity.this, GouMaiMessageActivity.class);
-                        intent.putExtra("bizid",bean.bizid);
-                        intent.putExtra("id",bean.id);
+                        intent.putExtra("bizid", bean.bizid);
+                        intent.putExtra("id", bean.id);
                         startActivity(intent);
                     }
-                    if("zcrepair/auditZcRepair.html".equals(bean.url)){
+                    if ("zcrepair/auditZcRepair.html".equals(bean.url)) {
                         Intent intent = new Intent(MessageActivity.this, WeixiuMessageActivity.class);
-                        intent.putExtra("bizid",bean.bizid);
-                        intent.putExtra("id",bean.id);
+                        intent.putExtra("bizid", bean.bizid);
+                        intent.putExtra("id", bean.id);
                         startActivity(intent);
                     }
 
-                    if("zcrepair/confirmZcRepair.html".equals(bean.url)){
+                    if ("zcrepair/confirmZcRepair.html".equals(bean.url)) {
                         Intent intent = new Intent(MessageActivity.this, WeixiuMessageActivity.class);
-                        intent.putExtra("bizid",bean.bizid);
-                        intent.putExtra("id",bean.id);
+                        intent.putExtra("bizid", bean.bizid);
+                        intent.putExtra("id", bean.id);
                         startActivity(intent);
                     }
 
 
                 }
             });
-            util.tv_chuanjianren.setText(bean.bizcreateby + "");
-            util.tv_chuanjianrenbumen.setText(bean.bizdeptid + "");
-            util.tv_shenheren.setText(bean.auditby + "");
+
             util.tv_fasongren.setText(bean.sendby + "");
             util.tv_biaoti.setText(bean.biaoti);
-            util.tv_shenheneirong.setText(bean.neirong);
             util.tv_chuanjianshijian.setText(bean.createTime);
-            util.tv_gengxinshijian.setText(bean.updateTime);
+            if ("0".equals(bean.status)) {
+                util.tv_zhuangtai.setText("未办理");
+            } else {
+                util.tv_zhuangtai.setText("已办理");
+            }
+
 
             return convertView;
         }
@@ -210,14 +208,10 @@ public class MessageActivity extends Activity {
 
         class Util {
             public View ll_all;
-            public TextView tv_chuanjianren;
-            public TextView tv_chuanjianrenbumen;
-            public TextView tv_shenheren;
             public TextView tv_fasongren;
             public TextView tv_biaoti;
-            public TextView tv_shenheneirong;
             public TextView tv_chuanjianshijian;
-            public TextView tv_gengxinshijian;
+            public TextView tv_zhuangtai;
 
         }
     }

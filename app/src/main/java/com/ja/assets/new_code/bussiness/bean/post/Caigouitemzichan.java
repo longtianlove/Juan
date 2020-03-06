@@ -27,4 +27,7 @@ public class Caigouitemzichan {
     public String zc_bz;
     /** 管理部门名称. */
     public String glDeptName;
+
+    /**备注**/
+    public String buyBz;
 }

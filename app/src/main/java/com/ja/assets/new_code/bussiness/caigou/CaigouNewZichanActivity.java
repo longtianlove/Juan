@@ -37,6 +37,7 @@ public class CaigouNewZichanActivity extends Activity {
     EditText et_chanpinpinpai;
     EditText et_gongyingshangmingcheng;
     EditText et_danjia;
+    EditText et_beizhu;
     TextView btn_tiaojiao;
 
     @Override
@@ -129,6 +130,9 @@ public class CaigouNewZichanActivity extends Activity {
         et_danjia = findViewById(R.id.et_danjia);
         et_danjia.addTextChangedListener(textWatcherListener);
 
+        et_beizhu = findViewById(R.id.et_beizhu);
+        et_beizhu.addTextChangedListener(textWatcherListener);
+
         btn_tiaojiao = findViewById(R.id.tv_tijiao);
         btn_tiaojiao.setOnClickListener(new View.OnClickListener() {
 
@@ -138,13 +142,18 @@ public class CaigouNewZichanActivity extends Activity {
                 bean.name = et_zichan_name.getText().toString();
                 bean.unit = et_jiliangdanwei.getText().toString();
                 bean.brand = et_chanpinpinpai.getText().toString();
-                bean.price = new BigDecimal(et_danjia.getText().toString());
+                try {
+                    bean.price = new BigDecimal(et_danjia.getText().toString());
+                } catch (Exception e) {
+                    bean.price = new BigDecimal(0);
+                }
                 bean.supplierName = et_gongyingshangmingcheng.getText().toString();
                 bean.useDes = et_yongtu.getText().toString();
                 bean.num = Integer.parseInt(et_caigoushuliang.getText().toString());
-                bean.model=et_guigexinghao.getText().toString();
+                bean.model = et_guigexinghao.getText().toString();
                 bean.glDeptName = glDeptName;
                 bean.glDeptId = glDeptId;
+                bean.buyBz = et_beizhu.getText().toString();
                 CaigouGuanliActivity.caigouzichanPostBean.zcBuyItemList.add(bean);
                 finish();
             }
@@ -164,21 +173,21 @@ public class CaigouNewZichanActivity extends Activity {
         if (TextUtils.isEmpty(et_caigoushuliang.getText().toString())) {
             return true;
         }
-        if (TextUtils.isEmpty(et_guigexinghao.getText().toString())) {
-            return true;
-        }
-        if (TextUtils.isEmpty(et_jiliangdanwei.getText().toString())) {
-            return true;
-        }
-        if (TextUtils.isEmpty(et_chanpinpinpai.getText().toString())) {
-            return true;
-        }
-        if (TextUtils.isEmpty(et_gongyingshangmingcheng.getText().toString())) {
-            return true;
-        }
-        if (TextUtils.isEmpty(et_danjia.getText().toString())) {
-            return true;
-        }
+//        if (TextUtils.isEmpty(et_guigexinghao.getText().toString())) {
+//            return true;
+//        }
+//        if (TextUtils.isEmpty(et_jiliangdanwei.getText().toString())) {
+//            return true;
+//        }
+//        if (TextUtils.isEmpty(et_chanpinpinpai.getText().toString())) {
+//            return true;
+//        }
+//        if (TextUtils.isEmpty(et_gongyingshangmingcheng.getText().toString())) {
+//            return true;
+//        }
+//        if (TextUtils.isEmpty(et_danjia.getText().toString())) {
+//            return true;
+//        }
 
 
         return false;

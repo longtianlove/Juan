@@ -117,8 +117,8 @@ public class CaigouGuanliActivity extends Activity {
         });
 
 
-        lv_zichans=findViewById(R.id.lv_zichans);
-        madapter=new ZiChansAdapter(this);
+        lv_zichans = findViewById(R.id.lv_zichans);
+        madapter = new ZiChansAdapter(this);
         lv_zichans.setAdapter(madapter);
         tv_wenjianmingcheng = findViewById(R.id.tv_wenjianmingcheng);
         tv_tijiao = findViewById(R.id.tv_tijiao);
@@ -168,7 +168,7 @@ public class CaigouGuanliActivity extends Activity {
             noAssetsLinear.setVisibility(View.VISIBLE);
         } else {
             scl_bag.setVisibility(View.VISIBLE);
-            madapter.mData=caigouzichanPostBean.zcBuyItemList;
+            madapter.mData = caigouzichanPostBean.zcBuyItemList;
             madapter.notifyDataSetChanged();
             noAssetsLinear.setVisibility(View.GONE);
         }
@@ -211,29 +211,30 @@ public class CaigouGuanliActivity extends Activity {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
                 convertView = inflater.inflate(R.layout.item_caigouzichan_xuanzehou, null);
-                util.tv_zichanmingcheng=convertView.findViewById(R.id.tv_zichanmingcheng);
-                util.tv_guanlibumen=convertView.findViewById(R.id.tv_guanlibumen);
-                util.tv_caigoushuliang=convertView.findViewById(R.id.tv_caigoushuliang);
-                util.tv_guigexinghao=convertView.findViewById(R.id.tv_guigexinghao);
-                util.tv_chanpinpinpai=convertView.findViewById(R.id.tv_chanpinpinpai);
-                util.tv_gongyingshangmingcheng=convertView.findViewById(R.id.tv_gongyingshangmingcheng);
-                util.tv_jiliangdanwei=convertView.findViewById(R.id.tv_jiliangdanwei);
-                util.tv_caigoudanjia=convertView.findViewById(R.id.tv_caigoudanjia);
-
+                util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
+                util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
+                util.tv_caigoushuliang = convertView.findViewById(R.id.tv_caigoushuliang);
+                util.tv_guigexinghao = convertView.findViewById(R.id.tv_guigexinghao);
+                util.tv_chanpinpinpai = convertView.findViewById(R.id.tv_chanpinpinpai);
+                util.tv_gongyingshangmingcheng = convertView.findViewById(R.id.tv_gongyingshangmingcheng);
+                util.tv_jiliangdanwei = convertView.findViewById(R.id.tv_jiliangdanwei);
+                util.tv_caigoudanjia = convertView.findViewById(R.id.tv_caigoudanjia);
+                util.tv_yongtu = convertView.findViewById(R.id.tv_yongtu);
 
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
             }
-            Caigouitemzichan bean=mData.get(position);
+            Caigouitemzichan bean = mData.get(position);
             util.tv_zichanmingcheng.setText(bean.name);
             util.tv_guanlibumen.setText(bean.glDeptName);
-            util.tv_caigoushuliang.setText(bean.num+"");
+            util.tv_caigoushuliang.setText(bean.num + "");
             util.tv_guigexinghao.setText(bean.model);
             util.tv_chanpinpinpai.setText(bean.brand);
             util.tv_gongyingshangmingcheng.setText(bean.supplierName);
             util.tv_jiliangdanwei.setText(bean.unit);
-            util.tv_caigoudanjia.setText(bean.price+"");
+            util.tv_caigoudanjia.setText(bean.price + "");
+            util.tv_yongtu.setText(bean.useDes);
             return convertView;
         }
 
@@ -247,6 +248,7 @@ public class CaigouGuanliActivity extends Activity {
             TextView tv_gongyingshangmingcheng;
             TextView tv_jiliangdanwei;
             TextView tv_caigoudanjia;
+            TextView tv_yongtu;
 
         }
     }

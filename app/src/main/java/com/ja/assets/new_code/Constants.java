@@ -12,6 +12,10 @@ public class Constants {
 //        public final static String Host = "http://u38n5x.natappfree.cc/";
         public final static String Host = "http://testyq.17sys.cn/";
 
+
+//        public final static String Host = "http://xfmkgh.natappfree.cc/";
+
+
 //        public static String Host = "http://10.0.26.42:8080/";
 //        public static String Host = "http://172.20.10.3:8080/";
 

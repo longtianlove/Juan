@@ -21,4 +21,6 @@ public class BuyCheckItemListResultBean {
         public String brand;
         public String gldeptname;
         public int status;
+
+        public String buyBz;
 }

@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ja.assets.R;
 
+import com.ja.assets.model.UserInfo;
 import com.ja.assets.new_code.base.BaseJavaFragment;
 import com.ja.assets.ui.activity.login.LoginActivity;
 import com.ja.assets.utils.ACacheUtil;
@@ -63,7 +64,8 @@ public class UserFragment extends BaseJavaFragment {
         ll_gerenziliao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getActivity(), MeMessageActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -100,7 +102,7 @@ public class UserFragment extends BaseJavaFragment {
         });
     }
 
-    void initData(){
+    void initData() {
         String nickname = ACacheUtil.getUserInfo().getNickname();
         tv_nickname.setText(nickname);
 

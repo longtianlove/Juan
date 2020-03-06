@@ -3,7 +3,7 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_all"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="270dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingTop="20dp"
@@ -253,6 +253,62 @@
 
                 <TextView
                     android:id="@+id/tv_model"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="供应商名称："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_gongyingshangminngcheng"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="备注："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_beizhu"
                     style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
