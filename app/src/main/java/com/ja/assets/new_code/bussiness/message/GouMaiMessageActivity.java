@@ -261,15 +261,15 @@ public class GouMaiMessageActivity extends Activity {
                 util.tv_buyNum = convertView.findViewById(R.id.tv_buyNum);
                 util.tv_name = convertView.findViewById(R.id.tv_name);
                 util.tv_gldeptname = convertView.findViewById(R.id.tv_gldeptname);
-                util.tv_price = convertView.findViewById(R.id.tv_price);
-                util.tv_num = convertView.findViewById(R.id.tv_num);
+                util.et_goumaidanjia = convertView.findViewById(R.id.et_goumaidanjia);
+                util.et_shuliang = convertView.findViewById(R.id.et_shuliang);
                 util.tv_sydeptname = convertView.findViewById(R.id.tv_sydeptname);
-                util.tv_useDes = convertView.findViewById(R.id.tv_useDes);
-                util.tv_brand = convertView.findViewById(R.id.tv_brand);
-                util.tv_model = convertView.findViewById(R.id.tv_model);
+                util.et_miaoshu = convertView.findViewById(R.id.et_miaoshu);
+                util.et_pinpai = convertView.findViewById(R.id.et_pinpai);
+                util.et_xinghao = convertView.findViewById(R.id.et_xinghao);
                 util.rg_goumai_caozuo = convertView.findViewById(R.id.rg_goumai_caozuo);
-                util.tv_gongyingshangminngcheng=convertView.findViewById(R.id.tv_gongyingshangminngcheng);
-                util.tv_beizhu=convertView.findViewById(R.id.tv_beizhu);
+                util.et_gongyingshangmingcheng = convertView.findViewById(R.id.et_gongyingshangmingcheng);
+                util.et_beizhu = convertView.findViewById(R.id.et_beizhu);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
@@ -278,12 +278,100 @@ public class GouMaiMessageActivity extends Activity {
             util.tv_buyNum.setText(bean.buyNum);
             util.tv_name.setText(bean.name);
             util.tv_gldeptname.setText(bean.gldeptname);
-            util.tv_price.setText(bean.price + "");
-            util.tv_num.setText(bean.num + "");
+            util.et_goumaidanjia.setText(bean.price + "");
+            util.et_goumaidanjia.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    try {
+                        bean.price = Double.parseDouble(s.toString());
+                    } catch (Exception e) {
+                        bean.price = 1;
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            util.et_shuliang.setText(bean.num + "");
+            util.et_shuliang.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    try {
+                        bean.num = Integer.parseInt(s.toString());
+                    } catch (Exception e) {
+                        bean.num = 1;
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
             util.tv_sydeptname.setText(bean.sydeptname);
-            util.tv_useDes.setText(bean.useDes);
-            util.tv_brand.setText(bean.brand);
-            util.tv_model.setText(bean.model);
+            util.et_miaoshu.setText(bean.useDes);
+            util.et_miaoshu.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.useDes = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            util.et_pinpai.setText(bean.brand);
+            util.et_pinpai.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.brand = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            util.et_xinghao.setText(bean.model);
+            util.et_xinghao.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.model = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
             util.rg_goumai_caozuo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -310,8 +398,40 @@ public class GouMaiMessageActivity extends Activity {
             });
 
             itemStatus = bean.itemStatus;
-            util.tv_gongyingshangminngcheng.setText(bean.supplierName);
-            util.tv_beizhu.setText(bean.buyBz);
+            util.et_gongyingshangmingcheng.setText(bean.supplierName);
+            util.et_gongyingshangmingcheng.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.supplierName = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            util.et_beizhu.setText(bean.buyBz);
+            util.et_beizhu.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.buyBz = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
 
             return convertView;
         }
@@ -322,14 +442,14 @@ public class GouMaiMessageActivity extends Activity {
             TextView tv_buyNum;
             TextView tv_name;
             TextView tv_gldeptname;
-            TextView tv_price;
-            TextView tv_num;
+            EditText et_goumaidanjia;
+            EditText et_shuliang;
             TextView tv_sydeptname;
-            TextView tv_useDes;
-            TextView tv_brand;
-            TextView tv_model;
-            TextView tv_gongyingshangminngcheng;
-            TextView tv_beizhu;
+            EditText et_miaoshu;
+            EditText et_pinpai;
+            EditText et_xinghao;
+            EditText et_gongyingshangmingcheng;
+            EditText et_beizhu;
 
             RadioGroup rg_goumai_caozuo;
 
