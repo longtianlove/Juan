@@ -22,6 +22,7 @@ import com.ja.assets.new_code.bussiness.bean.post.DeployCheckPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeiZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeijiluPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.DiaopeixiangqingPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.GetZcInfoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianZichanWanchengPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.PandianbaobiaoBasePostBean;
@@ -50,6 +51,7 @@ import com.ja.assets.new_code.bussiness.bean.result.DeployCheckMainInfoResultBea
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluBean;
 import com.ja.assets.new_code.bussiness.bean.result.DiaopeijiluxiangqingBean;
+import com.ja.assets.new_code.bussiness.bean.result.GetZcInfoResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.GuanliBumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.JiluXunjianDetail;
 import com.ja.assets.new_code.bussiness.bean.result.PandianBaseResultBean;
@@ -60,6 +62,7 @@ import com.ja.assets.new_code.bussiness.bean.result.UploadImageResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.WeiPandianResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.YipandianResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
+import com.yzq.zxinglibrary.common.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +80,10 @@ import retrofit2.http.Part;
  * Created by long
  */
 public interface ApiService {
+
+
+    @POST(Constants.Url.getZcInfo)
+    Call<BaseBean<GetZcInfoResultBean>> getZcInfo(@Header("token") String token, @Body GetZcInfoPostBean bean);
 
     @POST(Constants.Url.Message.getAllWailDealList)
     Call<BaseBean<ArrayList<DaibanMessageResultBean>>> getAllWailDealList(@Header("token") String token);
@@ -100,11 +107,8 @@ public interface ApiService {
     Call<BaseBean<ArrayList<BuyCheckItemListResultBean>>> buyCheckItemList(@Header("token") String token, @Body BuyCheckItemListPostBean bean);
 
 
-
-
-
     @POST(Constants.Url.Message.repairCheckItemList)
-    Call<BaseBean<ArrayList<RepairCheckItemListResultBean>>>  repairCheckItemList(@Header("token") String token, @Body RepairCheckItemListPostBean bean);
+    Call<BaseBean<ArrayList<RepairCheckItemListResultBean>>> repairCheckItemList(@Header("token") String token, @Body RepairCheckItemListPostBean bean);
 
     @POST(Constants.Url.Message.deployCheck)
     Call<BaseBean> deployCheck(@Header("token") String token, @Body DeployCheckPostBean bean);
@@ -116,7 +120,6 @@ public interface ApiService {
 
     @POST(Constants.Url.Message.repairCheck)
     Call<BaseBean> repairCheck(@Header("token") String token, @Body RepairCheckPostBean bean);
-
 
 
     @POST(Constants.Url.Me.updatePassword)

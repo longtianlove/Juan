@@ -152,6 +152,8 @@ public class Constants {
         }
 
         public static final String UploadImage = "files";
+        //扫一扫
+        public static final String getZcInfo="api/getZcInfo";
     }
 
 
