@@ -93,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_margin="@dimen/margin_5"
                     android:textColor="@color/textColor"
-                    android:text="@string/assetsNumber" />
+                    android:text="资产编码：" />
 
                 <TextView
                     android:id="@+id/tv_zichanbianhao"

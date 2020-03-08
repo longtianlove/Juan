@@ -23,4 +23,10 @@ public class DeployCheckItemListResultBean {
     public String backdeptname;
     public int status;
     public int backDeptStatus;
+    /**
+     * 资产追溯码
+     */
+    //todo 后台添加
+    public String epcid;//资产追溯码
+    public String syDeptName;//使用部门
 }

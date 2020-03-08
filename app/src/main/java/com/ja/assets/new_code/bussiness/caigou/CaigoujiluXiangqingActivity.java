@@ -23,6 +23,7 @@ import com.ja.assets.utils.ACacheUtil;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,7 +87,7 @@ public class CaigoujiluXiangqingActivity extends Activity {
         CaigouxiangqingPostBean bean = new CaigouxiangqingPostBean();
         bean.cw = "";
         bean.zcBuyId = id;
-        ApiUtils.getApiService().getBuyRecordItemDetailList(token,bean).enqueue(new JuanCallback<BaseBean<ArrayList<Caigouitemzichan>>>() {
+        ApiUtils.getApiService().getBuyRecordItemDetailList(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<Caigouitemzichan>>>() {
             @Override
             public void onSuccess(Response<BaseBean<ArrayList<Caigouitemzichan>>> response, BaseBean<ArrayList<Caigouitemzichan>> message) {
                 if (message.code == 0) {
@@ -165,7 +166,8 @@ public class CaigoujiluXiangqingActivity extends Activity {
                 util.tv_gongyingshangmingcheng = convertView.findViewById(R.id.tv_gongyingshangmingcheng);
                 util.tv_jiliangdanwei = convertView.findViewById(R.id.tv_jiliangdanwei);
                 util.tv_caigoudanjia = convertView.findViewById(R.id.tv_caigoudanjia);
-
+                util.tv_zongjia = convertView.findViewById(R.id.tv_zongjia);
+                util.tv_yongtu=convertView.findViewById(R.id.tv_yongtu);
 
                 convertView.setTag(util);
             } else {
@@ -173,13 +175,15 @@ public class CaigoujiluXiangqingActivity extends Activity {
             }
             Caigouitemzichan bean = mData.get(position);
             util.tv_zichanmingcheng.setText(bean.name);
-            util.tv_guanlibumen.setText(bean.glDeptName);
+            util.tv_guanlibumen.setText(bean.gldeptname);
             util.tv_caigoushuliang.setText(bean.num + "");
             util.tv_guigexinghao.setText(bean.model);
             util.tv_chanpinpinpai.setText(bean.brand);
             util.tv_gongyingshangmingcheng.setText(bean.supplierName);
             util.tv_jiliangdanwei.setText(bean.unit);
             util.tv_caigoudanjia.setText(bean.price + "");
+            util.tv_zongjia.setText((bean.price.multiply(new BigDecimal(bean.num))+""));
+            util.tv_yongtu.setText(bean.useDes);
             return convertView;
         }
 
@@ -193,6 +197,8 @@ public class CaigoujiluXiangqingActivity extends Activity {
             TextView tv_gongyingshangmingcheng;
             TextView tv_jiliangdanwei;
             TextView tv_caigoudanjia;
+            TextView tv_zongjia;
+            TextView tv_yongtu;
 
         }
     }

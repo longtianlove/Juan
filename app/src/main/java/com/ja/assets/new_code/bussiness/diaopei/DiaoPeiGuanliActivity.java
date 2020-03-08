@@ -12,6 +12,7 @@ import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -193,6 +194,7 @@ public class DiaoPeiGuanliActivity extends Activity {
                 util.tv_cunfangdizhi = convertView.findViewById(R.id.tv_cunfangdizhi);
                 util.tv_diaochubumen = convertView.findViewById(R.id.tv_diaochubumen);
                 util.tv_diaochubumen_dianji = convertView.findViewById(R.id.tv_diaochubumen_dianji);
+                util.et_diaopeishuoming=convertView.findViewById(R.id.et_diaopeishuoming);
                 convertView.setTag(util);
             } else {
                 util = (ZiChansAdapter.Util) convertView.getTag();
@@ -224,6 +226,7 @@ public class DiaoPeiGuanliActivity extends Activity {
             }
 
 
+
             return convertView;
         }
 
@@ -239,6 +242,7 @@ public class DiaoPeiGuanliActivity extends Activity {
 
             public TextView tv_diaochubumen;
             public View tv_diaochubumen_dianji;
+            public EditText et_diaopeishuoming;
 
         }
     }

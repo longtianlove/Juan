@@ -227,7 +227,7 @@ public class CaigouGuanliActivity extends Activity {
             }
             Caigouitemzichan bean = mData.get(position);
             util.tv_zichanmingcheng.setText(bean.name);
-            util.tv_guanlibumen.setText(bean.glDeptName);
+            util.tv_guanlibumen.setText(bean.gldeptname);
             util.tv_caigoushuliang.setText(bean.num + "");
             util.tv_guigexinghao.setText(bean.model);
             util.tv_chanpinpinpai.setText(bean.brand);

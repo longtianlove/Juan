@@ -129,7 +129,7 @@ public class DiaopeiMessageActivity extends Activity {
                 bean.neirong = neirong;
                 String token = ACacheUtil.getToken();
 
-                ApiUtils.getApiService().deployCheck(token,bean).enqueue(new JuanCallback<BaseBean>() {
+                ApiUtils.getApiService().deployCheck(token, bean).enqueue(new JuanCallback<BaseBean>() {
                     @Override
                     public void onSuccess(Response<BaseBean> response, BaseBean message) {
                         if (message.code == 0) {
@@ -239,24 +239,26 @@ public class DiaopeiMessageActivity extends Activity {
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
                 convertView = inflater.inflate(R.layout.item_diaopeizichan, null);
                 util.ll_all = convertView.findViewById(R.id.ll_all);
-                util.tv_zcCodenum = convertView.findViewById(R.id.tv_zcCodenum);
-                util.tv_zcName = convertView.findViewById(R.id.tv_zcName);
-                util.tv_categoryName = convertView.findViewById(R.id.tv_categoryName);
-                util.tv_gldeptname = convertView.findViewById(R.id.tv_gldeptname);
-                util.tv_backdeptname = convertView.findViewById(R.id.tv_backdeptname);
-                util.tv_remainingperiod = convertView.findViewById(R.id.tv_remainingperiod);
-
+                util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
+                util.tv_zichanbianhao = convertView.findViewById(R.id.tv_zichanbianhao);
+                util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
+                util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
+                util.tv_guanlibumen=convertView.findViewById(R.id.tv_guanlibumen);
+                util.tv_cunfangdizhi=convertView.findViewById(R.id.tv_cunfangdizhi);
+                util.tv_diaochubumen=convertView.findViewById(R.id.tv_diaochubumen);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
             }
             DeployCheckItemListResultBean bean = mData.get(position);
-            util.tv_zcCodenum.setText(bean.zcCodenum);
-            util.tv_zcName.setText(bean.zcName);
-            util.tv_categoryName.setText(bean.categoryName);
-            util.tv_gldeptname.setText(bean.gldeptname);
-            util.tv_backdeptname.setText(bean.backdeptname);
-            util.tv_remainingperiod.setText(bean.remainingperiod + "");
+            util.tv_epcid.setText(bean.epcid);
+            util.tv_zichanbianhao.setText(bean.zcCodenum);
+            util.tv_zichanmingcheng.setText(bean.zcName);
+            util.tv_shiyongbumen.setText(bean.syDeptName);
+            util.tv_guanlibumen.setText(bean.gldeptname);
+            util.tv_cunfangdizhi.setText(bean.storeaddress);
+            util.tv_diaochubumen.setText(bean.backdeptname);
+
             itemStatus = bean.itemStatus;
 
             return convertView;
@@ -265,12 +267,14 @@ public class DiaopeiMessageActivity extends Activity {
 
         class Util {
             public View ll_all;
-            TextView tv_zcCodenum;
-            TextView tv_zcName;
-            TextView tv_categoryName;
-            TextView tv_gldeptname;
-            TextView tv_backdeptname;
-            TextView tv_remainingperiod;
+            TextView tv_epcid;
+            TextView tv_zichanbianhao;
+            TextView tv_zichanmingcheng;
+            TextView tv_shiyongbumen;
+            TextView tv_guanlibumen;
+            TextView tv_cunfangdizhi;
+            TextView tv_diaochubumen;
+
 
         }
     }

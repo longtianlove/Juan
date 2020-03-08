@@ -46,7 +46,7 @@ public class UserFragment extends BaseJavaFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.new_fragment_user_layout, container, false);
         initView(rootView);
-        initData();
+
         return rootView;
     }
 
@@ -100,6 +100,13 @@ public class UserFragment extends BaseJavaFragment {
                 startActivity(intent);
             }
         });
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        initData();
     }
 
     void initData() {

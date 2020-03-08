@@ -26,6 +26,7 @@ public class Caigouitemzichan {
     /** 资产笨猪. */
     public String zc_bz;
     /** 管理部门名称. */
+    public String gldeptname;
     public String glDeptName;
 
     /**备注**/
