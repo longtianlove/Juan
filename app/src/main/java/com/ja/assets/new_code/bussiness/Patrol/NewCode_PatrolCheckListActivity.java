@@ -18,6 +18,7 @@ import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
+import com.ja.assets.new_code.util.ToastUtil;
 import com.ja.assets.new_code.view.WithScrolleViewListView;
 
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
@@ -114,6 +115,8 @@ public class NewCode_PatrolCheckListActivity extends Activity {
 
     private int requestBackCode = 100;
 
+
+    public String peiduiZhuisunma;
     void toSaomao() {
         Intent intent = new Intent(this, CaptureActivity.class);
         startActivityForResult(intent, requestBackCode);
@@ -126,10 +129,15 @@ public class NewCode_PatrolCheckListActivity extends Activity {
             return;
         }
         if (requestCode == requestBackCode && resultCode == RESULT_OK) {
+
             String epcid = data.getStringExtra(Constant.CODED_CONTENT);
-            Intent intent = new Intent(NewCode_PatrolCheckListActivity.this, NewCode_PatrolCheckDetailActivity.class);
-            intent.putExtra("epcid", epcid);
-            startActivity(intent);
+            if(peiduiZhuisunma.equals(epcid)) {
+                Intent intent = new Intent(NewCode_PatrolCheckListActivity.this, NewCode_PatrolCheckDetailActivity.class);
+                intent.putExtra("epcid", epcid);
+                startActivity(intent);
+            }else {
+                ToastUtil.showAtCenter("该资产与实际信息不符，请重新扫码");
+            }
 
         }
     }
@@ -187,6 +195,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
 
                 @Override
                 public void onClick(View v) {
+                    peiduiZhuisunma=bean.epcid;
                     toSaomao();
                 }
             });

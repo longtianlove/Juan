@@ -273,7 +273,7 @@
             android:background="@drawable/xml_login_background"
             android:enabled="false"
             android:gravity="center"
-            android:text="确认调配"
+            android:text="确认审批"
             android:textColor="@color/white"
             android:textSize="14sp"></TextView>
 
