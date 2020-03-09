@@ -85,6 +85,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
         iv_saoyisiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                peiduiZhuisunma = "-1";
                 toSaomao();
             }
         });
@@ -117,6 +118,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
 
 
     public String peiduiZhuisunma;
+
     void toSaomao() {
         Intent intent = new Intent(this, CaptureActivity.class);
         startActivityForResult(intent, requestBackCode);
@@ -129,16 +131,24 @@ public class NewCode_PatrolCheckListActivity extends Activity {
             return;
         }
         if (requestCode == requestBackCode && resultCode == RESULT_OK) {
-
             String epcid = data.getStringExtra(Constant.CODED_CONTENT);
-            if(peiduiZhuisunma.equals(epcid)) {
+            if ("-1".equals(peiduiZhuisunma)) {
+                for (ZiChansBean bean : madapter.mData) {
+                    if (bean.epcid.equals(epcid)) {
+                        Intent intent = new Intent(NewCode_PatrolCheckListActivity.this, NewCode_PatrolCheckDetailActivity.class);
+                        intent.putExtra("epcid", epcid);
+                        startActivity(intent);
+                        return;
+                    }
+                }
+                ToastUtil.showAtCenter("该资产与实际信息不符，请重新扫码");
+            } else if (peiduiZhuisunma.equals(epcid)) {
                 Intent intent = new Intent(NewCode_PatrolCheckListActivity.this, NewCode_PatrolCheckDetailActivity.class);
                 intent.putExtra("epcid", epcid);
                 startActivity(intent);
-            }else {
+            } else {
                 ToastUtil.showAtCenter("该资产与实际信息不符，请重新扫码");
             }
-
         }
     }
 
@@ -195,7 +205,7 @@ public class NewCode_PatrolCheckListActivity extends Activity {
 
                 @Override
                 public void onClick(View v) {
-                    peiduiZhuisunma=bean.epcid;
+                    peiduiZhuisunma = bean.epcid;
                     toSaomao();
                 }
             });
