@@ -43,4 +43,7 @@ public class Biaoxiiu_zichanliebiaoBean {
     public int glDeptId;
 
     public String imageUrl;
+
+    //报修原因
+    public String repair_des;
 }

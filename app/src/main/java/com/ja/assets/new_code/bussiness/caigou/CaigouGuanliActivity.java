@@ -210,7 +210,7 @@ public class CaigouGuanliActivity extends Activity {
             if (convertView == null) {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
-                convertView = inflater.inflate(R.layout.item_caigouzichan_xuanzehou, null);
+                convertView = inflater.inflate(R.layout.item_caigouzichan_xuanzehou_guanli, null);
                 util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
                 util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
                 util.tv_caigoushuliang = convertView.findViewById(R.id.tv_caigoushuliang);
@@ -220,6 +220,8 @@ public class CaigouGuanliActivity extends Activity {
                 util.tv_jiliangdanwei = convertView.findViewById(R.id.tv_jiliangdanwei);
                 util.tv_caigoudanjia = convertView.findViewById(R.id.tv_caigoudanjia);
                 util.tv_yongtu = convertView.findViewById(R.id.tv_yongtu);
+
+                util.et_beizhu=convertView.findViewById(R.id.et_beizhu);
 
                 convertView.setTag(util);
             } else {
@@ -235,6 +237,24 @@ public class CaigouGuanliActivity extends Activity {
             util.tv_jiliangdanwei.setText(bean.unit);
             util.tv_caigoudanjia.setText(bean.price + "");
             util.tv_yongtu.setText(bean.useDes);
+
+            util.et_beizhu.setText(bean.buyBz);
+            util.et_beizhu.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.buyBz = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
             return convertView;
         }
 
@@ -249,6 +269,8 @@ public class CaigouGuanliActivity extends Activity {
             TextView tv_jiliangdanwei;
             TextView tv_caigoudanjia;
             TextView tv_yongtu;
+
+            EditText et_beizhu;
 
         }
     }

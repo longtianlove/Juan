@@ -15,36 +15,56 @@
         android:orientation="vertical">
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-
-            >
+            android:orientation="horizontal">
 
             <LinearLayout
                 style="@style/itemLinear"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
+                android:layout_weight="1">
 
                 <TextView
+                    style="@style/itemStartTV"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
                     android:text="资产编码："
                     android:textColor="@color/textColor" />
 
                 <TextView
                     android:id="@+id/tv_zcCodenum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/textColor" />
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
 
             </LinearLayout>
 
 
-        </RelativeLayout>
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="资产追溯码："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_epcid"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -106,8 +126,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <LinearLayout
                 style="@style/itemLinear"
@@ -335,8 +355,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="维修结论："
-                android:textSize="14dp"
-                android:textColor="@color/textColor" />
+                android:textColor="@color/textColor"
+                android:textSize="14dp" />
 
             <RadioGroup
                 android:id="@+id/rg_weixiujielun"
@@ -350,8 +370,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="合格"
-                    android:textSize="14dp"
-                    android:textColor="#ff333333" />
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
 
                 <RadioButton
                     android:id="@+id/rb_buhege"
@@ -359,9 +379,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="不合格"
-                    android:textSize="14dp"
-                    android:textColor="#ff333333" />
-
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
 
 
             </RadioGroup>

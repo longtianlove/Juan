@@ -259,6 +259,7 @@ public class WeixiuMessageActivity extends Activity {
                 convertView = inflater.inflate(R.layout.item_weixiuzichan, null);
                 util.ll_all = convertView.findViewById(R.id.ll_all);
                 util.tv_zcCodenum = convertView.findViewById(R.id.tv_zcCodenum);
+                util.tv_epcid=convertView.findViewById(R.id.tv_epcid);
                 util.tv_zcName = convertView.findViewById(R.id.tv_zcName);
                 util.tv_glDeptName = convertView.findViewById(R.id.tv_glDeptName);
                 util.tv_zcFrom = convertView.findViewById(R.id.tv_zcFrom);
@@ -277,6 +278,7 @@ public class WeixiuMessageActivity extends Activity {
             }
             RepairCheckItemListResultBean bean = mData.get(position);
             util.tv_zcCodenum.setText(bean.zcCodenum);
+            util.tv_epcid.setText(bean.epcid);
             util.tv_zcName.setText(bean.zcName);
             util.tv_glDeptName.setText(bean.glDeptName);
             util.tv_zcFrom.setText(bean.zcFrom);
@@ -318,6 +320,7 @@ public class WeixiuMessageActivity extends Activity {
         class Util {
             public View ll_all;
             TextView tv_zcCodenum;
+            TextView tv_epcid;
             TextView tv_zcName;
             TextView tv_glDeptName;
             TextView tv_zcFrom;

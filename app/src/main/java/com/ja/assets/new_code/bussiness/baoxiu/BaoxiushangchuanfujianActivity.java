@@ -155,7 +155,7 @@ public class BaoxiushangchuanfujianActivity extends Activity {
                                                                          @Override
                                                                          public void onSuccess(Response<UploadImageResultBean> response, UploadImageResultBean message) {
                                                                              imageUrl = message.url;
-                                                                             BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao.get(position).imageUrl = imageUrl;
+                                                                             BaoxiuzichanliebiaoActivity.yixuanzeZiChanliebiao.get(position).imageUrl = message.filename;
                                                                              finish();
 //                                                                      switch (message.code) {
 //                                                                          case Constants.HTTP_SUCCESS:

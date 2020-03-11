@@ -88,7 +88,7 @@ public class DiaopeiMessageActivity extends Activity {
         tv_shenqingren = findViewById(R.id.tv_shenqingren);
         tv_shenqingbumen = findViewById(R.id.tv_shenqingbumen);
         tv_shenqingshijian = findViewById(R.id.tv_shenqingshijian);
-        tv_zhuangtai = findViewById(R.id.tv_zhuangtai);
+//        tv_zhuangtai = findViewById(R.id.tv_zhuangtai);
 
 
         lv_zichans = findViewById(R.id.lv_zichans);
@@ -151,7 +151,7 @@ public class DiaopeiMessageActivity extends Activity {
     TextView tv_shenqingren;
     TextView tv_shenqingbumen;
     TextView tv_shenqingshijian;
-    TextView tv_zhuangtai;
+//    TextView tv_zhuangtai;
 
 
     int bizid;
@@ -170,7 +170,7 @@ public class DiaopeiMessageActivity extends Activity {
                     tv_shenqingren.setText(message.data.nickname);
                     tv_shenqingbumen.setText(message.data.uDeptName);
                     tv_shenqingshijian.setText(message.data.createTime);
-                    tv_zhuangtai.setText(message.data.statusText);
+//                    tv_zhuangtai.setText(message.data.statusText);
                 }
             }
 

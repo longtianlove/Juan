@@ -50,7 +50,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="报修申请"
+            android:text="附件上传"
             android:textColor="#fff"
             android:textSize="18sp" />
 

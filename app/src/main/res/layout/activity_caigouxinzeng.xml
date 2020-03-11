@@ -246,7 +246,7 @@
                 <EditText
                     android:id="@+id/et_beizhu"
                     style="@style/itemEndTV"
-                    android:hint="@string/enterSupplierName"
+                    android:hint="购买备注"
                     android:text="" />
             </LinearLayout>
 
