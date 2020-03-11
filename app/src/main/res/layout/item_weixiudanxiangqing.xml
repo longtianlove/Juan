@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_all"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="20dp"
+    android:paddingBottom="17dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="资产编码："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_zcCodenum"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="资产追溯码："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_epcid"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="资产名称："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_zcName"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="报修开始时间："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_baoxiukaishishijian"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="附件："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_fujian"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="维修信息："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_weixiuxinxidianjichakan"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="点击查看"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/mainBgColor" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

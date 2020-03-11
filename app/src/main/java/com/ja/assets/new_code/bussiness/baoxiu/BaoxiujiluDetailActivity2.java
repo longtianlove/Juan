@@ -3,6 +3,7 @@ package com.ja.assets.new_code.bussiness.baoxiu;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,19 +13,16 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseBean;
-import com.ja.assets.new_code.bussiness.Patrol.Jilu_PatrolCheckDetailActivity;
-import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
+import com.ja.assets.new_code.bussiness.bean.result.BaoxiuDetailBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
-import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
-import com.ja.assets.new_code.view.WithScrolleViewListView;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
-import com.yzq.zxinglibrary.android.CaptureActivity;
-import com.yzq.zxinglibrary.common.Constant;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -34,12 +32,14 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class BaoxiujiluActivity extends Activity {
 
-    public View iv_back;
-    public View iv_saoyisiao;
+public class BaoxiujiluDetailActivity2 extends Activity {
+
+
+    View iv_back;
     ListView lv_zichans;
-    ZiChansAdapter madapter;
+    public static ZiChansAdapter madapter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,15 +59,8 @@ public class BaoxiujiluActivity extends Activity {
         }
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
-
-        setContentView(R.layout.activity_baoxiujiilu);
+        setContentView(R.layout.activity_baoxiujilu_detail2);
         initView();
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         initData();
     }
 
@@ -80,32 +73,38 @@ public class BaoxiujiluActivity extends Activity {
                 finish();
             }
         });
+
         lv_zichans = findViewById(R.id.lv_zichans);
         madapter = new ZiChansAdapter(this);
         lv_zichans.setAdapter(madapter);
+
+
     }
 
     void initData() {
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("id", -1);
         String token = ACacheUtil.getToken();
-        BaoxiujiluPostBean bean = new BaoxiujiluPostBean();
-        bean.limit = 1000;
-        bean.offset = 1;
-        ApiUtils.getApiService().repairRecordList(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<BaoxiuijilulistBean>>>() {
+        JiluXunjianPostBean bean = new JiluXunjianPostBean();
+        bean.id = id;
+        ApiUtils.getApiService().listByZcReId(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<BaoxiuDetailBean>>>() {
             @Override
-            public void onSuccess(Response<BaseBean<ArrayList<BaoxiuijilulistBean>>> response, BaseBean<ArrayList<BaoxiuijilulistBean>> message) {
+            public void onSuccess(Response<BaseBean<ArrayList<BaoxiuDetailBean>>> response, BaseBean<ArrayList<BaoxiuDetailBean>> message) {
                 if (message.code == 0) {
-                    if (message.data.size() >= 0) {
-                        madapter.mData = message.data;
-                        madapter.notifyDataSetChanged();
-                    }
+
+                    madapter.mData = message.data;
+                    madapter.notifyDataSetChanged();
+
+
                 }
             }
 
             @Override
-            public void onFail(Call<BaseBean<ArrayList<BaoxiuijilulistBean>>> call, Throwable t) {
+            public void onFail(Call<BaseBean<ArrayList<BaoxiuDetailBean>>> call, Throwable t) {
 
             }
         });
+
     }
 
 
@@ -113,7 +112,7 @@ public class BaoxiujiluActivity extends Activity {
 
         public Context mcontext;
 
-        List<BaoxiuijilulistBean> mData = new ArrayList<BaoxiuijilulistBean>();
+        public List<BaoxiuDetailBean> mData = new ArrayList<BaoxiuDetailBean>();
 
         public ZiChansAdapter(Context context) {
             this.mcontext = context;
@@ -143,42 +142,39 @@ public class BaoxiujiluActivity extends Activity {
             if (convertView == null) {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
-                convertView = inflater.inflate(R.layout.item_baoxiujilu, null);
+                convertView = inflater.inflate(R.layout.item_weixiudanxiangqing, null);
                 util.ll_all = convertView.findViewById(R.id.ll_all);
-                util.tv_weixiudanhao = convertView.findViewById(R.id.tv_weixiudanhao);
-                util.tv_weixiuzhuangtai = convertView.findViewById(R.id.tv_weixiuzhuangtai);
-                util.tv_shenqinngyonghu = convertView.findViewById(R.id.tv_shenqinngyonghu);
-                util.tv_shenqingbumen = convertView.findViewById(R.id.tv_shenqingbumen);
-                util.tv_chuangjianshijian = convertView.findViewById(R.id.tv_chuangjianshijian);
-
+                util.tv_zcCodenum = convertView.findViewById(R.id.tv_zcCodenum);
+                util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
+                util.tv_zcName = convertView.findViewById(R.id.tv_zcName);
+                util.tv_baoxiukaishishijian = convertView.findViewById(R.id.tv_baoxiukaishishijian);
+                util.tv_fujian = convertView.findViewById(R.id.tv_fujian);
+                util.tv_weixiuxinxidianjichakan = convertView.findViewById(R.id.tv_weixiuxinxidianjichakan);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
             }
-            BaoxiuijilulistBean bean = mData.get(position);
+            BaoxiuDetailBean bean = mData.get(position);
             util.ll_all.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(BaoxiujiluActivity.this, BaoxiujiluDetailActivity2.class);
-                    intent.putExtra("id", bean.id);
+
+                }
+            });
+            util.tv_zcCodenum.setText(bean.zcCodenum);
+            util.tv_epcid.setText(bean.epcid);
+            util.tv_zcName.setText(bean.zcName);
+            util.tv_baoxiukaishishijian.setText(bean.createTime);
+            util.tv_fujian.setText(bean.imgUrl);
+            util.tv_weixiuxinxidianjichakan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(BaoxiujiluDetailActivity2.this, BaoxiujiluWeixiuxinxiDetailActivity.class);
+                    intent.putExtra("position", position);
                     startActivity(intent);
                 }
             });
-
-
-            util.tv_weixiudanhao.setText(bean.code);
-            if (bean.status == 0) {
-                util.tv_weixiuzhuangtai.setText("待提交");
-            } else if (bean.status == 1) {
-                util.tv_weixiuzhuangtai.setText("审核中");
-            } else if (bean.status == 2) {
-                util.tv_weixiuzhuangtai.setText("已审核");
-
-            }
-            util.tv_shenqinngyonghu.setText(bean.nickname);
-            util.tv_shenqingbumen.setText(bean.deptname);
-            util.tv_chuangjianshijian.setText(bean.createTime);
 
 
             return convertView;
@@ -187,13 +183,16 @@ public class BaoxiujiluActivity extends Activity {
 
         class Util {
             public View ll_all;
-            public TextView tv_weixiudanhao;
-            public TextView tv_weixiuzhuangtai;
-            public TextView tv_shenqinngyonghu;
-            public TextView tv_shenqingbumen;
-            public TextView tv_chuangjianshijian;
+            public TextView tv_zcCodenum;
+            public TextView tv_epcid;
+            public TextView tv_zcName;
+            public TextView tv_baoxiukaishishijian;
+            public TextView tv_fujian;
+            public TextView tv_weixiuxinxidianjichakan;
 
 
         }
     }
+
+
 }
