@@ -41,6 +41,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_erweima"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"

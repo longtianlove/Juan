@@ -5,7 +5,7 @@ public class Pandian_zichanliebiaoBean {
 
     public int zcCheckId;
 
-    public int  zcId;
+    public int zcId;
 
     public String zcName;
 
@@ -19,4 +19,5 @@ public class Pandian_zichanliebiaoBean {
     public String zcCodenum;
 
     public String epcid;
+    public int result;
 }

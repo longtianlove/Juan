@@ -81,7 +81,7 @@ public class NewCode_InventoryActivity extends Activity {
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
         setContentView(R.layout.newcode_activity_inventory);
-        iv_back=findViewById(R.id.iv_back);
+        iv_back = findViewById(R.id.iv_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,13 +241,15 @@ public class NewCode_InventoryActivity extends Activity {
             if (convertView == null) {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
-                convertView = inflater.inflate(R.layout.newcode_item_fragment_inventory, null);
+                convertView = inflater.inflate(R.layout.newcode_item_fragment_inventory_pandianjilu, null);
                 util.ll_all = convertView.findViewById(R.id.ll_all);
                 util.tv_danhao = convertView.findViewById(R.id.tv_danhao);
-                util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
+                util.tv_pandianbumen = convertView.findViewById(R.id.tv_pandianbumen);
                 util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
                 util.tv_zichanzongshu = convertView.findViewById(R.id.tv_zichanzongshu);
                 util.tv_pandianshijian = convertView.findViewById(R.id.tv_pandianshijian);
+                util.tv_pandianzhuangtai = convertView.findViewById(R.id.tv_pandianzhuangtai);
+                util.tv_shifoufupan = convertView.findViewById(R.id.tv_shifoufupan);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
@@ -262,10 +264,30 @@ public class NewCode_InventoryActivity extends Activity {
                 }
             });
             util.tv_danhao.setText(bean.check_num);
-            util.tv_shiyongbumen.setText(bean.checkDeptName);
+            util.tv_pandianbumen.setText(bean.checkDeptName);
             util.tv_guanlibumen.setText(bean.checkUserName);
             util.tv_zichanzongshu.setText(bean.total + "");
             util.tv_pandianshijian.setText(bean.checkTime);
+            switch (bean.status) {
+                case 0:
+                    util.tv_pandianzhuangtai.setText("待盘点");
+                    break;
+                case 1:
+                    util.tv_pandianzhuangtai.setText("盘点中");
+                    break;
+                case 2:
+                    util.tv_pandianzhuangtai.setText("盘点完成");
+                    break;
+                case 3:
+                    util.tv_pandianzhuangtai.setText("再次盘点数据");
+                    break;
+            }
+            if (0 == bean.result) {
+                util.tv_shifoufupan.setText("否");
+            } else {
+                util.tv_shifoufupan.setText("是");
+
+            }
             return convertView;
         }
 
@@ -273,10 +295,12 @@ public class NewCode_InventoryActivity extends Activity {
         class Util {
             View ll_all;
             TextView tv_danhao;
-            TextView tv_shiyongbumen;
+            TextView tv_pandianbumen;
             TextView tv_guanlibumen;
             TextView tv_zichanzongshu;
             TextView tv_pandianshijian;
+            TextView tv_pandianzhuangtai;
+            TextView tv_shifoufupan;
 
         }
     }

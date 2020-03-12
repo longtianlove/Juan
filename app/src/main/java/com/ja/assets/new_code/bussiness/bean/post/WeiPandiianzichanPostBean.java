@@ -4,4 +4,5 @@ public class WeiPandiianzichanPostBean {
     public int limit;
     public int offset;
     public int id;
+    public int type;
 }

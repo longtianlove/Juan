@@ -294,53 +294,6 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        style="@style/itemLinear"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            style="@style/itemStartTV"
-                            android:layout_width="wrap_content"
-                            android:layout_margin="@dimen/margin_5"
-                            android:text="@string/inventoryVolume" />
-
-                        <TextView
-                            style="@style/itemEndTV"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/textColor" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-
-                        style="@style/itemLinear"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            style="@style/itemStartTV"
-                            android:layout_width="wrap_content"
-                            android:layout_margin="@dimen/margin_5"
-                            android:text="@string/inventoryLossesQuantity" />
-
-                        <TextView
-                            style="@style/itemEndTV"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/textColor" />
-                    </LinearLayout>
-                </LinearLayout>
-
             </LinearLayout>
 
             <TextView

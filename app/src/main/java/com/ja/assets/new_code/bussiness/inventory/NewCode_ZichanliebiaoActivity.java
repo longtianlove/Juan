@@ -9,8 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.Patrol.NewCode_PatrolCheckDetailActivity;
@@ -21,6 +30,7 @@ import com.ja.assets.new_code.bussiness.bean.result.Pandian_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.ZiChansBean;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
+import com.ja.assets.new_code.util.DensityUtil;
 import com.ja.assets.new_code.util.ToastUtil;
 import com.ja.assets.new_code.view.JuanListView;
 import com.ja.assets.new_code.view.WithScrolleViewListView;
@@ -32,6 +42,7 @@ import com.yzq.zxinglibrary.common.Constant;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,13 +51,18 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class NewCode_ZichanliebiaoActivity extends Activity {
+public class NewCode_ZichanliebiaoActivity extends FragmentActivity {
 
     public View iv_back;
     View tv_create;
-    MaterialDesignPtrFrameLayout ptr_refresh;
-    JuanListView lv_zichans;
-    ZiChansAdapter madapter;
+
+
+    public TabLayout tl_tab;
+    ViewPager vp_content;
+    private List<String> tabIndicators;
+    private List<Fragment> tabFragments;
+    private ContentPagerAdapter contentAdapter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,21 +82,14 @@ public class NewCode_ZichanliebiaoActivity extends Activity {
         }
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
-        setContentView(R.layout.newcode_activity_zichanliebiao);
+        setContentView(R.layout.new_newcode_activity_zichanliebiao);
         initView();
         id = getIntent().getIntExtra("id", -1);
 
     }
 
     public int id;
-    int PAGE_NO = 1;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        PAGE_NO = 1;
-        initData();
-    }
 
     void initView() {
         iv_back = findViewById(R.id.iv_back);
@@ -115,192 +124,171 @@ public class NewCode_ZichanliebiaoActivity extends Activity {
                 });
             }
         });
-        ptr_refresh = findViewById(R.id.ptr_refresh);
-        /**
-         * 下拉刷新
-         */
-        ptr_refresh.setPtrHandler(new PtrDefaultHandler() {
-            @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                PAGE_NO = 1;
-                initData();
 
-            }
-        });
+        tl_tab = (TabLayout) findViewById(R.id.tl_tab);
+        vp_content = (ViewPager) findViewById(R.id.vp_content);
+        id = getIntent().getIntExtra("id", -1);
+        initContent();
+        initTab();
 
-        lv_zichans = findViewById(R.id.lv_zichans);
-        madapter = new ZiChansAdapter(this);
-        lv_zichans.setAdapter(madapter);
-        lv_zichans.setOnUpLoadListener(new JuanListView.OnUpLoadListener() {
-            @Override
-            public void onUpLoad() {
-                initData();
-            }
-        });
     }
 
-    void initData() {
-        WeiPandiianzichanPostBean bean = new WeiPandiianzichanPostBean();
-        bean.id = id;
-        bean.limit = 10;
-        bean.offset = PAGE_NO;
-        String token = ACacheUtil.getToken();
-        ApiUtils.getApiService().zichanliebiao(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>>() {
+
+    private void initTab() {
+        tl_tab.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tl_tab.setSelectedTabIndicatorColor(ContextCompat.getColor(NewCode_ZichanliebiaoActivity.this, R.color.SelectedTabIndicatorColor));
+        tl_tab.setSelectedTabIndicatorHeight(DensityUtil.dip2px(NewCode_ZichanliebiaoActivity.this, 2));
+        tl_tab.setTabTextColors(ContextCompat.getColor(NewCode_ZichanliebiaoActivity.this, R.color.UnSelectedTextColor), ContextCompat.getColor(NewCode_ZichanliebiaoActivity.this, R.color.SelectedTextColor));
+        tl_tab.setBackgroundColor(ContextCompat.getColor(NewCode_ZichanliebiaoActivity.this, R.color.white));
+//        tl_tab.setTabTextColors(ContextCompat.getColor(this, R.color.gray), ContextCompat.getColor(this, R.color.white));
+//        tl_tab.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.white));
+//        ViewCompat.setElevation(tl_tab, 10);
+        tl_tab.setupWithViewPager(vp_content);
+        changeTabIndicatorWidth(tl_tab, 15);
+
+//        tl_tab.getTabAt(selectTab).select();
+//        tl_tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                switch (tab.getPosition()) {
+//                    case 0:
+//                        zhongyitizhiFragment1.initData();
+//                        break;
+//                    case 1:
+//                        jichudaixieFragment.initData();
+//                        break;
+//                    case 2:
+//                        fukejiankangFragment.initData();
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
+
+    }
+
+
+    /**
+     * 改变tablayout指示器的宽度
+     *
+     * @param tabLayout
+     * @param margin
+     */
+    public void changeTabIndicatorWidth(final TabLayout tabLayout, final int margin) {
+        tabLayout.post(new Runnable() {
             @Override
-            public void onSuccess(Response<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> response, BaseBean<ArrayList<Pandian_zichanliebiaoBean>> message) {
-                ptr_refresh.refreshComplete();
-                if (message.code == 0) {
-                    if (message.data != null && message.data.size() >= 0) {
-                        lv_zichans.setLoading(false);
-                        if (PAGE_NO == 1) {
-                            madapter.mData.clear();
+            public void run() {
+                try {
+                    Field mTabStripField = tabLayout.getClass().getDeclaredField("mTabStrip");
+                    mTabStripField.setAccessible(true);
+
+                    LinearLayout mTabStrip = (LinearLayout) mTabStripField.get(tabLayout);
+
+                    int dp10 = margin == 0 ? 50 : margin;
+
+                    for (int i = 0; i < mTabStrip.getChildCount(); i++) {
+                        View tabView = mTabStrip.getChildAt(i);
+
+                        Field mTextViewField = tabView.getClass().getDeclaredField("mTextView");
+                        mTextViewField.setAccessible(true);
+
+                        TextView mTextView = (TextView) mTextViewField.get(tabView);
+
+                        tabView.setPadding(0, 0, 0, 0);
+
+                        int width = 0;
+                        width = mTextView.getWidth();
+                        if (width == 0) {
+                            mTextView.measure(0, 0);
+                            width = mTextView.getMeasuredWidth();
                         }
-                        //有消息
-                        PAGE_NO++;
-                        madapter.mData.addAll(message.data);
-                        if (message.data.size() < 10) {
-                            lv_zichans.setHasLoadMore(false);
-                            lv_zichans.setLoadAllViewText("暂时只有这么多资产");
-                            lv_zichans.setLoadAllFooterVisible(true);
-                        } else {
-                            lv_zichans.setHasLoadMore(true);
-                        }
-                        madapter.notifyDataSetChanged();
-                    } else {
-                        //没有消息
-                        lv_zichans.setHasLoadMore(false);
-                        lv_zichans.setLoadAllViewText("暂时只有这么多资产");
-                        lv_zichans.setLoadAllFooterVisible(true);
-                    }
-                }
-            }
 
-            @Override
-            public void onFail(Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> call, Throwable t) {
-                ptr_refresh.refreshComplete();
+                        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tabView.getLayoutParams();
+                        params.width = width;
+                        params.leftMargin = dp10;
+                        params.rightMargin = dp10;
+                        tabView.setLayoutParams(params);
+
+                        tabView.invalidate();
+                    }
+
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    private int requestBackCode = 100;
 
-    void toSaomao() {
-        Intent intent = new Intent(this, CaptureActivity.class);
-        startActivityForResult(intent, requestBackCode);
+    //    SecretTabFragment piweiganshen;
+    New_NewCode_ZichanliebiaoFragment yingZichanbaobiaoFragment;
+    New_NewCode_ZichanliebiaoFragment kuiZichanbaobiaoFragment;
+
+
+    private void initContent() {
+        tabIndicators = new ArrayList<>();
+
+        tabIndicators.add("未盘点");
+        tabIndicators.add("已盘点");
+
+
+        tabFragments = new ArrayList<>();
+        yingZichanbaobiaoFragment = new New_NewCode_ZichanliebiaoFragment();
+        yingZichanbaobiaoFragment.id = id;
+        yingZichanbaobiaoFragment.type = 0;
+        kuiZichanbaobiaoFragment = new New_NewCode_ZichanliebiaoFragment();
+        kuiZichanbaobiaoFragment.id = id;
+        kuiZichanbaobiaoFragment.type = 1;
+//        jichudaixieFragment = new DoctorsFenleiFragment();
+//        jichudaixieFragment.type = "4";
+//        fukejiankangFragment = new DoctorsFenleiFragment();
+//        fukejiankangFragment.type = "99";
+//        zhongyitizhiFragment1 = new DoctorsFenleiFragment();
+//        zhongyitizhiFragment1.type = "3";
+
+
+        tabFragments.add(yingZichanbaobiaoFragment);
+        tabFragments.add(kuiZichanbaobiaoFragment);
+
+
+        contentAdapter = new ContentPagerAdapter((this).getSupportFragmentManager());
+        vp_content.setAdapter(contentAdapter);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (data == null) {
-            return;
+    class ContentPagerAdapter extends FragmentPagerAdapter {
+
+        public ContentPagerAdapter(FragmentManager fm) {
+            super(fm);
         }
-        if (requestCode == requestBackCode && resultCode == RESULT_OK) {
-            String epcid = data.getStringExtra(Constant.CODED_CONTENT);
-//            Intent intent = new Intent(NewCode_ZichanliebiaoActivity.this, NewCode_PatrolCheckDetailActivity.class);
-//            intent.putExtra("epcid", epcid);
-//            startActivity(intent);
 
-
-            ZichanSaomaPostBean bean = new ZichanSaomaPostBean();
-            bean.epcid = epcid;
-            bean.zcCheckId = id;
-            String token = ACacheUtil.getToken();
-
-            ApiUtils.getApiService().updateZcItemStatus(token, bean).enqueue(new JuanCallback<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>>() {
-                @Override
-                public void onSuccess(Response<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> response, BaseBean<ArrayList<Pandian_zichanliebiaoBean>> message) {
-                    if (message.code == 0) {
-                        ToastUtil.showAtCenter("资产提交成功");
-                        PAGE_NO = 1;
-                        initData();
-                    }
-                }
-
-                @Override
-                public void onFail(Call<BaseBean<ArrayList<Pandian_zichanliebiaoBean>>> call, Throwable t) {
-
-                }
-            });
-
-        }
-    }
-
-    class ZiChansAdapter extends BaseAdapter {
-
-        public Context mcontext;
-
-        List<Pandian_zichanliebiaoBean> mData = new ArrayList<Pandian_zichanliebiaoBean>();
-
-        public ZiChansAdapter(Context context) {
-            this.mcontext = context;
+        @Override
+        public Fragment getItem(int position) {
+            return tabFragments.get(position);
         }
 
         @Override
         public int getCount() {
-            return mData.size();
+            return tabIndicators.size();
         }
 
         @Override
-        public Object getItem(int position) {
-            return mData.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            // 声明内部类
-            Util util = null;
-            // 中间变量
-            final int flag = position;
-            if (convertView == null) {
-                util = new Util();
-                LayoutInflater inflater = LayoutInflater.from(mcontext);
-                convertView = inflater.inflate(R.layout.new_item_zichanliebiao_record, null);
-                util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
-                util.iv_erweima = convertView.findViewById(R.id.iv_erweima);
-                util.tv_zichanbianhao = convertView.findViewById(R.id.tv_zichanbianhao);
-                util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
-                util.tv_shiyongbumen = convertView.findViewById(R.id.tv_shiyongbumen);
-                util.tv_guanlibumen = convertView.findViewById(R.id.tv_guanlibumen);
-                util.tv_cunfangdizhi = convertView.findViewById(R.id.tv_cunfangdizhi);
-                convertView.setTag(util);
-            } else {
-                util = (Util) convertView.getTag();
-            }
-            Pandian_zichanliebiaoBean bean = mData.get(position);
-            util.tv_epcid.setText(bean.epcid);
-            util.tv_zichanbianhao.setText(bean.zcCodenum);
-            util.iv_erweima.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    toSaomao();
-                }
-            });
-            util.tv_zichanmingcheng.setText(bean.zcName);
-            util.tv_shiyongbumen.setText(bean.syDeptName);
-            util.tv_guanlibumen.setText(bean.glDeptName);
-            util.tv_cunfangdizhi.setText(bean.storeAddress);
-
-
-            return convertView;
-        }
-
-
-        class Util {
-            public TextView tv_epcid;
-            public View iv_erweima;
-            public TextView tv_zichanbianhao;
-            public TextView tv_zichanmingcheng;
-            public TextView tv_shiyongbumen;
-            public TextView tv_guanlibumen;
-            public TextView tv_cunfangdizhi;
-
+        public CharSequence getPageTitle(int position) {
+            return tabIndicators.get(position);
         }
     }
+
+
 }

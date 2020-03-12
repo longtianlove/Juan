@@ -28,8 +28,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/assetTraceCodeText" />
 
                 <TextView
@@ -146,25 +146,53 @@
             </LinearLayout>
         </LinearLayout>
 
+
         <LinearLayout
-            style="@style/itemLinear"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <TextView
-                style="@style/itemStartTV"
-                android:layout_width="wrap_content"
-                android:layout_margin="@dimen/margin_5"
-                android:text="@string/storageAddress" />
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/tv_cunfangdizhi"
-                style="@style/itemEndTV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text=""
-                android:textColor="@color/mainBgColor" />
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="@string/storageAddress" />
+
+                <TextView
+                    android:id="@+id/tv_cunfangdizhi"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="盘点结果：" />
+
+                <TextView
+                    android:id="@+id/tv_pandianjieguo"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/mainBgColor" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
