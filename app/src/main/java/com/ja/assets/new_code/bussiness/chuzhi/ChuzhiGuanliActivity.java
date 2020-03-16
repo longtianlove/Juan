@@ -22,16 +22,19 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.baoxiu.BaoxiushangchuanfujianActivity;
 
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhishenqingPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
+import com.ja.assets.new_code.bussiness.message.GouMaiMessageActivity;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
+import com.liji.imagezoom.util.ImageZoom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -266,6 +269,7 @@ public class ChuzhiGuanliActivity extends Activity {
                 convertView = inflater.inflate(R.layout.item_chuzhizichanliebiao_xuanzehou, null);
                 util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
                 util.tv_shangchuanfujiian = convertView.findViewById(R.id.tv_shangchuanfujiian);
+                util.tv_fileName=convertView.findViewById(R.id.tv_fileName);
 //                util.iv_erweima = convertView.findViewById(R.id.iv_erweima);
                 util.tv_zichanbianhao = convertView.findViewById(R.id.tv_zichanbianhao);
                 util.tv_zichanmingcheng = convertView.findViewById(R.id.tv_zichanmingcheng);
@@ -298,11 +302,22 @@ public class ChuzhiGuanliActivity extends Activity {
                     startActivity(intent);
                 }
             });
-            if (TextUtils.isEmpty(bean.imageUrl)) {
-                util.tv_shangchuanfujiian.setVisibility(View.VISIBLE);
-            } else {
-                util.tv_shangchuanfujiian.setVisibility(View.GONE);
-            }
+            util.tv_fileName.setText(bean.imageUrl);
+            util.tv_fileName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String url= Constants.Url.FILE_HOST+bean.imageUrl;
+                    ArrayList<String> urls=new ArrayList<>();
+                    urls.add(url);
+                    ImageZoom.show(ChuzhiGuanliActivity.this, url,urls);
+
+                }
+            });
+//            if (TextUtils.isEmpty(bean.imageUrl)) {
+//                util.tv_shangchuanfujiian.setVisibility(View.VISIBLE);
+//            } else {
+//                util.tv_shangchuanfujiian.setVisibility(View.GONE);
+//            }
             if (TextUtils.isEmpty(bean.chuzhiyuanyin)) {
                 util.tv_chuzhiyuanyin.setTextColor(getResources().getColor(R.color.red));
                 util.tv_chuzhiyuanyin.setText("选择原因");
@@ -327,6 +342,7 @@ public class ChuzhiGuanliActivity extends Activity {
         class Util {
             public TextView tv_epcid;
             public View tv_shangchuanfujiian;
+            public TextView tv_fileName;
             //            public View iv_erweima;
             public TextView tv_zichanbianhao;
             public TextView tv_zichanmingcheng;

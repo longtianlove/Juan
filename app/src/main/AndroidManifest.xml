@@ -54,8 +54,9 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme"
+        tools:replace="android:theme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute"
-        tools:replace="android:icon">
+        >
 
         <activity
             android:name="com.ja.assets.new_code.bussiness.me.UpdatePasswordFirstActivity"

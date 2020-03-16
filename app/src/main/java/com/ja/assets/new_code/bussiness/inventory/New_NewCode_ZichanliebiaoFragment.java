@@ -59,7 +59,7 @@ public class New_NewCode_ZichanliebiaoFragment extends BaseJavaFragment {
 
 
     public int id;
-    int PAGE_NO = 1;
+   public int PAGE_NO = 1;
 
     void initView(View rootView) {
         ptr_refresh = rootView.findViewById(R.id.ptr_refresh);
@@ -95,6 +95,7 @@ public class New_NewCode_ZichanliebiaoFragment extends BaseJavaFragment {
     }
 
     void initData() {
+
         WeiPandiianzichanPostBean bean = new WeiPandiianzichanPostBean();
         bean.id = id;
         bean.type = type;

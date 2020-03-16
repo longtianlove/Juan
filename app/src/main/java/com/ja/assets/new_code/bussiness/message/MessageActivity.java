@@ -192,7 +192,7 @@ public class MessageActivity extends Activity {
                 }
             });
 
-            util.tv_fasongren.setText(bean.sendby + "");
+            util.tv_fasongren.setText(bean.nickname + "");
             util.tv_biaoti.setText(bean.biaoti);
             util.tv_chuanjianshijian.setText(bean.createTime);
             if ("0".equals(bean.status)) {

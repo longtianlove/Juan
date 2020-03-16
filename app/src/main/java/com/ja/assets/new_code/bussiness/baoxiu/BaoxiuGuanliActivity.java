@@ -19,16 +19,19 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Diaopei_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.diaopei.DiaopeiBumenActivity;
 
+import com.ja.assets.new_code.bussiness.message.GouMaiMessageActivity;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.util.ToastUtil;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
+import com.liji.imagezoom.util.ImageZoom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -228,6 +231,16 @@ public class BaoxiuGuanliActivity extends Activity {
 //                util.tv_shangchuanfujiian.setVisibility(View.GONE);
 //            }
             util.tv_wenjianmingcheng.setText(bean.imageUrl);
+            util.tv_wenjianmingcheng.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String url= Constants.Url.FILE_HOST+bean.imageUrl;
+                    ArrayList<String> urls=new ArrayList<>();
+                    urls.add(url);
+                    ImageZoom.show(BaoxiuGuanliActivity.this, url,urls);
+
+                }
+            });
             util.et_yuanyin.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {

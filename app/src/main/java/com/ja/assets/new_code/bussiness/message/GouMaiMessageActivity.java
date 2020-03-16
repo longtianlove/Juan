@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BuyCheckItemListPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BuyCheckMainInfoPostBean;
@@ -33,6 +34,7 @@ import com.ja.assets.new_code.view.WithScrolleViewListView;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
 import com.ja.assets.utils.ToastUtil;
+import com.liji.imagezoom.util.ImageZoom;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -94,6 +96,7 @@ public class GouMaiMessageActivity extends Activity {
         tv_shenqingbumen = findViewById(R.id.tv_shenqingbumen);
         tv_shenqingshijian = findViewById(R.id.tv_shenqingshijian);
         tv_zhuangtai = findViewById(R.id.tv_zhuangtai);
+        tv_fujian = findViewById(R.id.tv_fujian);
 
 
         lv_zichans = findViewById(R.id.lv_zichans);
@@ -162,6 +165,7 @@ public class GouMaiMessageActivity extends Activity {
     TextView tv_shenqingbumen;
     TextView tv_shenqingshijian;
     TextView tv_zhuangtai;
+    TextView tv_fujian;
 
 
     int bizid;
@@ -184,8 +188,17 @@ public class GouMaiMessageActivity extends Activity {
                         tv_zhuangtai.setText("审核中");
                     } else {
                         tv_zhuangtai.setText("审核完成");
-
                     }
+                    tv_fujian.setText(message.data.fileUrl);
+                    tv_fujian.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String url=Constants.Url.FILE_HOST+message.data.fileUrl;
+                            ArrayList<String> urls=new ArrayList<>();
+                            urls.add(url);
+                            ImageZoom.show(GouMaiMessageActivity.this, url,urls);
+                        }
+                    });
                 }
             }
 
@@ -261,15 +274,19 @@ public class GouMaiMessageActivity extends Activity {
                 util.tv_buyNum = convertView.findViewById(R.id.tv_buyNum);
                 util.tv_name = convertView.findViewById(R.id.tv_name);
                 util.tv_gldeptname = convertView.findViewById(R.id.tv_gldeptname);
+                util.tv_zongjia = convertView.findViewById(R.id.tv_zongjia);
+                util.et_danwei = convertView.findViewById(R.id.et_danwei);
                 util.et_goumaidanjia = convertView.findViewById(R.id.et_goumaidanjia);
                 util.et_shuliang = convertView.findViewById(R.id.et_shuliang);
                 util.tv_sydeptname = convertView.findViewById(R.id.tv_sydeptname);
                 util.et_miaoshu = convertView.findViewById(R.id.et_miaoshu);
+
                 util.et_pinpai = convertView.findViewById(R.id.et_pinpai);
                 util.et_xinghao = convertView.findViewById(R.id.et_xinghao);
                 util.rg_goumai_caozuo = convertView.findViewById(R.id.rg_goumai_caozuo);
                 util.et_gongyingshangmingcheng = convertView.findViewById(R.id.et_gongyingshangmingcheng);
                 util.et_beizhu = convertView.findViewById(R.id.et_beizhu);
+
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
@@ -279,6 +296,7 @@ public class GouMaiMessageActivity extends Activity {
             util.tv_name.setText(bean.name);
             util.tv_gldeptname.setText(bean.gldeptname);
             util.et_goumaidanjia.setText(bean.price + "");
+            Util finalUtil = util;
             util.et_goumaidanjia.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -289,8 +307,10 @@ public class GouMaiMessageActivity extends Activity {
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     try {
                         bean.price = Double.parseDouble(s.toString());
+                        finalUtil.tv_zongjia.setText((bean.num * bean.price) + "");
                     } catch (Exception e) {
                         bean.price = 1;
+                        finalUtil.tv_zongjia.setText((bean.num * bean.price) + "");
                     }
                 }
 
@@ -300,6 +320,7 @@ public class GouMaiMessageActivity extends Activity {
                 }
             });
             util.et_shuliang.setText(bean.num + "");
+
             util.et_shuliang.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -310,9 +331,29 @@ public class GouMaiMessageActivity extends Activity {
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     try {
                         bean.num = Integer.parseInt(s.toString());
+                        finalUtil.tv_zongjia.setText((bean.num * bean.price) + "");
                     } catch (Exception e) {
                         bean.num = 1;
+                        finalUtil.tv_zongjia.setText((bean.num * bean.price) + "");
                     }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            util.tv_zongjia.setText((bean.num * bean.price) + "");
+            util.et_danwei.setText(bean.unit);
+            util.et_danwei.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.unit = s.toString();
                 }
 
                 @Override
@@ -338,6 +379,7 @@ public class GouMaiMessageActivity extends Activity {
 
                 }
             });
+
             util.et_pinpai.setText(bean.brand);
             util.et_pinpai.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -433,6 +475,7 @@ public class GouMaiMessageActivity extends Activity {
                 }
             });
 
+
             return convertView;
         }
 
@@ -443,13 +486,17 @@ public class GouMaiMessageActivity extends Activity {
             TextView tv_name;
             TextView tv_gldeptname;
             EditText et_goumaidanjia;
+            TextView tv_zongjia;
+            EditText et_danwei;
             EditText et_shuliang;
             TextView tv_sydeptname;
+
             EditText et_miaoshu;
             EditText et_pinpai;
             EditText et_xinghao;
             EditText et_gongyingshangmingcheng;
             EditText et_beizhu;
+
 
             RadioGroup rg_goumai_caozuo;
 

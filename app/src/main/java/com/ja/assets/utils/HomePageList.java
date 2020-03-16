@@ -21,7 +21,8 @@ public class HomePageList {
             homePageList.add(new HomePage01(4, R.mipmap.home_icon_chuzhishenqing, "处置申请"));
             homePageList.add(new HomePage01(5, R.mipmap.home_icon_diaochuqueren, "处置记录"));
 
-
+            homePageList.add(new HomePage01(6, R.mipmap.home_icon_pandiandanchuangjian, "盘点管理"));
+            homePageList.add(new HomePage01(7, R.mipmap.home_icon_pandianjilu, "盘点记录"));
         } else if (userInfo.getC03().equals("cwb")) {
 
 

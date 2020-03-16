@@ -13,16 +13,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.CaigouiLiebiaoPostbean;
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhiLiebiaoPostbean;
 import com.ja.assets.new_code.bussiness.bean.result.CaigoulistResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.ChuzhiliiebiaoBean;
 import com.ja.assets.new_code.bussiness.chuzhi.Chuzhi_ZichanliebiaoActivity;
+import com.ja.assets.new_code.bussiness.message.GouMaiMessageActivity;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
+import com.liji.imagezoom.util.ImageZoom;
 
 import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Text;
@@ -173,6 +176,16 @@ public class CaigoujiluActivity extends Activity {
             util.tv_stepname.setText(bean.stepname);
             util.tv_flowname.setText(bean.flowname);
             util.tv_fileName.setText(bean.fileName);
+            util.tv_fileName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //todo 附件可能有pdf
+//                    String url = Constants.Url.FILE_HOST + bean.fileUrl;
+//                    ArrayList<String> urls = new ArrayList<>();
+//                    urls.add(url);
+//                    ImageZoom.show(CaigoujiluActivity.this, url, urls);
+                }
+            });
             if (1 == bean.status) {
                 util.tv_status.setText("进行中");
             } else {

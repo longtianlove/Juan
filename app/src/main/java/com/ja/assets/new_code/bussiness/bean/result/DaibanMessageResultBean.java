@@ -23,4 +23,5 @@ public class DaibanMessageResultBean {
     public int stepid;
     public String url;
     public String todoIds;
+    public String nickname;
 }

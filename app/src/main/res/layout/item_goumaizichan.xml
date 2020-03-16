@@ -3,7 +3,7 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_all"
     android:layout_width="match_parent"
-    android:layout_height="270dp"
+    android:layout_height="300dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingTop="20dp"
@@ -154,6 +154,60 @@
             </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            style="@style/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="购买总价："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_zongjia"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/textColor" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="单位："
+                    android:textColor="@color/textColor" />
+
+                <EditText
+                    android:id="@+id/et_danwei"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
+                    android:textColorHint="#ff999999"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             style="@style/itemLinear"
@@ -322,6 +376,8 @@
 
         </LinearLayout>
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -335,8 +391,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="操作："
-                android:textSize="14dp"
-                android:textColor="@color/textColor" />
+                android:textColor="@color/textColor"
+                android:textSize="14dp" />
 
             <RadioGroup
                 android:id="@+id/rg_goumai_caozuo"
@@ -350,8 +406,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="同意"
-                    android:textSize="14dp"
-                    android:textColor="#ff333333" />
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
 
                 <RadioButton
                     android:id="@+id/rb_jujue"
@@ -359,8 +415,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="拒绝"
-                    android:textSize="14dp"
-                    android:textColor="#ff333333" />
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
 
                 <RadioButton
                     android:id="@+id/rb_bohui"
@@ -368,8 +424,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="驳回"
-                    android:textSize="14dp"
-                    android:textColor="#ff333333" />
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
 
             </RadioGroup>
         </LinearLayout>

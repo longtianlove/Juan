@@ -15,14 +15,17 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ja.assets.R;
+import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.JiluXunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuDetailBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
+import com.ja.assets.new_code.bussiness.message.GouMaiMessageActivity;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
+import com.liji.imagezoom.util.ImageZoom;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -167,6 +170,16 @@ public class BaoxiujiluDetailActivity2 extends Activity {
             util.tv_zcName.setText(bean.zcName);
             util.tv_baoxiukaishishijian.setText(bean.createTime);
             util.tv_fujian.setText(bean.imgUrl);
+            util.tv_fujian.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String url= Constants.Url.FILE_HOST+bean.imgUrl;
+                    ArrayList<String> urls=new ArrayList<>();
+                    urls.add(url);
+                    ImageZoom.show(BaoxiujiluDetailActivity2.this, url,urls);
+
+                }
+            });
             util.tv_weixiuxinxidianjichakan.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

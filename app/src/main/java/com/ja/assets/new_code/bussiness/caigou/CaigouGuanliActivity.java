@@ -22,6 +22,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
+import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.Caigouitemzichan;
 import com.ja.assets.new_code.bussiness.bean.post.CaigouzichanPostBean;
@@ -31,11 +32,13 @@ import com.ja.assets.new_code.bussiness.chuzhi.ChuzhiGuanliActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhiYuanyinActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhishangchuanfujianActivity;
 import com.ja.assets.new_code.bussiness.chuzhi.ChuzhizichanliebiaoActivity;
+import com.ja.assets.new_code.bussiness.message.GouMaiMessageActivity;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
 import com.ja.assets.utils.ACacheUtil;
 import com.ja.assets.utils.ToastUtil;
+import com.liji.imagezoom.util.ImageZoom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,6 +124,15 @@ public class CaigouGuanliActivity extends Activity {
         madapter = new ZiChansAdapter(this);
         lv_zichans.setAdapter(madapter);
         tv_wenjianmingcheng = findViewById(R.id.tv_wenjianmingcheng);
+        tv_wenjianmingcheng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url= Constants.Url.FILE_HOST+caigouzichanPostBean.fileUrl;
+                ArrayList<String> urls=new ArrayList<>();
+                urls.add(url);
+                ImageZoom.show(CaigouGuanliActivity.this, url,urls);
+            }
+        });
         tv_tijiao = findViewById(R.id.tv_tijiao);
         tv_tijiao.setOnClickListener(new View.OnClickListener() {
 
