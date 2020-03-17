@@ -44,5 +44,7 @@ public class Chuzhi_zichanliebiaoBean {
 
     public String imageUrl;
 
-    public String chuzhiyuanyin;
+    public String fileName;
+
+    public String bz;
 }

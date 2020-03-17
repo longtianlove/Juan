@@ -24,12 +24,9 @@ import androidx.annotation.Nullable;
 import com.ja.assets.R;
 import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
-import com.ja.assets.new_code.bussiness.baoxiu.BaoxiushangchuanfujianActivity;
 
 import com.ja.assets.new_code.bussiness.bean.post.ChuzhishenqingPostBean;
-import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.Chuzhi_zichanliebiaoBean;
-import com.ja.assets.new_code.bussiness.message.GouMaiMessageActivity;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
@@ -107,7 +104,7 @@ public class ChuzhiGuanliActivity extends Activity {
                 }
 
                 for (Chuzhi_zichanliebiaoBean bean : ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao) {
-                    if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.chuzhiyuanyin)) {
+                    if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.bz)) {
                         tv_tijiao.setEnabled(false);
                         return;
                     }
@@ -134,7 +131,7 @@ public class ChuzhiGuanliActivity extends Activity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 bfDes = s.toString();
                 for (Chuzhi_zichanliebiaoBean bean : ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao) {
-                    if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.chuzhiyuanyin)) {
+                    if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.bz)) {
                         tv_tijiao.setEnabled(false);
                         return;
                     }
@@ -172,7 +169,10 @@ public class ChuzhiGuanliActivity extends Activity {
                     public void onSuccess(Response<BaseBean> response, BaseBean message) {
                         if (message.code == 0) {
                             ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao.clear();
+
+                            rg_chuzhileiinng.clearCheck();
                             bfCategory=-1;
+
                             bfDes="";
                             et_chuzhimiaoshu.setText("");
                             noAssetsLinear.setVisibility(View.VISIBLE);
@@ -216,7 +216,7 @@ public class ChuzhiGuanliActivity extends Activity {
 
     void tijiaoganniu() {
         for (Chuzhi_zichanliebiaoBean bean : ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao) {
-            if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.chuzhiyuanyin)) {
+            if (TextUtils.isEmpty(bean.imageUrl) || TextUtils.isEmpty(bean.bz)) {
                 tv_tijiao.setEnabled(false);
                 return;
             }
@@ -318,12 +318,12 @@ public class ChuzhiGuanliActivity extends Activity {
 //            } else {
 //                util.tv_shangchuanfujiian.setVisibility(View.GONE);
 //            }
-            if (TextUtils.isEmpty(bean.chuzhiyuanyin)) {
+            if (TextUtils.isEmpty(bean.bz)) {
                 util.tv_chuzhiyuanyin.setTextColor(getResources().getColor(R.color.red));
                 util.tv_chuzhiyuanyin.setText("选择原因");
             } else {
                 util.tv_chuzhiyuanyin.setTextColor(getResources().getColor(R.color.textColor));
-                util.tv_chuzhiyuanyin.setText(bean.chuzhiyuanyin);
+                util.tv_chuzhiyuanyin.setText(bean.bz);
             }
             util.tv_chuzhiyuanyin.setOnClickListener(new View.OnClickListener() {
 

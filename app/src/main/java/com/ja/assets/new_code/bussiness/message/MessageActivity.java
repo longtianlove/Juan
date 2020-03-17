@@ -14,10 +14,7 @@ import android.widget.TextView;
 
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseBean;
-import com.ja.assets.new_code.bussiness.bean.post.ChuzhiLiebiaoPostbean;
-import com.ja.assets.new_code.bussiness.bean.result.ChuzhiliiebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.DaibanMessageResultBean;
-import com.ja.assets.new_code.bussiness.chuzhi.Chuzhi_ZichanliebiaoActivity;
 import com.ja.assets.new_code.http.ApiUtils;
 import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
@@ -181,8 +178,15 @@ public class MessageActivity extends Activity {
                         startActivity(intent);
                     }
 
-                    if ("zcrepair/confirmZcRepair.html".equals(bean.url)) {
-                        Intent intent = new Intent(MessageActivity.this, WeixiuMessageActivity.class);
+                    if ("zcbf/auditZcBf.html".equals(bean.url)) {
+                        Intent intent = new Intent(MessageActivity.this, ChuzhiGuanlibumenMessageActivity.class);
+                        intent.putExtra("bizid", bean.bizid);
+                        intent.putExtra("id", bean.id);
+                        startActivity(intent);
+                    }
+
+                    if ("zcbf/cwauditZcBf.html".equals(bean.url)) {
+                        Intent intent = new Intent(MessageActivity.this, ChuzhiCaiwubumenMessageActivity.class);
                         intent.putExtra("bizid", bean.bizid);
                         intent.putExtra("id", bean.id);
                         startActivity(intent);

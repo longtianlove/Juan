@@ -136,6 +136,7 @@ public class ChuzhishangchuanfujianActivity extends Activity {
                                                                          public void onSuccess(Response<UploadImageResultBean> response, UploadImageResultBean message) {
                                                                              imageUrl = message.url;
                                                                              ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao.get(position).imageUrl = imageUrl;
+                                                                             ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao.get(position).fileName=message.filename;
                                                                              finish();
 //                                                                      switch (message.code) {
 //                                                                          case Constants.HTTP_SUCCESS:

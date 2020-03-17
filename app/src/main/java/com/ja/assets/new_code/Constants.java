@@ -10,9 +10,12 @@ public class Constants {
     public static class Url {
         //        public static String Host = "http://47.93.249.1:9100/";
 //        public final static String Host = "http://u38n5x.natappfree.cc/";
+
 //        public final static String Host = "http://testyq.17sys.cn/";
+//        public final static String FILE_HOST = "http://testyq.17sys.cn/statics";
+
         public final static String Host = "http://192.168.1.17:8080/";
-        public final static String FILE_HOST="http://192.168.1.17:8080/statics";
+        public final static String FILE_HOST = "http://192.168.1.17:8080/statics";
 
 
 //        public final static String Host = "http://xfmkgh.natappfree.cc/";
@@ -138,6 +141,18 @@ public class Constants {
             //            购买审核
             public static final String buyCheck = "buy/buyCheck";
 
+            //资产处置主信息
+            public static final String bfCheckMainInfo = "deal/bfCheckMainInfo";
+            //处置审核资产列表
+            public static final String bfCheckItemList = "deal/bfCheckItemList";
+            //            处置审核部门提交
+            public static final String shbCheck = "deal/shbCheck";
+            //提交到财务
+            public static final String submitCw="deal/submitCw";
+            //财务部审核
+            public static final String cwCheck="deal/cwCheck";
+
+
 
             //            资产维修主信息
             public static final String repairCheckMainInfo = "app/repair/repairCheckMainInfo";
@@ -155,7 +170,7 @@ public class Constants {
 
         public static final String UploadImage = "files";
         //扫一扫
-        public static final String getZcInfo="api/getZcInfo";
+        public static final String getZcInfo = "api/getZcInfo";
     }
 
 

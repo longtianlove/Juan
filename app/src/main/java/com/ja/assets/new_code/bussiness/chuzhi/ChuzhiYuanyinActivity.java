@@ -14,19 +14,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.ja.assets.R;
-import com.ja.assets.new_code.base.BaseBean;
-import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
-import com.ja.assets.new_code.bussiness.diaopei.DiaopeizichanliebiaoActivity;
-import com.ja.assets.new_code.http.ApiUtils;
-import com.ja.assets.new_code.http.JuanCallback;
 import com.ja.assets.new_code.view.chenjinshi.StatusBarUtil;
-import com.ja.assets.utils.ACacheUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Response;
 
 public class ChuzhiYuanyinActivity extends Activity {
 
@@ -127,7 +118,7 @@ public class ChuzhiYuanyinActivity extends Activity {
                 public void onClick(View v) {
 //                    DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao.get(nowPosition).backDeptId = bean.id;
 //                    DiaopeizichanliebiaoActivity.yixuanzeZiChanliebiao.get(nowPosition).backUsername = bean.deptname;
-                    ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao.get(nowPosition).chuzhiyuanyin = bean;
+                    ChuzhizichanliebiaoActivity.yixuanzeZiChanliebiao.get(nowPosition).bz = bean;
                     finish();
                 }
             });

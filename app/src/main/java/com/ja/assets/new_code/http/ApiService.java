@@ -4,6 +4,8 @@ import com.ja.assets.new_code.Constants;
 import com.ja.assets.new_code.base.BaseBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoXiuZichanliiebiaoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BaoxiujiluPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.BfCheckItemListPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.BfCheckMainInfoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BuyCheckItemListPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BuyCheckMainInfoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.BuyCheckPostBean;
@@ -30,6 +32,7 @@ import com.ja.assets.new_code.bussiness.bean.post.PanyingAndkuiPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckItemListPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckMainInfoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckPostBean;
+import com.ja.assets.new_code.bussiness.bean.post.ShbCheckPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.TianxiexunjianPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.UpdatePasswordPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.WeiPandianPostBean;
@@ -37,6 +40,8 @@ import com.ja.assets.new_code.bussiness.bean.post.WeiPandiianzichanPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.ZichanSaomaPostBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuDetailBean;
 import com.ja.assets.new_code.bussiness.bean.result.BaoxiuijilulistBean;
+import com.ja.assets.new_code.bussiness.bean.result.BfCheckItemListResultBean;
+import com.ja.assets.new_code.bussiness.bean.result.BfCheckMainInfoResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.Biaoxiiu_zichanliebiaoBean;
 import com.ja.assets.new_code.bussiness.bean.result.BumenListBean;
 import com.ja.assets.new_code.bussiness.bean.result.BuyCheckItemListResultBean;
@@ -96,6 +101,9 @@ public interface ApiService {
     Call<BaseBean<BuyCheckMainInfoResultBean>> buyCheckMainInfo(@Header("token") String token, @Body BuyCheckMainInfoPostBean bean);
 
 
+    @POST(Constants.Url.Message.bfCheckMainInfo)
+    Call<BaseBean<BfCheckMainInfoResultBean>> bfCheckMainInfo(@Header("token") String token, @Body BfCheckMainInfoPostBean bean);
+
     @POST(Constants.Url.Message.repairCheckMainInfo)
     Call<BaseBean<RepairCheckMainInfoResultBean>> repairCheckMainInfo(@Header("token") String token, @Body RepairCheckMainInfoPostBean bean);
 
@@ -107,6 +115,9 @@ public interface ApiService {
     Call<BaseBean<ArrayList<BuyCheckItemListResultBean>>> buyCheckItemList(@Header("token") String token, @Body BuyCheckItemListPostBean bean);
 
 
+    @POST(Constants.Url.Message.bfCheckItemList)
+    Call<BaseBean<ArrayList<BfCheckItemListResultBean>>> bfCheckItemList(@Header("token") String token, @Body BfCheckItemListPostBean bean);
+
     @POST(Constants.Url.Message.repairCheckItemList)
     Call<BaseBean<ArrayList<RepairCheckItemListResultBean>>> repairCheckItemList(@Header("token") String token, @Body RepairCheckItemListPostBean bean);
 
@@ -116,6 +127,17 @@ public interface ApiService {
 
     @POST(Constants.Url.Message.buyCheck)
     Call<BaseBean> buyCheck(@Header("token") String token, @Body BuyCheckPostBean bean);
+
+
+    @POST(Constants.Url.Message.shbCheck)
+    Call<BaseBean> shbCheck(@Header("token") String token, @Body ShbCheckPostBean bean);
+
+
+    @POST(Constants.Url.Message.submitCw)
+    Call<BaseBean> submitCw(@Header("token") String token, @Body ShbCheckPostBean bean);
+
+    @POST(Constants.Url.Message.cwCheck)
+    Call<BaseBean> cwCheck(@Header("token") String token, @Body ShbCheckPostBean bean);
 
 
     @POST(Constants.Url.Message.repairCheck)

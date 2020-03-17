@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_all"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="20dp"
+    android:paddingBottom="17dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="资产追溯码："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_epcid"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="资产编码："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_zichanbianhao"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="@string/assetsNameText"
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_zichanmingcheng"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="@string/adminDepartmentText"
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_guanlibumen"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="@string/useDepartment"
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_shiyongbumen"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="资产类别："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_zichanleibie"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="开始使用时间："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_kaishishiyongshijian"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="剩余期限："
+                    android:textColor="@color/textColor" />
+
+
+                <TextView
+                    android:id="@+id/tv_shengyuqixian"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="原价值："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_yuanjiazhi"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="净值："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_jingzhi"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="报废原因："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_baofeiyuanyin"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/itemLinear"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/itemStartTV"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:text="状态："
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_zhuangtai"
+                    style="@style/itemEndTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_caozuo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="操作："
+                android:textColor="@color/textColor"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_chuzhi_caozuo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_tongyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="同意"
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_jujue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="拒绝"
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_bohui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="驳回"
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
+
+
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
