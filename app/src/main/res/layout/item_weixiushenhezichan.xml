@@ -231,61 +231,96 @@
         </LinearLayout>
 
 
+
+
         <LinearLayout
-            style="@style/itemLinear"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp">
 
-
-            <LinearLayout
-                style="@style/itemLinear"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:text="维修方式："
+                android:textColor="@color/textColor"
+                android:textSize="14dp" />
 
-                <TextView
-                    style="@style/itemStartTV"
+            <RadioGroup
+                android:id="@+id/rg_weixiumoshi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_bendi"
                     android:layout_width="wrap_content"
-                    android:layout_margin="@dimen/margin_5"
-                    android:text="维修方式："
-                    android:textColor="@color/textColor" />
+                    android:layout_height="wrap_content"
+                    android:text="本地维修"
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
 
-                <TextView
-                    android:id="@+id/tv_weixiufangshi"
-                    style="@style/itemEndTV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text=""
-                    android:textColor="@color/mainBgColor" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                style="@style/itemLinear"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <TextView
-                    style="@style/itemStartTV"
+                <RadioButton
+                    android:id="@+id/rb_weiwai"
                     android:layout_width="wrap_content"
-                    android:layout_margin="@dimen/margin_5"
-                    android:text="递送方式："
-                    android:textColor="@color/textColor" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="委外维修"
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
 
-                <TextView
-                    android:id="@+id/tv_disongfangshi"
-                    style="@style/itemEndTV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text=""
-                    android:textColor="@color/mainBgColor" />
 
-            </LinearLayout>
-
+            </RadioGroup>
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="递送方式："
+                android:textColor="@color/textColor"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_disongmoshi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_shangmen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上门"
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_songxiu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="送修"
+                    android:textColor="#ff333333"
+                    android:textSize="14dp" />
+
+
+            </RadioGroup>
+        </LinearLayout>
 
         <LinearLayout
             style="@style/itemLinear"
@@ -305,14 +340,15 @@
                     android:text="联系人："
                     android:textColor="@color/textColor" />
 
-                <TextView
+
+                <EditText
                     android:id="@+id/tv_outUsername"
-                    style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text=""
-                    android:textColor="@color/mainBgColor" />
+                    android:background="@null"
+
+                    android:textColorHint="#ff999999"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -329,14 +365,17 @@
                     android:text="联系电话："
                     android:textColor="@color/textColor" />
 
-                <TextView
+
+
+
+                <EditText
                     android:id="@+id/tv_outPhone"
-                    style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text=""
-                    android:textColor="@color/mainBgColor" />
+                    android:background="@null"
+                    android:inputType="number"
+                    android:textColorHint="#ff999999"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -361,14 +400,14 @@
                     android:text="送修地址："
                     android:textColor="@color/textColor" />
 
-                <TextView
+
+                <EditText
                     android:id="@+id/tv_outAddress"
-                    style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text=""
-                    android:textColor="@color/mainBgColor" />
+                    android:background="@null"
+                    android:textColorHint="#ff999999"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -385,62 +424,19 @@
                     android:text="服务商名称："
                     android:textColor="@color/textColor" />
 
-                <TextView
+                <EditText
                     android:id="@+id/tv_outCompany"
-                    style="@style/itemEndTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text=""
-                    android:textColor="@color/mainBgColor" />
+                    android:background="@null"
+                    android:textColorHint="#ff999999"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#fff"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="5dp"
-            android:paddingRight="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="维修结论："
-                android:textColor="@color/textColor"
-                android:textSize="14dp" />
-
-            <RadioGroup
-                android:id="@+id/rg_weixiujielun"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/rb_hege"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="合格"
-                    android:textColor="#ff333333"
-                    android:textSize="14dp" />
-
-                <RadioButton
-                    android:id="@+id/rb_buhege"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="不合格"
-                    android:textColor="#ff333333"
-                    android:textSize="14dp" />
-
-
-            </RadioGroup>
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

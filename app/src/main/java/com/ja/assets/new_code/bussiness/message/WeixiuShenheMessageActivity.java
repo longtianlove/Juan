@@ -17,14 +17,9 @@ import android.widget.TextView;
 
 import com.ja.assets.R;
 import com.ja.assets.new_code.base.BaseBean;
-import com.ja.assets.new_code.bussiness.bean.post.BuyCheckItemListPostBean;
-import com.ja.assets.new_code.bussiness.bean.post.BuyCheckMainInfoPostBean;
-import com.ja.assets.new_code.bussiness.bean.post.BuyCheckPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckItemListPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckMainInfoPostBean;
 import com.ja.assets.new_code.bussiness.bean.post.RepairCheckPostBean;
-import com.ja.assets.new_code.bussiness.bean.result.BuyCheckItemListResultBean;
-import com.ja.assets.new_code.bussiness.bean.result.BuyCheckMainInfoResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.RepairCheckItemListResultBean;
 import com.ja.assets.new_code.bussiness.bean.result.RepairCheckMainInfoResultBean;
 import com.ja.assets.new_code.http.ApiUtils;
@@ -42,7 +37,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class WeixiuMessageActivity extends Activity {
+public class WeixiuShenheMessageActivity extends Activity {
+
     public View iv_back;
     public View iv_saoyisiao;
     WithScrolleViewListView lv_zichans;
@@ -69,7 +65,7 @@ public class WeixiuMessageActivity extends Activity {
         }
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
-        setContentView(R.layout.activity_weixiumessage);
+        setContentView(R.layout.activity_weixiushenhemessage);
         initView();
 
     }
@@ -255,7 +251,7 @@ public class WeixiuMessageActivity extends Activity {
             if (convertView == null) {
                 util = new Util();
                 LayoutInflater inflater = LayoutInflater.from(mcontext);
-                convertView = inflater.inflate(R.layout.item_weixiuzichan, null);
+                convertView = inflater.inflate(R.layout.item_weixiushenhezichan, null);
                 util.ll_all = convertView.findViewById(R.id.ll_all);
                 util.tv_zcCodenum = convertView.findViewById(R.id.tv_zcCodenum);
                 util.tv_epcid = convertView.findViewById(R.id.tv_epcid);
@@ -267,12 +263,11 @@ public class WeixiuMessageActivity extends Activity {
                 util.tv_warrantyperiod = convertView.findViewById(R.id.tv_warrantyperiod);
                 util.tv_outUsername = convertView.findViewById(R.id.tv_outUsername);
                 util.tv_outPhone = convertView.findViewById(R.id.tv_outPhone);
-                util.tv_weixiufangshi = convertView.findViewById(R.id.tv_weixiufangshi);
-                util.tv_disongfangshi = convertView.findViewById(R.id.tv_disongfangshi);
 
                 util.tv_outAddress = convertView.findViewById(R.id.tv_outAddress);
                 util.tv_outCompany = convertView.findViewById(R.id.tv_outCompany);
-                util.rg_weixiujielun = convertView.findViewById(R.id.rg_weixiujielun);
+                util.rg_weixiumoshi = convertView.findViewById(R.id.rg_weixiumoshi);
+                util.rg_disongmoshi = convertView.findViewById(R.id.rg_disongmoshi);
                 convertView.setTag(util);
             } else {
                 util = (Util) convertView.getTag();
@@ -283,40 +278,104 @@ public class WeixiuMessageActivity extends Activity {
             util.tv_zcName.setText(bean.zcName);
             util.tv_glDeptName.setText(bean.glDeptName);
             util.tv_zcFrom.setText(bean.zcFrom);
-            util.tv_weixiufangshi.setText(bean.repairMode);
-            util.tv_disongfangshi.setText(bean.deliverMode);
             util.tv_startUseTime.setText(bean.startUseTime);
             util.tv_remainingperiod.setText(bean.remainingperiod);
             util.tv_warrantyperiod.setText(bean.warrantyperiod);
             util.tv_outPhone.setText(bean.outPhone);
+            util.tv_outPhone.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.outPhone = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
             util.tv_outUsername.setText(bean.outUsername);
+            util.tv_outUsername.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.outUsername = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
             util.tv_outAddress.setText(bean.outAddress);
+            util.tv_outAddress.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.outAddress = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
             util.tv_outCompany.setText(bean.outCompany);
-            util.rg_weixiujielun.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            util.tv_outCompany.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    bean.outCompany = s.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            util.rg_weixiumoshi.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    if (checkedId == R.id.rb_hege) {
-                        bean.qrStatus = "1";
+                    if (checkedId == R.id.rb_bendi) {
+                        bean.repairMode = "本地维修";
                     } else {
-                        bean.qrStatus = "0";
-                    }
-
-
-//                    for (RepairCheckItemListResultBean bean2 : mData) {
-//                        if (TextUtils.isEmpty(bean2.qrStatus)) {
-//                            tv_querendiaopei.setEnabled(false);
-//                            return;
-//                        }
-//                    }
-                    if (!TextUtils.isEmpty(et_shenpiyijian.getText().toString())) {
-                        tv_querendiaopei.setEnabled(true);
+                        bean.repairMode = "委外维修";
                     }
 
                 }
             });
-            util.rg_weixiujielun.check(R.id.rb_hege);
-            bean.qrStatus = "1";
+            util.rg_weixiumoshi.check(R.id.rb_bendi);
+            bean.repairMode = "本地维修";
 
+
+            util.rg_disongmoshi.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    if (checkedId == R.id.rb_shangmen) {
+                        bean.deliverMode = "上门";
+                    } else {
+                        bean.deliverMode = "送修";
+                    }
+                }
+            });
+            util.rg_disongmoshi.check(R.id.rb_shangmen);
+            bean.deliverMode = "上门";
 
             return convertView;
         }
@@ -330,16 +389,16 @@ public class WeixiuMessageActivity extends Activity {
             TextView tv_glDeptName;
             TextView tv_zcFrom;
             TextView tv_startUseTime;
-            TextView tv_weixiufangshi;
-            TextView tv_disongfangshi;
             TextView tv_remainingperiod;
             TextView tv_warrantyperiod;
-            TextView tv_outUsername;
-            TextView tv_outPhone;
-            TextView tv_outAddress;
-            TextView tv_outCompany;
 
-            RadioGroup rg_weixiujielun;
+            EditText tv_outUsername;
+            EditText tv_outPhone;
+            EditText tv_outAddress;
+            EditText tv_outCompany;
+
+            RadioGroup rg_weixiumoshi;
+            RadioGroup rg_disongmoshi;
 
         }
     }

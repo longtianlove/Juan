@@ -148,7 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:textColorHint="#ff999999"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -201,7 +201,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:inputType="numberDecimal"
                     android:textColorHint="#ff999999"
                     android:textSize="12sp" />
 
@@ -256,7 +255,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:inputType="numberDecimal"
                     android:textColorHint="#ff999999"
                     android:textSize="12sp" />
 
@@ -288,7 +286,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:inputType="numberDecimal"
                     android:textColorHint="#ff999999"
                     android:textSize="12sp" />
 
@@ -312,7 +309,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:inputType="numberDecimal"
                     android:textColorHint="#ff999999"
                     android:textSize="12sp" />
 
@@ -344,7 +340,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:inputType="numberDecimal"
                     android:textColorHint="#ff999999"
                     android:textSize="12sp" />
 
@@ -368,7 +363,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:inputType="numberDecimal"
                     android:textColorHint="#ff999999"
                     android:textSize="12sp" />
 

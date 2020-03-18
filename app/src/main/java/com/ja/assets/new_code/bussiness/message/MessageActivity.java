@@ -172,6 +172,13 @@ public class MessageActivity extends Activity {
                         startActivity(intent);
                     }
                     if ("zcrepair/auditZcRepair.html".equals(bean.url)) {
+                        Intent intent = new Intent(MessageActivity.this, WeixiuShenheMessageActivity.class);
+                        intent.putExtra("bizid", bean.bizid);
+                        intent.putExtra("id", bean.id);
+                        startActivity(intent);
+                    }
+
+                    if ("zcrepair/confirmZcRepair.html".equals(bean.url)) {
                         Intent intent = new Intent(MessageActivity.this, WeixiuMessageActivity.class);
                         intent.putExtra("bizid", bean.bizid);
                         intent.putExtra("id", bean.id);
